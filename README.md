@@ -43,7 +43,6 @@ O objetivo era simular o funcionamento básico de um sistema com funcionalidades
 ---
 
 ## 📁 Estrutura simulada do projeto
-## 📁 Estrutura simulada do projeto
 ```bash
 src/
 ├── main/                            # Arquivos do código principal do site
