@@ -44,7 +44,7 @@ O objetivo era simular o funcionamento básico de um sistema com funcionalidades
 
 ## 📁 Estrutura simulada do projeto
 ## 📁 Estrutura simulada do projeto
-
+```bash
 src/
 ├── main/                            # Arquivos do código principal do site
 │   ├── java/                        # Código Java (back-end)
@@ -67,5 +67,5 @@ src/
 │       ├── pages/                   # Páginas JSP organizadas por módulo
 │       └── WEB-INF/                 # Configurações internas protegidas (ex: web.xml)
 ├── test/                            # Diretório de testes do projeto
-
+```
 
