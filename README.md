@@ -43,3 +43,29 @@ O objetivo era simular o funcionamento básico de um sistema com funcionalidades
 ---
 
 ## 📁 Estrutura simulada do projeto
+## 📁 Estrutura simulada do projeto
+
+src/
+├── main/                            # Arquivos do código principal do site
+│   ├── java/                        # Código Java (back-end)
+│   │   ├── controller/              # Camada de controle (Servlets e lógica de requisições)
+│   │   │   ├── Adm/                 # Controle de administradores
+│   │   │   ├── Departamento/        # Controle dos departamentos
+│   │   │   ├── Empresa/             # Controle das empresas
+│   │   │   ├── Funcionario/         # Controle dos funcionários
+│   │   │   ├── RelacaoAdm/          # Controle da relação entre administrador e outros módulos
+│   │   │   └── Unidade/             # Controle das unidades
+│   │   ├── dao/                     # Camada de acesso a dados (Data Access Object)
+│   │   ├── model/                   # Classes de modelo (entidades, JavaBeans)
+│   │   ├── org.example/             # Pacote auxiliar ou exemplos
+│   │   └── regex/                   # Lógica com expressões regulares
+│   ├── resources/                   # Arquivos de recursos usados pelo Java (configurações, etc.)
+│   └── webapp/                      # Parte visual do projeto (front-end JSP)
+│       ├── assets/                  # Recursos estáticos
+│       ├── css/                     # Estilos CSS
+│       ├── js/                      # Scripts JavaScript
+│       ├── pages/                   # Páginas JSP organizadas por módulo
+│       └── WEB-INF/                 # Configurações internas protegidas (ex: web.xml)
+├── test/                            # Diretório de testes do projeto
+
+
