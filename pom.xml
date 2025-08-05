@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ===================== RAIZ DO PROJETO E NAMESPACES ===================== -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- ===================== VERSÃO DO MODELO POM ===================== -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- ===================== IDENTIFICAÇÃO DO PROJETO ===================== -->
+    <groupId>org.example</groupId>
+    <artifactId>Zyntra-WebApp</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>Zyntra-WebApp</name>
+    <packaging>war</packaging>
+
+    <!-- ===================== PROPRIEDADES DO PROJETO ===================== -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.target>24</maven.compiler.target>
+        <maven.compiler.source>24</maven.compiler.source>
+        <junit.version>5.11.0</junit.version>
+    </properties>
+
+    <!-- ===================== DEPENDÊNCIAS ===================== -->
+    <dependencies>
+        <!-- Dependência para ativar driver do postgres SQL -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.7.2</version>
+        </dependency>
+        <!-- Dependência para a leitura do .env-->
+        <dependency>
+            <groupId>io.github.cdimascio</groupId>
+            <artifactId>dotenv-java</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        <!-- Dependência para trabalhar com Servlets no Tomcat -->
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>6.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- JUnit API para testes -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- JUnit Engine para executar testes -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <!-- ===================== CONFIGURAÇÃO DE BUILD ===================== -->
+    <build>
+        <plugins>
+            <!-- Plugin para empacotar como WAR -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.4.0</version>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
