@@ -21,7 +21,6 @@ O objetivo era simular o funcionamento básico de um sistema com funcionalidades
 - HTML5
 - CSS3
 - JSP
-- VS Code
 - Git + GitHub
 - API JDBC
 - Java Servlet por Apache Tomcat
