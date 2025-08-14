@@ -18,6 +18,7 @@ public class Conexao {//Abrindo classe de conexão
     public PreparedStatement pstmt;//Atributo de comando
     public ResultSet rs;//Atributo de resultados do banco de dados
 
+
     //Método para abrir conexão com o banco de dados
     public boolean Conectar() {//Abrindo método de conexão
         if (this.conn == null) {//Verificação de conexão aberta?
