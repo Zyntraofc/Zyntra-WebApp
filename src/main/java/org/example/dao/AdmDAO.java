@@ -1,4 +1,4 @@
-package dao;
+package org.example.dao;
 
 public class AdmDAO {
 }
