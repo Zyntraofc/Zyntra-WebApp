@@ -1,4 +1,4 @@
-package dao;
+package org.example.dao;
 
 //---Importações---//
 //Classes do package SQL
@@ -14,9 +14,10 @@ public class Conexao {//Abrindo classe de conexão
     private static final Dotenv dotenv = Dotenv.load();
 
     //Atributos a serem usados em outras classes
-    public Connection conn;
-    public PreparedStatement pstmt;
-    public ResultSet rs;
+    public Connection conn;//Atributo de conexão
+    public PreparedStatement pstmt;//Atributo de comando
+    public ResultSet rs;//Atributo de resultados do banco de dados
+
 
     //Método para abrir conexão com o banco de dados
     public boolean Conectar() {//Abrindo método de conexão
