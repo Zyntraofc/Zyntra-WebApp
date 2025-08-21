@@ -14,16 +14,14 @@ public class Conexao {//Abrindo classe de conexão
     private static final Dotenv dotenv = Dotenv.load();
 
     //Atributos a serem usados em outras classes
-    public Connection conn;//Atributo de conexão
-    public PreparedStatement pstmt;//Atributo de comando
-    public ResultSet rs;//Atributo de resultados do banco de dados
+    public static Connection conn;//Atributo de conexão
 
 
     //Método para abrir conexão com o banco de dados
-    public boolean Conectar() {//Abrindo método de conexão
-        if (this.conn == null) {//Verificação de conexão aberta?
+    public static boolean Conectar() {//Abrindo método de conexão
+        if (conn == null) {//Verificação de conexão aberta?
             try{//Tratamento de excessões
-                this.conn = DriverManager.getConnection(dotenv.get("dbUrl"), dotenv.get("dbUser"), dotenv.get("dbPassword"));//Ativa driver JDBC e abre a conexão
+                conn = DriverManager.getConnection(dotenv.get("dbUrl"), dotenv.get("dbUser"), dotenv.get("dbPassword"));//Ativa driver JDBC e abre a conexão
                 return true;//Retorna que a conexao foi bem sucedida
             }
             catch (SQLException sqle){//SQL exception
@@ -36,11 +34,13 @@ public class Conexao {//Abrindo classe de conexão
         }
     }
 
+
+
     //Método para fechar a conexão
-    public boolean Desconectar() {//Abrindo o método
-        if (this.conn != null) {//Verificação de se a conexão já está aberta
+    public static boolean Desconectar() {//Abrindo o método
+        if (conn != null) {//Verificação de se a conexão já está aberta
             try {//Tratamento de excessões
-                this.conn.close();//Fechamento da conexão
+                conn.close();//Fechamento da conexão
                 return true;//Retorna desconexão bem-sucedida
             } catch (SQLException e) {//Tratamento de SQL exception
                 e.printStackTrace();//Mensagem de erro
@@ -50,6 +50,12 @@ public class Conexao {//Abrindo classe de conexão
             return false;//Retorna erro ao desconectar, se a conexão já estiver fechada
         }
     }
+
+    //Métodos getters
+    public Connection getConnection(){
+        return conn;
+    }
+
 
 
 }
