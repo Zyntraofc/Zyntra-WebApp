@@ -1,14 +1,16 @@
 package org.example.model;
 
+//Importação da classe hashSenha para criptografia da senha do administrador
 import org.example.dao.HashSenha;
 
-public class Administrador extends BaseModel{//Abertura da classe model Adm
+public class Administrador extends BaseModel{//Abertura da classe model Administrador
+
     //Declaração de atributos
     private String email;
     private HashSenha hashSenha;
 
-    //Método construtor
-    public Administrador(String email, HashSenha hashSenha){//Único método construtor da classe
+    //Metodo construtor
+    public Administrador(String email, HashSenha hashSenha){//Único metodo construtor da classe
         this.email = email;
         this.hashSenha = hashSenha;
     }
@@ -29,9 +31,10 @@ public class Administrador extends BaseModel{//Abertura da classe model Adm
         this.hashSenha = hashSenha;
     }
 
-    //Método toString
+    //Metodo toString
     public String toString(){
-        return "Email: " + this.email + "\nSenha: " + this.hashSenha + "\n";
+        return "Email: " + this.email +
+                "\nSenha: " + this.hashSenha;
     }
 
 

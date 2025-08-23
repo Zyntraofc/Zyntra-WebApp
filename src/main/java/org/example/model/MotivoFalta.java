@@ -1,10 +1,11 @@
 package org.example.model;
 
-public class MotivoFalta extends BaseModel{
+public class MotivoFalta extends BaseModel{//Abertura da classe
+
     //Declaração de atributos
     private String motivo;
 
-    //Método construtor
+    //Metodo construtor
     public MotivoFalta(String motivo){
         this.motivo = motivo;
     }
@@ -19,7 +20,7 @@ public class MotivoFalta extends BaseModel{
         this.motivo = motivo;
     }
 
-    //Método toString
+    //Metodo toString
     public String toString(){
         return "Motivo: "+this.motivo;
     }
