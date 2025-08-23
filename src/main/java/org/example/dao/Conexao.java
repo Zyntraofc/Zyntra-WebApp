@@ -17,27 +17,24 @@ public class Conexao {//Abrindo classe de conexão
     public static Connection conn;//Atributo de conexão
 
 
-    //Método para abrir conexão com o banco de dados
-    public static boolean Conectar() {//Abrindo método de conexão
+    //Metodo para abrir conexão com o banco de dados
+    public static Connection Conectar() {//Abrindo método de conexão
         if (conn == null) {//Verificação de conexão aberta?
             try{//Tratamento de excessões
                 conn = DriverManager.getConnection(dotenv.get("dbUrl"), dotenv.get("dbUser"), dotenv.get("dbPassword"));//Ativa driver JDBC e abre a conexão
-                return true;//Retorna que a conexao foi bem sucedida
+                return conn;//Retorna a conexão
             }
             catch (SQLException sqle){//SQL exception
                 sqle.printStackTrace();//Mensagem de erro na conexão
-                return false;//Retorna erro na conexão
             }
         }
-        else {
-            return false;//Retorna erro na conexão
-        }
+        return null;
     }
 
 
 
-    //Método para fechar a conexão
-    public static boolean Desconectar() {//Abrindo o método
+    //Metodo para fechar a conexão
+    public static boolean Desconectar() {//Abrindo o metodo
         if (conn != null) {//Verificação de se a conexão já está aberta
             try {//Tratamento de excessões
                 conn.close();//Fechamento da conexão
