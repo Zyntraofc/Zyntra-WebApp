@@ -1,6 +1,7 @@
 package org.example.model;
 
-public class Empresa extends BaseModel{
+public class Empresa extends BaseModel{//Abertura da classe
+
     //Declaração de atributos
     private int idTipoEmpresa;
     private int idIndiceClassificacao;
@@ -10,7 +11,7 @@ public class Empresa extends BaseModel{
     private String email;
     private String telefone;
 
-    //Método construtor
+    //Metodo construtor
     public Empresa(int idTipoEmpresa, int idIndiceClassificacao, int idStatusAprovacao, String nome, String cnpj, String email, String telefone) {
         this.idTipoEmpresa = idTipoEmpresa;
         this.idIndiceClassificacao = idIndiceClassificacao;
@@ -21,25 +22,31 @@ public class Empresa extends BaseModel{
         this.telefone = telefone;
     }
 
-    //Métodos getters
+    //Metodos getters
     public int getIdTipoEmpresa() {
         return this.idTipoEmpresa;
     }
+
     public int getIdIndiceClassificacao() {
         return this.idIndiceClassificacao;
     }
+
     public int getIdStatusAprovacao() {
         return this.idStatusAprovacao;
     }
+
     public String getNome() {
         return this.nome;
     }
+
     public String getCnpj() {
         return this.cnpj;
     }
+
     public String getEmail() {
         return this.email;
     }
+
     public String getTelefone() {
         return this.telefone;
     }
@@ -48,20 +55,24 @@ public class Empresa extends BaseModel{
     public void setIdIndiceClassificacao(int idIndiceClassificacao) {
         this.idIndiceClassificacao = idIndiceClassificacao;
     }
+
     public void idStatusAprovacao(int idStatusAprovacao) {
         this.idStatusAprovacao = idStatusAprovacao;
     }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
+
     public void setEmail(String email) {
         this.email = email;
     }
+
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
-    //Métodos toString
+    //Metodo toString
     public String toString() {
         return "ID Tipo da empresa: "+this.idTipoEmpresa +
                 "\nID índice de classificação: "+this.idIndiceClassificacao+

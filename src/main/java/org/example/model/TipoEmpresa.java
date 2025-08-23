@@ -1,7 +1,10 @@
 package org.example.model;
 
+//Importação do LocalDate para atribuir datas
 import java.time.LocalDate;
-public class TipoEmpresa extends BaseModel{
+
+public class TipoEmpresa extends BaseModel{//Abertura da classe
+
     //Declaração de atributos
     private String nome;
     private char status;
@@ -9,16 +12,13 @@ public class TipoEmpresa extends BaseModel{
     private String descricao;
 
     //Métodos construtores
-
-    //Método caso a descrição não seja inicialmente definida
-    public TipoEmpresa(String nome, char status, LocalDate ultimaAtualizacao) {
+    public TipoEmpresa(String nome, char status, LocalDate ultimaAtualizacao) {//Metodo caso a descrição não seja inicialmente definida
         this.nome = nome;
         this.status = status;
         this.ultimaAtualizacao = ultimaAtualizacao;
     }
 
-    //Método caso a descrição seja devidamente definida
-    public TipoEmpresa(String nome, char status, LocalDate ultimaAtualizacao, String descricao) {
+    public TipoEmpresa(String nome, char status, LocalDate ultimaAtualizacao, String descricao) {//Metodo caso a descrição seja devidamente definida
         this.nome = nome;
         this.status = status;
         this.ultimaAtualizacao = ultimaAtualizacao;
@@ -29,12 +29,15 @@ public class TipoEmpresa extends BaseModel{
     public String getNome() {
         return this.nome;
     }
+
     public char getStatus() {
         return this.status;
     }
+
     public LocalDate getUltimaAtualizacao() {
         return this.ultimaAtualizacao;
     }
+
     public String getDescricao() {
         return (this.descricao == null) ? "Tipo de empresa sem descrição" : this.descricao;
     }
@@ -52,7 +55,7 @@ public class TipoEmpresa extends BaseModel{
         this.descricao = descricao;
     }
 
-    //Método toString
+    //Metodo toString
     public String toString(){
         return "Nome: "+this.nome +
                 "\nStatus: " + this.status+
