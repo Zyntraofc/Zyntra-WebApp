@@ -7,35 +7,126 @@
     <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
-    <section>
-        <div id="container">
-            <div id="form">
+    <main>
+    </main>
+    
+<section>
+    <div id="container">
+            <!-- <div id="form"> -->
                 <div id="options">
                 <form action="">
-                    <input type="radio" id="Entrar" name="opcoes">
+                    <input type="radio" checked id="Entrar" name="opcoes">
                     <label for="Entrar">Entrar</label>
-                    <input type="radio" id="Cadastrar" name="opcoes">
-                    <label for="Cadastrar">Cadastrar</label>
                 </form>
                 </div>
-            </div>
+            <!-- </div> -->
 
-            <div class="conteudo a">
+        <div class="conteudo a">
                 <h1>Acesse sua conta!</h1>
-                <!-- <form action="">
-                    <label for="email">E-mail</label>
-                    <input type="email" name="" id="email" placeholder="Digite aqui  seu e-mail">
-                    <label for="senha">Senha</label>
-                    <input type="password" name="" id="senha" placeholder="Digite aqui  sua senha">
+                <form action="" id="e-senha">
+                    <div>
+                        <label for="email">E-mail</label>
+                    <input type="email" name="" required id="email" placeholder="Digite aqui  seu e-mail">
+                    </div>
+                    
+                    <div>
+                        <label for="senha">Senha</label>
+                    <input type="password" name="" required id="senha" placeholder="Digite aqui  sua senha">
+                    </div>
+                    <div class="botao"><button type="submit">Fazer Login
+                </button></div>
                 </form> 
-                <button>Fazer Login
-                </button>-->
-            </div>
-            <!-- <div class="conteudo b">
-
-            </div> -->
+                
         </div>
 
-    </section>
+        <div id="cadastro">
+         
+            <div class="conteudo b">
+                <h1>Cadastre-se</h1>
+                <form action="" id="identificacao">
+                    <h3>Dados da empresa</h3>
+                    <div>
+                        <label for="nome">Nome da empresa</label>
+                    <input type="text" name="" id="nome" required>
+                    </div>
+                    <div>
+                        <label for="cnpj">CNPJ</label>
+                    <input type="text" name="" id="cnpj" required>
+                    </div>
+                    
+                    <div>
+                        <label for="tel">Telefone comercial</label>
+                    <input type="tel" name="" id="tel" required>
+                    </div>
+                <button type="submit">
+                        <div class="prosseguir">Prosseguir</div>
+                        <img src="../assets/seta.png" alt="">
+                </button>
+                </form> 
+                
+            </div> 
+       
+            <!-- <div class="conteudo c">
+                <h1>Cadastre-se</h1>
+                <form action="" id="endereco">
+                    <h3>Endereço</h3>
+                    <div id="line1">
+                        <div class="pergunta">
+                            <label for="state">Estado</label>
+                            <input type="text" name="" id="state" required>
+                        </div>
+                        <div class="pergunta">
+                            <label for="city">Cidade</label>
+                            <input type="text" name="" id="city" required>
+                        </div>
+                    </div>
+                    <div id="line2">
+                        <div class="pergunta">
+                            <label for="rua">Rua</label>
+                            <input type="text" name="" id="rua" required>
+                        </div> <div class="pergunta">
+                            <label for="num">Numero</label>
+                            <input type="text" name="" id="num" required>
+                        </div>
+                    </div>
+                    <div class="pergunta">
+                        <label for="complemento">Complemento</label>
+                    <input type="tel" name="" id="complemento" required>
+                    </div>
+                    
+                    <button>
+                <div class="prosseguir">Prosseguir <img src="../assets/seta.png" alt=""></div>
+                </button>
+                </form> 
+            </div> -->
+<!--             
+            <div class="conteudo d">
+                <h1>Cadastre-se</h1>
+                <form action="" id="identificacao">
+                    <h3>Dados de login</h3>
+                    <div>
+                        <label for="email-cadastro">E-mail</label>
+                    <input type="email" name="" required id="email-cadastro" >
+                    </div>
+                    
+                    <div>
+                        <label for="senha-cadastro">Senha</label>
+                    <input type="password" name="" required id="senha-cadastro" >
+                    </div>
+                    
+                    <div>
+                        <label for="confirma-senha">Confirmação de senha</label>
+                    <input type="password" name="" required id="confirma-senha" >
+                    </div>
+                    
+                    <div class="botao"><button type="submit">Finalizar
+                    </button></div>
+                </form> 
+            </div>  -->
+        </div>
+    </div>
+
+</section>
+    
 </body>
 </html>
