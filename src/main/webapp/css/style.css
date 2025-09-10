@@ -1,58 +1,182 @@
+/* ===== IMPORTAÇÕES E CONFIGURAÇÕES GERAIS ===== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap');
-header p{
+
+/* Previne seleção de texto em elementos específicos */
+header p, img, a {
     user-select: none;
-} img, a{
     -webkit-user-drag: none;
-    user-select: none;
 }
-body{
+
+/* Configurações gerais do corpo */
+body {
     overflow-x: hidden;
 }
 
-*{
+/* Reset e configurações básicas */
+* {
     scroll-behavior: smooth;
     font-family: "Poppins", sans-serif;
     margin: 0;
     box-sizing: border-box;
 }
-button, .logotipo{
+
+/* Elementos com cursor pointer */
+button, .brand-logo, .brand-name {
     cursor: pointer;
 }
-header{
+
+/* ===== HEADER ===== */
+header {
     top: 0;
     z-index: 3;
     position: fixed;
     width: 100%;
     background: rgba(255, 255, 255, 0.10);
     backdrop-filter: blur(12.5px);
-    height: 8.75%;
+    /* height: 8.75%; */
+    height: 81.5px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.aion{
+
+/* Logo e marca */
+.brand-name {
     margin-bottom: 0.3%;
     font-style: normal;
     font-weight: 600;
     font-size: 220%;
     color: #3a47ff;
 }
-.logo{
+
+.brand-logo {
     width: 15%;
 }
-.logotipo{
+
+.brand-container {
+    -webkit-user-select: none;
     justify-content: center;
     width: 12.5%;
     align-items: center;
     display: flex;
     gap: 4.5%;
 }
-.navbar{
+
+/* Navegação */
+.navigation-container {
     justify-content: center;
     align-items: center;
     width: 72.5%;
 }
-.cadastrar{
+
+.navigation-menu {
+    height: 100%;
+    justify-content: center;
+    gap: 2.75%;
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.navigation-menu:hover > :not(:hover) {
+    height: 100%;
+    opacity: 60%;
+    transform: scale(0.9);
+}
+
+.navigation-menu:hover > :not(:hover) .active-indicator {
+    width: 0px !important;
+}
+
+.navigation-menu:hover p {
+    color: #3A47FF;
+}
+
+.navigation-menu:hover > :not(:hover) p {
+    color: black;
+}
+
+.navigation-menu:hover > :not(:hover) ~ .active-indicator {
+    width: 0px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.navigation-menu div {
+    transition: .5s;
+}
+
+.nav-link {
+    transition: color .5s;
+    font-weight: 500;
+    font-style: normal;
+    color: black;
+    font-size: 18px;
+    letter-spacing: -0.32px;
+}
+
+/* Indicador ativo na navegação */
+.active-indicator {
+    transition: width 0.7s linear;
+    width: 0px;
+    background-color: #b4b8ff;
+    height: 5px;
+    border-radius: 32px;
+    position: relative;
+    right: 0.5px;
+    top: 4px
+}
+
+/* Estados ativos dos links de navegação */
+.nav-item.active ~ .active-indicator {
+    background-color: #3A47FF;
+}
+
+.nav-item.plataforma.active ~ .active-indicator {
+    width: 99px;
+}
+
+.nav-item.aplicative.active ~ .active-indicator {
+    width: 87px;
+}
+
+.nav-item.sobre.active ~ .active-indicator {
+    width: 87px;
+}
+
+.nav-item.inicio.active ~ .active-indicator {
+    width: 47px;
+}
+
+.nav-item.active p {
+    color: #3a47ff;
+}
+
+/* Efeitos hover na navegação */
+.nav-item.valor:hover ~ .active-indicator {
+    width: 84px;
+}
+
+.nav-item.sobre:hover ~ .active-indicator {
+    width: 87px;
+}
+
+.nav-item.plataforma:hover ~ .active-indicator {
+    width: 99px;
+}
+
+.nav-item.inicio:hover ~ .active-indicator {
+    width: 47px;
+}
+
+.nav-item.aplicative:hover ~ .active-indicator {
+    width: 87px;
+}
+
+/* Botões de cadastro e entrar */
+.auth-buttons {
     font-size: 17px;
     gap: 7%;
     justify-content: center;
@@ -60,91 +184,8 @@ header{
     display: flex;
     width: 15%;
 }
-.navegacao{ height: 100%;
-    justify-content: center;
-    gap: 2.75%;
-    display: flex;
-    list-style: none;
-    align-items: center;
- }
- 
-.navegacao:hover > :not(:hover){ height: 100%;
-    opacity: 60%;
-    transform: scale(0.9);
-}
-.navegacao:hover > :not(:hover) .ativo{ 
-    width: 0px !important;
-}
-.navegacao:hover p{
-    color: #3A47FF;
-}
-.navegacao:hover > :not(:hover) p{ 
-    color:black;
-} 
-.navegacao:hover > :not(:hover) ~ .ativo{ 
-    width: 0px;
-}
-a{
-    text-decoration: none;
-}
- .navegacao div{
-    transition: .5s;
-}
-.pagina{
-    transition: color .5s;
-    font-weight: 500;
-    font-style: normal;
-    color:black;
-    font-size: 18px;
-    letter-spacing: -0.32px;
-}
-.paginas.active ~ .ativo{
-    background-color:#3A47FF;
-}
-.paginas.plataforma.active ~ .ativo{
-    width: 99px;
-}
-.paginas.aplicative.active ~ .ativo{
-    width: 88px;
-}
-.paginas.sobre.active ~ .ativo{
-    width: 87px;
-}
-.paginas.inicio.active ~ .ativo{
-    width: 51px;
-}
-.paginas.valor:hover ~ .ativo{
-    width: 84px;
-}
-.paginas.sobre:hover ~ .ativo{
-    width: 87px;
-}
-.paginas.plataforma:hover ~ .ativo{
-    width: 99px;
-}
-.paginas.inicio:hover ~ .ativo{
-    width: 51px;
-}
-/* .paginas:hover p{
-    color: #3a47ff;
-} */
-.paginas.aplicative:hover ~ .ativo{
-    width: 88px;
-}
-.paginas.active p{
-    color: #3a47ff;
-}
-.ativo{
-    transition: width 0.7s linear;
-    width: 0px;
-    background-color:#b4b8ff;
-    height: 5px;
-    border-radius: 32px;
-    position: relative;
-    right: 0.5px;
-    top: 4px
-}
-.cadastro{
+
+.signup-button {
     color: white;
     border: none;
     border-radius: 99px;
@@ -152,13 +193,16 @@ a{
     width: 121.515px;
     height: 40px;
 }
-.button_entrar{
-    background: linear-gradient(233deg, #9299FF 22.66%, rgba(58, 71, 255, 0.71) 90.91%);
+
+.login-button {
+    background: linear-gradient(233deg, #2b36d6 22.66%, rgba(21, 34, 220, 0.71) 90.91%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-main{
+
+/* ===== SEÇÃO PRINCIPAL ===== */
+main {
     margin-top: 83px;
     display: flex;
     height: 922px;
@@ -167,7 +211,9 @@ main{
     background-image: url(../assets/logoPlugin.png);
     background-repeat: no-repeat;
 }
-.apoio{ 
+
+/* Elemento de apoio visual */
+.visual-support {
     width: 318.672px;
     height: 258px;
     transform: rotate(130.753deg);
@@ -178,23 +224,27 @@ main{
     left: 1067px;
     position: absolute;
 }
-.primeira_visao{
+
+.hero-content {
     margin-left: 122px;
     margin-top: 162px;
     width: 892px;
     height: 183px;
 }
-.azul{
+
+.hero-highlight {
     color: #99A0FF;
     font-size: 60px;
     font-style: normal;
     font-weight: 600;
     line-height: 58px;
 }
-.escuro{
+
+.hero-accent {
     color: #4955FA;
 }
-.descricao{
+
+.hero-description {
     color: #000;
     font-weight: 400;
     line-height: 30px;
@@ -202,7 +252,8 @@ main{
     margin-top: 22px;
     letter-spacing: -0.32px;
 }
-.comecar{
+
+.cta-button {
     gap: 15px;
     display: flex;
     align-items: center;
@@ -214,30 +265,32 @@ main{
     background: radial-gradient(100.45% 100.45% at 80.43% 14.13%, #9299FF 0%, #3A47FF 100%);
     border: none;
 }
-.comecar p{
+
+.cta-button p {
     color: white;
     font-size: 20px;
     font-style: normal;
     font-weight: 600;
-    line-height: 60px; 
+    line-height: 60px;
 }
-.iconeEntrar{
+
+.cta-icon {
     width: 24px;
     height: 24px;
 }
-.dashbord{
-width: 860px;
-border-radius: 39px 39px 0px 0;
-background-image: url(../assets/dash2.png);
-background-repeat: no-repeat;
-background-position: center;
-box-shadow: 0 0 86.6px 0 rgba(0, 0, 0, 0.25);
-height: 551px;
- box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.10);  
-/* filter: blur(2px); */
+
+/* Demonstração do dashboard */
+.dashboard-preview {
+    width: 860px;
+    border-radius: 39px 39px 0px 0;
+    background-image: url(../assets/dash2.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0 0 86.6px 0 rgba(0, 0, 0, 0.25);
+    height: 551px;
 }
 
-.demonstracao{
+.demo-section {
     max-width: 860px;
     height: 790px;
     display: flex;
@@ -245,7 +298,8 @@ height: 551px;
     position: absolute;
     right: 0;
 }
-.notificacao{
+
+.notification-card {
     background-color: white;
     right: 79%;
     top: 71%;
@@ -259,8 +313,9 @@ height: 551px;
     border-radius: 20px;
     box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.10);
     border: 1px solid rgba(128, 128, 128, 0.35);
-    }
-.line1{
+}
+
+.notification-line1 {
     gap: 60px;
     color: #808080;
     font-size: 14px;
@@ -269,37 +324,43 @@ height: 551px;
     line-height: normal;
     display: flex;
 }
-.line2{
+
+.notification-line2 {
     margin-top: 12px;
     color: #000;
     font-size: 24px;
     font-weight: 600;
     line-height: normal;
 }
-.line3{
+
+.notification-line3 {
     color: #A3A3A3;
     font-size: 12px;
     font-weight: 400;
     line-height: normal;
 }
- #plataform{
+
+/* ===== SEÇÃO DA PLATAFORMA ===== */
+#plataform {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
     margin-top: 75px;
- }
- #plataform > p{
+}
+
+#plataform > p {
     margin-top: 20px;
     width: 1217px;
     color: #000;
     text-align: center;
     font-size: 23px;
     font-weight: 400;
-    line-height: 30px; 
- }
-#plataform > .titulo{
+    line-height: 30px;
+}
+
+#plataform > .section-title {
     width: 1295px;
     color: #99A0FF;
     text-align: center;
@@ -308,7 +369,8 @@ height: 551px;
     line-height: 75px;
     height: 150px;
 }
-#plataform > a{
+
+#plataform > a {
     width: 267px;
     height: 59px;
     margin-bottom: 105px;
@@ -316,52 +378,100 @@ height: 551px;
     border-radius: 40px;
     border: 2px solid #3A47FF;
 }
-#plataform > a > p{
+
+#plataform > a > p {
     text-align: center;
     font-weight: 600;
-    line-height: 60px; 
+    line-height: 60px;
     letter-spacing: -0.32px;
     font-size: 20px;
     background: linear-gradient(88deg, #9299FF -0.39%, #3A47FF 81.15%);
-    /* background: linear-gradient(233deg, #9299FF 22.66%, rgba(58, 71, 255, 0.71) 90.91%); */
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.img{
+
+.platform-image {
     width: 100%;
     height: 891px;
 }
-.img > img{
+
+.platform-image > img {
     width: 100%;
 }
-.valores h2{
-    color: #4955FA;
-    font-size: 60px;
-    width: 773px;
-    height: 72px;
+
+/* ===== SEÇÃO DE VANTAGENS ===== */
+#vantagens {
+    z-index: 2;
+    margin-top: 100px;
+    height: 315px;
+    width: 1600px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 114px;
 }
 
-.valores{
+#info {
     display: flex;
     justify-content: center;
-    width: 892px;
-    margin-left: 70px
+    align-items: center;
 }
 
-#app{
-    width: 100%;
-    height: 520.5px;
-    background-color: #99A0FF;
+.benefit-card {
+    transition: box-shadow 0.3s;
+    box-shadow: 0px 0px 0px 0px white;
+    cursor: pointer;
+    border-radius: 25px;
 }
-.wave{
-    width: 100%;
-} input[type="radio"]{
-    display: none;
+
+.benefit-card img {
+    margin-left: 20px;
+    margin-top: 50px;
 }
-#opcoes{
+
+.benefit-card h3 {
+    margin-top: 10px;
+    margin-left: 30px;
+    width: 394.82px;
+    height: 59px;
+    color: #000;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgba(0, 0, 0, 0.00);
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 30px;
+    letter-spacing: -0.32px;
+}
+
+.benefit-card p {
+    margin-left: 30px;
+    width: 410.865px;
+    height: 119px;
+    flex-shrink: 0;
+    color: rgba(27, 35, 134, 0.60);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgba(0, 0, 0, 0.00);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 23px;
+    letter-spacing: -0.32px;
+}
+
+.benefit-card:hover {
+    box-shadow: -1px -1px 2px rgba(112, 144, 176, 0.02), 10px 14px 28px rgba(112, 144, 176, 0.4);
+}
+
+/* ===== SEÇÃO DO APLICATIVO MOBILE ===== */
+#celulares {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 160px;
+}
+
+/* Opções de seleção */
+#app-options {
     z-index: 2;
-
     margin-bottom: 400px;
     width: 494px;
     height: 51px;
@@ -372,26 +482,27 @@ height: 551px;
     background-color: #BEC3FF;
     padding: 10px;
 }
-label p{
+
+input[type="radio"] {
+    display: none;
+}
+
+label p {
     user-select: none;
     height: 19px;
     color: #FFF;
     text-align: center;
-   font-size: 20px;
+    font-size: 20px;
     font-weight: 500;
-    line-height: 24px; 
+    line-height: 24px;
     letter-spacing: -0.32px;
 }
-label{
+
+label {
     cursor: pointer;
 }
-#celulares{
-    display: flex;
-    flex-direction: column;
-   align-items: center;
-    margin-top: 160px;
-}
-.fundo{
+
+.option-background {
     display: flex;
     width: 168px;
     padding: 7px 27px 12px 27px;
@@ -399,30 +510,37 @@ label{
     align-items: center;
     border-radius: 78px;
 }
-input:checked + .fundo{
+
+input:checked + .option-background {
     background-image: radial-gradient(113.02% 172.85% at 112.2% -31.48%, #9299FF 0%, #3A47FF 100%);
 }
-#apresentacoes{
+
+/* Apresentações dos recursos mobile */
+#app-presentation {
     transition: transform 1.5s;
-    top: 330%;
+    top: 3100px;
     gap: 25%;
     position: absolute;
     display: flex;
 }
-.cell{ 
+
+.app-screen {
     margin-top: 47px;
     gap: 124px;
     justify-content: center;
     display: flex;
     width: 100%;
 }
-.cell.calendario img{ 
+
+.app-screen.calendario img {
     max-height: 85%;
 }
-.cell article{ 
+
+.app-screen article {
     margin-top: 122px;
 }
-.cell h2{
+
+.app-screen h2 {
     width: 466px;
     color: #000;
     font-size: 64px;
@@ -431,201 +549,44 @@ input:checked + .fundo{
     letter-spacing: -0.32px;
     margin-bottom: 20px;
 }
-.cell p{
+
+.app-screen p {
     width: 511px;
     font-size: 24px;
 }
-.cell .direita{
+
+.app-screen .right-text {
     margin-top: 400px;
     width: 459px;
 }
 
-#opcoes:has(input#dates:checked) ~ #apresentacoes{
+.text-blue {
+    color: #4955FA;
+}
+
+/* Transições entre as telas do aplicativo */
+#app-options:has(input#dates:checked) ~ #app-presentation {
     transform: translateX(28.15%);
-  }
+}
 
-#opcoes:has(input#dashbord:checked) ~ #apresentacoes{
+#app-options:has(input#dashbord:checked) ~ #app-presentation {
     transform: translateX(-84%);
-  }
+}
 
-  #opcoes:has(input#justificativa:checked) ~ #apresentacoes{
+#app-options:has(input#justificativa:checked) ~ #app-presentation {
     transform: translateX(-30%);
-  }
+}
 
-  #rectangle{
+#rectangle {
     background: linear-gradient(0deg, #FFF 89.86%, rgba(255, 255, 255, 0.00) 100%);
     width: 100%;
     position: absolute;
     height: 400px;
-    top: 255%;
-  }
-  .blue{
-    color: #4955FA;
-  }
-
-
-#final{
-    display: flex;
-    background-color: #99A0FF;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 125px;
-}
-#vantagens{
-    z-index: 2;
-    margin-top: 100px;
-    height: 315px;
-    width: 1600px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 114px;
-}
-#info{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.vantagem{
-    transition: box-shadow 0.3s;
-    box-shadow: 0px 0px 0px 0px white;
-    cursor: pointer;
-    border-radius: 25px;
-}
-.vantagem img{
-    margin-left: 20px;
-    margin-top: 50px;
-}
-.vantagem h3{
-    margin-top: 10px;
-    margin-left: 30px;
-    width: 394.82px;
-    height: 59px;
-    color: #000;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: rgba(0, 0, 0, 0.00);
-    font-size: 25px;
-    font-weight: 600;
-    line-height: 30px; /* 120% */
-    letter-spacing: -0.32px;
-}
-.vantagem p{
-    margin-left: 30px;
-
-    width: 410.865px;
-    height: 119px;
-    flex-shrink: 0;
-    color: rgba(27, 35, 134, 0.60);
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: rgba(0, 0, 0, 0.00);
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 23px; /* 115% */
-    letter-spacing: -0.32px;
-}
-.vantagem:hover{
-    box-shadow: -1px -1px 2px rgba(112, 144, 176, 0.02), 10px 14px 28px rgba(112, 144, 176, 0.4);
-}
-#principios{
-    margin-top: 190px;
-}
-#principios .vantagem{
-    background-color: white;
-} #principios .vantagem:hover{
-    box-shadow: -2px -2px 2px rgba(112, 144, 176, 0.01),
-    10px 8px 12px rgba(50, 70, 100, 0.6);
-}
-    
-#principios h2{
-    margin-left: -25px;
-    color: #FFF;
-    font-size: 60px;
-    font-weight: 600;
-    line-height: 58px; /* 96.667% */
-    letter-spacing: -0.32px;
-}
-#nos h2{
-    width: 814px;
-    color: #FFF;
-    font-size: 60px;
-    font-weight: 600;
-    line-height: 58px; /* 96.667% */
-    letter-spacing: -0.32px;
-}
-#ajuda{
-    width: 1704px;
-    height: 808px;
-    flex-direction: column;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    background: linear-gradient(90deg, #B0B5FF, #4C58FF);
-    border-radius: 40px;
-
-}
-  #nos{
-    padding: 50px 50px;
-    width: 1700px;
-    flex-shrink: 0;
-    height: 804px;
-    border-radius: 40px;
-    background-color: #99A0FF;
-  }
-  #texto-button{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    color: #FFF;
-    font-size: 30px;
-    font-weight: 400;
-    line-height: 55px; /* 166.667% */
-    letter-spacing: -0.32px;
-    height: 100%; /* Adicionado */
-  }
-  #txt-img{
-    height: 100%;
-    width: 100%;
-    display: grid;
-    grid-template-rows: 70%;
-    grid-template-columns: 45% 50%;
-    column-gap: 5%;
-    margin-top: 2.5%;
-  }
-  #mais{
-    background-color: white;
-    border-radius: 40px;
-    width: 266px;
-    height: 64px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  #mais p{
-    background: linear-gradient(88deg, #9299FF 13.3%, #3A47FF 83.1%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 20px;
-    font-weight: 600;
-    letter-spacing: -0.32px;
-} #imageem{
-    background-image: url(../assets/nos.png);
-    background-repeat: no-repeat;
-    background-size: contain;
+    top: 2325px;
 }
 
-.cell.dash article{
-    margin-top: 80px;
-    margin-left: -240px;
-}
-.cell.dash .right{
-    margin-left: -420px;
-    width: 418px;
-    margin-top: 245px;
-}
-.cell.dash .direita{
-    margin-left: -540px;
-    margin-top: 370px;
-}
-#notification{
+/* Notificação no aplicativo */
+#app-notification {
     padding: 12px;
     display: flex;
     flex-direction: column;
@@ -640,162 +601,778 @@ input:checked + .fundo{
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.10);
     filter: drop-shadow(-45px 38px 4px rgba(0, 0, 0, 0.15)) drop-shadow(-6px 6px 4px rgba(0, 0, 0, 0.15));
 }
-.cell.justificativa .direita{
-    margin-left: -635px;
-    width: 472px;
-}
-footer{
-    width: 100%;
-    background-color: #5E69FF;
-    height: calc(6.5vh+100px);
-}
-#black{
+
+#notification-count {
     color: var(--Preto, #000);
     font-size: 36px;
     font-weight: 500;
-    line-height: 21px; /* 58.333% */
+    line-height: 21px;
     letter-spacing: -0.32px;
 }
-#linha1 p{
+
+#notification-line1 p {
     color: #404040;
     font-size: 16px;
     font-weight: 400;
-    line-height: 16px; /* 100% */
+    line-height: 16px;
     letter-spacing: -0.32px;
 }
-#linha2 p{
+
+#notification-line2 p {
     margin-top: 4px;
     margin-bottom: 2px;
     color: #4C4C4C;
     font-size: 24px;
     font-weight: 400;
-    line-height: 16px; /* 66.667% */
+    line-height: 16px;
     letter-spacing: -0.32px;
 }
-#linha1, #linha2{
+
+#notification-line1, #notification-line2 {
     display: flex;
     gap: 16px;
 }
-#linha1{
+
+#notification-line1 {
     margin-top: 10px;
     align-items: end;
 }
-#linha2{
+
+#notification-line2 {
     gap: 41px;
     align-items: end;
 }
-footer .logotipo p{
-    color: white;
+
+/* Ajustes específicos para telas do aplicativo */
+.app-screen.dash article {
+    margin-top: 80px;
+    margin-left: -240px;
 }
-footer{
+
+.app-screen.dash .right-paragraph {
+    margin-left: -420px;
+    width: 418px;
+    margin-top: 245px;
+}
+
+.app-screen.dash .right-text {
+    margin-left: -540px;
+    margin-top: 370px;
+}
+
+.app-screen.justificativa .right-text {
+    margin-left: -635px;
+    width: 472px;
+}
+
+/* Seção de ondas */
+#app-waves {
     width: 100%;
-    padding: 37px 75px ;
+    height: 520.5px;
+    background-color: #99A0FF;
 }
-footer a{
+
+.wave-image {
+    width: 100%;
+}
+
+/* ===== SEÇÃO FINAL ===== */
+#final {
+    display: flex;
+    background-color: #99A0FF;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 125px;
+}
+
+#about-wrapper {
+    width: 1704px;
+    height: 808px;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(90deg, #B0B5FF, #4C58FF);
+    border-radius: 40px;
+}
+
+#about-us {
+    padding: 50px 50px;
+    width: 1700px;
+    flex-shrink: 0;
+    height: 804px;
+    border-radius: 40px;
+    background-color: #99A0FF;
+}
+
+#about-us h2 {
+    width: 814px;
+    color: #FFF;
+    font-size: 60px;
+    font-weight: 600;
+    line-height: 58px;
+    letter-spacing: -0.32px;
+}
+
+#about-content {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 70%;
+    grid-template-columns: 45% 50%;
+    column-gap: 5%;
+    margin-top: 2.5%;
+}
+
+#text-button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #FFF;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 55px;
+    letter-spacing: -0.32px;
+    height: 100%;
+}
+
+#learn-more {
+    cursor: pointer;
+    -webkit-user-select: none;
+    background-color: white;
+    border-radius: 40px;
+    width: 266px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#learn-more p {
+    background: linear-gradient(88deg, #9299FF 13.3%, #3A47FF 83.1%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.32px;
+}
+
+#about-image {
+    background-image: url(../assets/nos.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+/* Seção de princípios */
+#principles {
+    margin-top: 190px;
+}
+
+#principles h2 {
+    margin-left: -25px;
+    color: #FFF;
+    font-size: 60px;
+    font-weight: 600;
+    line-height: 58px;
+    letter-spacing: -0.32px;
+}
+
+#principles .benefit-card {
+    background-color: white;
+}
+
+#principles .benefit-card:hover {
+    box-shadow: -2px -2px 2px rgba(112, 144, 176, 0.01), 10px 8px 12px rgba(50, 70, 100, 0.6);
+}
+
+/* Ondas decorativas */
+.waves-container {
+    background-color: #99A0FF;
+    position: relative;
+    width: 100%;
+    height: 293px;
+    overflow: hidden;
+}
+
+.waves-container:nth-child(2) {
+    z-index: 1.1;
+}
+
+.waves-container:nth-child(3) {
+    z-index: 1.2;
+}
+
+.wave-svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-height: 100%;
+}
+
+/* ===== RODAPÉ ===== */
+footer {
+    width: 100%;
+    background-color: #5E69FF;
+    padding: 37px 75px;
+    padding-bottom: 75px;
     color: #FFF;
     font-size: 22px;
     font-weight: 400;
-    line-height: 28px; /* 127.273% */
+    line-height: 28px;
     letter-spacing: -0.32px;
 }
-footer .logotipo div{
+
+footer .brand-container p {
+    color: white;
+}
+
+footer a {
+    color: #FFF;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: -0.32px;
+    text-decoration: underline;
+}
+footer .brand-container div {
     background-image: url(../assets/logo2.png);
     background-color: white;
     background-size: 31px 41px;
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 13px;
-    width: 55px ;
+    width: 55px;
     height: 55px;
+    cursor: pointer;
 }
 
-.monitore{
+.footer-description {
     width: 739px;
     height: 90px;
     margin-top: 52px;
     margin-bottom: 35px;
 }
 
-footer{
-    padding-bottom: 100px;
-    color: #FFF;
-    font-size: 22px;
-    font-weight: 400;
-    line-height: 28px; /* 127.273% */
-    letter-spacing: -0.32px;
-}
-.t1{
-    font-weight: 500;
-}
-footer ul{
-    list-style: none;
-}
-#todo{
+#footer-content {
     display: grid;
-    grid-template-columns: 52.5% 47.5% ;
+    grid-template-columns: 52.5% 47.5%;
 }
-#segundo{
+
+#footer-primary {
+    width: 100%;
+}
+
+#footer-secondary {
     gap: 255px;
     display: flex;
 }
-footer a{
-    text-decoration: underline;
-}
-.t1{
-    font-weight: 500;
-}
-#cookie{
-    gap: 45%;
-    margin-top: 212px;        
-    display: flex;
-}
-#copy{
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    justify-content: center;
-}
-#cookie > nav > ul{
-    gap: 70px;
-    display: flex;
-}.waves {
-    background-color: #99A0FF;
-    position: relative;
-    width: 100%;
-    height: 293px;
-    overflow: hidden;
-  }
 
-  .waves:nth-child(2){
-    z-index: 1.1;
-  }
-  .waves:nth-child(3){
-    z-index: 1.2;
-  }
-#segundo nav ul li{
+#footer-secondary nav ul li {
     margin-top: 28px;
 }
-#primeiro{
-    width: 120%;
-}
-#segundo nav ul li .t1{
+
+#footer-secondary nav ul li .footer-title {
     margin-bottom: 44px;
 }
-.svg{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    /* height: 100%; */
-    max-height: 100%;
-  }
 
-.linha{
+.footer-title {
+    font-weight: 500;
+}
+
+footer ul {
+    list-style: none;
+}
+
+.contact-line {
     margin-top: 23px;
     display: flex;
     align-items: center;
     justify-content: start;
     gap: 14px;
-} footer .logotipo{
-    width: 15%;
+}
+
+footer .brand-container {
+    width: 17.5%;
+}
+
+#footer-bottom {
+    margin-top: 212px;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 100px;
+    align-items: center;
+}
+
+#copyright {
+    justify-content: center;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}#copyright a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#footer-bottom > ol {
+    list-style: none;
+    gap: 70px;
+    display: flex;
+}
+
+/* ===== MEDIA QUERIES PARA RESPONSIVIDADE ===== */
+@media screen and (max-width: 1720px){
+    
+    
+}
+
+/* Tablet (768px a 1024px) */
+@media screen and (max-width: 1024px) {
+    /* Header e navegação */
+    header .brand-container{
+        gap: 10px;
+    }
+    header {
+        justify-content: center;
+        align-items: center;
+        padding: 0 30px;
+        height: 60px;
+    }
+
+    .auth-buttons{
+        margin-right: 30px;
+        gap: 10px;
+    }
+
+    .navigation-menu div {
+        display: none;
+    }
+    
+    .nav-link {
+        font-size: 20px;
+    }
+    
+    
+    /* Seção principal */
+    main {
+        background-image: url(../assets/logoPlugin3.png);
+        background-position: 0px -70px;
+        background-size: 100%;
+        height: auto;
+        flex-direction: column;
+        padding: 20px;
+        padding-bottom: 300px;
+    }
+    
+    .hero-content {
+        margin: 30px 0 0 0;
+        width: 100%;
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+    }
+    
+    .hero-highlight {
+        font-size: 40px;
+        line-height: 45px;
+    }
+    
+    .hero-description {
+        font-size: 18px;
+        margin: 20px auto;
+        max-width: 600px;
+    }
+
+    .demo-container{
+        display: none;
+    }
+    
+    
+    /* Seção da plataforma */
+
+    #plataform > .section-title {
+        width: 100%;
+        font-size: 35px;
+        line-height: 45px;
+        height: auto;
+        padding: 0 20px;
+    }
+    
+    #plataform > p {
+        width: 100%;
+        padding: 0 20px;
+        font-size: 18px;
+    }
+    
+    .platform-image {
+        height: auto;
+    }
+
+    #rectangle{
+        display: none;
+    }
+    
+    /* Seção de vantagens */
+    #vantagens {
+        width: 100%;
+        grid-template-columns: 1fr;
+        gap: 15px;
+        height: auto;
+        padding: 0 20px;
+    }
+    
+    #info #vantagens .benefit-card:first-child img {
+        width: 17px;
+        height: 23px;
+    }
+
+    #principles #info #vantagens .benefit-card:first-child img {
+        width: 24px;
+        height: 16px;
+    }
+
+    #principles #info{
+        margin-top: -80px;
+    }
+
+    #principles{
+        margin-top: 25px;
+    }
+
+    .benefit-card {
+        width: 70%;
+        max-width: 500px;
+        height: 90%;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .benefit-card img{
+        margin-top: 10px;
+        max-width: 30px;
+        max-height: 30px;
+    }
+    
+    .benefit-card h3 {
+        width: 100%;
+        font-size: 22px;
+    }
+    
+    .benefit-card p {
+        width: 100%;
+        font-size: 18px;
+    }
+    
+    /* Seção do aplicativo */
+    #celulares {
+        margin-top: 100px;
+        width: 100%;
+    }
+
+    #app-presentation{
+        margin-left: 300px;
+        margin-top: -470px;
+    }
+    .app-screen.dash article {
+        margin-left: -200px;
+    } .app-screen.calendario article{
+        margin-right: -150px;
+    } .app-screen.calendario article p, .app-screen.calendario article h2{
+        width: 300px;
+    }
+
+    .app-screen .right-text {
+        display: none;
+    }
+    #app-notification{
+        display: none;
+    }
+    .app-screen.dash .right-paragraph {
+        margin-left: -520px;
+        width: 500px;
+        padding-right: 200px;
+    }
+    .app-screen.justificativa article {
+        margin-left: -100px;}
+        .app-screen.justificativa article h2, .app-screen.justificativa article p{
+            width: 300px;
+        }
+        .app-screen.justificativa article p{
+            margin-top: 60px;
+        }
+        .app-screen.justificativa article h2{
+            margin-top: -75px;
+        }
+    #app-options {
+        max-width: 400px;
+    }
+    
+    .option-background {
+        width: 40%;
+        padding: 7px 10px;
+    }
+    
+     .app-screen img{
+        height: 70%;
+    }
+
+
+    #app-options:has(input#dates:checked) ~ #app-presentation {
+        transform: translateX(26.15%);
+    } #app-options:has(input#dashbord:checked) ~ #app-presentation {
+        transform: translateX(-83.5%);
+    } #app-options:has(input#justificativa:checked) ~ #app-presentation {
+        transform: translateX(-25%);
+    }
+    
+
+    
+    /* Seção sobre nós */
+    #final{
+        margin-top: -220px;
+    }
+
+    #about-wrapper,
+    #about-us {
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+    }
+    
+    #about-us h2 {
+        width: 100%;
+        font-size: 35px;
+        text-align: center;
+        line-height: 40px;
+    }
+    
+    #about-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #text-button-container {
+        font-size: 18px;
+        line-height: 30px;
+        text-align: center;
+        gap: 30px;
+    }
+    
+    #about-image {
+        height: 300px;
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background-position: center;
+
+    }
+    
+    /* Rodapé */
+
+
+    .waves-container{
+        margin-top: -250px;
+    }
+
+    footer {
+        padding: 30px 20px;
+    }
+    
+    .footer-description {
+        width: 100%;
+        height: auto;
+    }
+    
+    #footer-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    #footer-secondary {
+        text-align: start;
+        flex-direction: row;
+        align-items: center;
+        gap: 0px;
+        justify-content: start;
+       
+    }
+
+    #footer-bottom {
+        padding-right: 0px;
+        margin-top: 60px;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    #footer-bottom > ol {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        gap: 50px;
+        padding: 0px;
+        list-style: none;
+    }
+}
+
+/* Mobile (até 767px) */
+@media screen and (max-width: 767px) {
+    /* Header */
+    .brand-name {
+        font-size: 150%;
+    }
+    
+    .brand-logo {
+        width: 30px;
+    }
+    
+    /* Seção principal */
+    .hero-highlight {
+        font-size: 30px;
+        line-height: 35px;
+    }
+    
+    .hero-description {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    
+    .cta-button {
+        width: 220px;
+        height: 55px;
+        margin-top: 40px;
+    }
+    
+    .dashboard-preview {
+        height: 250px;
+    }
+    
+    /* Seção da plataforma */
+    #plataform > .section-title {
+        font-size: 28px;
+        line-height: 35px;
+    }
+    
+    #plataform > p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    
+    #plataform > a {
+        width: 220px;
+        height: 50px;
+    }
+    
+    #plataform > a > p {
+        line-height: 50px;
+        font-size: 18px;
+    }
+    
+    /* Seção de vantagens */
+    .benefit-card {
+        padding: 15px;
+    }
+    
+    .benefit-card img {
+        margin-left: 0;
+        width: 50px;
+    }
+    
+    .benefit-card h3 {
+        margin-left: 0;
+        font-size: 20px;
+    }
+    
+    .benefit-card p {
+        margin-left: 0;
+        font-size: 16px;
+    }
+    
+    /* Seção do aplicativo */
+    #app-options {
+        width: 95%;
+        height: 45px;
+        margin-bottom: 250px;
+    }
+    
+    label p {
+        font-size: 16px;
+    }
+    
+    .app-screen h2 {
+        font-size: 28px;
+        line-height: 32px;
+    }
+    
+    .app-screen img {
+        max-width: 280px;
+    }
+    
+    /* Seção sobre nós */
+    #about-us h2 {
+        font-size: 28px;
+        line-height: 32px;
+    }
+    
+    #text-button-container {
+        font-size: 16px;
+        line-height: 26px;
+    }
+    
+    #learn-more {
+        cursor: pointer;
+        width: 200px;
+        height: 50px;
+    }
+    
+    #learn-more p {
+        font-size: 18px;
+    }
+    
+    /* Seção de princípios */
+    #principles h2 {
+        font-size: 28px;
+        text-align: center;
+        margin-left: 0;
+    }
+    
+    /* Rodapé */
+    footer {
+        font-size: 16px;
+    }
+
+    
+    footer .brand-container div {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .contact-line img {
+        width: 20px;
+    }
+}
+
+/* Ajustes para telas muito pequenas */
+@media screen and (max-width: 380px) {
+    .hero-highlight {
+        font-size: 26px;
+    }
+    
+    .app-screen h2 {
+        font-size: 24px;
+    }
+    
+    #app-options {
+        width: 100%;
+    }
+    
+    .option-background {
+        padding: 7px 5px;
+    }
+    
+    label p {
+        font-size: 14px;
+    }
 }

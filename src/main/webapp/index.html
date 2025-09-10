@@ -2,260 +2,265 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.75">
+    <meta name="viewport" content="width=device-width, initial-scale=0.75, maximum-scale=0.75, user-scalable=no">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js" defer></script>
     <title>aion/home</title>
 </head>
 <body>
+    <div class="container">
+    <!-- Cabeçalho com logo, navegação e botões de acesso -->
     <header>
-        <section class="logotipo">
-            <img src="assets/logo.png" alt="" class="logo">
-            <p class="aion">aion</p>
+        <section class="brand-container" >
+            <img src="assets/logo.png" alt="Logo Aion" class="brand-logo">
+            <p class="brand-name">aion</p>
         </section>
-        <section class="navbar">
-            <ol class="navegacao">
+        
+        <section class="navigation-container">
+            <ol class="navigation-menu" id="navigation-menu">
                 <div>
-                    <li><a href="#main" class="paginas inicio "><p class="pagina">Início</p></a>
-                    <div class="ativo"></div></li>
+                    <li><a href="#main" class="nav-item inicio"><p class="nav-link">Início</p></a>
+                    <div class="active-indicator"></div></li>
                 </div>
                 
                 <div>
-                    <li><a href="#plataform" class="paginas plataforma"><p class="pagina">Plataforma</p></a>
-                    <div class="ativo"></div></li>
+                    <li><a href="#plataform" class="nav-item plataforma"><p class="nav-link">Plataforma</p></a>
+                    <div class="active-indicator"></div></li>
                 </div>
 
                 <div>
-                    <li><a href="#celulares" class="paginas aplicative"><p class="pagina">Aplicativo</p></a>
-                    <div class="ativo"></div></li>
+                    <li><a href="#celulares" class="nav-item aplicative"><p class="nav-link">Aplicativo</p></a>
+                    <div class="active-indicator"></div></li>
                 </div>
 
                 <div>
-                    <li><a href="#nos" class="paginas sobre"><p class="pagina">Sobre nós</p></a>
-                    <div class="ativo"></div></li>
+                    <li><a href="#final" class="nav-item sobre"><p class="nav-link">Sobre nós</p></a>
+                    <div class="active-indicator"></div></li>
                 </div>
             </ol>
         </section>
-        <section class="cadastrar">
-            <a href=""><p class="button_entrar">Entrar</p></a>
-            <a href=""><button class="cadastro"><p>Cadastrar</p></button></a>
+        
+        <section class="auth-buttons">
+            <a href=""><p class="login-button">Entrar</p></a>
+            <a href=""><button class="signup-button"><p>Cadastrar</p></button></a>
         </section>
     </header>
     
+    <!-- Seção principal com chamada para ação -->
     <main id="main">
-        <div class="apoio"></div>
-            <section class="primeira_visao">
-                <div class="titulo"><h1 class="azul">Entenda o  <span class="azul escuro">tempo</span> e transforme a <span class="azul escuro">presença</span>  </h1></div>
-                <article class="descricao"> <p>Monitore estrategicamente a presença das equipes e transforme dados em decisões que fortalecem a gestão e promovem a saúde organizacional.</p></article>
-                <a href=""><button class="comecar">
-                    <p>Começe agora</p>
-                    <img src="assets/iconeEntrar.png" alt="" class="iconeEntrar">
-                </button></a>
-            </section>
+        <div class="visual-support"></div>
+        <section class="hero-content">
+            <div class="hero-title"><h1 class="hero-highlight">Entenda o <span class="hero-accent">tempo</span> e transforme a <span class="hero-accent">presença</span></h1></div>
+            <article class="hero-description"><p>Monitore estrategicamente a presença das equipes e transforme dados em decisões que fortalecem a gestão e promovem a saúde organizacional.</p></article>
+            <a href=""><button class="cta-button">
+                <p>Começe agora</p>
+                <img src="assets/iconeEntrar.png" alt="Ícone de entrar" class="cta-icon">
+            </button></a>
+        </section>
 
-            <div class="div-demonstracao">
-                <section class="demonstracao">
-                    <div class="dashbord">
-                    </div>
-                    <section class="notificacao">
-                        <div class="line1"><p>Colaboradores ativos</p> <span><img src="assets/users.png" alt="" class="icone"></span></div>
-                        <div class="line2"><p>247</p></div>
-                        <div class="line3"><p>Total na empresa</p></div>
-                    </section>
+        <div class="demo-container">
+            <section class="demo-section">
+                <div class="dashboard-preview"></div>
+                <section class="notification-card">
+                    <div class="notification-line1"><p>Colaboradores ativos</p> <span><img src="assets/users.png" alt="Ícone de usuários" class="icon-small"></span></div>
+                    <div class="notification-line2"><p>247</p></div>
+                    <div class="notification-line3"><p>Total na empresa</p></div>
                 </section>
-            </div>
+            </section>
+        </div>
     </main>
 
+    <!-- Seção da plataforma -->
     <section id="plataform">
-        <div class="titulo"><h2>Transforme a Gestão de Pessoas 
-           <br> em Algo <span class="escuro"> Simples, Visual e Estratégico</span></h2></div>
+        <div class="section-title"><h2>Transforme a Gestão de Pessoas<br>em Algo <span class="text-accent"> Simples, Visual e Estratégico</span></h2></div>
 
         <p>Com o Aion, o RH acompanha o desempenho de colaboradores, departamentos e da empresa, organiza justificativas de ausência e identifica padrões em dashboards inteligentes. Tudo para estar mais próximo de cada colaborador, com transparência, reconhecimento e uma gestão clara e assertiva.</p>
 
-        <a href="">
-            <p>Conhecer Plataforma</p>
-        </a>
+        <a href=""><p>Conhecer Plataforma</p></a>
 
-        <div class="img"><img src="assets/plataforma.png" alt="">
+        <div class="platform-image"><img src="assets/plataforma.png" alt="Imagem da plataforma">
         <div id="rectangle"></div></div>
-        
     </section>
 
+    <!-- Seção de vantagens -->
     <section id="info">
         <section id="vantagens">
-            <div class="vantagem">
-                <img src="assets/agil.png" alt="">
+            <div class="benefit-card">
+                <img src="assets/agil.png" alt="Ícone de agilidade">
                 <h3>Agilidade nas decisões</h3>
                 <p>Acesse informações em tempo real para tomar decisões rápidas e estratégicas sobre a gestão de pessoas.</p>
             </div>
-            <div class="vantagem">
-                <img src="assets/equipe.png" alt="">
+            <div class="benefit-card">
+                <img src="assets/equipe.png" alt="Ícone de equipe">
                 <h3>Integração com a equipe</h3>
                 <p>Facilite a comunicação entre RH, líderes e colaboradores, fortalecendo a clareza no dia a dia.</p>
             </div>
-            <div class="vantagem">
-                <img src="assets/notification.png" alt="">
+            <div class="benefit-card">
+                <img src="assets/notification.png" alt="Ícone de notificação">
                 <h3>Alertas e notificações</h3>
                 <p>Receba lembretes sobre prazos, aprovações e pendências em tempo real.</p>
             </div>
         </section>
     </section>
+    
+    <!-- Seção do aplicativo mobile -->
     <section id="celulares">
-        <form id="opcoes">
+        <form id="app-options">
             <input type="radio" checked id="dates" name="option">
-            <div class="fundo">            
+            <div class="option-background">            
                 <label for="dates"><p>Calendário</p></label>
             </div>
 
-            
-            <input type="radio"  id="justificativa" name="option">
-            <div class="fundo">
+            <input type="radio" id="justificativa" checked name="option">
+            <div class="option-background">
                 <label for="justificativa"><p>Justificativa</p></label>
             </div>
 
             <input type="radio" id="dashbord" name="option">
-            <div class="fundo">
+            <div class="option-background">
                 <label for="dashbord"><p>Dashbord</p></label>
             </div>
-
         </form>
 
-        
-        <section id="apresentacoes">
-            <div class="cell calendario">
+        <section id="app-presentation">
+            <div class="app-screen calendario">
                 <article>
-                    <h2> Acompanhe a 
-                        sua <span class="blue">jornada</span></h2>
-                    <p>Visualize seu histórico de presenças
-                        e faltas com total clareza. </p>
+                    <h2>Acompanhe a sua <span class="text-blue">jornada</span></h2>
+                    <p>Visualize seu histórico de presenças e faltas com total clareza.</p>
                 </article>
-                <img src="assets/calendario.png" alt="">
-                <p class="direita"> Através de um calendário intuitivo que destaca cada registro e facilita o acompanhamento da sua jornada.</p>
+                <img src="assets/calendario.png" alt="Calendário do aplicativo">
+                <p class="right-text">Através de um calendário intuitivo que destaca cada registro e facilita o acompanhamento da sua jornada.</p>
             </div>
-            <div class="cell justificativa">
-                
+            <div class="app-screen justificativa">
                 <div>
-                    <img src="assets/justificativa.png" alt="">
-                    <div id="notification">
-                        <div id="linha1"> <span id="black">0</span> <p>justificadas</p></div>
-                        <div id="linha2">
-                            <img src="assets/trabalho.png" alt="">
+                    <img src="assets/justificativa.png" alt="Tela de justificativas">
+                    <div id="app-notification">
+                        <div id="notification-line1"><span id="notification-count">0</span><p>justificadas</p></div>
+                        <div id="notification-line2">
+                            <img src="assets/trabalho.png" alt="Ícone de trabalho">
                             <p>0/2</p>
                         </div>
                     </div>
                 </div>
                 <article>
-                    <h2>Gerencie suas 
-                         <span class="blue">justificativas</span></h2>
+                    <h2>Gerencie suas <span class="text-blue">justificativas</span></h2>
                     <p>Controle suas ausências: visualize faltas, justifique-as e mantenha o seu histórico sempre em dia.</p>
                 </article>
-                <p class="direita">Para que você resolva suas pendências sem burocracia.</p>
+                <p class="right-text">Para que você resolva suas pendências sem burocracia.</p>
             </div>
-            <div class="cell dash">
-                
-                <img src="assets/testeDash.png" alt="">
+            <div class="app-screen dash">
+                <img src="assets/testeDash.png" alt="Dashboard do aplicativo">
                 <article>
-                    <h2>Monitore seu 
-                         <span class="blue">desempenho</span></h2>
+                    <h2>Monitore seu <span class="text-blue">desempenho</span></h2>
                 </article>
-                <p class="right">Acompanhe seu desempenho em 
-                    tempo real com dashboards claros
-                    e intuitivos.</p>
-                <p class="direita">Com informações organizadas para facilitar seu controle.</p>
-
+                <p class="right-paragraph">Acompanhe seu desempenho em tempo real com dashboards claros e intuitivos.</p>
+                <p class="right-text">Com informações organizadas para facilitar seu controle.</p>
             </div>
         </section>
-        <section id="app">
-                <img src="assets/waves.png" alt="" class="wave">
+        <section id="app-waves">
+            <img src="assets/waves.png" alt="Ondas decorativas" class="wave-image">
         </section>
     </section>
+    
+    <!-- Seção final com sobre nós e princípios -->
     <section id="final">
-        <section id="ajuda">
-            <section id="nos">
+        <section id="about-wrapper">
+            <section id="about-us">
                 <h2>Conheça o time por trás do Aion</h2>
-                <div id="txt-img">
-                    <div id="texto-button">
+                <div id="about-content">
+                    <div id="text-button-container">
                         <div><p>Somos um grupo de desenvolvedores apaixonados por tecnologia e inovação, unidos pelo propósito de tornar o ambiente industrial cada vez mais saudável e produtivo. O Aion nasceu quando percebemos como a ausência e a má gestão dos colaboradores pode impactar o clima organizacional da empresa.</p></div>
-
-                        <div id="mais"><p>Saiba mais</p></div>
                     </div>
-                    <div id="imageem"></div>
-                    
+                    <div id="about-image"></div>
+                    <div id="learn-more"><p>Saiba mais</p></div>
                 </div>
-                
             </section>
         </section>
         
-       <section id="principios">
-        <h2> No que acreditamos</h2>
-        <section id="info">
-            <section id="vantagens">
-                <div class="vantagem">
-                    <img src="assets/confianca.png" alt="">
-                    <h3>Transparência constrói confiança</h3>
-                    <p>Acreditamos que acesso fácil e claro às informações fortalece a relação entre empresa e colaborador.</p>
-                </div>
-                <div class="vantagem">
-                    <img src="assets/laptop.png" alt="">
-                    <h3>Tecnologia a serviço das pessoas</h3>
-                    <p>Usamos inovação não apenas para automatizar processos, mas para melhorar a experiência e o bem-estar de todos na empresa.</p>
-                </div>
-                <div class="vantagem">
-                    <img src="assets/timeline.png" alt="">
-                    <h3>Crescemos juntos</h3>
-                    <p>O sucesso da empresa está diretamente ligado ao desenvolvimento e satisfação de cada colaborador.</p>
-                </div>
+        <section id="principles">
+            <h2>No que acreditamos</h2>
+            <section id="info">
+                <section id="vantagens">
+                    <div class="benefit-card">
+                        <img src="assets/confianca.png" alt="Ícone de confiança">
+                        <h3>Transparência constrói confiança</h3>
+                        <p>Acreditamos que acesso fácil e claro às informações fortalece a relação entre empresa e colaborador.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <img src="assets/laptop.png" alt="Ícone de laptop">
+                        <h3>Tecnologia a serviço das pessoas</h3>
+                        <p>Usamos inovação não apenas para automatizar processos, mas para melhorar a experiência e o bem-estar de todos na empresa.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <img src="assets/timeline.png" alt="Ícone de timeline">
+                        <h3>Crescemos juntos</h3>
+                        <p>O sucesso da empresa está diretamente ligado ao desenvolvimento e satisfação de cada colaborador.</p>
+                    </div>
+                </section>
             </section>
         </section>
-       </section>
-   </section>
-   <section class="waves">
-        <img src="assets/1.png" alt="" class="svg">
-        <img src="assets/2.png" alt="" class="svg">
-        <img src="assets/3.png" alt="" class="svg">
-   </section>
-   <footer>
-        <section id="todo">
-            <div id="primeiro">
-                <section class="logotipo">
+    </section>
+    
+    <!-- Ondas decorativas -->
+    <section class="waves-container">
+        <img src="assets/1.png" alt="Onda decorativa 1" class="wave-svg">
+        <img src="assets/2.png" alt="Onda decorativa 2" class="wave-svg">
+        <img src="assets/3.png" alt="Onda decorativa 3" class="wave-svg">
+    </section>
+    
+    <!-- Rodapé -->
+    <footer>
+        <section id="footer-content">
+            <div id="footer-primary">
+                <section class="brand-container">
                     <div></div>
-                    <p class="aion">aion</p>
+                    <p class="brand-name">aion</p>
                 </section>
-                <p class="monitore">Monitore a presença das equipes e transforme dados em decisões para fortalecer a gestão.</p>
-                <div class="linha"><img src="assets/email.png" alt=""><p><a href="">zyntra.ofc@gmail.com</a></p></div>
-                <div class="linha"><img src="assets/pin.png" alt=""><a href=""></a><p>São Paulo, SP - Brasil</a></p></div>
+                <p class="footer-description">Monitore a presença das equipes e transforme dados em decisões para fortalecer a gestão.</p>
+                <div class="contact-line"><img src="assets/email.png" alt="Ícone de email"><p><a href="mailto:zyntra.ofc@gmail.com">zyntra.ofc@gmail.com</a></p></div>
+                <div class="contact-line"><img src="assets/pin.png" alt="Ícone de localização"><p>São Paulo, SP - Brasil</p></div>
             </div>
-            <div id="segundo">
+            <div id="footer-secondary">
                 <nav>
                     <ul>
-                        <li><p class="t1">Produto</p></li>
-                        <li> <p>Funcionalidades</p></li>
-                        <li> <p>Preços</p></li>
-                        <li> <p >API</p></li>
-                        <li> <p >Avaliações</p></li>
+                        <li><p class="footer-title">Produto</p></li>
+                        <li><p>API</p></li>
+                        
+                        <li><p>Preços</p></li>
+                        <li><p>Funcionalidades</p></li>
+                        
                     </ul>
                 </nav>
                 <nav>
                     <ul>
-                        <li><p class="t1">Empresa</p></li>
-                        <li> <p>Nós</p></li>
-                        <li> <p>Trabalhe Conosco</p></li>
+                        <li><p class="footer-title">Empresa</p></li>
+                        <li><p>Nós</p></li>
+                        
+                        <li><p>Avaliações</p></li>
+                        <li><p>Trabalhe Conosco</p></li>
+
                     </ul>
                 </nav>
             </div>
         </section>   
-        <div id="cookie">  
-            <div id="copy"><img src="assets/copyright.png" alt="">
-                <p > 2025 Aion. Todos os direitos reservados.</p></div>
-            <nav>
-                <ul>
-                    <li><p>Privacidade</p></li>
+        <div id="footer-bottom">  
+            <div id="copyright">
+                <img src="assets/copyright.png" alt="Ícone de copyright">
+                <p>2025 Aion. Todos os direitos reservados.</p>
+                <a href="pages/login.html"><img src="assets/unlock.png" alt="Ícone de desbloqueio"></a>
+            </div>
+
+                <ol>
+                    
                     <li><p>Termos</p></li>
+                    <li><p>Privacidade</p></li>
                     <li><p>Cookies</p></li>
-                </ul>
-            </nav>
-        
+                </ol>
+
         </div>   
-   </footer>
+    </footer>
+    </div>
+
+    
 </body>
 </html>
