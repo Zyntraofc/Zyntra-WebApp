@@ -1,36 +1,50 @@
 package org.example.dao;
 
-import java.security.NoSuchAlgorithmException;//Importando Exception caso o algoritmo SHA-256 não seja valido
-import java.security.MessageDigest; //Classe para converter senha para Hash
-import java.nio.charset.StandardCharsets;//Classe converters bits de senha para hexadecimal
+//Importações
+import java.security.NoSuchAlgorithmException;
+import java.security.MessageDigest;
+import java.nio.charset.StandardCharsets;
+
+//Abertura da classe
 public class HashSenha {
-    //Atributos da classe
-    private final String senha;//Atributo de senha original
-    private String hashSenha;//Atributo de senha com hash
+    private String senha;//Atributo de senha recebida
+    private String hashSenha;//Atributo de hash senha feito a partir da senha
 
-    //Metodo construtor
-    public HashSenha(String senha) throws NoSuchAlgorithmException {
-        this.senha = senha;//Atribuição de valores para senha
-        //Objeto para criar valor do hashSenha
-        MessageDigest digest = MessageDigest.getInstance("SHA-256");
-        //Conversao de senha para hexadecimal
-        byte[] hash = digest.digest(senha.getBytes(StandardCharsets.UTF_8));
-        //Construção de hexadecimal a partir do hash
-        StringBuilder hexString = new StringBuilder();
-        for (byte b : hash) {
-            hexString.append(String.format("%02X", b));
+    //Metodo construtor que gerará a criptografia da senha
+    public HashSenha(String senha) {
+        try {
+            this.senha = senha;//Atribuindo parametro ao atributo senha
+            //Objeto para criar o hash da senha
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            //Vetor de bytes para gerar o hexadecimal
+            byte[] hash = digest.digest(senha.getBytes(StandardCharsets.UTF_8));
+
+            //Construçao do hexadecimal a partir do hash
+            StringBuilder hexString = new StringBuilder();
+            for (byte b : hash) {
+                hexString.append(String.format("%02X", b)); // Converte para hexadecimal
+            }
+
+            //Retorna String hexadecimal de 64 digitos
+            this.hashSenha = hexString.toString();
+
+        } catch (NoSuchAlgorithmException nsae) {//Tratamento da excessao de algoritmo
+            nsae.printStackTrace();//Printa pilha de erros
         }
-        //Atribuição de hash para a variavel
-        this.hashSenha = hash.toString();
     }
 
-    //Métodos getters
+    //Metodo get da senha
     public String getSenha() {
-        return this.senha;//Retorno de senha sem criptografia
+        return this.senha;
     }
 
-    //Metodo toString
-    public String toString(){
-        return this.hashSenha;//Retorno de hash da senha
+    //Metodo get do hash senha
+    public String getHashSenha() {
+        return this.hashSenha;
+    }
+
+    //Metodo toString do hash senha
+    public String toString() {
+        return this.hashSenha;
     }
 }
