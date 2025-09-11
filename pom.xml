@@ -25,12 +25,6 @@
 
     <!-- ===================== DEPENDÊNCIAS ===================== -->
     <dependencies>
-        <!-- Dependência para ativar driver do postgres SQL -->
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>42.7.2</version>
-        </dependency>
         <!-- Dependência para a leitura do .env-->
         <dependency>
             <groupId>io.github.cdimascio</groupId>
