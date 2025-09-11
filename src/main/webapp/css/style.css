@@ -724,6 +724,15 @@ input:checked + .option-background {
     margin-top: 2.5%;
 }
 
+#ajuda-visual{
+    display: none;
+}
+#ajuda-visual{
+    color: #FFF;
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: -0.32px;
+}
 #text-button-container {
     display: flex;
     flex-direction: column;
@@ -923,12 +932,38 @@ footer .brand-container {
 
 /* ===== MEDIA QUERIES PARA RESPONSIVIDADE ===== */
 @media screen and (max-width: 1720px){
-    
-    
+    #about-wrapper{
+        width: 1000px;
+        height: 808px;
+    }
+    #about-us{
+        width: 996px;
+        height: 804px;
+    } #about-image{
+        margin-top: -20px;
+    }
+    #pt2{
+        display: none;
+    }
+    #ajuda-visual{
+        width: 449.5px;
+        margin-top: 325px;
+        line-height: 42.5px;
+        display: block;
+    } #line-button{
+        grid-column: span 2;
+        width: 100%;
+        justify-content: center;
+        display: flex;
+    }
 }
 
 /* Tablet (768px a 1024px) */
 @media screen and (max-width: 1024px) {
+    #ajuda-visual{
+        display: none;
+    }
+
     /* Header e navegação */
     header .brand-container{
         gap: 10px;
