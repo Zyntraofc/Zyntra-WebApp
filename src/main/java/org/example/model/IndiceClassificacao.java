@@ -6,14 +6,14 @@ public class IndiceClassificacao extends BaseModel{//Abertura da classe
     private String recomendacao;
     private String preocupacao;
     private double porcentagemMinima;
-    private double preocupacaoMaxima;
+    private double porcentagemMaxima;
 
     //Metodo construtor
     public IndiceClassificacao(String recomendacao, String preocupacao, double porcentagemMinima, double preocupacaoMaxima) {
         this.recomendacao = recomendacao;
         this.preocupacao = preocupacao;
         this.porcentagemMinima = porcentagemMinima;
-        this.preocupacaoMaxima = preocupacaoMaxima;
+        this.porcentagemMaxima = preocupacaoMaxima;
     }
 
     //Metodos getters
@@ -29,8 +29,8 @@ public class IndiceClassificacao extends BaseModel{//Abertura da classe
         return this.porcentagemMinima;
     }
 
-    public double getPreocupacaoMaxima() {
-        return this.preocupacaoMaxima;
+    public double getPorcentagemMaxima() {
+        return this.porcentagemMaxima;
     }
 
     //Métodos setters
@@ -46,8 +46,8 @@ public class IndiceClassificacao extends BaseModel{//Abertura da classe
         this.porcentagemMinima = porcentagemMinima;
     }
 
-    public void setPreocupacaoMaxima(double preocupacaoMaxima) {
-        this.preocupacaoMaxima = preocupacaoMaxima;
+    public void setPorcentagemMaxima(double porcentagemMaxima) {
+        this.porcentagemMaxima = porcentagemMaxima;
     }
 
     //Metodo toString
@@ -55,6 +55,6 @@ public class IndiceClassificacao extends BaseModel{//Abertura da classe
         return "Recomendação: "+this.recomendacao+
                 "\nPreocupação: "+this.preocupacao+
                 "\nPorcentagem mínima de absenteísmo: "+this.porcentagemMinima+
-                "\nPorcentagem máxima de absenteísmo: "+this.preocupacaoMaxima;
+                "\nPorcentagem máxima de absenteísmo: "+this.porcentagemMaxima;
     }
 }
