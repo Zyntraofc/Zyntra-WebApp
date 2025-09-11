@@ -218,7 +218,19 @@ input::placeholder {
     display: block;
 } #options:has(input#Cadastrar:checked) ~ #cadastro{
     display: block;
-} 
+}
+/* Adicione !important para forçar */
+.erro-login {
+    color: #ff4d4d !important;
+    text-align: center !important;
+    margin: 15px 0 !important;
+    padding: 10px !important;
+    font-weight: 600 !important;
+    width: 100% !important;
+}
+
+/* Ou ainda mais específico */
+
 /* .avanco {
     display: flex;
     align-items: center;
