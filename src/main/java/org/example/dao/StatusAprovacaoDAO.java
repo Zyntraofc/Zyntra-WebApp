@@ -96,7 +96,7 @@ public class StatusAprovacaoDAO {
     }
 
     //Metodo para alterar o status pelo ID
-    public boolean alterarStatus(int id, char status){
+    public boolean alterarStatusStatusAprovacao(int id, char status){
         Conexao conexao = new Conexao();//Instancia da conexão
         String comandoAtualizar = "update status_aprovacao set status = ? where id_status_aprovacao = ?";//Comando SQL para atualizar status (CORRIGIDO: nome da variável)
         Connection conn = conexao.conectar();//Conecta ao banco de dados
