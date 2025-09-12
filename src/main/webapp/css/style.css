@@ -50,7 +50,7 @@ header {
 }
 
 .brand-logo {
-    width: 15%;
+    width: 37.5px;
 }
 
 .brand-container {
@@ -401,9 +401,12 @@ main {
 }
 
 /* ===== SEÇÃO DE VANTAGENS ===== */
+#principles #vantagens{
+    margin-top: 100px;
+
+}
 #vantagens {
     z-index: 2;
-    margin-top: 100px;
     height: 315px;
     width: 1600px;
     display: grid;
@@ -518,7 +521,7 @@ input:checked + .option-background {
 /* Apresentações dos recursos mobile */
 #app-presentation {
     transition: transform 1.5s;
-    top: 3100px;
+    top: 2975px;
     gap: 25%;
     position: absolute;
     display: flex;
@@ -902,7 +905,7 @@ footer ul {
 }
 
 footer .brand-container {
-    width: 17.5%;
+    width: 172.5px;
 }
 
 #footer-bottom {
@@ -931,7 +934,19 @@ footer .brand-container {
 }
 
 /* ===== MEDIA QUERIES PARA RESPONSIVIDADE ===== */
-@media screen and (max-width: 1720px){
+@media screen and (max-width: 1965px){
+    .hero-description{
+        width: 600px;
+    }
+    main{
+        background-position: 42.5% -130px;
+        padding-top: 30px;
+    }
+}
+
+
+
+@media screen and (max-width: 1740px){
     #about-wrapper{
         width: 1000px;
         height: 808px;
@@ -956,6 +971,69 @@ footer .brand-container {
         justify-content: center;
         display: flex;
     }
+    
+    #vantagens {
+        width: 100%;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        height: auto;
+        padding: 0 20px;
+    }
+    .benefit-card {
+        width: 85%;
+        height: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        padding: px;
+    }
+    
+    #app-presentation{
+        top: 3795px;
+    }
+
+    main{flex-direction: column;
+    align-items: center;}
+    .demo-container{
+        margin-top: 100px;
+        width: 100%;
+        justify-content: center;
+        display: flex;
+    } .demo-section{
+        position: static;
+        width: 100%;
+        justify-content: center;
+    } .visual-support{
+        display: none;
+    }
+    .dashboard-preview{
+        width: 100%;
+        background-position: center;
+        /* position: relative; */
+        border-radius: 50px;
+    } .notification-card{
+        margin-top: 515px;
+        left: 18%;
+    } .hero-content{
+        margin-left: 0px;
+        width: 100%;
+        text-align: center;
+    } .hero-content div{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    #plataform{
+        margin-top: 400px;
+    } #rectangle{
+        margin-top: 200px;
+    }
+    .platform-image{
+        margin-top: -50px;
+    }
+
+
 }
 
 /* Tablet (768px a 1024px) */
@@ -1108,7 +1186,7 @@ footer .brand-container {
 
     #app-presentation{
         margin-left: 300px;
-        margin-top: -470px;
+        margin-top: -800px;
     }
     .app-screen.dash article {
         margin-left: -200px;
@@ -1285,6 +1363,12 @@ footer .brand-container {
     }
     
     /* Seção da plataforma */
+    #plataform{
+        margin-top: 50px;
+    }
+    #vantagens{
+        margin-top: 20px;
+    }
     #plataform > .section-title {
         font-size: 28px;
         line-height: 35px;
@@ -1344,7 +1428,9 @@ footer .brand-container {
     .app-screen img {
         max-width: 280px;
     }
-    
+    #app-presentation{
+        top: 3250px;
+    }
     /* Seção sobre nós */
     #about-us h2 {
         font-size: 28px;
@@ -1387,6 +1473,9 @@ footer .brand-container {
     .contact-line img {
         width: 20px;
     }
+    footer .brand-container {
+        width: 100px;
+    }
 }
 
 /* Ajustes para telas muito pequenas */
@@ -1410,4 +1499,5 @@ footer .brand-container {
     label p {
         font-size: 14px;
     }
+    
 }
