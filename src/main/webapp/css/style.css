@@ -1,18 +1,10 @@
 /* ===== IMPORTAÇÕES E CONFIGURAÇÕES GERAIS ===== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap');
 
-/* Previne seleção de texto em elementos específicos */
-header p, img, a {
-    user-select: none;
-    -webkit-user-drag: none;
-}
-
-/* Configurações gerais do corpo */
-body {
-    overflow-x: hidden;
-}
-
-/* Reset e configurações básicas */
+/* 
+ * RESET E CONFIGURAÇÕES BÁSICAS 
+ * Define estilos base para todos os elementos e configurações globais
+ */
 * {
     scroll-behavior: smooth;
     font-family: "Poppins", sans-serif;
@@ -20,27 +12,68 @@ body {
     box-sizing: border-box;
 }
 
-/* Elementos com cursor pointer */
-button, .brand-logo, .brand-name {
+/* 
+ * CORPO PRINCIPAL
+ * Configurações gerais da página
+ */
+body {
+    margin: auto;
+    max-width: 2030px;
+    overflow-x: hidden;
+    justify-content: center;
+}
+
+/* 
+ * PREVENÇÃO DE SELEÇÃO EM ELEMENTOS ESPECÍFICOS
+ * Impede seleção e arrasto em elementos do header
+ */
+header p, 
+header img, 
+header a {
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* 
+ * ELEMENTOS INTERATIVOS
+ * Define cursor pointer para elementos clicáveis
+ */
+button, 
+.brand-logo, 
+.brand-name {
     cursor: pointer;
 }
 
+
 /* ===== HEADER ===== */
+/* 
+ * CABEÇALHO PRINCIPAL
+ * Header fixo com efeito de vidro fosco
+ */
 header {
+    max-width: 2028px;
     top: 0;
     z-index: 3;
     position: fixed;
     width: 100%;
     background: rgba(255, 255, 255, 0.10);
     backdrop-filter: blur(12.5px);
-    /* height: 8.75%; */
     height: 81.5px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Logo e marca */
+/* Container da marca/logo */
+.brand-container {
+    -webkit-user-select: none;
+    justify-content: center;
+    width: 12.5%;
+    align-items: center;
+    display: flex;
+    gap: 4.5%;
+}
+
 .brand-name {
     margin-bottom: 0.3%;
     font-style: normal;
@@ -53,16 +86,7 @@ header {
     width: 37.5px;
 }
 
-.brand-container {
-    -webkit-user-select: none;
-    justify-content: center;
-    width: 12.5%;
-    align-items: center;
-    display: flex;
-    gap: 4.5%;
-}
-
-/* Navegação */
+/* Navegação principal */
 .navigation-container {
     justify-content: center;
     align-items: center;
@@ -78,6 +102,7 @@ header {
     align-items: center;
 }
 
+/* Efeitos de hover na navegação */
 .navigation-menu:hover > :not(:hover) {
     height: 100%;
     opacity: 60%;
@@ -100,6 +125,7 @@ header {
     width: 0px;
 }
 
+/* Links de navegação */
 a {
     text-decoration: none;
 }
@@ -117,7 +143,7 @@ a {
     letter-spacing: -0.32px;
 }
 
-/* Indicador ativo na navegação */
+/* Indicador de item ativo na navegação */
 .active-indicator {
     transition: width 0.7s linear;
     width: 0px;
@@ -154,7 +180,7 @@ a {
     color: #3a47ff;
 }
 
-/* Efeitos hover na navegação */
+/* Efeitos hover nos itens de navegação */
 .nav-item.valor:hover ~ .active-indicator {
     width: 84px;
 }
@@ -175,7 +201,7 @@ a {
     width: 87px;
 }
 
-/* Botões de cadastro e entrar */
+/* Botões de autenticação */
 .auth-buttons {
     font-size: 17px;
     gap: 7%;
@@ -201,7 +227,12 @@ a {
     -webkit-text-fill-color: transparent;
 }
 
-/* ===== SEÇÃO PRINCIPAL ===== */
+
+/* ===== SEÇÃO PRINCIPAL/HERO ===== */
+/* 
+ * SEÇÃO DE DESTAQUE PRINCIPAL
+ * Apresenta o conteúdo principal da página
+ */
 main {
     margin-top: 83px;
     display: flex;
@@ -225,6 +256,7 @@ main {
     position: absolute;
 }
 
+/* Conteúdo principal do hero */
 .hero-content {
     margin-left: 122px;
     margin-top: 162px;
@@ -253,6 +285,7 @@ main {
     letter-spacing: -0.32px;
 }
 
+/* Botão de call-to-action */
 .cta-button {
     gap: 15px;
     display: flex;
@@ -299,6 +332,7 @@ main {
     right: 0;
 }
 
+/* Cartão de notificação */
 .notification-card {
     background-color: white;
     right: 79%;
@@ -340,7 +374,12 @@ main {
     line-height: normal;
 }
 
+
 /* ===== SEÇÃO DA PLATAFORMA ===== */
+/* 
+ * SEÇÃO DE APRESENTAÇÃO DA PLATAFORMA
+ * Destaca as características principais da plataforma
+ */
 #plataform {
     display: flex;
     flex-direction: column;
@@ -400,11 +439,16 @@ main {
     width: 100%;
 }
 
-/* ===== SEÇÃO DE VANTAGENS ===== */
-#principles #vantagens{
-    margin-top: 100px;
 
+/* ===== SEÇÃO DE VANTAGENS ===== */
+/* 
+ * SEÇÃO DE BENEFÍCIOS/PRINCÍPIOS
+ * Apresenta os benefícios e princípios do produto
+ */
+#principles #vantagens {
+    margin-top: 100px;
 }
+
 #vantagens {
     z-index: 2;
     height: 315px;
@@ -420,6 +464,7 @@ main {
     align-items: center;
 }
 
+/* Cartões de benefícios */
 .benefit-card {
     transition: box-shadow 0.3s;
     box-shadow: 0px 0px 0px 0px white;
@@ -464,7 +509,12 @@ main {
     box-shadow: -1px -1px 2px rgba(112, 144, 176, 0.02), 10px 14px 28px rgba(112, 144, 176, 0.4);
 }
 
+
 /* ===== SEÇÃO DO APLICATIVO MOBILE ===== */
+/* 
+ * SEÇÃO DO APLICATIVO PARA DISPOSITIVOS MÓVEIS
+ * Apresenta as funcionalidades do aplicativo mobile
+ */
 #celulares {
     display: flex;
     flex-direction: column;
@@ -472,7 +522,7 @@ main {
     margin-top: 160px;
 }
 
-/* Opções de seleção */
+/* Opções de seleção do aplicativo */
 #app-options {
     z-index: 2;
     margin-bottom: 400px;
@@ -518,7 +568,7 @@ input:checked + .option-background {
     background-image: radial-gradient(113.02% 172.85% at 112.2% -31.48%, #9299FF 0%, #3A47FF 100%);
 }
 
-/* Apresentações dos recursos mobile */
+/* Apresentação dos recursos mobile */
 #app-presentation {
     transition: transform 1.5s;
     top: 2975px;
@@ -631,7 +681,8 @@ input:checked + .option-background {
     letter-spacing: -0.32px;
 }
 
-#notification-line1, #notification-line2 {
+#notification-line1, 
+#notification-line2 {
     display: flex;
     gap: 16px;
 }
@@ -668,7 +719,11 @@ input:checked + .option-background {
     width: 472px;
 }
 
-/* Seção de ondas */
+#visual-improvisado2 {
+    display: none;
+}
+
+/* Seção de ondas decorativas */
 #app-waves {
     width: 100%;
     height: 520.5px;
@@ -679,7 +734,12 @@ input:checked + .option-background {
     width: 100%;
 }
 
+
 /* ===== SEÇÃO FINAL ===== */
+/* 
+ * SEÇÃO FINAL E RODAPÉ
+ * Contém informações finais e rodapé
+ */
 #final {
     display: flex;
     background-color: #99A0FF;
@@ -727,15 +787,14 @@ input:checked + .option-background {
     margin-top: 2.5%;
 }
 
-#ajuda-visual{
+#ajuda-visual {
     display: none;
-}
-#ajuda-visual{
     color: #FFF;
     font-size: 30px;
     font-weight: 400;
     letter-spacing: -0.32px;
 }
+
 #text-button-container {
     display: flex;
     flex-direction: column;
@@ -822,7 +881,12 @@ input:checked + .option-background {
     max-height: 100%;
 }
 
+
 /* ===== RODAPÉ ===== */
+/* 
+ * RODAPÉ
+ * Contém links, informações de contato e direitos autorais
+ */
 footer {
     width: 100%;
     background-color: #5E69FF;
@@ -847,6 +911,7 @@ footer a {
     letter-spacing: -0.32px;
     text-decoration: underline;
 }
+
 footer .brand-container div {
     background-image: url(../assets/logo2.png);
     background-color: white;
@@ -921,7 +986,9 @@ footer .brand-container {
     display: flex;
     gap: 10px;
     align-items: center;
-}#copyright a{
+}
+
+#copyright a {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -931,573 +998,4 @@ footer .brand-container {
     list-style: none;
     gap: 70px;
     display: flex;
-}
-
-/* ===== MEDIA QUERIES PARA RESPONSIVIDADE ===== */
-@media screen and (max-width: 1965px){
-    .hero-description{
-        width: 600px;
-    }
-    main{
-        background-position: 42.5% -130px;
-        padding-top: 30px;
-    }
-}
-
-
-
-@media screen and (max-width: 1740px){
-    #about-wrapper{
-        width: 1000px;
-        height: 808px;
-    }
-    #about-us{
-        width: 996px;
-        height: 804px;
-    } #about-image{
-        margin-top: -20px;
-    }
-    #pt2{
-        display: none;
-    }
-    #ajuda-visual{
-        width: 449.5px;
-        margin-top: 325px;
-        line-height: 42.5px;
-        display: block;
-    } #line-button{
-        grid-column: span 2;
-        width: 100%;
-        justify-content: center;
-        display: flex;
-    }
-    
-    #vantagens {
-        width: 100%;
-        grid-template-columns: 1fr;
-        gap: 40px;
-        height: auto;
-        padding: 0 20px;
-    }
-    .benefit-card {
-        width: 85%;
-        height: 100%;
-        max-width: 500px;
-        margin: 0 auto;
-        padding: px;
-    }
-    
-    #app-presentation{
-        top: 3795px;
-    }
-
-    main{flex-direction: column;
-    align-items: center;}
-    .demo-container{
-        margin-top: 100px;
-        width: 100%;
-        justify-content: center;
-        display: flex;
-    } .demo-section{
-        position: static;
-        width: 100%;
-        justify-content: center;
-    } .visual-support{
-        display: none;
-    }
-    .dashboard-preview{
-        width: 100%;
-        background-position: center;
-        /* position: relative; */
-        border-radius: 50px;
-    } .notification-card{
-        margin-top: 515px;
-        left: 18%;
-    } .hero-content{
-        margin-left: 0px;
-        width: 100%;
-        text-align: center;
-    } .hero-content div{
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
-    #plataform{
-        margin-top: 400px;
-    } #rectangle{
-        margin-top: 200px;
-    }
-    .platform-image{
-        margin-top: -50px;
-    }
-
-
-}
-
-/* Tablet (768px a 1024px) */
-@media screen and (max-width: 1024px) {
-    #ajuda-visual{
-        display: none;
-    }
-
-    /* Header e navegação */
-    header .brand-container{
-        gap: 10px;
-    }
-    header {
-        justify-content: center;
-        align-items: center;
-        padding: 0 30px;
-        height: 60px;
-    }
-
-    .auth-buttons{
-        margin-right: 30px;
-        gap: 10px;
-    }
-
-    .navigation-menu div {
-        display: none;
-    }
-    
-    .nav-link {
-        font-size: 20px;
-    }
-    
-    
-    /* Seção principal */
-    main {
-        background-image: url(../assets/logoPlugin3.png);
-        background-position: 0px -70px;
-        background-size: 100%;
-        height: auto;
-        flex-direction: column;
-        padding: 20px;
-        padding-bottom: 300px;
-    }
-    
-    .hero-content {
-        margin: 30px 0 0 0;
-        width: 100%;
-        text-align: center;
-        flex-direction: column;
-        align-items: center;
-        display: flex;
-    }
-    
-    .hero-highlight {
-        font-size: 40px;
-        line-height: 45px;
-    }
-    
-    .hero-description {
-        font-size: 18px;
-        margin: 20px auto;
-        max-width: 600px;
-    }
-
-    .demo-container{
-        display: none;
-    }
-    
-    
-    /* Seção da plataforma */
-
-    #plataform > .section-title {
-        width: 100%;
-        font-size: 35px;
-        line-height: 45px;
-        height: auto;
-        padding: 0 20px;
-    }
-    
-    #plataform > p {
-        width: 100%;
-        padding: 0 20px;
-        font-size: 18px;
-    }
-    
-    .platform-image {
-        height: auto;
-    }
-
-    #rectangle{
-        display: none;
-    }
-    
-    /* Seção de vantagens */
-    #vantagens {
-        width: 100%;
-        grid-template-columns: 1fr;
-        gap: 15px;
-        height: auto;
-        padding: 0 20px;
-    }
-    
-    #info #vantagens .benefit-card:first-child img {
-        width: 17px;
-        height: 23px;
-    }
-
-    #principles #info #vantagens .benefit-card:first-child img {
-        width: 24px;
-        height: 16px;
-    }
-
-    #principles #info{
-        margin-top: -80px;
-    }
-
-    #principles{
-        margin-top: 25px;
-    }
-
-    .benefit-card {
-        width: 70%;
-        max-width: 500px;
-        height: 90%;
-        margin: 0 auto;
-        padding: 20px;
-    }
-
-    .benefit-card img{
-        margin-top: 10px;
-        max-width: 30px;
-        max-height: 30px;
-    }
-    
-    .benefit-card h3 {
-        width: 100%;
-        font-size: 22px;
-    }
-    
-    .benefit-card p {
-        width: 100%;
-        font-size: 18px;
-    }
-    
-    /* Seção do aplicativo */
-    #celulares {
-        margin-top: 100px;
-        width: 100%;
-    }
-
-    #app-presentation{
-        margin-left: 300px;
-        margin-top: -800px;
-    }
-    .app-screen.dash article {
-        margin-left: -200px;
-    } .app-screen.calendario article{
-        margin-right: -150px;
-    } .app-screen.calendario article p, .app-screen.calendario article h2{
-        width: 300px;
-    }
-
-    .app-screen .right-text {
-        display: none;
-    }
-    #app-notification{
-        display: none;
-    }
-    .app-screen.dash .right-paragraph {
-        margin-left: -520px;
-        width: 500px;
-        padding-right: 200px;
-    }
-    .app-screen.justificativa article {
-        margin-left: -100px;}
-        .app-screen.justificativa article h2, .app-screen.justificativa article p{
-            width: 300px;
-        }
-        .app-screen.justificativa article p{
-            margin-top: 60px;
-        }
-        .app-screen.justificativa article h2{
-            margin-top: -75px;
-        }
-    #app-options {
-        max-width: 400px;
-    }
-    
-    .option-background {
-        width: 40%;
-        padding: 7px 10px;
-    }
-    
-     .app-screen img{
-        height: 70%;
-    }
-
-
-    #app-options:has(input#dates:checked) ~ #app-presentation {
-        transform: translateX(26.15%);
-    } #app-options:has(input#dashbord:checked) ~ #app-presentation {
-        transform: translateX(-83.5%);
-    } #app-options:has(input#justificativa:checked) ~ #app-presentation {
-        transform: translateX(-25%);
-    }
-    
-
-    
-    /* Seção sobre nós */
-    #final{
-        margin-top: -220px;
-    }
-
-    #about-wrapper,
-    #about-us {
-        width: 100%;
-        height: auto;
-        border-radius: 20px;
-    }
-    
-    #about-us h2 {
-        width: 100%;
-        font-size: 35px;
-        text-align: center;
-        line-height: 40px;
-    }
-    
-    #about-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    #text-button-container {
-        font-size: 18px;
-        line-height: 30px;
-        text-align: center;
-        gap: 30px;
-    }
-    
-    #about-image {
-        height: 300px;
-        width: 100%;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        background-position: center;
-
-    }
-    
-    /* Rodapé */
-
-
-    .waves-container{
-        margin-top: -250px;
-    }
-
-    footer {
-        padding: 30px 20px;
-    }
-    
-    .footer-description {
-        width: 100%;
-        height: auto;
-    }
-    
-    #footer-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    
-    #footer-secondary {
-        text-align: start;
-        flex-direction: row;
-        align-items: center;
-        gap: 0px;
-        justify-content: start;
-       
-    }
-
-    #footer-bottom {
-        padding-right: 0px;
-        margin-top: 60px;
-        flex-direction: column;
-        gap: 20px;
-    }
-    
-    #footer-bottom > ol {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        gap: 50px;
-        padding: 0px;
-        list-style: none;
-    }
-}
-
-/* Mobile (até 767px) */
-@media screen and (max-width: 767px) {
-    /* Header */
-    .brand-name {
-        font-size: 150%;
-    }
-    
-    .brand-logo {
-        width: 30px;
-    }
-    
-    /* Seção principal */
-    .hero-highlight {
-        font-size: 30px;
-        line-height: 35px;
-    }
-    
-    .hero-description {
-        font-size: 16px;
-        line-height: 24px;
-    }
-    
-    .cta-button {
-        width: 220px;
-        height: 55px;
-        margin-top: 40px;
-    }
-    
-    .dashboard-preview {
-        height: 250px;
-    }
-    
-    /* Seção da plataforma */
-    #plataform{
-        margin-top: 50px;
-    }
-    #vantagens{
-        margin-top: 20px;
-    }
-    #plataform > .section-title {
-        font-size: 28px;
-        line-height: 35px;
-    }
-    
-    #plataform > p {
-        font-size: 16px;
-        line-height: 24px;
-    }
-    
-    #plataform > a {
-        width: 220px;
-        height: 50px;
-    }
-    
-    #plataform > a > p {
-        line-height: 50px;
-        font-size: 18px;
-    }
-    
-    /* Seção de vantagens */
-    .benefit-card {
-        padding: 15px;
-    }
-    
-    .benefit-card img {
-        margin-left: 0;
-        width: 50px;
-    }
-    
-    .benefit-card h3 {
-        margin-left: 0;
-        font-size: 20px;
-    }
-    
-    .benefit-card p {
-        margin-left: 0;
-        font-size: 16px;
-    }
-    
-    /* Seção do aplicativo */
-    #app-options {
-        width: 95%;
-        height: 45px;
-        margin-bottom: 250px;
-    }
-    
-    label p {
-        font-size: 16px;
-    }
-    
-    .app-screen h2 {
-        font-size: 28px;
-        line-height: 32px;
-    }
-    
-    .app-screen img {
-        max-width: 280px;
-    }
-    #app-presentation{
-        top: 3250px;
-    }
-    /* Seção sobre nós */
-    #about-us h2 {
-        font-size: 28px;
-        line-height: 32px;
-    }
-    
-    #text-button-container {
-        font-size: 16px;
-        line-height: 26px;
-    }
-    
-    #learn-more {
-        cursor: pointer;
-        width: 200px;
-        height: 50px;
-    }
-    
-    #learn-more p {
-        font-size: 18px;
-    }
-    
-    /* Seção de princípios */
-    #principles h2 {
-        font-size: 28px;
-        text-align: center;
-        margin-left: 0;
-    }
-    
-    /* Rodapé */
-    footer {
-        font-size: 16px;
-    }
-
-    
-    footer .brand-container div {
-        width: 45px;
-        height: 45px;
-    }
-    
-    .contact-line img {
-        width: 20px;
-    }
-    footer .brand-container {
-        width: 100px;
-    }
-}
-
-/* Ajustes para telas muito pequenas */
-@media screen and (max-width: 380px) {
-    .hero-highlight {
-        font-size: 26px;
-    }
-    
-    .app-screen h2 {
-        font-size: 24px;
-    }
-    
-    #app-options {
-        width: 100%;
-    }
-    
-    .option-background {
-        padding: 7px 5px;
-    }
-    
-    label p {
-        font-size: 14px;
-    }
-    
 }

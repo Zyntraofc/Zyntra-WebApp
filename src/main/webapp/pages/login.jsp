@@ -6,6 +6,7 @@
     <title>aion - Login</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/login-responsividade.css">
 </head>
 <body>
     <!-- Wrapper principal -->
@@ -47,7 +48,5 @@
             </div>
         </div>
     </div>
-    
-    
 </body>
 </html>
