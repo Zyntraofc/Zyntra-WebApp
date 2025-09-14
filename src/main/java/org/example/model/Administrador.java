@@ -7,10 +7,15 @@ public class Administrador extends BaseModel{//Abertura da classe model Administ
 
     //Declaração de atributos
     private String email;
-    private HashSenha hashSenha;
+    private String hashSenha;
 
     //Metodo construtor
     public Administrador(String email, HashSenha hashSenha){//Único metodo construtor da classe
+        this.email = email;
+        this.hashSenha = String.valueOf(hashSenha);
+    }
+
+    public Administrador(String email, String hashSenha){//Único metodo construtor da classe
         this.email = email;
         this.hashSenha = hashSenha;
     }
@@ -19,7 +24,7 @@ public class Administrador extends BaseModel{//Abertura da classe model Administ
     public String getEmail() {
         return this.email;
     }
-    public HashSenha getHashSenha() {
+    public String getHashSenha() {
         return this.hashSenha;
     }
 
@@ -28,12 +33,13 @@ public class Administrador extends BaseModel{//Abertura da classe model Administ
         this.email = email;
     }
     public void setHashSenha(HashSenha hashSenha) {
-        this.hashSenha = hashSenha;
+        this.hashSenha = String.valueOf(hashSenha);
     }
 
     //Metodo toString
     public String toString(){
-        return "Email: " + this.email +
+        return "Id: "+(super.getId() == null ? "Nulo" : super.id) +
+                "\nEmail: " + this.email +
                 "\nSenha: " + this.hashSenha;
     }
 

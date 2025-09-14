@@ -15,7 +15,7 @@
     <div class="logo-section">
         <div class="logo-content">
             <div class="logo-image">
-                <img src="${pageContext.request.contextPath}/assets/logos/logo-azul.png" alt="Logo aion">
+                <img src="${pageContext.request.contextPath}/assets/logo.png" alt="Logo aion">
             </div>
             <div class="logo-text">aion</div>
             <div class="logo-tagline">Entenda o tempo e transforme a presença das suas equipes!</div>
@@ -35,7 +35,7 @@
             <form action="${pageContext.request.contextPath}/LoginAdministrador" method="post" class="form-fields" name="loginForm">
                 <div class="input-group">
                     <label for="email">E-mail</label>
-                    <input type="email" id="email" name="email" required placeholder="Digite aqui seu e-mail"  value="${not empty emailDigitado ? emailDigitado : param.email}">
+                    <input type="email" id="email" name="email" required placeholder="Digite aqui seu e-mail" value="${not empty emailDigitado ? emailDigitado : param.email}">
                 </div>
 
                 <div class="input-group">
@@ -47,6 +47,7 @@
                 <p class="erro-login"><%= request.getAttribute("erroLogin") %></p>
                 <% } %>
 
+
                 <div class="submit-button">
                     <button type="submit">Fazer Login</button>
                 </div>
@@ -56,4 +57,3 @@
 </div>
 </body>
 </html>
- 

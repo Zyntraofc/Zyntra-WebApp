@@ -1,58 +1,51 @@
 package org.example.dao;
-
-//---Importações---//
-//Classes do package SQL
+//Importacoes
 import java.sql.*;
-
-//Leitor do .env
 import io.github.cdimascio.dotenv.Dotenv;
 
+//Abertura da classe
+public class Conexao {
+    //Carregando dotEnv em um objeto estatico
+    private static Dotenv dotenv = Dotenv.configure()
+            //Passando caminho do .env
+            .directory("C:\\Users\\eduardodomingues-ieg\\OneDrive - Instituto J&F\\Área de Trabalho\\TI\\Site Zyntra\\Zyntra-WebApp") // ajuste para sua máquina
+            .load();
 
-public class Conexao {//Abrindo classe de conexão
+    //Metodo para conectar e manter conexao com o database
+    public Connection conectar() {
+        try {
+            // Carregar driver do MySQL
+            Class.forName("org.postgresql.Driver");
 
-    //Atributo privato para carregar o .env
-    private static final Dotenv dotenv = Dotenv.load();
+//             Pegar variáveis do .env
+            String url = dotenv.get("dbUrl");
+            String user = dotenv.get("dbUser");
+            String password = dotenv.get("dbPassword");
 
-    //Atributos a serem usados em outras classes
-    public static Connection conn;//Atributo de conexão
 
+            // Abrir conexão
+            Connection conn = DriverManager.getConnection(url, user, password);
+            //Retorno da conexao
+            return conn;
 
-    //Metodo para abrir conexão com o banco de dados
-    public static Connection Conectar() {//Abrindo método de conexão
-        if (conn == null) {//Verificação de conexão aberta?
-            try{//Tratamento de excessões
-                conn = DriverManager.getConnection(dotenv.get("dbUrl"), dotenv.get("dbUser"), dotenv.get("dbPassword"));//Ativa driver JDBC e abre a conexão
-                return conn;//Retorna a conexão
-            }
-            catch (SQLException sqle){//SQL exception
-                sqle.printStackTrace();//Mensagem de erro na conexão
-            }
+        } catch (SQLException sqle) {//Tratamento de excessoes do SQL
+            sqle.printStackTrace();//Printa pilha de erros
+            return null;//Retorno nulo
         }
-        return null;
-    }
-
-
-
-    //Metodo para fechar a conexão
-    public static boolean Desconectar() {//Abrindo o metodo
-        if (conn != null) {//Verificação de se a conexão já está aberta
-            try {//Tratamento de excessões
-                conn.close();//Fechamento da conexão
-                return true;//Retorna desconexão bem-sucedida
-            } catch (SQLException e) {//Tratamento de SQL exception
-                e.printStackTrace();//Mensagem de erro
-                return false;//Retorna erro ao desconectar
-            }
-        } else {
-            return false;//Retorna erro ao desconectar, se a conexão já estiver fechada
+        catch (ClassNotFoundException cnfe){//Tratamento de excessao caso a classe não seja acessada pelo postgresSQL
+            cnfe.printStackTrace();//Printa pilha de erros
+            return null;//Retorno nulo
         }
     }
 
-    //Métodos getters
-    public Connection getConnection(){
-        return conn;
+    //Metodo para fechar a conexao com o banco de dados
+    public void desconectar(Connection con) {//Recebimento do atributo Connection que será fechado
+        if (con != null) {//Verificacao se a conexao não está fechada já
+            try {
+                con.close();//Fechament da conexao
+            } catch (SQLException e) {//Tratamento de excessões SQL
+                e.printStackTrace();//Printa pilha de erros
+            }
+        }
     }
-
-
-
 }
