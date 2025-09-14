@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap');
+body{
+    font-family: "Poppins", sans-serif;
+    margin-top: 6.4%;
+    height: 100vh;
+    overflow-y: hidden;
+    -webkit-user-drag: none;
+    user-select: none;
+}
+*{
+    font-family: "Poppins", sans-serif;
+}
+* img{
+    -webkit-user-drag: none;
+    user-select: none;
+}
+#container{
+    width: 34.75%;
+    height: 100%;
+    background: rgba(58, 71, 255, 0.10);
+    backdrop-filter: blur(9.5px);
+    border-radius: 7.5%;
+    flex-shrink: 0;
+}
+section{
+    height: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;}
+/* #form{
+    height: 1;
+    padding-top: 5%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+} */
+#options input{
+    display: none;
+}
+#options form label{
+    width: 130px;
+    height: 45px;
+    border-radius: 99px;
+    color: #9299FF;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+form{
+    display: flex;
+    /* gap: 75px; */
+}
+#options form input:checked + label{
+    color: #FFF;
+    background-color: #9299FF;
+}
+#options{
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 6.25%;
+    border-radius: 99px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 21.5%;
+    height: 8.75%;    
+    background: rgba(146, 153, 255, 0.10);
+}
+.a{
+    display: none;
+}
+#cadastro{
+    width: 100%;
+    height: 75%;
+    display: none;
+}
+.conteudo{
+    height: 80%;
+    width: 100%;
+}
+.conteudo h1{
+    color: var(--Azul, #3A47FF);
+    font-weight: 600;
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+#e-senha{
+    display: flex;
+    flex-direction: column;
+    margin-top: 84px;
+    gap: 16px;
+} #e-senha div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+} #e-senha div input{
+    /* margin-left: 57px; */
+    border-radius: 90px;
+    padding-left: 37.5px;
+    padding-right: 37.5px;
+    height: 52px;
+    border: none;
+    width: 584px;
+} #e-senha div label{
+    color: #9299FF;
+    margin-right: 532.75px;
+}
+input::placeholder {
+    padding-left: 0px;
+    color: #d2d2d1;
+    font-size: 15px;
+    font-weight: 600;
+}
+.botao{
+    margin-top: 119px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+} .botao button{
+    cursor: pointer;
+} 
+
+.a button, .d button{
+    border: none;
+    background-color: #3A47FF;
+    border-radius: 99px;
+    color: white;
+    width: 236px;
+    height: 44px;
+    font-size: 20px;
+    font-weight: 600;
+}
+.d .botao{
+    margin-top: 30px;
+} .d #identificacao{
+    margin-top: -20px;
+} .d h1{
+    margin-top: -10px;
+}
+ main{
+    height: 705px;
+    width: 600px;
+    background-position: center;
+    background-image: url(../assets/logoPlugin2.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 325px;
+    top: 275px;
+    background-size: contain;
+}
+#identificacao{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+} #identificacao div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+} #identificacao div input{
+    /* margin-left: 57px; */
+    border-radius: 90px;
+    padding-left: 25.5px;
+    padding-right: 25.5px;
+
+    height: 52px;
+    border: none;
+    width: 584px;
+} #identificacao div label{
+    color: #9299FF;
+    text-align: start;
+    padding-left: 10.5%;
+    width: 100%;
+}.conteudo .prosseguir{
+    color: #3A47FF;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+}button img{
+    width: 24px;
+    height: 24px;
+
+} .b a, .c a{
+    text-decoration: none;
+} 
+.b h3, .c h3, .d h3{
+    color: #3A47FF;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 7.5px;
+    margin-left: 55px;
+} .b{
+    margin-top: 0px;
+} .b h1{
+    margin-top: 1px ;
+} 
+.b button{
+    margin-left: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: end;
+    border: none;
+    margin-top: 7.5%;
+    width: 40%;
+    gap: 8.5%;
+    height: 30px;
+    align-items: center;
+    background-color: transparent;
+    /* margin-bottom: 15%; */
+}
+#options:has(input#Entrar:checked) ~ .conteudo.a{
+    display: block;
+} #options:has(input#Cadastrar:checked) ~ #cadastro{
+    display: block;
+}
+/* Adicione !important para forçar */
+.erro-login {
+    color: #ff4d4d !important;
+    text-align: center !important;
+    margin: 15px 0 !important;
+    padding: 10px !important;
+    font-weight: 600 !important;
+    width: 100% !important;
+}
+
+/* Ou ainda mais específico */
+
+/* .avanco {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 7.5%;
+    cursor: pointer;
+} */
+
