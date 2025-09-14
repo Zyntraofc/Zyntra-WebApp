@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const navLinks = document.querySelectorAll(".paginas");
+  const navLinks = document.querySelectorAll(".nav-item");
   const sections = {
     main: document.querySelector("#main"),
     plataform: document.querySelector("#plataform"),
     celulares: document.querySelector("#celulares"),
-    nos: document.querySelector("#nos"),
+    nos: document.querySelector("#about-us"),
   };
 
   function onScroll() {
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (scrollY >= topCelulares && scrollY < topNos) {
       current = "celulares";
     } else if (scrollY >= topNos) {
-      current = "nos";
+      current = "final";
     }
 
     navLinks.forEach(link => {
@@ -40,3 +40,4 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", onScroll);
   onScroll();
 });
+
