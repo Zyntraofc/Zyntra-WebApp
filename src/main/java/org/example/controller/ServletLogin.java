@@ -34,10 +34,14 @@ public class ServletLogin extends HttpServlet {
                 req.getRequestDispatcher("/pages/TestePaginaCrud.jsp").forward(req, resp);
             } else {
                 req.setAttribute("erroLogin", "Senha incorreta!");
+                req.setAttribute("emailDigitado", email);
+                req.setAttribute("senhaDigitada", senha);
                 req.getRequestDispatcher("/pages/login.jsp").forward(req, resp);
             }
         } else {
             req.setAttribute("erroLogin", "Usuário não encontrado!");
+            req.setAttribute("emailDigitado", email);
+            req.setAttribute("senhaDigitada", senha);
             req.getRequestDispatcher("/pages/login.jsp").forward(req, resp);
         }
     }
