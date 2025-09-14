@@ -1,0 +1,843 @@
+/* ===== MEDIA QUERIES PARA RESPONSIVIDADE ===== */
+
+/* Dispositivos com tela muito grande (4K+) */
+@media screen and (min-width: 2049px) {
+    main {
+        margin-top: 83px;
+        display: flex;
+        height: 922px;
+        width: 100%;
+        background: url(../assets/logos/logo-plugin2.png);
+        background-position: 500px;
+        background-repeat: no-repeat;
+    }
+    
+    #app-presentation {
+        transition: none;
+    }
+    
+    .demo-container {
+        display: none;
+    }
+    
+    .app-screen {
+        visibility: hidden;
+    }
+    
+    /* Mostrar telas específicas baseado na seleção */
+    #app-options:has(input#dates:checked) ~ #app-presentation .app-screen.calendario {
+        visibility: visible;
+    }
+    
+    #app-options:has(input#justificativa:checked) ~ #app-presentation .app-screen.justificativa {
+        visibility: visible;
+    }
+    
+    #app-options:has(input#dashbord:checked) ~ #app-presentation .app-screen.dash {
+        visibility: visible;
+    }
+}
+
+/* Desktop grande (1965px) */
+@media screen and (max-width: 1965px) {
+    .hero-description {
+        width: 600px;
+    }
+    
+    main {
+        background-position: 42.5% -130px;
+        padding-top: 30px;
+    }
+}
+
+/* Desktop médio (1740px) */
+@media screen and (max-width: 1740px) {
+    #about-wrapper {
+        width: 1000px;
+        height: 808px;
+    }
+    
+    #about-us {
+        width: 996px;
+        height: 804px;
+    }
+    
+    #about-image {
+        margin-top: -20px;
+    }
+    
+    #pt2 {
+        display: none;
+    }
+    
+    #ajuda-visual {
+        width: 449.5px;
+        margin-top: 325px;
+        line-height: 42.5px;
+        display: block;
+    }
+    
+    #line-button {
+        grid-column: span 2;
+        width: 100%;
+        justify-content: center;
+        display: flex;
+    }
+    
+    /* Ajustes no grid de vantagens */
+    #vantagens {
+        width: 100%;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        height: auto;
+        padding: 0 20px;
+    }
+    
+    .benefit-card {
+        width: 85%;
+        height: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        padding: px;
+    }
+    
+    #app-presentation {
+        top: 3795px;
+    }
+    
+    /* Reorganização do layout principal */
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .demo-container {
+        margin-top: 100px;
+        width: 100%;
+        justify-content: center;
+        display: flex;
+    }
+    
+    .demo-section {
+        position: static;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .visual-support {
+        display: none;
+    }
+    
+    .dashboard-preview {
+        width: 100%;
+        background-position: center;
+        border-radius: 50px;
+    }
+    
+    .notification-card {
+        top: 1100px;
+        left: 18%;
+    }
+    
+    .hero-content {
+        margin-left: 0px;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .hero-content div {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    #plataform {
+        margin-top: 400px;
+    }
+    
+    #rectangle {
+        margin-top: 200px;
+    }
+    
+    .platform-image {
+        margin-top: -50px;
+    }
+}
+
+/* Desktop médio (1700px) */
+@media screen and (max-width: 1700px) {
+    .footer-description {
+        width: 90%;
+    }
+    
+    #footer-secondary {
+        gap: 70px;
+    }
+}
+
+/* Desktop médio (1600px) */
+@media screen and (max-width: 1600px) {
+    header {
+        padding: 0px 40px;
+    }
+    
+    /* Ajustes nas telas do aplicativo */
+    .app-screen.dash article {
+        margin-left: -200px;
+    }
+    
+    .app-screen.calendario article {
+        margin-right: -125px;
+        margin-top: 110px;
+    }
+    
+    .app-screen.calendario article h2 {
+        padding-bottom: 150px;
+    }
+    
+    .app-screen.calendario article p,
+    .app-screen.calendario article h2 {
+        width: 300px;
+    }
+    
+    .dash .right-paragraph {
+        padding-left: 82.5px;
+        width: 500px;
+    }
+    
+    /* Troca de elementos visuais */
+    #visual-improvisado {
+        display: none;
+    }
+    
+    #visual-improvisado2 {
+        display: inline;
+    }
+    
+    .app-screen .right-text {
+        width: 200px;
+        margin-left: -70px;
+        margin-top: 50px;
+    }
+    
+    .justificativa .right-text {
+        display: none;
+    }
+    
+    #app-notification {
+        display: none;
+    }
+    
+    .app-screen.dash .right-paragraph {
+        margin-left: -520px;
+        width: 500px;
+        padding-right: 200px;
+    }
+    
+    .app-screen.justificativa article {
+        margin-left: -100px;
+    }
+    
+    .app-screen.justificativa article h2,
+    .app-screen.justificativa article p {
+        width: 300px;
+    }
+    
+    .app-screen.justificativa article p {
+        margin-top: 60px;
+    }
+    
+    .app-screen.justificativa article h2 {
+        margin-top: -75px;
+    }
+    
+    /* Ajustes de posicionamento baseado na seleção */
+    #app-options:has(input#dates:checked) ~ #app-presentation {
+        transform: translateX(31.15%);
+    }
+    
+    #app-options:has(input#justificativa:checked) ~ #app-presentation {
+        transform: translateX(-25%);
+    }
+}
+
+/* Desktop pequeno (1365px) */
+@media screen and (max-width: 1365px) {
+    .notification-card {
+        display: none;
+    }
+}
+
+/* Desktop pequeno (1315px) */
+@media screen and (max-width: 1315px) {
+    /* Ajustes na seção da plataforma */
+    #plataform > .section-title {
+        width: 100%;
+        font-size: 35px;
+        line-height: 45px;
+        height: auto;
+        padding: 0 20px;
+    }
+    
+    #plataform > p {
+        width: 100%;
+        padding: 0 20px;
+        font-size: 18px;
+    }
+    
+    .platform-image {
+        height: auto;
+    }
+    
+    #rectangle {
+        display: none;
+    }
+    
+    #app-presentation {
+        top: 3620px;
+    }
+}
+
+/* Tablet grande (1220px) */
+@media screen and (max-width: 1220px) {
+    #app-presentation {
+        margin-top: -75px;
+    }
+}
+
+/* Tablet grande (1120px) */
+@media screen and (max-width: 1120px) {
+    #app-presentation {
+        margin-top: -105px;
+    }
+}
+
+/* Tablet (1024px) */
+@media screen and (max-width: 1024px) {
+    #ajuda-visual {
+        display: none;
+    }
+    
+    .app-screen.calendario article h2 {
+        padding-bottom: 0px;
+    }
+    
+    /* Header e navegação */
+    header .brand-container {
+        gap: 10px;
+    }
+    
+    header {
+        justify-content: center;
+        align-items: center;
+        padding: 0 30px;
+        height: 60px;
+    }
+    
+    .auth-buttons {
+        margin-right: 30px;
+        gap: 10px;
+    }
+    
+    .navigation-menu div {
+        display: none;
+    }
+    
+    .nav-link {
+        font-size: 20px;
+    }
+    
+    /* Seção principal */
+    main {
+        background-image: url(../assets/logos/logo-plugin2.png);
+        background-position: 0px -90px;
+        background-size: 100%;
+        height: auto;
+        flex-direction: column;
+        padding: 20px;
+        padding-bottom: 50%;
+    }
+    
+    .hero-content {
+        margin: 30px 0 0 0;
+        width: 100%;
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+    }
+    
+    .hero-highlight {
+        font-size: 40px;
+        line-height: 45px;
+    }
+    
+    .hero-description {
+        font-size: 18px;
+        margin: 20px auto;
+        max-width: 600px;
+    }
+    
+    .demo-container {
+        display: none;
+    }
+    
+    #plataform {
+        margin-top: 20px;
+    }
+    
+    /* Seção de vantagens */
+    #vantagens {
+        width: 100%;
+        grid-template-columns: 1fr;
+        gap: 15px;
+        height: auto;
+        padding: 0 20px;
+    }
+    
+    #info #vantagens .benefit-card:first-child img {
+        width: 17px;
+        height: 23px;
+    }
+    
+    #principles #info #vantagens .benefit-card:first-child img {
+        width: 24px;
+        height: 16px;
+    }
+    
+    #principles #info {
+        margin-top: -80px;
+    }
+    
+    #principles {
+        margin-top: 25px;
+    }
+    
+    .benefit-card {
+        width: 70%;
+        max-width: 500px;
+        height: 90%;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    .benefit-card img {
+        margin-top: 10px;
+        max-width: 30px;
+        max-height: 30px;
+    }
+    
+    .benefit-card h3 {
+        width: 100%;
+        font-size: 22px;
+    }
+    
+    .benefit-card p {
+        width: 90%;
+        font-size: 18px;
+    }
+    
+    /* Seção do aplicativo */
+    #celulares {
+        margin-top: 100px;
+        width: 100%;
+    }
+    
+    #app-presentation {
+        margin-left: 300px;
+        margin-top: -800px;
+    }
+    
+    .app-screen.dash article {
+        margin-left: -200px;
+    }
+    
+    .app-screen.calendario article {
+        margin-right: -150px;
+    }
+    
+    .app-screen.calendario article p,
+    .app-screen.calendario article h2 {
+        width: 300px;
+    }
+    
+    .app-screen .right-text {
+        display: none;
+    }
+    
+    #app-notification {
+        display: none;
+    }
+    
+    .app-screen.dash .right-paragraph {
+        margin-left: -520px;
+        width: 500px;
+        padding-right: 200px;
+    }
+    
+    .app-screen.justificativa article {
+        margin-left: -100px;
+    }
+    
+    .app-screen.justificativa article h2,
+    .app-screen.justificativa article p {
+        width: 300px;
+    }
+    
+    .app-screen.justificativa article p {
+        margin-top: 60px;
+    }
+    
+    .app-screen.justificativa article h2 {
+        margin-top: -75px;
+    }
+    
+    #app-options {
+        max-width: 420px;
+    }
+    
+    .dash h2 {
+        margin-left: -30px;
+        margin-top: -30px;
+    }
+    
+    .option-background {
+        width: 40%;
+        padding: 10px 12px;
+    }
+    
+    .app-screen img {
+        height: 70%;
+    }
+    
+    /* Ajustes de transformação baseado na seleção */
+    #app-options:has(input#dates:checked) ~ #app-presentation {
+        transform: translateX(30.15%);
+    }
+    
+    #app-options:has(input#dashbord:checked) ~ #app-presentation {
+        transform: translateX(-80.2%);
+    }
+    
+    #app-options:has(input#justificativa:checked) ~ #app-presentation {
+        transform: translateX(-22%);
+    }
+    
+    /* Seção sobre nós */
+    #final {
+        margin-top: -220px;
+    }
+    
+    #about-wrapper,
+    #about-us {
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+    }
+    
+    #about-us h2 {
+        width: 100%;
+        font-size: 35px;
+        text-align: center;
+        line-height: 40px;
+    }
+    
+    #about-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #text-button-container {
+        font-size: 18px;
+        line-height: 30px;
+        text-align: center;
+        gap: 30px;
+    }
+    
+    #about-image {
+        height: 300px;
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background-position: center;
+    }
+    
+    /* Rodapé */
+    .waves-container {
+        margin-top: -250px;
+    }
+    
+    footer {
+        padding: 30px 20px;
+    }
+    
+    .footer-description {
+        width: 100%;
+        height: auto;
+    }
+    
+    #footer-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    #footer-secondary {
+        text-align: start;
+        flex-direction: row;
+        align-items: center;
+        gap: 0px;
+        justify-content: start;
+    }
+    
+    #footer-bottom {
+        padding-right: 0px;
+        margin-top: 60px;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    #footer-bottom > ol {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        gap: 50px;
+        padding: 0px;
+        list-style: none;
+    }
+}
+
+/* Tablet médio (917px) */
+@media screen and (max-width: 917px) {
+    #app-presentation {
+        top: 3600px;
+    }
+}
+
+/* Tablet médio (870px) */
+@media screen and (max-width: 870px) {
+    #app-presentation {
+        top: 3500px;
+    }
+}
+
+/* Mobile (767px) */
+@media screen and (max-width: 767px) {
+    .dash h2 {
+        margin-left: 0px;
+    }
+    
+    /* Header */
+    .brand-name {
+        font-size: 150%;
+    }
+    
+    main {
+        padding-bottom: 37.5%;
+    }
+    
+    .brand-logo {
+        width: 30px;
+    }
+    
+    /* Seção principal */
+    .hero-highlight {
+        font-size: 30px;
+        line-height: 35px;
+    }
+    
+    .hero-description {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    
+    .cta-button {
+        width: 220px;
+        height: 55px;
+        margin-top: 40px;
+    }
+    
+    .dashboard-preview {
+        height: 250px;
+    }
+    
+    /* Seção da plataforma */
+    #plataform {
+        margin-top: 50px;
+    }
+    
+    #vantagens {
+        margin-top: 20px;
+    }
+    
+    #plataform > .section-title {
+        font-size: 28px;
+        line-height: 35px;
+    }
+    
+    #plataform > p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    
+    #plataform > a {
+        width: 220px;
+        height: 50px;
+    }
+    
+    #plataform > a > p {
+        line-height: 50px;
+        font-size: 18px;
+    }
+    
+    /* Seção de vantagens */
+    .benefit-card {
+        padding: 15px;
+    }
+    
+    .benefit-card img {
+        margin-left: 0;
+        width: 50px;
+    }
+    
+    .benefit-card h3 {
+        margin-left: 0;
+        font-size: 20px;
+    }
+    
+    .benefit-card p {
+        margin-left: 0;
+        font-size: 16px;
+    }
+    
+    /* Seção do aplicativo */
+    #app-options {
+        width: 95%;
+        height: 50px;
+        margin-bottom: 250px;
+    }
+    
+    label p {
+        font-size: 16px;
+    }
+    
+    .app-screen h2 {
+        font-size: 28px;
+        line-height: 32px;
+    }
+    
+    .app-screen img {
+        max-width: 280px;
+    }
+    
+    #app-presentation {
+        top: 3230px;
+    }
+    
+    .dash .right-paragraph {
+        padding-left: 20px;
+    }
+    
+    .dash h2 {
+        margin-top: 10px;
+    }
+    
+    .app-screen.dash .right-paragraph {
+        margin-top: 180px;
+    }
+    
+    /* Seção sobre nós */
+    #about-us h2 {
+        font-size: 28px;
+        line-height: 32px;
+    }
+    
+    #text-button-container {
+        font-size: 16px;
+        line-height: 26px;
+    }
+    
+    #learn-more {
+        cursor: pointer;
+        width: 200px;
+        height: 50px;
+    }
+    
+    #learn-more p {
+        font-size: 18px;
+    }
+    
+    /* Ajustes de transformação baseado na seleção */
+    #app-options:has(input#dates:checked) ~ #app-presentation {
+        transform: translateX(26.15%);
+    }
+    
+    #app-options:has(input#dashbord:checked) ~ #app-presentation {
+        transform: translateX(-82.5%);
+    }
+    
+    #app-options:has(input#justificativa:checked) ~ #app-presentation {
+        transform: translateX(-25%);
+    }
+    
+    /* Seção de princípios */
+    #principles h2 {
+        font-size: 28px;
+        text-align: center;
+        margin-left: 0;
+    }
+    
+    /* Rodapé */
+    footer {
+        font-size: 16px;
+    }
+    
+    footer .brand-container div {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .contact-line img {
+        width: 20px;
+    }
+    
+    footer .brand-container {
+        width: 100px;
+    }
+}
+
+/* Mobile pequeno (667px) */
+@media screen and (max-width: 667px) {
+    main {
+        padding-bottom: 33%;
+    }
+    
+    #app-presentation {
+        margin-top: -870px;
+    }
+}
+
+/* Mobile muito pequeno (380px) */
+@media screen and (max-width: 380px) {
+    .hero-highlight {
+        font-size: 26px;
+    }
+    
+    .app-screen h2 {
+        font-size: 24px;
+    }
+    
+    #app-options {
+        width: 100%;
+    }
+    
+    .option-background {
+        padding: 7px 5px;
+    }
+    
+    label p {
+        font-size: 14px;
+    }
+}
