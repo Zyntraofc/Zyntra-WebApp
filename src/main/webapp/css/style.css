@@ -239,7 +239,7 @@ main {
     height: 922px;
     width: 100%;
     background-position: 627px -50px;
-    background-image: url(../assets/logoPlugin.png);
+    background-image: url(../assets/logos/logo-plugin.png);
     background-repeat: no-repeat;
 }
 
@@ -316,7 +316,7 @@ main {
 .dashboard-preview {
     width: 860px;
     border-radius: 39px 39px 0px 0;
-    background-image: url(../assets/dash2.png);
+    background-image: url(../assets/dashboard.png);
     background-repeat: no-repeat;
     background-position: center;
     box-shadow: 0 0 86.6px 0 rgba(0, 0, 0, 0.25);
@@ -829,7 +829,7 @@ input:checked + .option-background {
 }
 
 #about-image {
-    background-image: url(../assets/nos.png);
+    background-image: url(../assets/equipe-zyntra.png);
     background-repeat: no-repeat;
     background-size: contain;
 }
@@ -913,7 +913,7 @@ footer a {
 }
 
 footer .brand-container div {
-    background-image: url(../assets/logo2.png);
+    background-image: url(../assets/logos/logo-roxo.png);
     background-color: white;
     background-size: 31px 41px;
     background-repeat: no-repeat;

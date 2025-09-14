@@ -7,7 +7,7 @@
         display: flex;
         height: 922px;
         width: 100%;
-        background: url(../assets/logoPlugin3.png);
+        background: url(../assets/logos/logo-plugin2.png);
         background-position: 500px;
         background-repeat: no-repeat;
     }
@@ -351,7 +351,7 @@
     
     /* Seção principal */
     main {
-        background-image: url(../assets/logoPlugin3.png);
+        background-image: url(../assets/logos/logo-plugin2.png);
         background-position: 0px -90px;
         background-size: 100%;
         height: auto;
