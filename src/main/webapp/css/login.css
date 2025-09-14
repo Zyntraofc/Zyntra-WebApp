@@ -209,6 +209,16 @@
             box-shadow: 0 8px 25px rgba(58, 71, 255, 0.4);
         }
         
+        /* Mensagem de erro */
+        .erro-login {
+            color: #ff2b2b  !important;
+            text-align: center !important;
+            margin: 15px 0 !important;
+            padding: 10px !important;
+            font-weight: 600 !important;
+            width: 100% !important;
+        }
+        
         /* ===== RESPONSIVIDADE ===== */
         @media (max-width: 900px) {
             .login-wrapper {
