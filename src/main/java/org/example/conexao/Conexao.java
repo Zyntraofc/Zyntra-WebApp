@@ -1,4 +1,4 @@
-package org.example.dao;
+package org.example.conexao;
 //Importacoes
 import java.sql.*;
 import io.github.cdimascio.dotenv.Dotenv;
