@@ -6,10 +6,7 @@ import io.github.cdimascio.dotenv.Dotenv;
 //Abertura da classe
 public class Conexao {
     //Carregando dotEnv em um objeto estatico
-    private static Dotenv dotenv = Dotenv.configure()
-            //Passando caminho do .env
-            .directory("C:\\Users\\eduardodomingues-ieg\\OneDrive - Instituto J&F\\Área de Trabalho\\TI\\Site Zyntra\\Zyntra-WebApp") // ajuste para sua máquina
-            .load();
+    private static Dotenv dotenv = Dotenv.configure().load();
 
     //Metodo para conectar e manter conexao com o database
     public Connection conectar() {
