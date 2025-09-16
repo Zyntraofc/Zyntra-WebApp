@@ -1,5 +1,6 @@
 package org.example.dao;
 
+import org.example.conexao.Conexao;
 import org.example.model.TipoEmpresa;
 import java.sql.*;
 import java.time.LocalDate;
