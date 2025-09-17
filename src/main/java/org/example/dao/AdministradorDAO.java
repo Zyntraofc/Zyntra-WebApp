@@ -4,6 +4,8 @@ package org.example.dao;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.example.conexao.Conexao;
 import org.example.model.Administrador;
 
 public class AdministradorDAO {//Abertura da classe
@@ -51,7 +53,7 @@ public class AdministradorDAO {//Abertura da classe
                         rs.getString("email"),
                         rs.getString("hash_senha")
                 );
-                //Atribuição do ID do banco de dados ao objeto através do método setId()
+                //Atribuição do ID do banco de dados ao objeto através do metodo setId()
                 administrador.setId(rs.getInt("id_adm"));
                 return administrador;//Retorna o administrador encontrado
             }

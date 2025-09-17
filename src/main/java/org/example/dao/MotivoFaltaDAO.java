@@ -1,5 +1,6 @@
 package org.example.dao;
 
+import org.example.conexao.Conexao;
 import org.example.model.MotivoFalta;
 import java.util.List;
 import java.util.ArrayList;

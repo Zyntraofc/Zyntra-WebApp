@@ -4,6 +4,8 @@ package org.example.dao;
 import java.sql.*;
 import java.util.List;
 import java.util.ArrayList;
+
+import org.example.conexao.Conexao;
 import org.example.model.StatusAprovacao;
 
 public class StatusAprovacaoDAO {

@@ -1,6 +1,7 @@
 package org.example.dao;
 
 //Importações
+import org.example.conexao.Conexao;
 import org.example.model.IndiceClassificacao;
 import java.sql.*;
 import java.util.List;
