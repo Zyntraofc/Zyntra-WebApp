@@ -1,4 +1,4 @@
-package org.example.controller;
+package org.example.servlet;
 
 import java.io.IOException;
 import jakarta.servlet.ServletException;
