@@ -31,18 +31,18 @@ public class ServletLogin extends HttpServlet {
                 HttpSession session = req.getSession(true);
                 session.setAttribute("usuarioLogado", listagem.getEmail());
 
-                req.getRequestDispatcher("/pages/TestePaginaCrud.jsp").forward(req, resp);
+                req.getRequestDispatcher("/view/CrudEmpresa.jsp").forward(req, resp);
             } else {
                 req.setAttribute("erroLogin", "Senha incorreta!");
                 req.setAttribute("emailDigitado", email);
                 req.setAttribute("senhaDigitada", senha);
-                req.getRequestDispatcher("/pages/login.jsp").forward(req, resp);
+                req.getRequestDispatcher("/view/login.jsp").forward(req, resp);
             }
         } else {
             req.setAttribute("erroLogin", "Usuário não encontrado!");
             req.setAttribute("emailDigitado", email);
             req.setAttribute("senhaDigitada", senha);
-            req.getRequestDispatcher("/pages/login.jsp").forward(req, resp);
+            req.getRequestDispatcher("/view/login.jsp").forward(req, resp);
         }
     }
 }
