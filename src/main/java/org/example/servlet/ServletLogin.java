@@ -33,13 +33,13 @@ public class ServletLogin extends HttpServlet {
 
                 req.getRequestDispatcher("/view/CrudEmpresa.jsp").forward(req, resp);
             } else {
-                req.setAttribute("erroLogin", "Senha incorreta!");
+                req.setAttribute("erroLogin", "Usuário ou senha incorretos!");
                 req.setAttribute("emailDigitado", email);
                 req.setAttribute("senhaDigitada", senha);
                 req.getRequestDispatcher("/view/login.jsp").forward(req, resp);
             }
         } else {
-            req.setAttribute("erroLogin", "Usuário não encontrado!");
+            req.setAttribute("erroLogin", "Usuário ou senha incorretos!");
             req.setAttribute("emailDigitado", email);
             req.setAttribute("senhaDigitada", senha);
             req.getRequestDispatcher("/view/login.jsp").forward(req, resp);
