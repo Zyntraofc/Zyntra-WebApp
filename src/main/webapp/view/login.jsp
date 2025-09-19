@@ -15,7 +15,7 @@
     <div class="logo-section">
         <div class="logo-content">
             <div class="logo-image">
-                <img src="${pageContext.request.contextPath}/assets/logo.png" alt="Logo aion">
+                <img src="${pageContext.request.contextPath}/assets/logos/logo-azul.png" alt="Logo aion">
             </div>
             <div class="logo-text">aion</div>
             <div class="logo-tagline">Entenda o tempo e transforme a presença das suas equipes!</div>

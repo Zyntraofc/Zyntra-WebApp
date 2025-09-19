@@ -15,7 +15,7 @@ public class ServletLogin extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // caminho absoluto a partir do contexto
-        req.getRequestDispatcher("/pages/login.jsp").forward(req, resp);
+        req.getRequestDispatcher("/view/login.jsp").forward(req, resp);
     }
 
     @Override
@@ -31,18 +31,18 @@ public class ServletLogin extends HttpServlet {
                 HttpSession session = req.getSession(true);
                 session.setAttribute("usuarioLogado", listagem.getEmail());
 
-                req.getRequestDispatcher("/pages/TestePaginaCrud.jsp").forward(req, resp);
+                req.getRequestDispatcher("/view/CrudEmpresa.jsp").forward(req, resp);
             } else {
-                req.setAttribute("erroLogin", "Senha incorreta!");
+                req.setAttribute("erroLogin", "Usuário ou senha incorretos!");
                 req.setAttribute("emailDigitado", email);
                 req.setAttribute("senhaDigitada", senha);
-                req.getRequestDispatcher("/pages/login.jsp").forward(req, resp);
+                req.getRequestDispatcher("/view/login.jsp").forward(req, resp);
             }
         } else {
-            req.setAttribute("erroLogin", "Usuário não encontrado!");
+            req.setAttribute("erroLogin", "Usuário ou senha incorretos!");
             req.setAttribute("emailDigitado", email);
             req.setAttribute("senhaDigitada", senha);
-            req.getRequestDispatcher("/pages/login.jsp").forward(req, resp);
+            req.getRequestDispatcher("/view/login.jsp").forward(req, resp);
         }
     }
 }
