@@ -23,12 +23,16 @@ body {
     justify-content: center;
 }
 
+img, a{
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
 /* 
  * PREVENÇÃO DE SELEÇÃO EM ELEMENTOS ESPECÍFICOS
  * Impede seleção e arrasto em elementos do header
  */
 header p, 
-header img, 
 header a {
     user-select: none;
     -webkit-user-drag: none;
@@ -409,6 +413,10 @@ main {
     height: 150px;
 }
 
+.text-accent{
+    color: #3A47FF;
+}
+
 #plataform > a {
     width: 267px;
     height: 59px;
@@ -445,11 +453,11 @@ main {
  * SEÇÃO DE BENEFÍCIOS/PRINCÍPIOS
  * Apresenta os benefícios e princípios do produto
  */
-#principles #vantagens {
+#principles .vantagens {
     margin-top: 100px;
 }
 
-#vantagens {
+.vantagens {
     z-index: 2;
     height: 315px;
     width: 1600px;
@@ -458,7 +466,7 @@ main {
     gap: 114px;
 }
 
-#info {
+.info {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -650,13 +658,13 @@ input:checked + .option-background {
     width: 170px;
     height: 125px;
     border-radius: 10px;
-    background: var(--Branco, #FFF);
+    background: #FFF;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.10);
     filter: drop-shadow(-45px 38px 4px rgba(0, 0, 0, 0.15)) drop-shadow(-6px 6px 4px rgba(0, 0, 0, 0.15));
 }
 
 #notification-count {
-    color: var(--Preto, #000);
+    color: #000;
     font-size: 36px;
     font-weight: 500;
     line-height: 21px;

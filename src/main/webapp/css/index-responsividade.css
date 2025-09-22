@@ -212,10 +212,6 @@
         display: none;
     }
     
-    #visual-improvisado2 {
-        display: inline;
-    }
-    
     .app-screen .right-text {
         width: 200px;
         margin-left: -70px;
@@ -316,6 +312,9 @@
 
 /* Tablet (1024px) */
 @media screen and (max-width: 1024px) {
+    #visual-improvisado2 {
+        display: inline;
+    }
     #ajuda-visual {
         display: none;
     }
