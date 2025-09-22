@@ -315,6 +315,9 @@
     #visual-improvisado2 {
         display: inline;
     }
+    #visual-improvisado{
+        display: none;
+    }
     #ajuda-visual {
         display: none;
     }
