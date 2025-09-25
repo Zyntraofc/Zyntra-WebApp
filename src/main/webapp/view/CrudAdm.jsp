@@ -17,23 +17,24 @@
     <th>ID</th>
     <th>Email</th>
     <th>Hash senha</th>
+    <th>Ações</th>
   </tr>
   </thead>
   <tbody>
-  <c:forEach var="empresa" items="${administradores}">
+  <c:forEach var="administrador" items="${administradores}">
     <tr>
-      <td>${administradores.id}</td>
-      <td>${administradores.email}</td>
-      <td>${administradores.hashSenha}</td>
+      <td>${administrador.id}</td>
+      <td>${administrador.email}</td>
+      <td>${administrador.hashSenha}</td>
       <td>
         <div style="display: flex">
           <form action="AlterarAdm" method="post">
-            <input type="hidden" name="id" value="${adm.id}">
+            <input type="hidden" name="id" value="${administrador.id}">
             <input type="hidden" name="action" value="0">
             <button type="submit">Alterar</button>
           </form>
-          <form action="DeletarEmpresa" method="post">
-            <input type="hidden" name="id" value="${adm.id}">
+          <form action="DeletarAdm" method="post">
+            <input type="hidden" name="id" value="${administrador.id}">
             <input type="hidden" name="action" value="0">
             <button type="submit">Deletar</button>
           </form>

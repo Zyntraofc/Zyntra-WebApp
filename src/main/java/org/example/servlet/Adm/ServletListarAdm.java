@@ -5,12 +5,10 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import org.example.dao.AdministradorDAO;
-import org.example.dao.EmpresaDAO;
 import org.example.model.Administrador;
-import org.example.model.Empresa;
 import java.util.List;
 
-@WebServlet("/ListarEmpresas")
+@WebServlet("/ListarAdministradores")
 public class ServletListarAdm extends HttpServlet{
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException{
