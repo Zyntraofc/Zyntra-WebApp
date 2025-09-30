@@ -5,13 +5,9 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import org.example.dao.AdministradorDAO;
-import org.example.dao.EmpresaDAO;
 import org.example.dao.HashSenha;
 import org.example.model.Administrador;
-import org.example.model.Empresa;
-
 import java.util.InputMismatchException;
-import java.util.List;
 import org.example.regex.*;
 
 @WebServlet("/InserirAdm")
