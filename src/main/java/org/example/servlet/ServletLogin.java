@@ -31,7 +31,7 @@ public class ServletLogin extends HttpServlet {
                 HttpSession session = req.getSession(true);
                 session.setAttribute("usuarioLogado", listagem.getEmail());
 
-                req.getRequestDispatcher("/view/CrudStatusAprovacao.jsp").forward(req, resp);
+                req.getRequestDispatcher("/ServletListarStatusAprovacao").forward(req, resp);
             } else {
                 req.setAttribute("erroLogin", "Usuário ou senha incorretos!");
                 req.setAttribute("emailDigitado", email);
