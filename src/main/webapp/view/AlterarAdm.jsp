@@ -9,9 +9,19 @@
 
   <input type="hidden" name="id" value="${administrador.getId()}">
 
-  <input type="email" name="idTipoEmpresa" value="${administrador.getEmail}">
+  <input type="email" name="email" value="${administrador.getEmail()}">
 
   <button type="submit">Alterar</button>
+</form>
+
+<form action="AlterarSenha" method="post">
+  <input type="hidden" name="id" value="${administrador.getId()}">
+  <input type="hidden" name="action" value="0">
+  <button type="submit">Alterar senha</button>
+
+  <% if (request.getAttribute("erroSenha") != null) { %>
+  <p class="erro-senha"><%= request.getAttribute("erroSenha") %></p>
+  <% } %>
 </form>
 
 </body>

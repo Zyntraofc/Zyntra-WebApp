@@ -10,8 +10,12 @@
     font-family: "Poppins", sans-serif;
     margin: 0;
     box-sizing: border-box;
+    -webkit-user-drag: none;
 }
 
+img{
+    user-select: none;
+}
 /* 
  * CORPO PRINCIPAL
  * Configurações gerais da página
@@ -650,13 +654,13 @@ input:checked + .option-background {
     width: 170px;
     height: 125px;
     border-radius: 10px;
-    background: var(--Branco, #FFF);
+    background: #FFF;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.10);
     filter: drop-shadow(-45px 38px 4px rgba(0, 0, 0, 0.15)) drop-shadow(-6px 6px 4px rgba(0, 0, 0, 0.15));
 }
 
 #notification-count {
-    color: var(--Preto, #000);
+    color: #000;
     font-size: 36px;
     font-weight: 500;
     line-height: 21px;

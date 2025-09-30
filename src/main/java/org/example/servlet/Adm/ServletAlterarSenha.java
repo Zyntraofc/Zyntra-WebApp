@@ -4,44 +4,47 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import org.example.dao.AdministradorDAO;
+import org.example.dao.HashSenha;
 import org.example.model.Administrador;
 import org.example.regex.*;
 
-@WebServlet("/AlterarAdm")
-public class ServletAlterarAdm extends HttpServlet {
+@WebServlet("/AlterarSenha")
+public class ServletAlterarSenha extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         int action = Integer.parseInt(req.getParameter("action"));
         int id = Integer.parseInt(req.getParameter("id"));
         int resposta = 0;
         AdministradorDAO admdao = new AdministradorDAO();
-        ValidacaoEmail valemail = new ValidacaoEmail();
         if (action == 0){
             Administrador adm = admdao.listarAdministradorPorId(id);
             req.setAttribute("administrador", adm);
-            req.getRequestDispatcher("view/AlterarAdm.jsp").forward(req, resp);
+            req.getRequestDispatcher("view/AlterarSenha.jsp").forward(req, resp);
         }
         else if (action == 1) {
-            String email = req.getParameter("email");
+            String senhaAtual = req.getParameter("senhaAtual");
+            String senhaNova = req.getParameter("senhaNova");
             Administrador adm = admdao.listarAdministradorPorId(id);
 
             // atualizações
-            if (!email.equals(adm.getEmail())) {
-                if (valemail.validarEmail(email)) {
-                    admdao.alterarEmailAdministrador(id, email);
+            //
+            HashSenha hashAtual = new HashSenha(senhaAtual);
+            if (adm.getHashSenha().equals(hashAtual.getHashSenha())){
+                if (ValidacaoSenha.validarSenha(senhaNova)){
+                    HashSenha hs = new HashSenha(senhaNova);
+                    admdao.alterarSenhaAdministrador(id, hs.getHashSenha());
                 } else {
-                    req.setAttribute("erro", "Email inválido");
+                    req.setAttribute("erroSenha", "Senha inválida");
                     resposta++;
                 }
             }
 
-            Administrador admAtualizado = admdao.listarAdministradorPorId(id);
-            req.setAttribute("administrador", admAtualizado);
             if(resposta ==0){
-                req.setAttribute("erro", "Adm atualizado com sucesso");
+                req.setAttribute("erroSenha", "Senha atualizada com sucesso");
             }
-            java.util.List<Administrador> administradores = admdao.listarAdministradores();
-            req.setAttribute("administradores", administradores);
-            req.getRequestDispatcher("view/CrudAdm.jsp").forward(req, resp);
+            Administrador administrador = admdao.listarAdministradorPorId(id);
+            req.setAttribute("administrador", administrador);
+            req.getRequestDispatcher("view/AlterarAdm.jsp").forward(req, resp);
         }
     }
 }
+
