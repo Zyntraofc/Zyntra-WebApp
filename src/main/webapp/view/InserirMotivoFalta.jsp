@@ -4,7 +4,7 @@
     <title>Title</title>
 </head>
 <body>
-<form action="InserirAdm" method="post">
+<form action="InserirMotivoFalta" method="post">
     <input type="text" name="motivo" placeholder="Digite o novo motivo de falta">
     <button type="submit">Inserir</button>
 </form>

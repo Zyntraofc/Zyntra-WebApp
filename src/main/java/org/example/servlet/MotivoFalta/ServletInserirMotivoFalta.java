@@ -19,5 +19,6 @@ public class ServletInserirMotivoFalta extends HttpServlet{
         MotivoFalta motivoFalta = new MotivoFalta(motivo);
         MotivoFaltaDAO motivodao = new MotivoFaltaDAO();
         motivodao.inserirMotivoFalta(motivoFalta);
+        req.getRequestDispatcher("view/InserirMotivoFalta.jsp").forward(req, resp);
     }
 }
