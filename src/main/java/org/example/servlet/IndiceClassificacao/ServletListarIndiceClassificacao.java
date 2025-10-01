@@ -1,0 +1,21 @@
+package org.example.servlet.IndiceClassificacao;
+
+import java.io.IOException;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.*;
+import jakarta.servlet.annotation.*;
+import org.example.dao.IndiceClassificacaoDAO;
+import org.example.model.IndiceClassificacao;
+import java.util.List;
+
+@WebServlet("/ListarIndiceClassificacao")
+public class ServletListarIndiceClassificacao extends HttpServlet{
+    @Override
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+        IndiceClassificacaoDAO indiceclassificacaodao = new IndiceClassificacaoDAO();
+        List<IndiceClassificacao> indicesClassificacao = indiceclassificacaodao.listarIndicesClassificacao();
+        req.setAttribute("indicesClassificacao", indicesClassificacao);
+        req.getRequestDispatcher("view/CrudIndiceClassificacao.jsp").forward(req, resp);
+
+    }
+}
