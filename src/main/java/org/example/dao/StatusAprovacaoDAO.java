@@ -149,23 +149,29 @@ public class StatusAprovacaoDAO {
     }
 
     //Metodo para alterar o status pelo ID
-    public boolean alterarStatusStatusAprovacao(int id, char status){
-        Conexao conexao = new Conexao();//Instancia da conexão
-        String comandoAtualizar = "update status_aprovacao set status = ? where id_status_aprovacao = ?";//Comando SQL para atualizar status
-        Connection conn = conexao.conectar();//Conecta ao banco de dados
-        int linhasAfetadas = 0;//Variável para verificar atualização
+    public boolean alterarStatusStatusAprovacao(int id, char status) {
+        Conexao conexao = new Conexao();
+        Connection conn = conexao.conectar();
+        String comandoAtualizar;
 
-        try(PreparedStatement pstmt = conn.prepareStatement(comandoAtualizar)){//Prepara o comando SQL
-            pstmt.setString(1, String.valueOf(status));//Atribui novo status
-            pstmt.setInt(2, id);//Atribui ID do status
+        if (status == 'a') {
+            // Se status for 'a', atualiza status e data_aprovacao (se for nula)
+            comandoAtualizar = "update status_aprovacao set status = ?, data_aprovacao = COALESCE(data_aprovacao, CURRENT_DATE) where id_status_aprovacao = ?";
+        } else {
+            // Para outros status, só atualiza o status
+            comandoAtualizar = "update status_aprovacao set status = ? where id_status_aprovacao = ?";
+        }
+        try (PreparedStatement pstmt = conn.prepareStatement(comandoAtualizar)) {
+            pstmt.setString(1, String.valueOf(status));
+            pstmt.setInt(2, id);
 
-            linhasAfetadas = pstmt.executeUpdate();//Executa a atualização
-            return linhasAfetadas > 0;//Retorna se foi bem-sucedido
-        } catch(SQLException sqle){
-            sqle.printStackTrace();//Imprime erro
-            return false;//Retorna falha
-        } finally{
-            conexao.desconectar(conn);//Desconecta do banco
+            int linhasAfetadas = pstmt.executeUpdate();
+            return linhasAfetadas > 0;
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+            return false;
+        } finally {
+            conexao.desconectar(conn);
         }
     }
 
