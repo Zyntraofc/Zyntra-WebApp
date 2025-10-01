@@ -155,14 +155,38 @@ public class StatusAprovacaoDAO {
         String comandoAtualizar;
 
         if (status == 'a') {
-            // Se status for 'a', atualiza status e data_aprovacao (se for nula)
-            comandoAtualizar = "update status_aprovacao set status = ?, data_aprovacao = COALESCE(data_aprovacao, CURRENT_DATE) where id_status_aprovacao = ?";
-        } else {
+            // Se status for 'a', atualiza status e data_aprovacao (se for nula) e limpa motivo_rejeicao
+            comandoAtualizar = "update status_aprovacao set status = ?, data_aprovacao = COALESCE(data_aprovacao, CURRENT_DATE), motivo_rejeicao = NULL where id_status_aprovacao = ?";
+        } else if (status == 'p') {
+            // Se status for 'p', atualiza status, limpa motivo_rejeicao e data_aprovacao
+            comandoAtualizar = "update status_aprovacao set status = ?, motivo_rejeicao = NULL, data_aprovacao = NULL where id_status_aprovacao = ?";
+        }
+        else {
             // Para outros status, só atualiza o status
             comandoAtualizar = "update status_aprovacao set status = ? where id_status_aprovacao = ?";
         }
         try (PreparedStatement pstmt = conn.prepareStatement(comandoAtualizar)) {
             pstmt.setString(1, String.valueOf(status));
+            pstmt.setInt(2, id);
+
+            int linhasAfetadas = pstmt.executeUpdate();
+            return linhasAfetadas > 0;
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+            return false;
+        } finally {
+            conexao.desconectar(conn);
+        }
+    }
+
+    //Metodo para alterar o status pelo ID
+    public boolean alterarMotivoStatusAprovacao(int id, String motivoRejeicao) {
+        Conexao conexao = new Conexao();
+        Connection conn = conexao.conectar();
+        String comandoAtualizar = "update status_aprovacao set motivo_rejeicao = ? where id_status_aprovacao = ?";
+
+        try (PreparedStatement pstmt = conn.prepareStatement(comandoAtualizar)) {
+            pstmt.setString(1, String.valueOf(motivoRejeicao));
             pstmt.setInt(2, id);
 
             int linhasAfetadas = pstmt.executeUpdate();
