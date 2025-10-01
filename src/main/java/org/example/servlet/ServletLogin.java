@@ -31,7 +31,9 @@ public class ServletLogin extends HttpServlet {
                 HttpSession session = req.getSession(true);
                 session.setAttribute("usuarioLogado", listagem.getEmail());
 
+
                 req.getRequestDispatcher("ListarEmpresas").forward(req, resp);
+
             } else {
                 req.setAttribute("erroLogin", "Usuário ou senha incorretos!");
                 req.setAttribute("emailDigitado", email);

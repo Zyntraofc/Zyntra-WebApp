@@ -6,7 +6,7 @@ public abstract class BaseModel {//Abertura de classe abstrata que servirá de b
     protected int id;//Gerado automáticamente pelo database
 
     //Métodos getters
-    public Integer getId(){
+    public int getId(){
         return this.id;
     }
 
