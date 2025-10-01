@@ -10,9 +10,13 @@
     font-family: "Poppins", sans-serif;
     margin: 0;
     box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
+    -webkit-user-drag: none;
+
 }
 
+img{
+    user-select: none;
+}
 /* 
  * CORPO PRINCIPAL
  * Configurações gerais da página

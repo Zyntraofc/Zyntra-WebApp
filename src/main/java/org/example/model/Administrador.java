@@ -38,7 +38,7 @@ public class Administrador extends BaseModel{//Abertura da classe model Administ
 
     //Metodo toString
     public String toString(){
-        return "Id: "+(super.getId() == null ? "Nulo" : super.id) +
+        return
                 "\nEmail: " + this.email +
                 "\nSenha: " + this.hashSenha;
     }
