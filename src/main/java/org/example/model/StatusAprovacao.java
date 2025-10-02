@@ -19,23 +19,6 @@ public class StatusAprovacao extends BaseModel{//abertura da classe
         this.dataAprovacao = dataAprovacao;
     }
 
-    public StatusAprovacao(char status, LocalDate dataSolicitacao, LocalDate dataAprovacao) {//Metodo se não houver rejeição
-        this.status = status;
-        this.dataSolicitacao = dataSolicitacao;
-        this.dataAprovacao = dataAprovacao;
-    }
-
-    public StatusAprovacao(char status, LocalDate dataSolicitacao) {//Metodo se não houver rejeição
-        this.status = status;
-        this.dataSolicitacao = dataSolicitacao;
-    }
-
-    public StatusAprovacao(String motivoRejeicao, char status, LocalDate dataSolicitacao) {//Metodo caso houver rejeição
-        this.motivoRejeicao = motivoRejeicao;
-        this.status = status;
-        this.dataSolicitacao = dataSolicitacao;
-    }
-
     //Métodos getters e setters
     public String getMotivoRejeicao() {
         return this.motivoRejeicao != null ? this.motivoRejeicao : "";

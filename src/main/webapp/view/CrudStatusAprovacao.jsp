@@ -25,9 +25,9 @@
         <tr>
             <td>${status.id}</td>
             <td>${String.valueOf(status.status).equals("a") ? "Aprovado" : String.valueOf(status.status).equals("r") ? "Recusado" : "Pendente"}</td>
-            <td>${status.motivoRejeicao}</td>
+            <td>${not empty status.motivoRejeicao ? status.motivoRejeicao : "null"}</td>
             <td>${status.dataSolicitacao}</td>
-            <td>${status.dataAprovacao}</td>
+            <td>${status.dataAprovacao!=null ? status.dataAprovacao : "null"}</td>
 
 
             <td>
