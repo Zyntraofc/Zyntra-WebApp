@@ -12,14 +12,8 @@ public class StatusAprovacao extends BaseModel{//abertura da classe
     private LocalDate dataAprovacao;
 
     //Métodos construtores
-    public StatusAprovacao(String motivoRejeicao, char status, LocalDate dataSolicitacao, LocalDate dataAprovaca) {//Metodo caso houver rejeição
+    public StatusAprovacao(String motivoRejeicao, char status, LocalDate dataSolicitacao, LocalDate dataAprovacao) {//Metodo caso houver rejeição
         this.motivoRejeicao = motivoRejeicao;
-        this.status = status;
-        this.dataSolicitacao = dataSolicitacao;
-        this.dataAprovacao = dataAprovacao;
-    }
-
-    public StatusAprovacao(char status, LocalDate dataSolicitacao, LocalDate dataAprovacao) {//Metodo se não houver rejeição
         this.status = status;
         this.dataSolicitacao = dataSolicitacao;
         this.dataAprovacao = dataAprovacao;
