@@ -11,7 +11,7 @@ public class Conexao {
     //Metodo para conectar e manter conexao com o database
     public Connection conectar() {
         try {
-            // Carregar driver do MySQL
+            // Carregar driver do PostgresSQL
             Class.forName("org.postgresql.Driver");
 
 //             Pegar variáveis do .env

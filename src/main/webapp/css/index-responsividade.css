@@ -85,7 +85,7 @@
     }
     
     /* Ajustes no grid de vantagens */
-    #vantagens {
+    .vantagens {
         width: 100%;
         grid-template-columns: 1fr;
         gap: 40px;
@@ -211,10 +211,6 @@
         display: none;
     }
     
-    #visual-improvisado2 {
-        display: inline;
-    }
-    
     .app-screen .right-text {
         width: 200px;
         margin-left: -70px;
@@ -315,6 +311,12 @@
 
 /* Tablet (1024px) */
 @media screen and (max-width: 1024px) {
+    #visual-improvisado2 {
+        display: inline;
+    }
+    #visual-improvisado{
+        display: none;
+    }
     #ajuda-visual {
         display: none;
     }
@@ -388,7 +390,7 @@
     }
     
     /* Seção de vantagens */
-    #vantagens {
+    .vantagens {
         width: 100%;
         grid-template-columns: 1fr;
         gap: 15px;
@@ -396,17 +398,17 @@
         padding: 0 20px;
     }
     
-    #info #vantagens .benefit-card:first-child img {
+    .info .vantagens .benefit-card:first-child img {
         width: 17px;
         height: 23px;
     }
     
-    #principles #info #vantagens .benefit-card:first-child img {
+    #principles .info .vantagens .benefit-card:first-child img {
         width: 24px;
         height: 16px;
     }
     
-    #principles #info {
+    #principles .info {
         margin-top: -80px;
     }
     
@@ -667,7 +669,7 @@
         margin-top: 50px;
     }
     
-    #vantagens {
+    .vantagens {
         margin-top: 20px;
     }
     
