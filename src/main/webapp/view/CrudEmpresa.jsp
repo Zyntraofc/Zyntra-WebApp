@@ -52,5 +52,9 @@
 <%
   }
 %>
+<form action="ListarAdministradores" method="post">
+  <button type="submit"> ADM</button>
+</form>
+
 </body>
 </html>
