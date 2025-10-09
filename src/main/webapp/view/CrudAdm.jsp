@@ -13,10 +13,9 @@
 <table border="1">
   <thead>
   <tr>
-
     <th>ID</th>
     <th>Email</th>
-    <th>Hash senha</th>
+    <th>Senha</th>
     <th>Ações</th>
   </tr>
   </thead>
@@ -25,7 +24,7 @@
     <tr>
       <td>${administrador.id}</td>
       <td>${administrador.email}</td>
-      <td>${administrador.hashSenha}</td>
+      <td>*****</td>
       <td>
         <div style="display: flex">
           <form action="AlterarAdm" method="post">
@@ -51,5 +50,9 @@
 <%
   }
 %>
+
+<form action="ListarStatusAprovacao" method="post">
+  <button type="submit"> STATUS DE APROVAÇÂO</button>
+</form>
 </body>
 </html>

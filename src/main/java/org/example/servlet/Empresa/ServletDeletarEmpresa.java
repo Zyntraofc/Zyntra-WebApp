@@ -5,6 +5,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import org.example.dao.EmpresaDAO;
+import org.example.dao.StatusAprovacaoDAO;
 import org.example.model.Empresa;
 
 @WebServlet("/DeletarEmpresa")
@@ -20,8 +21,10 @@ public class ServletDeletarEmpresa extends HttpServlet{
             req.setAttribute("empresa", empresa);
             req.getRequestDispatcher("view/DeletarEmpresa.jsp").forward(req, resp);
         }else if(action == 1){
-
+            int idStatus = Integer.parseInt(req.getParameter("idStatus"));
+            StatusAprovacaoDAO statusdao = new StatusAprovacaoDAO();
             empresadao.deletarEmpresa(id);
+            statusdao.deletarStatusAprovacao(idStatus);
             req.setAttribute("erro", "Empresa deletada com sucesso");
             req.getRequestDispatcher("ListarEmpresas").forward(req, resp);
         }else if(action == 2){

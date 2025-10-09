@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<form action="InserirStatusAprovacao" method="get">
+<form action="InserirEmpresa" method="get">
     <button type="submit">Inserir status</button>
 </form>
 
@@ -37,7 +37,7 @@
                         <input type="hidden" name="action" value="0">
                         <button type="submit">Alterar</button>
                     </form>
-                    <form action="DeletarStatusAprovacao" method="post">
+                    <form action="DeletarEmpresa" method="post">
                         <input type="hidden" name="id" value="${status.id}">
                         <input type="hidden" name="action" value="0">
                         <button type="submit">Deletar</button>
