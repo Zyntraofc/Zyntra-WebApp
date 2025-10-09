@@ -2,57 +2,116 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/crud.css">
   <title>Crud Adm - Área restrita</title>
 </head>
 <body>
+<aside>
+  <div class="sidebar-header">
+    <div class="logo-container">
+      <img src="${pageContext.request.contextPath}/assets/logos/logo-azul.png" alt="logo-aion" class="logo-aion">
+      <div class="brand-text">
+        <p class="aion">aion</p>
+        <h4>Adm</h4>
+      </div>
+    </div>
+    <hr>
+  </div>
 
-<form action="InserirAdm" method="get">
-  <button type="submit">Inserir adm</button>
-</form>
+  <div class="barra-lateral">
+    <form action="ListarEmpresas" method="post">
+      <button type="submit" class="botao">Empresa</button>
+    </form>
+    <form action="ListarAdministradores" method="post">
+      <button type="submit" class="botao active">Adm</button>
+    </form>
+    <form action="ListarStatusAprovacao" method="post">
+      <button type="submit" class="botao">Status Aprovação</button>
+    </form>
+    <form action="ListarIndiceClassificacao" method="post">
+      <button type="submit" class="botao">Indices Classificação</button>
+    </form>
+    <form action="ListarTipoEmpresa" method="post">
+      <button type="submit" class="botao">Tipo Empresa</button>
+    </form>
+    <form action="ListarMotivosFalta" method="post">
+      <button type="submit" class="botao">Motivo Falta</button>
+    </form>
 
-<table border="1">
-  <thead>
-  <tr>
-    <th>ID</th>
-    <th>Email</th>
-    <th>Senha</th>
-    <th>Ações</th>
-  </tr>
-  </thead>
-  <tbody>
-  <c:forEach var="administrador" items="${administradores}">
+    <div class="sair-container">
+      <a href="index.html" class="sair">
+        <img src="assets/Saida.png" alt="Sair">
+        <span>Sair</span>
+      </a>
+    </div>
+  </div>
+</aside>
+
+<main>
+  <h1>Área Restrita</h1>
+  <p>CRUD</p>
+
+  <div class="top-bar">
+    <form action="">
+      <input type="text" placeholder="Buscar por id, nome, email...">
+      <button type="submit">
+        <img src="assets/Vector.png" alt="Pesquisar">
+      </button>
+    </form>
+
+    <div class="actions">
+      <button class="filtros">
+        <span>Filtros</span>
+        <img src="assets/filtros.png" alt="Filtros">
+      </button>
+      <form action="InserirAdm" class="button-adicionar-novo">
+        <button type="submit">
+          <img src="assets/add.png" alt="Adicionar">
+          <span>Adicionar Novo</span>
+        </button>
+      </form>
+    </div>
+  </div>
+  <table border="1">
+    <thead>
     <tr>
-      <td>${administrador.id}</td>
-      <td>${administrador.email}</td>
-      <td>*****</td>
-      <td>
-        <div style="display: flex">
-          <form action="AlterarAdm" method="post">
-            <input type="hidden" name="id" value="${administrador.id}">
-            <input type="hidden" name="action" value="0">
-            <button type="submit">Alterar</button>
-          </form>
-          <form action="DeletarAdm" method="post">
-            <input type="hidden" name="id" value="${administrador.id}">
-            <input type="hidden" name="action" value="0">
-            <button type="submit">Deletar</button>
-          </form>
-        </div>
-      </td>
+      <th>ID</th>
+      <th>Email</th>
+      <th>Senha</th>
+      <th>Ações</th>
     </tr>
-  </c:forEach>
-  </tbody>
-</table>
-<%
-  if(request.getAttribute("erro") != null){
-%>
-<p><%=request.getAttribute("erro")%></p>
-<%
-  }
-%>
-
-<form action="ListarStatusAprovacao" method="post">
-  <button type="submit"> STATUS DE APROVAÇÂO</button>
-</form>
+    </thead>
+    <tbody>
+    <c:forEach var="administrador" items="${administradores}">
+      <tr>
+        <td>${administrador.id}</td>
+        <td>${administrador.email}</td>
+        <td>*****</td>
+        <td>
+          <div style="display: flex">
+            <form action="AlterarAdm" method="post">
+              <input type="hidden" name="id" value="${administrador.id}">
+              <input type="hidden" name="action" value="0">
+              <button type="submit">Alterar</button>
+            </form>
+            <form action="DeletarAdm" method="post">
+              <input type="hidden" name="id" value="${administrador.id}">
+              <input type="hidden" name="action" value="0">
+              <button type="submit">Deletar</button>
+            </form>
+          </div>
+        </td>
+      </tr>
+    </c:forEach>
+    </tbody>
+  </table>
+  <%
+    if(request.getAttribute("erro") != null){
+  %>
+  <p><%=request.getAttribute("erro")%></p>
+  <%
+    }
+  %>
+</main>
 </body>
 </html>
