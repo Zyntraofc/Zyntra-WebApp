@@ -14,7 +14,9 @@ public class ServletDeletarEmpresa extends HttpServlet{
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException{
         int action = Integer.parseInt(req.getParameter("action"));
         EmpresaDAO empresadao = new EmpresaDAO();
+        String caminho = req.getParameter("caminho");
         if(action == 0){
+            req.setAttribute("caminho", caminho);
             Empresa empresa = null;
             if (req.getParameter("idStatus") != null && !req.getParameter("idStatus").isEmpty()) {empresa = empresadao.listarEmpresaPorIdStatusAprovacao(Integer.parseInt(req.getParameter("idStatus")));}
             else{
@@ -29,10 +31,10 @@ public class ServletDeletarEmpresa extends HttpServlet{
             StatusAprovacaoDAO statusdao = new StatusAprovacaoDAO();
             empresadao.deletarEmpresa(id);
             statusdao.deletarStatusAprovacao(idStatus);
-            req.setAttribute("erro", "Empresa deletada com sucesso");
-            req.getRequestDispatcher("ListarEmpresas").forward(req, resp);
+            req.setAttribute("erro", "Empresa e Status deletados com sucesso");
+            req.getRequestDispatcher("Listar"+caminho).forward(req, resp);
         }else if(action == 2){
-            req.getRequestDispatcher("ListarEmpresas").forward(req, resp);
+            req.getRequestDispatcher("Listar"+caminho).forward(req, resp);
         }
     }
 

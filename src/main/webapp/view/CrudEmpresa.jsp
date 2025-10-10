@@ -105,6 +105,7 @@
           </form>
           <form action="DeletarEmpresa" method="post">
             <input type="hidden" name="id" value="${empresa.id}">
+            <input type="hidden" name="caminho" value="Empresas">
             <input type="hidden" name="action" value="0">
             <button type="submit">Deletar</button>
           </form>

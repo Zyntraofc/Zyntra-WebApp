@@ -109,6 +109,7 @@
                     </form>
                     <form action="DeletarEmpresa" method="post">
                         <input type="hidden" name="idStatus" value="${status.id}">
+                        <input type="hidden" name="caminho" value="StatusAprovacao">
                         <input type="hidden" name="action" value="0">
                         <button type="submit">Deletar</button>
                     </form>
