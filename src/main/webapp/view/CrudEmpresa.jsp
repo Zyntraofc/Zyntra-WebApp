@@ -114,13 +114,6 @@
   </c:forEach>
   </tbody>
 </table>
-  <%
-    if(request.getAttribute("erro") != null){
-  %>
-  <p><%=request.getAttribute("erro")%></p>
-  <%
-    }
-  %>
 </main>
 </body>
 </html>
