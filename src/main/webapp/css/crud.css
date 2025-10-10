@@ -9,6 +9,8 @@ body{margin: 0;
 .tela-transparente{
     width: 100%;
     height: 100vh;
+    background-color: grey;
+    opacity: 0.5;
     position: absolute;
     z-index: 2;
 }
@@ -334,3 +336,90 @@ main .actions .filtros img {
        background-color: #99A0FF;
     color: white;
    }
+
+.popup {
+    top: 20%;
+    position: absolute;
+    width: 450px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+    padding: 30px 36px;
+    display: flex;
+    flex-direction: column;
+    z-index: 3;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.popup h1 {
+    font-size: 22px;
+    color: #2e5bff;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.popup label{
+    font-weight: 600;
+    color: #2e5bff;
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.popup input {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1.5px solid #e0e0e0;
+    outline: none;
+    font-size: 15px;
+    margin-bottom: 18px;
+    transition: border-color 0.3s ease;
+}
+
+.popup input:focus {
+    border-color: #2e5bff;
+    box-shadow: 0 0 0 2px rgba(46, 91, 255, 0.15);
+}
+
+.popup input[readonly] {
+    background: #f9f9f9;
+    color: #777;
+    cursor: not-allowed;
+}
+
+.popup .botoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.popup button {
+    font-family: inherit;
+    font-size: 15px;
+    border-radius: 8px;
+    padding: 10px 22px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+}
+.popup button.cancelar {
+    border: 1px solid #3A47FF;
+    background: transparent;
+    color: #2e5bff;
+}
+
+.cancelar:hover {
+    background: #f0f4ff;
+}
+.confirmar {
+    background: linear-gradient(90deg, #4b6bff, #2e5bff);
+    color: white;
+    border: none;
+}
+
+.confirmar:hover {
+    filter: brightness(1.1);
+}

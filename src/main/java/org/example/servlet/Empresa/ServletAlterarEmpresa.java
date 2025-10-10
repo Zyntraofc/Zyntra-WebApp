@@ -23,7 +23,8 @@ public class ServletAlterarEmpresa extends HttpServlet {
         if (action == 0) {
             Empresa empresa = empresadao.listarEmpresaPorId(id);
             req.setAttribute("empresa", empresa);
-            req.getRequestDispatcher("view/AlterarEmpresa.jsp").forward(req, resp);
+            req.setAttribute("popup-alterar", true);
+            req.getRequestDispatcher("ListarEmpresas").forward(req, resp);
 
         } else if (action == 1) {
             int idTipoEmpresa = Integer.parseInt(req.getParameter("idTipoEmpresa"));

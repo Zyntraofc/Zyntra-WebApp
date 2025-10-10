@@ -137,5 +137,45 @@
   </div>
 </div>
 <% } %>
+
+<% if (request.getAttribute("popup-alterar") != null) { %>
+<div class="tela-transparente"></div>
+<div class="popup">
+  <h1>Editar Empresa</h1>
+
+  <form action="AlterarEmpresa" method="post">
+    <input type="hidden" name="action" value="1">
+    <input type="hidden" name="id" value="${empresa.getId()}">
+
+    <label for="idTipoEmpresa">ID Tipo de Empresa</label>
+    <input type="number" id="idTipoEmpresa" name="idTipoEmpresa" value="${empresa.getIdTipoEmpresa()}">
+
+    <label for="idIndiceClassificacao">ID Índice de Classificação</label>
+    <input type="number" id="idIndiceClassificacao" name="idIndiceClassificacao" value="${empresa.getIdIndiceClassificacao()}">
+
+    <label for="idStatusAprovacao">ID Status de Aprovação</label>
+    <input type="number" id="idStatusAprovacao" name="idStatusAprovacao" value="${empresa.getIdStatusAprovacao()}">
+
+    <label for="nome">Nome</label>
+    <input type="text" id="nome" name="nome" value="${empresa.getNome()}">
+
+    <label for="cnpj">CNPJ</label>
+    <input type="text" id="cnpj" name="cnpj" value="${empresa.getCnpj()}" readonly>
+
+    <label for="email">E-mail</label>
+    <input type="email" id="email" name="email" value="${empresa.getEmail()}">
+
+    <label for="telefone">Telefone</label>
+    <input type="text" id="telefone" name="telefone" value="${empresa.getTelefone()}">
+
+    <div class="botoes">
+      <form action="ListarEmpresas" method="post">
+          <button type="submit" class="cancelar">✖ Cancelar</button>
+      </form>
+      <button type="submit" class="confirmar">✔ Confirmar</button>
+    </div>
+  </form>
+</div>
+<% } %>
 </body>
 </html>
