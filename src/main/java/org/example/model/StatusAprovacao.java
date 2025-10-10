@@ -18,6 +18,12 @@ public class StatusAprovacao extends BaseModel{//abertura da classe
         this.dataSolicitacao = dataSolicitacao;
         this.dataAprovacao = dataAprovacao;
     }
+    public StatusAprovacao(LocalDate dataSolicitacao) {//Metodo para inserir padrão (pendente)
+        this.motivoRejeicao = null;
+        this.status = 'p';
+        this.dataSolicitacao = dataSolicitacao;
+        this.dataAprovacao = null;
+    }
 
     //Métodos getters e setters
     public String getMotivoRejeicao() {

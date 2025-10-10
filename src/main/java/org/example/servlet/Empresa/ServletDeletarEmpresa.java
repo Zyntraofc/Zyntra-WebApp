@@ -15,9 +15,10 @@ public class ServletDeletarEmpresa extends HttpServlet{
         int action = Integer.parseInt(req.getParameter("action"));
         int id = Integer.parseInt(req.getParameter("id"));
         EmpresaDAO empresadao = new EmpresaDAO();
-
         if(action == 0){
-            Empresa empresa = empresadao.listarEmpresaPorId(id);
+            Empresa empresa = null;
+            if (req.getParameter("idStatus") != null) {empresa = empresadao.listarEmpresaPorIdStatusAprovacao(Integer.parseInt(req.getParameter("idStatus")));}
+            else empresa = empresadao.listarEmpresaPorId(id);
             req.setAttribute("empresa", empresa);
             req.getRequestDispatcher("view/DeletarEmpresa.jsp").forward(req, resp);
         }else if(action == 1){

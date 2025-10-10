@@ -63,7 +63,8 @@
                 <span>Filtros</span>
                 <img src="assets/filtros.png" alt="Filtros">
             </button>
-            <form action="InserirStatusAprovacao" class="button-adicionar-novo">
+            <form action="InserirEmpresa" class="button-adicionar-novo">
+                <input type="hidden" name="caminho" value="StatusAprovacao">
                 <button type="submit">
                     <img src="assets/add.png" alt="Adicionar">
                     <span>Adicionar Novo</span>
@@ -71,6 +72,13 @@
             </form>
         </div>
     </div>
+    <%
+        if(request.getAttribute("erro") != null){
+    %>
+    <p><%=request.getAttribute("erro")%></p>
+    <%
+        }
+    %>
 <table border="1">
     <thead>
     <tr>
@@ -100,7 +108,7 @@
                         <button type="submit">Alterar</button>
                     </form>
                     <form action="DeletarEmpresa" method="post">
-                        <input type="hidden" name="id" value="${status.id}">
+                        <input type="hidden" name="idStatus" value="${status.id}">
                         <input type="hidden" name="action" value="0">
                         <button type="submit">Deletar</button>
                     </form>
@@ -110,13 +118,6 @@
     </c:forEach>
     </tbody>
 </table>
-    <%
-        if(request.getAttribute("erro") != null){
-    %>
-    <p><%=request.getAttribute("erro")%></p>
-    <%
-        }
-    %>
 </main>
 </body>
 </html>

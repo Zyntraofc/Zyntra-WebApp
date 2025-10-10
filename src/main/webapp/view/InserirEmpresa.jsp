@@ -5,11 +5,10 @@
 </head>
 <body>
     <form action="InserirEmpresa" method="post">
+        <input type="hidden" name="caminho" value="${caminho}">
         <input type="number" name="idTipoEmpresa" placeholder="Digite o id do tipo da empresa">
         <br>
         <input type="number" name="idIndiceClassificacao" placeholder="Digite o id do índice de classificação">
-        <br>
-        <input type="number" name="idStatusAprovacao" placeholder="Digite o id do Status de aprovação">
         <br>
         <input type="text" name="nome" placeholder="Digite o nome da empresa">
         <br>

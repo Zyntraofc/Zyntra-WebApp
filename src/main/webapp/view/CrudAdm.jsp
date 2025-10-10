@@ -72,6 +72,13 @@
       </form>
     </div>
   </div>
+  <%
+    if(request.getAttribute("erro") != null){
+  %>
+  <p><%=request.getAttribute("erro")%></p>
+  <%
+    }
+  %>
   <table border="1">
     <thead>
     <tr>
@@ -105,13 +112,6 @@
     </c:forEach>
     </tbody>
   </table>
-  <%
-    if(request.getAttribute("erro") != null){
-  %>
-  <p><%=request.getAttribute("erro")%></p>
-  <%
-    }
-  %>
 </main>
 </body>
 </html>

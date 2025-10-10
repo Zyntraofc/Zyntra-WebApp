@@ -64,6 +64,7 @@
         <img src="assets/filtros.png" alt="Filtros">
       </button>
       <form action="InserirEmpresa" class="button-adicionar-novo">
+        <input type="hidden" name="caminho" value="Empresas">
         <button type="submit">
           <img src="assets/add.png" alt="Adicionar">
           <span>Adicionar Novo</span>
@@ -71,6 +72,13 @@
       </form>
     </div>
   </div>
+  <%
+    if(request.getAttribute("erro") != null){
+  %>
+  <p><%=request.getAttribute("erro")%></p>
+  <%
+    }
+  %>
 <table border="1">
   <thead>
   <tr>
