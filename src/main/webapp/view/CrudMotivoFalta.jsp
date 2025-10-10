@@ -113,5 +113,24 @@
     </tbody>
 </table>
 </main>
+<% if (request.getAttribute("popup-deletar") != null) { %>
+<div class="tela-transparente"></div>
+<div class="popup-deletar">
+    <h1>Deletar</h1>
+    <p>Deseja mesmo excluir? Esta ação é irreversível.</p>
+    <div class="opcoes-deletar">
+        <form action="DeletarMotivoFalta" method="post">
+            <input type="hidden" name="action" value="1">
+            <input type="hidden" name="id" value="${motivo.getId()}">
+            <button type="submit">Sim</button>
+        </form>
+        <form action="DeletarMotivoFalta" method="post">
+            <input type="hidden" name="id" value="${motivo.getId()}">
+            <input type="hidden" name="action" value="2">
+            <button type="submit">Não</button>
+        </form>
+    </div>
+</div>
+<% } %>
 </body>
 </html>
