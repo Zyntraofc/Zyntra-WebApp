@@ -1,3 +1,17 @@
+body{margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background: #f0f0f0;
+    position: relative;
+    width: 100%;
+}
+.tela-transparente{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    z-index: 2;
+}
 table{
     width: 100%;
     border-radius: 30px;
@@ -281,3 +295,42 @@ main .actions .filtros img {
     width: 18px;
     height: 18px;
 }
+.popup-deletar{
+    position: absolute;
+    width: 400px; /* largura média */
+    height: 180px; /* altura pequena */
+    top: 42.5%;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 32px;
+    z-index: 3;
+} .popup-deletar h1 {
+      font-size: 20px;
+      color: #2e5bff; /* Azul forte */
+      margin-bottom: 8px;
+  }
+.opcoes-deletar{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}.opcoes-deletar button{
+     background-color: #0078ff;
+     color: white;
+     border: none;
+     border-radius: 8px;
+     padding: 10px 20px;
+     cursor: pointer;
+     font-size: 16px;
+     transition: 0.3s;
+ }.opcoes-deletar form button{
+       width: 30%;
+    padding: 20px;
+       background-color: #99A0FF;
+    color: white;
+   }
