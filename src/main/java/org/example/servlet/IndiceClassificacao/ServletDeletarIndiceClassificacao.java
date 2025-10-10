@@ -17,8 +17,9 @@ public class ServletDeletarIndiceClassificacao extends HttpServlet{
         IndiceClassificacaoDAO indicedao = new IndiceClassificacaoDAO();
         if(action == 0){
             IndiceClassificacao indiceClassificacao = indicedao.listarIndiceClassificacaoPorId(id);
+            req.setAttribute("popup-deletar", true);
             req.setAttribute("indiceClassificacao", indiceClassificacao);
-            req.getRequestDispatcher("view/DeletarIndiceClassificacao.jsp").forward(req, resp);
+            req.getRequestDispatcher("ListarIndiceClassificacao").forward(req, resp);
         }else if(action == 1){
             indicedao.deletarIndiceClassificacao(id);
             req.setAttribute("erro", "Indice classificação deletado com sucesso!");
