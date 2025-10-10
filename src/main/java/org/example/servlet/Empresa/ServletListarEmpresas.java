@@ -10,6 +10,9 @@ import java.util.List;
 
 @WebServlet("/ListarEmpresas")
 public class ServletListarEmpresas extends HttpServlet{
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
+    }
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException{
         EmpresaDAO empresadao = new EmpresaDAO();

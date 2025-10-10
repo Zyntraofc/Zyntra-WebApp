@@ -67,14 +67,10 @@ public class ServletAlterarEmpresa extends HttpServlet {
                     resposta++;
                 }
             }
-
-            Empresa empresaAtualizada = empresadao.listarEmpresaPorId(id);
-            req.setAttribute("empresa", empresaAtualizada);
             if(resposta ==0){
                 req.setAttribute("erro", "Empresa atualizada com sucesso");
                 req.getRequestDispatcher("ListarEmpresas").forward(req, resp);
             }
-
         }
     }
 }

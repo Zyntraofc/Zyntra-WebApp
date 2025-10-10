@@ -22,7 +22,8 @@ public class ServletInserirEmpresa extends HttpServlet{
         // Pega o parâmetro enviado via GET para redirecionar após o processo no servlet
         String caminho = req.getParameter("caminho");
         req.setAttribute("caminho", caminho);
-        req.getRequestDispatcher("view/InserirEmpresa.jsp").forward(req, resp);
+        req.setAttribute("popup-inserir", true);
+        req.getRequestDispatcher("ListarEmpresas").forward(req, resp);
     }
 
     @Override
