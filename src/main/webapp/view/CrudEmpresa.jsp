@@ -206,9 +206,7 @@
     <input type="text" id="Novotelefone" name="telefone">
 
     <div class="botoes">
-      <form action="ListarEmpresas" method="post">
-        <button type="submit" class="cancelar">✖ Cancelar</button>
-      </form>
+      <div class="cancelar"> <a href="ListarEmpresas">✖ Cancelar</a></div>
       <button type="submit" class="confirmar">✔ Confirmar</button>
     </div>
   </form>

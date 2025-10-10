@@ -321,20 +321,24 @@ main .actions .filtros img {
     display: flex;
     justify-content: space-around;
     gap: 10px;
-}.opcoes-deletar button{
+}.opcoes-deletar form{
      background-color: #0078ff;
-     color: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
      border: none;
      border-radius: 8px;
      padding: 10px 20px;
      cursor: pointer;
-     font-size: 16px;
      transition: 0.3s;
  }.opcoes-deletar form button{
-       width: 30%;
-    padding: 20px;
-       background-color: #99A0FF;
+       cursor: pointer;
     color: white;
+       width: 100%;
+       font-size: 16px;
+       border: none;
+    background-color: #0078ff;
    }
 
 .popup {
@@ -396,7 +400,7 @@ main .actions .filtros img {
     margin-top: 10px;
 }
 
-.popup button {
+.popup button, .cancelar {
     font-family: inherit;
     font-size: 15px;
     border-radius: 8px;
@@ -404,11 +408,15 @@ main .actions .filtros img {
     cursor: pointer;
     border: none;
     transition: all 0.3s ease;
-}
-.popup button.cancelar {
+
+}.popup .cancelar a{
+     text-decoration: none;
+     color: #2e5bff;
+ }
+
+.popup .cancelar {
     border: 1px solid #3A47FF;
     background: transparent;
-    color: #2e5bff;
 }
 
 .cancelar:hover {
