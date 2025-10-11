@@ -133,6 +133,27 @@
 </div>
 <% } %>
 
+<% if (request.getAttribute("popup-alterar") != null) { %>
+<div class="tela-transparente"></div>
+<div class="popup">
+    <h1>Editar Motivo de Falta</h1>
+
+    <form action="AlterarMotivoFalta" method="post">
+        <input type="hidden" name="action" value="1">
+        <input type="hidden" name="id" value="${motivo.getId()}">
+
+        <label for="motivo">Motivo</label>
+        <input type="text" id="motivo" name="motivo" value="${motivo.getMotivo()}">
+
+        <div class="botoes">
+            <form action="ListarMotivosFalta" method="post">
+                <button type="submit" class="cancelar">✖ Cancelar</button>
+            </form>
+            <button type="submit" class="confirmar">✔ Confirmar</button>
+        </div>
+    </form>
+</div>
+<% } %>
 
 <% if (request.getAttribute("popup-inserir") != null) { %>
 <div class="tela-transparente"></div>
