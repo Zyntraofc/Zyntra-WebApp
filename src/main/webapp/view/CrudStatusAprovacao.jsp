@@ -141,5 +141,39 @@
     </div>
 </div>
 <% } %>
+
+<% if (request.getAttribute("popup-inserir") != null) { %>
+<div class="tela-transparente"></div>
+<div class="popup">
+    <h1>Insira uma empresa para associá-la ao Status</h1>
+
+    <form action="InserirEmpresa" method="post">
+        <input type="hidden" name="caminho" value="${caminho}">
+
+        <label for="NovoTipoEmpresa">ID Tipo de Empresa</label>
+        <input type="number" id="NovoTipoEmpresa" name="idTipoEmpresa">
+
+        <label for="NovoIndiceClassificacao">ID Índice de Classificação</label>
+        <input type="number" id="NovoIndiceClassificacao" name="idIndiceClassificacao">
+
+        <label for="Novonome">Nome</label>
+        <input type="text" id="Novonome" name="nome">
+
+        <label for="Novocnpj">CNPJ</label>
+        <input type="text" id="Novocnpj" name="cnpj">
+
+        <label for="Novoemail">E-mail</label>
+        <input type="email" id="Novoemail" name="email">
+
+        <label for="Novotelefone">Telefone</label>
+        <input type="text" id="Novotelefone" name="telefone">
+
+        <div class="botoes">
+            <div class="cancelar"> <a href="ListarStatusAprovacao">✖ Cancelar</a></div>
+            <button type="submit" class="confirmar">✔ Confirmar</button>
+        </div>
+    </form>
+</div>
+<% } %>
 </body>
 </html>

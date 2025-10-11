@@ -23,7 +23,7 @@ public class ServletInserirEmpresa extends HttpServlet{
         String caminho = req.getParameter("caminho");
         req.setAttribute("caminho", caminho);
         req.setAttribute("popup-inserir", true);
-        req.getRequestDispatcher("ListarEmpresas").forward(req, resp);
+        req.getRequestDispatcher("Listar"+caminho).forward(req, resp);
     }
 
     @Override
@@ -76,7 +76,7 @@ public class ServletInserirEmpresa extends HttpServlet{
             // --- Se tudo deu certo, confirma a transação ---
             conn.commit();
 
-            req.setAttribute("erro", "Empresa inserida com sucesso");
+            req.setAttribute("erro", "Empresa e Status inseridos com sucesso");
             String caminho = req.getParameter("caminho");
             req.getRequestDispatcher("Listar" + caminho).forward(req, resp);
         }catch(InputMismatchException ime){

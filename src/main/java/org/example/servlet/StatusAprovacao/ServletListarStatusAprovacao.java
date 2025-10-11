@@ -10,6 +10,9 @@ import java.util.List;
 
 @WebServlet("/ListarStatusAprovacao")
 public class ServletListarStatusAprovacao extends HttpServlet{
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
+    }
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException{
         StatusAprovacaoDAO statusdao = new StatusAprovacaoDAO();
