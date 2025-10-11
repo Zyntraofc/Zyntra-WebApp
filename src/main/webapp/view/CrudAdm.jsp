@@ -183,6 +183,7 @@
 <% if (request.getAttribute("popup-senha") != null){ %>
   <div class="tela-transparente"></div>
   <div class="popup">
+    <h1>Trocar Senha</h1>
     <form action="AlterarSenha" method="post">
       <input type="hidden" name="action" value="1">
       <input type="hidden" name="id" value="${administrador.getId()}">
@@ -193,7 +194,7 @@
       <label for="passwordNova">Nova Senha</label>
       <input type="password" id="passwordNova" name="senhaNova" required placeholder="Digite a nova senha">
       <div class="botoes">
-        <div class="cancelar"> <a href="ListarAdministradores">✖ Cancelar</a></div>
+        <div class="cancelar"> <a href="ListarAdministradores?popup-alterar=true&id=${administrador.getId()}">✖ Cancelar</a></div>
         <button type="submit" class="confirmar">✔ Confirmar</button>
       </div>
     </form>

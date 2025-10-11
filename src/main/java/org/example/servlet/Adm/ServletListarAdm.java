@@ -20,6 +20,17 @@ public class ServletListarAdm extends HttpServlet{
         AdministradorDAO administradorDAO = new AdministradorDAO();
         List<Administrador> administradores = administradorDAO.listarAdministradores();
         req.setAttribute("administradores", administradores);
+
+        //Verificação para direcionar se for um cancelamento de alteração na senha
+        // Lendo parâmetros
+        String popupAlterar = req.getParameter("popup-alterar");
+        String id = req.getParameter("id");
+        if ("true".equals(popupAlterar) && id != null) {
+            req.setAttribute("popup-alterar", true);
+            Administrador admin = administradorDAO.listarAdministradorPorId(Integer.parseInt(id));
+            req.setAttribute("administrador", admin);
+        }
+
         req.getRequestDispatcher("view/CrudAdm.jsp").forward(req, resp);
     }
 
