@@ -6,9 +6,10 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import org.example.dao.StatusAprovacaoDAO;
 import org.example.model.StatusAprovacao;
+import java.util.List;
 
 @WebServlet("/AlterarStatusAprovacao")
-public class ServletAlterarStatusAprovacaoo extends HttpServlet {
+public class ServletAlterarStatusAprovacao extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         int action = Integer.parseInt(req.getParameter("action"));
         int id = Integer.parseInt(req.getParameter("id"));
@@ -16,8 +17,11 @@ public class ServletAlterarStatusAprovacaoo extends HttpServlet {
         StatusAprovacao statusID = statusdao.listarStatusAprovacaoPorID(id);
         if (action == 0){
             StatusAprovacao status = statusdao.listarStatusAprovacaoPorID(id);
-            req.setAttribute("status", status);
-            req.getRequestDispatcher("view/AlterarStatusAprovacao.jsp").forward(req, resp);
+            req.setAttribute("alterarStatus", status);
+            req.setAttribute("popup-alterar", true);
+            List<StatusAprovacao> statuses = statusdao.listarTodosStatusAprovacao();
+            req.setAttribute("statuses", statuses);
+            req.getRequestDispatcher("view/CrudStatusAprovacao.jsp").forward(req, resp);
         }
         else if (action == 1) {
             String status = req.getParameter("status");
@@ -32,7 +36,7 @@ public class ServletAlterarStatusAprovacaoo extends HttpServlet {
             }
 
             java.util.List<StatusAprovacao> statuses = statusdao.listarTodosStatusAprovacao();
-            req.setAttribute("status", statuses);
+            req.setAttribute("statuses", statuses);
             req.getRequestDispatcher("view/CrudStatusAprovacao.jsp").forward(req, resp);
         }
     }

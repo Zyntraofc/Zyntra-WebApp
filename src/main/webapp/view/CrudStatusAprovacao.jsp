@@ -91,7 +91,7 @@
     </tr>
     </thead>
     <tbody>
-    <c:forEach var="status" items="${status}">
+    <c:forEach var="status" items="${statuses}">
         <tr>
             <td>${status.id}</td>
             <td>${String.valueOf(status.status).equals("a") ? "Aprovado" : String.valueOf(status.status).equals("r") ? "Recusado" : "Pendente"}</td>
@@ -139,6 +139,36 @@
             <button type="submit">✖ Cancelar</button>
         </form>
     </div>
+</div>
+<% } %>
+
+<% if (request.getAttribute("popup-alterar") != null) { %>
+<div class="tela-transparente"></div>
+<div class="popup">
+    <h1>Editar Status de Aprovação</h1>
+
+    <form action="AlterarStatusAprovacao" method="post">
+        <input type="hidden" name="action" value="1">
+        <input type="hidden" name="id" value="${alterarStatus.getId()}">
+
+
+        <label for="motivoRejeicao">Motivo de rejeição</label>
+        <textarea name="motivoRejeicao" id="motivoRejeicao" rows="4">"${alterarStatus.getMotivoRejeicao()}"</textarea>
+
+        <div class="status">
+        <input type="radio" name="status" value="a" id="ativo" ${String.valueOf(alterarStatus.status).equals("a") ? 'checked' : ''}>
+        <label for="ativo">Ativo</label>
+        <input type="radio" name="status" value="p" id="pendente" ${String.valueOf(alterarStatus.status).equals("p") ? 'checked' : ''}>
+        <label for="pendente">Pendente</label>
+        <input type="radio" name="status" value="r" id="recusado" ${String.valueOf(alterarStatus.status).equals("r") ? 'checked' : ''}>
+        <label for="recusado">Recusado</label>
+        </div>
+
+        <div class="botoes">
+            <div class="cancelar"> <a href="ListarStatusAprovacao">✖ Cancelar</a></div>
+            <button type="submit" class="confirmar">✔ Confirmar</button>
+        </div>
+    </form>
 </div>
 <% } %>
 

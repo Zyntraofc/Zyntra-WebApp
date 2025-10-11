@@ -16,8 +16,8 @@ public class ServletListarStatusAprovacao extends HttpServlet{
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException{
         StatusAprovacaoDAO statusdao = new StatusAprovacaoDAO();
-        List<StatusAprovacao> status = statusdao.listarTodosStatusAprovacao();
-        req.setAttribute("status", status);
+        List<StatusAprovacao> statuses = statusdao.listarTodosStatusAprovacao();
+        req.setAttribute("statuses", statuses);
         req.getRequestDispatcher("view/CrudStatusAprovacao.jsp").forward(req, resp);
     }
 }

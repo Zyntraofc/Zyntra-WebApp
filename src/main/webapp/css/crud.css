@@ -371,18 +371,18 @@ main .actions .filtros img {
     display: block;
 }
 
-.popup input {
+.popup input, #motivoRejeicao {
     width: 100%;
     padding: 10px 12px;
     border-radius: 8px;
     border: 1.5px solid #e0e0e0;
     outline: none;
     font-size: 15px;
+    resize: vertical;
     margin-bottom: 18px;
     transition: border-color 0.3s ease;
 }
-
-.popup input:focus {
+.popup input:focus, #motivoRejeicao:focus {
     border-color: #2e5bff;
     box-shadow: 0 0 0 2px rgba(46, 91, 255, 0.15);
 }
@@ -430,4 +430,45 @@ main .actions .filtros img {
 
 .confirmar:hover {
     filter: brightness(1.1);
+}.status {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     background-color: #E4E6FF;
+     border-radius: 50px;
+     padding: 6px;
+     width: 100%;
+     max-width: 360px;
+     margin: 0 auto;
+     margin-bottom: 55px;
+     box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+     transition: background-color 0.3s ease;
+ }
+
+.status input {
+    display: none;
+}
+
+.status label {
+    flex: 1;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 40px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #3942C7;
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+    user-select: none;
+}
+
+.status input:checked + label {
+    color: #fff;
+    background: linear-gradient(135deg, #6373FF 0%, #2B39FF 100%);
+    box-shadow: 0 3px 8px rgba(59, 66, 255, 0.3);
+    transform: scale(1.05);
+}
+
+.status label:hover {
+    background-color: rgba(59, 66, 255, 0.1);
 }
