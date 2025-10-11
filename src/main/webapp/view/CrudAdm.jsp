@@ -151,5 +151,23 @@
   </form>
 </div>
 <% } %>
+
+<% if (request.getAttribute("popup-alterar") != null) { %>
+<div class="tela-transparente"></div>
+<div class="popup">
+  <h1>Editar Empresa</h1>
+  <form action="AlterarAdm" method="post">
+    <input type="hidden" name="action" value="1">
+    <input type="hidden" name="id" value="${administrador.getId()}">
+
+    <label for="email">E-mail</label>
+    <input type="email" name="email" id="email" value="${administrador.getEmail()}">
+  <div class="botoes">
+    <div class="cancelar"> <a href="ListarAdministradores">✖ Cancelar</a></div>
+    <button type="submit" class="confirmar">✔ Confirmar</button>
+  </div>
+  </form>
+</div>
+<% } %>
 </body>
 </html>
