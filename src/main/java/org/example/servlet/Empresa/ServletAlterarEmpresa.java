@@ -1,11 +1,18 @@
 package org.example.servlet.Empresa;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.util.List;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import org.example.dao.EmpresaDAO;
+import org.example.dao.TipoEmpresaDAO;
 import org.example.model.Empresa;
+import org.example.model.TipoEmpresa;
+import org.example.dao.StatusAprovacaoDAO;
+import org.example.model.StatusAprovacao;
 import org.example.regex.*;
 
 @WebServlet("/AlterarEmpresa")
@@ -33,13 +40,47 @@ public class ServletAlterarEmpresa extends HttpServlet {
             String nome = req.getParameter("nome");
             String email = req.getParameter("email");
             String telefone = req.getParameter("telefone");
+            TipoEmpresaDAO tipoempresadao = new TipoEmpresaDAO();
+            StatusAprovacaoDAO statusdao = new StatusAprovacaoDAO();
 
             Empresa empresa = empresadao.listarEmpresaPorId(id);
+            int idTipoEmpresaAntigo = empresa.getIdTipoEmpresa();
+
+            // Verifica se a empresa é ativa com base no status de aprovação
+            StatusAprovacao status = statusdao.listarStatusAprovacaoPorID(empresa.getIdStatusAprovacao());
+            boolean empresaAtiva = status.getStatus() == 'a';
 
             // atualizações
             if (idTipoEmpresa != empresa.getIdTipoEmpresa()) {
-                empresadao.alterarIdTipoEmpresaEmpresa(id, idTipoEmpresa);
+                boolean sucesso = empresadao.alterarIdTipoEmpresaEmpresa(id, idTipoEmpresa);
+                if (empresaAtiva && sucesso) {
+                    boolean tipoAntigoInativo = true;
+                    List<Empresa> empresasAntigoTipo = empresadao.listarEmpresaPorIdTipoEmpresa(idTipoEmpresaAntigo);
+                    if (!empresasAntigoTipo.isEmpty()) {
+                        for (Empresa e : empresasAntigoTipo) {
+                            if (statusdao.listarStatusAprovacaoPorID(e.getIdStatusAprovacao()).getStatus() == 'a') tipoAntigoInativo = false;
+                        }
+                    }
+                    if (tipoAntigoInativo) {
+                        tipoempresadao.alterarStatusTipoEmpresa(idTipoEmpresaAntigo, 'i');
+                        tipoempresadao.alterarUltimaAtualizacaoTipoEmpresa(idTipoEmpresaAntigo, LocalDate.now());
+                    }
+
+                    int qntdEmpresas = 0;
+                    List<Empresa> empresasNovoTipo = empresadao.listarEmpresaPorIdTipoEmpresa(idTipoEmpresa);
+                    if (!empresasNovoTipo.isEmpty()) {
+                        for (Empresa e : empresasNovoTipo) {
+                            if (statusdao.listarStatusAprovacaoPorID(e.getIdStatusAprovacao()).getStatus() == 'a') qntdEmpresas += 1;
+                        }
+                    }
+                    if (qntdEmpresas == 1) {
+                        tipoempresadao.alterarStatusTipoEmpresa(idTipoEmpresa, 'a');
+                        tipoempresadao.alterarUltimaAtualizacaoTipoEmpresa(idTipoEmpresa, LocalDate.now());
+                    }
+                }
             }
+
+
             if (idIndiceClassificacao != empresa.getIdIndiceClassificacao()) {
                 empresadao.alterarIdIndiceClassificacaoEmpresa(id, idIndiceClassificacao);
             }
