@@ -371,7 +371,7 @@ main .actions .filtros img {
     display: block;
 }
 
-.popup input, #motivoRejeicao {
+.popup input, #motivoRejeicao, #descricao {
     width: 100%;
     padding: 10px 12px;
     border-radius: 8px;
@@ -382,7 +382,7 @@ main .actions .filtros img {
     margin-bottom: 18px;
     transition: border-color 0.3s ease;
 }
-.popup input:focus, #motivoRejeicao:focus {
+.popup input:focus, #motivoRejeicao:focus, #descricao:focus {
     border-color: #2e5bff;
     box-shadow: 0 0 0 2px rgba(46, 91, 255, 0.15);
 }

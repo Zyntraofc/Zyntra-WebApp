@@ -138,6 +138,29 @@
 </div>
 <% } %>
 
+<% if (request.getAttribute("popup-alterar") != null) { %>
+<div class="tela-transparente"></div>
+<div class="popup">
+    <h1>Editar Tipo de Empresa</h1>
+
+    <form action="AlterarTipoEmpresa" method="post">
+        <input type="hidden" name="action" value="1">
+        <input type="hidden" name="id" value="${tipoEmpresa.getId()}">
+
+        <label for="nome">Nome</label>
+        <input type="text" name="nome" id="nome" value="${tipoEmpresa.getNome()}">
+
+        <label for="descricao">Descrição</label>
+        <textarea name="descricao" id="descricao" rows="2" >${tipoEmpresa.getDescricao()}</textarea>
+
+        <div class="botoes">
+            <div class="cancelar"> <a href="ListarTipoEmpresa">✖ Cancelar</a></div>
+            <button type="submit" class="confirmar">✔ Confirmar</button>
+        </div>
+    </form>
+</div>
+<% } %>
+
 <% if (request.getAttribute("popup-inserir") != null) { %>
 <div class="tela-transparente"></div>
 <div class="popup">
