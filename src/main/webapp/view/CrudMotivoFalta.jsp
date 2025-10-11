@@ -65,7 +65,7 @@
                 <span>Filtros</span>
                 <img src="assets/filtros.png" alt="Filtros">
             </button>
-            <form action="InserirMotivoFalta.jsp" class="button-adicionar-novo">
+            <form action="InserirMotivoFalta" class="button-adicionar-novo">
                 <button type="submit">
                     <img src="assets/add.png" alt="Adicionar">
                     <span>Adicionar Novo</span>
@@ -130,6 +130,22 @@
             <button type="submit">Não</button>
         </form>
     </div>
+</div>
+<% } %>
+
+
+<% if (request.getAttribute("popup-inserir") != null) { %>
+<div class="tela-transparente"></div>
+<div class="popup">
+    <h1>Inserir Motivo de Falta</h1>
+    <form action="InserirMotivoFalta" method="post">
+        <label for="NovoMotivoFalta">Motivo</label>
+        <input type="text" name="motivo" id="NovoMotivoFalta">
+        <div class="botoes">
+            <div class="cancelar"> <a href="ListarMotivosFalta">✖ Cancelar</a></div>
+            <button type="submit" class="confirmar">✔ Confirmar</button>
+        </div>
+    </form>
 </div>
 <% } %>
 </body>

@@ -10,7 +10,8 @@ import org.example.model.MotivoFalta;
 public class ServletInserirMotivoFalta extends HttpServlet{
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException{
-        req.getRequestDispatcher("view/InserirMotivoFalta.jsp").forward(req, resp);
+        req.setAttribute("popup-inserir", true);
+        req.getRequestDispatcher("ListarMotivosFalta").forward(req, resp);
     }
 
     @Override
@@ -19,6 +20,6 @@ public class ServletInserirMotivoFalta extends HttpServlet{
         MotivoFalta motivoFalta = new MotivoFalta(motivo);
         MotivoFaltaDAO motivodao = new MotivoFaltaDAO();
         motivodao.inserirMotivoFalta(motivoFalta);
-        req.getRequestDispatcher("view/InserirMotivoFalta.jsp").forward(req, resp);
+        req.getRequestDispatcher("ListarMotivosFalta").forward(req, resp);
     }
 }

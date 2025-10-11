@@ -178,7 +178,6 @@
 </div>
 <% } %>
 
-
 <% if (request.getAttribute("popup-inserir") != null) { %>
 <div class="tela-transparente"></div>
 <div class="popup">
