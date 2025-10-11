@@ -11,6 +11,11 @@ import java.util.List;
 @WebServlet("/ListarAdministradores")
 public class ServletListarAdm extends HttpServlet{
     @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
+    }
+
+    @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException{
         AdministradorDAO administradorDAO = new AdministradorDAO();
         List<Administrador> administradores = administradorDAO.listarAdministradores();

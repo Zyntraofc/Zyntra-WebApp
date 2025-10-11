@@ -14,7 +14,8 @@ import org.example.regex.*;
 public class ServletInserirAdm extends HttpServlet{
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException{
-        req.getRequestDispatcher("view/InserirAdm.jsp").forward(req, resp);
+        req.setAttribute("popup-inserir", true);
+        req.getRequestDispatcher("ListarAdministradores").forward(req, resp);
     }
 
     @Override
@@ -28,10 +29,10 @@ public class ServletInserirAdm extends HttpServlet{
                 Administrador adm = new Administrador(email, hs.getHashSenha());
                 AdministradorDAO dao = new AdministradorDAO();
                 if(dao.inserirAdministrador(adm)){
-                    req.setAttribute("erro", "Empresa inserida com sucesso");
-                    req.getRequestDispatcher("view/InserirAdm.jsp").forward(req, resp);
+                    req.setAttribute("erro", "Administrador inserido com sucesso");
+                    req.getRequestDispatcher("ListarAdministradores").forward(req, resp);
                 }else{
-                    req.setAttribute("erro", "Erro ao inserir a empresa");
+                    req.setAttribute("erro", "Erro ao inserir adm");
                     req.getRequestDispatcher("view/InserirAdm.jsp").forward(req, resp);
                 }
             }else{

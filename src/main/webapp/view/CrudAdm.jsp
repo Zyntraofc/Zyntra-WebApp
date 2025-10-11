@@ -132,5 +132,24 @@
   </div>
 </div>
     <% } %>
+
+<% if (request.getAttribute("popup-inserir") != null) { %>
+<div class="tela-transparente"></div>
+<div class="popup">
+  <h1>Inserir Administrador</h1>
+
+  <form action="InserirAdm" method="post">
+    <label for="NovoEmail">Email</label>
+    <input type="email" name="email" id="NovoEmail" placeholder="Digite o email do administrador">
+
+    <label for="NovaSenha">Senha</label>
+    <input type="password" name="senha" id="NovaSenha" placeholder="Digite a senha dada ao administrador">
+  <div class="botoes">
+    <div class="cancelar"> <a href="ListarAdministradores">✖ Cancelar</a></div>
+    <button type="submit" class="confirmar">✔ Confirmar</button>
+  </div>
+  </form>
+</div>
+<% } %>
 </body>
 </html>
