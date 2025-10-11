@@ -12,7 +12,7 @@
       <img src="${pageContext.request.contextPath}/assets/logos/logo-azul.png" alt="logo-aion" class="logo-aion">
       <div class="brand-text">
         <p class="aion">aion</p>
-        <h4>Adm</h4>
+        <h4>Índice de Classificação</h4>
       </div>
     </div>
     <hr>
