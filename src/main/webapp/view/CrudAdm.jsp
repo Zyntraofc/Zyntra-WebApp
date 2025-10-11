@@ -4,6 +4,7 @@
 <head>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/crud.css">
   <title>Crud Adm - Área restrita</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pap4G5rY9O6..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 <aside>
@@ -160,7 +161,8 @@
     <form action="AlterarSenha" method="post">
       <input type="hidden" name="action" value="0">
       <input type="hidden" name="id" value="${administrador.getId()}">
-      <button type="submit" class="confirmar">✏️ Editar Senha</button>
+      <button type="submit" class="btn-editar">
+        <i class="fa fa-pencil" aria-hidden="true"></i> Editar Senha</button>
     </form>
   </div>
 

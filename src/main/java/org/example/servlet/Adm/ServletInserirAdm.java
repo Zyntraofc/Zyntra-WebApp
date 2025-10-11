@@ -38,7 +38,7 @@ public class ServletInserirAdm extends HttpServlet{
                         req.getRequestDispatcher("view/InserirAdm.jsp").forward(req, resp);
                     }
                 } else {
-                    req.setAttribute("erro", "Senha: mínimo 8 caracteres, com maiúscula, minúscula e símbolo.");
+                    req.setAttribute("erro", "Senha: mínimo 8 caracteres, com maiúscula, minúscula e símbolo especial.");
                     req.getRequestDispatcher("view/InserirAdm.jsp").forward(req, resp);
                 }
             }else{
