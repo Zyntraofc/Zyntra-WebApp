@@ -169,9 +169,7 @@
     <input type="text" id="telefone" name="telefone" value="${empresa.getTelefone()}">
 
     <div class="botoes">
-      <form action="ListarEmpresas" method="post">
-          <button type="submit" class="cancelar">✖ Cancelar</button>
-      </form>
+      <div class="cancelar"> <a href="ListarEmpresas">✖ Cancelar</a></div>
       <button type="submit" class="confirmar">✔ Confirmar</button>
     </div>
   </form>

@@ -146,9 +146,7 @@
         <input type="text" id="motivo" name="motivo" value="${motivo.getMotivo()}">
 
         <div class="botoes">
-            <form action="ListarMotivosFalta" method="post">
-                <button type="submit" class="cancelar">✖ Cancelar</button>
-            </form>
+            <div class="cancelar"> <a href="ListarMotivosFalta">✖ Cancelar</a></div>
             <button type="submit" class="confirmar">✔ Confirmar</button>
         </div>
     </form>
