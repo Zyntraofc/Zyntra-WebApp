@@ -93,7 +93,7 @@
       <tr>
         <td>${administrador.id}</td>
         <td>${administrador.email}</td>
-        <td>*****</td>
+        <td>${administrador.hashSenha}</td>
         <td>
           <div style="display: flex">
             <form action="AlterarAdm" method="post">
@@ -155,7 +155,15 @@
 <% if (request.getAttribute("popup-alterar") != null) { %>
 <div class="tela-transparente"></div>
 <div class="popup">
-  <h1>Editar Empresa</h1>
+  <div id="alterarSenha-container">
+    <h1>Editar Adm</h1>
+    <form action="AlterarSenha" method="post">
+      <input type="hidden" name="action" value="0">
+      <input type="hidden" name="id" value="${administrador.getId()}">
+      <button type="submit" class="confirmar">✏️ Editar Senha</button>
+    </form>
+  </div>
+
   <form action="AlterarAdm" method="post">
     <input type="hidden" name="action" value="1">
     <input type="hidden" name="id" value="${administrador.getId()}">
@@ -168,6 +176,26 @@
   </div>
   </form>
 </div>
+<% } %>
+
+<% if (request.getAttribute("popup-senha") != null){ %>
+  <div class="tela-transparente"></div>
+  <div class="popup">
+    <form action="AlterarSenha" method="post">
+      <input type="hidden" name="action" value="1">
+      <input type="hidden" name="id" value="${administrador.getId()}">
+
+      <label for="passwordAtual">Senha Atual</label>
+      <input type="password" id="passwordAtual" name="senhaAtual" required placeholder="Confirme aqui a senha atual">
+
+      <label for="passwordNova">Nova Senha</label>
+      <input type="password" id="passwordNova" name="senhaNova" required placeholder="Digite a nova senha">
+      <div class="botoes">
+        <div class="cancelar"> <a href="ListarAdministradores">✖ Cancelar</a></div>
+        <button type="submit" class="confirmar">✔ Confirmar</button>
+      </div>
+    </form>
+  </div>
 <% } %>
 </body>
 </html>

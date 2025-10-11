@@ -472,3 +472,7 @@ main .actions .filtros img {
 .status label:hover {
     background-color: rgba(59, 66, 255, 0.1);
 }
+#alterarSenha-container{
+    display: flex;
+    justify-content: space-between;
+}
