@@ -137,5 +137,24 @@
     </div>
 </div>
 <% } %>
+
+<% if (request.getAttribute("popup-inserir") != null) { %>
+<div class="tela-transparente"></div>
+<div class="popup">
+    <h1>Inserir tipo de empresa</h1>
+    <form action="InserirTipoEmpresa" method="post">
+        <label for="Novonome">Tipo de Empresa</label>
+        <input type="text" name="nome" id="Novonome" placeholder="Digite o tipo de empresa">
+
+        <label for="Novadescricao">Descrição</label>
+        <input type="text" name="descricao" id="Novadescricao" placeholder="Digite a descrição dessa empresa (opcional)">
+
+        <div class="botoes">
+            <div class="cancelar"> <a href="ListarTipoEmpresa">✖ Cancelar</a></div>
+            <button type="submit" class="confirmar">✔ Confirmar</button>
+        </div>
+    </form>
+</div>
+<% } %>
 </body>
 </html>

@@ -18,6 +18,15 @@ public class TipoEmpresa extends BaseModel{//Abertura da classe
         this.ultimaAtualizacao = ultimaAtualizacao;
     }
 
+    public TipoEmpresa(String nome, String descricao) {//Metodo padrão
+        this.nome = nome;
+        this.descricao = descricao;
+    }
+
+    public TipoEmpresa(String nome) {//Metodo padrão, porém sem descrição
+        this.nome = nome;
+    }
+
     public TipoEmpresa(String nome, char status, LocalDate ultimaAtualizacao, String descricao) {//Metodo caso a descrição seja devidamente definida
         this.nome = nome;
         this.status = status;
@@ -39,8 +48,7 @@ public class TipoEmpresa extends BaseModel{//Abertura da classe
     }
 
     public String getDescricao() {
-        return (this.descricao == null) ? "Tipo de empresa sem descrição" : this.descricao;
-    }
+        return this.descricao;}
 
     //Métodos setters
     public void setStatus(char status) {
