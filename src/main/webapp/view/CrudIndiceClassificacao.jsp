@@ -146,14 +146,19 @@
     <input type="hidden" name="action" value="1">
     <input type="hidden" name="id" value="${indiceClassificacao.getId()}">
 
-    <label for="nome">Nome</label>
-    <input type="text" name="nome" id="nome" value="${tipoEmpresa.getNome()}">
+    <label for="porcentagemMinima">Porcentagem Mínima</label>
+    <input type="number" name="porcentagemMinima" id="porcentagemMinima" value="${indiceClassificacao.getPorcentagemMinima()}">
 
-    <label for="descricao">Descrição</label>
-    <textarea name="descricao" id="descricao" rows="2" >${tipoEmpresa.getDescricao()}</textarea>
+    <label for="porcentagemMaxima">Porcentagem máxima</label>
+    <input type="number" name="porcentagemMaxima" id="porcentagemMaxima" value="${indiceClassificacao.getPorcentagemMaxima()}">
+
+    <label for="preocupacao">Preocupação</label>
+    <input type="text" name="preocupacao" id="preocupacao" value="${indiceClassificacao.getPreocupacao()}">
+    <label for="recomendacao">Recomendação</label>
+    <textarea rows="4" name="recomendacao" id="recomendacao">${indiceClassificacao.getRecomendacao()}</textarea>
 
     <div class="botoes">
-      <div class="cancelar"> <a href="ListarTipoEmpresa">✖ Cancelar</a></div>
+      <div class="cancelar"> <a href="ListarIndiceClassificacao">✖ Cancelar</a></div>
       <button type="submit" class="confirmar">✔ Confirmar</button>
     </div>
   </form>
@@ -173,7 +178,7 @@
     <label for="Novapreocupacao">Preocupação</label>
     <input type="text" name="preocupacao" id="Novapreocupacao" placeholder="Digite o o nível de preocupação">
     <label for="Novarecomendacao">Recomendação</label>
-    <textarea rows="2" name="recomendacao" id="Novarecomendacao" placeholder="Digite a recomendação para esse índice classificação"></textarea>
+    <textarea rows="4" name="recomendacao" id="Novarecomendacao" placeholder="Digite a recomendação para esse índice classificação"></textarea>
 
     <div class="botoes">
       <div class="cancelar"> <a href="ListarIndiceClassificacao">✖ Cancelar</a></div>
