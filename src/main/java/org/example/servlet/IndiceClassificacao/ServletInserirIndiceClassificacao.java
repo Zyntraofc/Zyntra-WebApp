@@ -30,7 +30,7 @@ public class ServletInserirIndiceClassificacao extends HttpServlet{
             double minExistente = i.getPorcentagemMinima();
             double maxExistente = i.getPorcentagemMaxima();
             // Verifica se há sobreposição de faixas
-            if (!(porcentagemMaxima < minExistente || porcentagemMinima > maxExistente)) {
+            if (!(porcentagemMaxima <= minExistente || porcentagemMinima >= maxExistente)) {
                 sobrepoe = true;
                 break;
             }
