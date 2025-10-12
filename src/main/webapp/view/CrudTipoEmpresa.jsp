@@ -170,7 +170,7 @@
         <input type="text" name="nome" id="Novonome" placeholder="Digite o tipo de empresa">
 
         <label for="Novadescricao">Descrição</label>
-        <input type="text" name="descricao" id="Novadescricao" placeholder="Digite a descrição dessa empresa (opcional)">
+        <textarea name="descricao" id="Novadescricao" rows="2" placeholder="Digite a descrição dessa empresa (opcional)"></textarea>
 
         <div class="botoes">
             <div class="cancelar"> <a href="ListarTipoEmpresa">✖ Cancelar</a></div>

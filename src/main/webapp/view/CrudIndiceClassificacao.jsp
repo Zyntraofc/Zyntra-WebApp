@@ -136,5 +136,51 @@
 </div>
 </div>
 <% } %>
+
+<% if (request.getAttribute("popup-alterar") != null) { %>
+<div class="tela-transparente"></div>
+<div class="popup">
+  <h1>Editar Índice de Classificação</h1>
+
+  <form action="AlterarIndiceClassificacao" method="post">
+    <input type="hidden" name="action" value="1">
+    <input type="hidden" name="id" value="${indiceClassificacao.getId()}">
+
+    <label for="nome">Nome</label>
+    <input type="text" name="nome" id="nome" value="${tipoEmpresa.getNome()}">
+
+    <label for="descricao">Descrição</label>
+    <textarea name="descricao" id="descricao" rows="2" >${tipoEmpresa.getDescricao()}</textarea>
+
+    <div class="botoes">
+      <div class="cancelar"> <a href="ListarTipoEmpresa">✖ Cancelar</a></div>
+      <button type="submit" class="confirmar">✔ Confirmar</button>
+    </div>
+  </form>
+</div>
+<% } %>
+
+<% if (request.getAttribute("popup-inserir") != null) { %>
+<div class="tela-transparente"></div>
+<div class="popup">
+  <h1>Inserir Índice de Classificação</h1>
+
+  <form action="InserirIndiceClassificacao" method="post">
+    <label for="Novaminima">Porcentagem mínima</label>
+    <input type="number" name="porcentagemMinima"  id="Novaminima" placeholder="Digite a porcentagem mínima (%)">
+    <label for="Novamaxima">Porcentagem máxima</label>
+    <input type="number" name="porcentagemMaxima" id="Novamaxima" placeholder="Digite a porcentagem máxima (%)">
+    <label for="Novapreocupacao">Preocupação</label>
+    <input type="text" name="preocupacao" id="Novapreocupacao" placeholder="Digite o o nível de preocupação">
+    <label for="Novarecomendacao">Recomendação</label>
+    <textarea rows="2" name="recomendacao" id="Novarecomendacao" placeholder="Digite a recomendação para esse índice classificação"></textarea>
+
+    <div class="botoes">
+      <div class="cancelar"> <a href="ListarIndiceClassificacao">✖ Cancelar</a></div>
+      <button type="submit" class="confirmar">✔ Confirmar</button>
+    </div>
+  </form>
+</div>
+<% } %>
 </body>
 </html>
