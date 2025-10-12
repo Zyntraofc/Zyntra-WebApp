@@ -14,14 +14,14 @@ public class ServletAlterarIndiceClassificacao extends HttpServlet{
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         int action = Integer.parseInt(req.getParameter("action"));
         int id = Integer.parseInt(req.getParameter("id"));
-        int resposta = 0;
 
         IndiceClassificacaoDAO indicedao = new IndiceClassificacaoDAO();
 
         if(action == 0){
             IndiceClassificacao indiceClassificacao = indicedao.listarIndiceClassificacaoPorId(id);
             req.setAttribute("indiceClassificacao", indiceClassificacao);
-            req.getRequestDispatcher("view/AlterarIndiceClassificacao.jsp").forward(req, resp);
+            req.setAttribute("popup-alterar", true);
+            req.getRequestDispatcher("ListarIndiceClassificacao").forward(req, resp);
         }else if(action == 1){
             IndiceClassificacao indiceClassificacao = indicedao.listarIndiceClassificacaoPorId(id);
             String preocupacao = req.getParameter("preocupacao");

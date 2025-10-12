@@ -11,6 +11,11 @@ import java.util.List;
 @WebServlet("/ListarIndiceClassificacao")
 public class ServletListarIndiceClassificacao extends HttpServlet{
     @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
+    }
+
+    @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         IndiceClassificacaoDAO indiceclassificacaodao = new IndiceClassificacaoDAO();
         List<IndiceClassificacao> indicesClassificacao = indiceclassificacaodao.listarIndicesClassificacao();
