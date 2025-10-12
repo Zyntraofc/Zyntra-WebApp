@@ -11,6 +11,9 @@ import java.util.List;
 
 @WebServlet("/ListarMotivosFalta")
 public class ServletListarMotivoFalta extends HttpServlet{
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
+    }
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException{
         MotivoFaltaDAO motivodao = new MotivoFaltaDAO();

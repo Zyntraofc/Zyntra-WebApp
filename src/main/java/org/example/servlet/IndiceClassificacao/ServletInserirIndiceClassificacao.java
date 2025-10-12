@@ -13,7 +13,8 @@ import org.example.model.IndiceClassificacao;
 public class ServletInserirIndiceClassificacao extends HttpServlet{
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-        req.getRequestDispatcher("view/InserirIndiceClassificacao.jsp").forward(req, resp);
+        req.setAttribute("popup-inserir", true);
+        req.getRequestDispatcher("ListarIndiceClassificacao").forward(req, resp);
     }
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
@@ -21,34 +22,31 @@ public class ServletInserirIndiceClassificacao extends HttpServlet{
         double porcentagemMinima = Double.parseDouble(req.getParameter("porcentagemMinima"));
         double porcentagemMaxima = Double.parseDouble(req.getParameter("porcentagemMaxima"));
         String recomendacao = req.getParameter("recomendacao");
-        boolean existenciaMinima = false;
-        boolean existenciaMaxima = false;
         IndiceClassificacaoDAO indicesdao = new IndiceClassificacaoDAO();
-        List<IndiceClassificacao> indicesClassificacao = indicesdao.listarIndicesClassificacao();
-        for(int i = 0; i < indicesClassificacao.size(); i++){
-            if(indicesClassificacao.get(i).getPorcentagemMinima() == porcentagemMinima){
-                existenciaMinima = true;
-            }
-            if(indicesClassificacao.get(i).getPorcentagemMaxima() == porcentagemMaxima){
-                existenciaMaxima = true;
+        List<IndiceClassificacao> indicesExistentes = indicesdao.listarIndicesClassificacao();
+
+        boolean sobrepoe = false;
+        for (IndiceClassificacao i : indicesExistentes) {
+            double minExistente = i.getPorcentagemMinima();
+            double maxExistente = i.getPorcentagemMaxima();
+            // Verifica se há sobreposição de faixas
+            if (!(porcentagemMaxima <= minExistente || porcentagemMinima >= maxExistente)) {
+                sobrepoe = true;
+                break;
             }
         }
+        if (sobrepoe) {
+            req.setAttribute("erro", "O intervalo informado sobrepõe outro já existente!");
+            req.getRequestDispatcher("view/InserirIndiceClassificacao.jsp").forward(req, resp);
+        } else if (porcentagemMinima >= porcentagemMaxima) {
+            req.setAttribute("erro", "A porcentagem mínima deve ser menor que a máxima!");
+            req.getRequestDispatcher("view/InserirIndiceClassificacao.jsp").forward(req, resp);
+        } else {
+            IndiceClassificacao novo = new IndiceClassificacao(recomendacao, preocupacao, porcentagemMinima, porcentagemMaxima);
+            if (indicesdao.inserirIndiceClassificacao(novo))req.setAttribute("erro", "Índice de classificação inserido com sucesso!");
+            else req.setAttribute("erro", "Erro ao inserir índice");
 
-        if(!existenciaMinima){
-            if(!existenciaMaxima){
-                IndiceClassificacao indiceClassificacao = new IndiceClassificacao(recomendacao, preocupacao, porcentagemMinima, porcentagemMaxima);
-                indicesdao.inserirIndiceClassificacao(indiceClassificacao);
-                req.setAttribute("erro", "Indice classificação inserido com sucesso!");
-                req.getRequestDispatcher("ListarIndiceClassificacao").forward(req, resp);
-            }else{
-                req.setAttribute("erro", "Porcentagem máxima já existe");
-                req.getRequestDispatcher("InserirIndiceClassificacao").forward(req, resp);
-            }
-        }else{
-            req.setAttribute("erro", "Porcentagem máxima inserida com sucesso");
-            req.getRequestDispatcher("InserirIndiceClassificacao").forward(req, resp);
+            req.getRequestDispatcher("ListarIndiceClassificacao").forward(req, resp);
         }
-
-
     }
 }

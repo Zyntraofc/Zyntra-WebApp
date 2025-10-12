@@ -17,49 +17,20 @@ import org.example.regex.*;
 public class ServletInserirTipoEmpresa extends HttpServlet{
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException{
-        req.getRequestDispatcher("view/InserirTipoEmpresa.jsp").forward(req, resp);
+        req.setAttribute("popup-inserir", true);
+        req.getRequestDispatcher("ListarTipoEmpresa").forward(req, resp);
     }
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String nome = req.getParameter("nome");
-
-        char status = "Ativo".equals(req.getParameter("status")) ? 'a' : 'i';
-
-        String dataParam = req.getParameter("ultima_atualizacao");
-        LocalDate ultimaAtualizacao = null;
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-
-
-
-        if (dataParam == null || dataParam.trim().isEmpty()) {
-            req.setAttribute("erro", "Data é obrigatória.");
-            req.getRequestDispatcher("/view/InserirTipoEmpresa.jsp").forward(req, resp);
-            return;
-        }
-
-
-        try {
-            ultimaAtualizacao = LocalDate.parse(dataParam, formatter);
-        } catch (DateTimeParseException e) {
-
-            try {
-                ultimaAtualizacao = LocalDate.parse(dataParam, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-            } catch (DateTimeParseException ex) {
-                req.setAttribute("erro", "Formato de data inválido. Use yyyy-MM-dd (input[type=date]) ou dd/MM/yyyy.");
-                req.getRequestDispatcher("/view/InserirTipoEmpresa.jsp").forward(req, resp);
-                return;
-            }
-        }
-
         String descricao = req.getParameter("descricao");
         TipoEmpresa tipoEmpresaNovo;
         if (descricao == null || descricao.trim().isEmpty()) {
-            tipoEmpresaNovo = new TipoEmpresa(nome, status, ultimaAtualizacao);
+            tipoEmpresaNovo = new TipoEmpresa(nome);
         } else {
-            tipoEmpresaNovo = new TipoEmpresa(nome, status, ultimaAtualizacao, descricao);
+            tipoEmpresaNovo = new TipoEmpresa(nome, descricao);
         }
-
         TipoEmpresaDAO tipoempresadao = new TipoEmpresaDAO();
         if (tipoempresadao.inserirTipoEmpresa(tipoEmpresaNovo)) {
             req.setAttribute("erro", "Tipo empresa inserido com sucesso!");

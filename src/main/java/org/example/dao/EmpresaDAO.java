@@ -13,13 +13,9 @@ import java.util.ArrayList;
 
 public class EmpresaDAO {
 
-    public boolean inserirEmpresa(Empresa empresa){
-        //Instancia da classe de conexão com o banco de dados
-        Conexao conexao = new Conexao();
+    public boolean inserirEmpresa(Connection conn, Empresa empresa){
         //Comando SQL para inserir uma nova empresa na tabela
         String comandoInserir = "insert into empresa (id_tipo_empresa, id_indice_classificacao, id_status_aprovacao, nome, cnpj, email, telefone) values (?,?,?,?,?,?,?)";
-        //Estabelece conexão com o banco de dados
-        Connection conn = conexao.conectar();
         //Variável para controlar o número de linhas afetadas pela operação
         int linhasAfetadas = 0;
         //Prepara o statement SQL com capacidade de retornar chaves geradas automaticamente
@@ -56,9 +52,6 @@ public class EmpresaDAO {
             sqle.printStackTrace();
             //Retorna falso indicando falha na operação
             return false;
-        }finally{
-            //Desconecta do banco de dados antes de retornar
-            conexao.desconectar(conn);
         }
     }
 
@@ -144,6 +137,95 @@ public class EmpresaDAO {
             sqle.printStackTrace();
             //Retorna null em caso de erro
             return null;
+        }finally{
+            //Desconecta do banco de dados antes de retornar
+            conexao.desconectar(conn);
+        }
+    }
+
+    public Empresa listarEmpresaPorIdStatusAprovacao(int idStatusAprovacao){
+        //Instancia da classe de conexão com o banco de dados
+        Conexao conexao = new Conexao();
+        //Comando SQL para buscar empresa por CNPJ
+        String comandoListar = "select * from empresa where id_status_aprovacao = ?";
+        //Estabelece conexão com o banco de dados
+        Connection conn = conexao.conectar();
+        //Prepara o statement SQL para consulta
+        try(PreparedStatement pstmt = conn.prepareStatement(comandoListar)){
+            //Atribui o CNPJ ao parâmetro da consulta
+            pstmt.setInt(1, idStatusAprovacao);
+
+            //Executa a consulta e obtém o resultado
+            ResultSet rs = pstmt.executeQuery();
+            //Verifica se há resultados na consulta
+            if(rs.next()){
+                //Cria novo objeto Empresa com dados do banco
+                Empresa empresa = new Empresa(
+                        rs.getInt("id_tipo_empresa"),
+                        rs.getInt("id_indice_classificacao"),
+                        rs.getInt("id_status_aprovacao"),
+                        rs.getString("nome"),
+                        rs.getString("cnpj"),
+                        rs.getString("email"),
+                        rs.getString("telefone")
+                );
+                //Define o ID da empresa a partir do banco de dados
+                empresa.setId(rs.getInt("id_empresa"));
+                //Retorna a empresa encontrada
+                return empresa;
+            }
+            //Retorna null se nenhuma empresa for encontrada
+            return null;
+        }catch(SQLException sqle){
+            //Imprime stack trace em caso de exceção SQL
+            sqle.printStackTrace();
+            //Retorna null em caso de erro
+            return null;
+        }finally{
+            //Desconecta do banco de dados antes de retornar
+            conexao.desconectar(conn);
+        }
+    }
+
+    public List<Empresa> listarEmpresaPorIdTipoEmpresa(int idTipoEmpresa){
+        //Instancia da classe de conexão com o banco de dados
+        Conexao conexao = new Conexao();
+        //Comando SQL para buscar empresa por CNPJ
+        String comandoListar = "select * from empresa where id_tipo_empresa = ?";
+        //Estabelece conexão com o banco de dados
+        Connection conn = conexao.conectar();
+        //Cria lista vazia para armazenar empresas
+        List<Empresa> empresas = new ArrayList<>();
+        //Prepara o statement SQL para consulta
+        try(PreparedStatement pstmt = conn.prepareStatement(comandoListar)){
+            //Atribui o CNPJ ao parâmetro da consulta
+            pstmt.setInt(1, idTipoEmpresa);
+            //Executa a consulta e obtém o resultado
+            ResultSet rs = pstmt.executeQuery();
+            //Verifica se há resultados na consulta
+            while(rs.next()){
+                //Cria novo objeto Empresa com dados do banco
+                    Empresa empresa = new Empresa(
+                            rs.getInt("id_tipo_empresa"),
+                            rs.getInt("id_indice_classificacao"),
+                            rs.getInt("id_status_aprovacao"),
+                            rs.getString("nome"),
+                            rs.getString("cnpj"),
+                            rs.getString("email"),
+                            rs.getString("telefone")
+                    );
+                    //Define o ID da empresa a partir do banco de dados
+                    empresa.setId(rs.getInt("id_empresa"));
+                    //Adiciona empresa à lista
+                    empresas.add(empresa);
+            }
+            //Retorna lista de empresas
+            return empresas;
+        }catch(SQLException sqle){
+            //Imprime stack trace em caso de exceção SQL
+            sqle.printStackTrace();
+            //Retorna empresas de forma vazia
+            return empresas;
         }finally{
             //Desconecta do banco de dados antes de retornar
             conexao.desconectar(conn);

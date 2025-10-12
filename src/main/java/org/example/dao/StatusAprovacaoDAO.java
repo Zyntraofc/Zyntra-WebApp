@@ -10,10 +10,8 @@ import org.example.model.StatusAprovacao;
 
 public class StatusAprovacaoDAO {
 
-    public boolean inserirStatusAprovacao(StatusAprovacao statusAprovacao){
-        Conexao conexao = new Conexao();//Instancia da conexão
+    public int inserirStatusAprovacao(Connection conn, StatusAprovacao statusAprovacao){
         String comandoInserir = "insert into status_aprovacao (motivo_rejeicao, status, data_solicitacao, data_aprovacao) values (?,?,?,?)";//Comando SQL para inserir status de aprovação
-        Connection conn = conexao.conectar();//Conecta ao banco de dados
         int linhasAfetadas = 0;//Variável para verificar se a inserção foi bem-sucedida
 
         try(PreparedStatement pstmt = conn.prepareStatement(comandoInserir, Statement.RETURN_GENERATED_KEYS)){//Prepara o comando SQL com retorno de chaves geradas
@@ -42,17 +40,14 @@ public class StatusAprovacaoDAO {
             if(linhasAfetadas > 0){//Verifica se a inserção foi bem-sucedida
                 try(ResultSet rs = pstmt.getGeneratedKeys()){//Obtém as chaves geradas
                     if(rs.next()){
-                        statusAprovacao.setId(rs.getInt(1)); // Define o ID gerado no objeto
+                        return rs.getInt(1); // retorna o ID gerado no objeto
                     }
                 }
-                return true;//Retorna sucesso
             }
-            return false;//Retorna falha
+            return 0;
         } catch(SQLException sqle){
             sqle.printStackTrace();//Imprime erro
-            return false;//Retorna falha
-        } finally{
-            conexao.desconectar(conn);//Desconecta do banco
+            return -1;//Retorna falha
         }
     }
 

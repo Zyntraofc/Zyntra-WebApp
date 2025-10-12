@@ -12,15 +12,18 @@ public class TipoEmpresaDAO {
     // Metodo para inserir um tipo de empresa no banco de dados
     public boolean inserirTipoEmpresa(TipoEmpresa tipoEmpresa){
         Conexao conexao = new Conexao();
-        String comandoInserir = "insert into tipo_empresa (nome, status, ultima_atualizacao, descricao) values (?,?,?,?)";
+        String comandoInserir = "insert into tipo_empresa (nome, descricao) values (?,?)";
         Connection conn = conexao.conectar();
         int linhasAfetadas = 0;
 
         try(PreparedStatement pstmt = conn.prepareStatement(comandoInserir, Statement.RETURN_GENERATED_KEYS)){
+            if(tipoEmpresa.getDescricao() != null){
+                pstmt.setString(2, tipoEmpresa.getDescricao());
+            } else {
+                pstmt.setNull(2, Types.VARCHAR);//Define como NULL no banco
+            }
             pstmt.setString(1,tipoEmpresa.getNome());
-            pstmt.setString(2, String.valueOf(tipoEmpresa.getStatus()));
-            pstmt.setDate(3, Date.valueOf(tipoEmpresa.getUltimaAtualizacao()));
-            pstmt.setString(4, tipoEmpresa.getDescricao());
+
 
             linhasAfetadas = pstmt.executeUpdate();
 

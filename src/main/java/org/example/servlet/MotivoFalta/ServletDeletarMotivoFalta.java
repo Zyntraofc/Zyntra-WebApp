@@ -13,23 +13,20 @@ public class ServletDeletarMotivoFalta extends HttpServlet{
         int action = Integer.parseInt(req.getParameter("action"));
         int id = Integer.parseInt(req.getParameter("id"));
         MotivoFaltaDAO motivodao = new MotivoFaltaDAO();
-
         if(action == 0){
             MotivoFalta motivo = motivodao.listarMotivoFaltaPorID(id);
             req.setAttribute("motivo", motivo);
-            req.getRequestDispatcher("view/DeletarMotivoFalta.jsp").forward(req, resp);
+            req.setAttribute("popup-deletar", true);
+            req.getRequestDispatcher("ListarMotivosFalta").forward(req, resp);
         }else if(action == 1){
             motivodao.deletarMotivoFalta(id);
-
             java.util.List<MotivoFalta> motivos = motivodao.listarMotivosFalta();
             req.setAttribute("motivos", motivos);
-
             req.setAttribute("erro", "Motivo deletado com sucesso");
             req.getRequestDispatcher("view/CrudMotivoFalta.jsp").forward(req, resp);
         }else if(action == 2) {
             java.util.List<MotivoFalta> motivos = motivodao.listarMotivosFalta();
             req.setAttribute("motivos", motivos);
-
             req.getRequestDispatcher("view/CrudMotivoFalta.jsp").forward(req, resp);
         }
     }

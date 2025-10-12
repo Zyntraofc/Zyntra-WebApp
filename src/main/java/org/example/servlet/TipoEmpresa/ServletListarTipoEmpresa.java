@@ -14,6 +14,11 @@ import org.example.regex.*;
 @WebServlet("/ListarTipoEmpresa")
 public class ServletListarTipoEmpresa extends HttpServlet{
     @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
+    }
+
+    @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         TipoEmpresaDAO tipoempresadao = new TipoEmpresaDAO();
         List<TipoEmpresa> tiposEmpresa = tipoempresadao.listarTiposEmpresa();

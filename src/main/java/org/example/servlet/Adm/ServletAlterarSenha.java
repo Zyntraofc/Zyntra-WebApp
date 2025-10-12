@@ -18,7 +18,8 @@ public class ServletAlterarSenha extends HttpServlet {
         if (action == 0){
             Administrador adm = admdao.listarAdministradorPorId(id);
             req.setAttribute("administrador", adm);
-            req.getRequestDispatcher("view/AlterarSenha.jsp").forward(req, resp);
+            req.setAttribute("popup-senha", true);
+            req.getRequestDispatcher("ListarAdministradores").forward(req, resp);
         }
         else if (action == 1) {
             String senhaAtual = req.getParameter("senhaAtual");
@@ -43,7 +44,8 @@ public class ServletAlterarSenha extends HttpServlet {
             }
             Administrador administrador = admdao.listarAdministradorPorId(id);
             req.setAttribute("administrador", administrador);
-            req.getRequestDispatcher("view/AlterarAdm.jsp").forward(req, resp);
+            req.setAttribute("popup-alterar", true);
+            req.getRequestDispatcher("ListarAdministradores").forward(req, resp);
         }
     }
 }

@@ -11,12 +11,12 @@ public class ServletAlterarMotivoFalta extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         int action = Integer.parseInt(req.getParameter("action"));
         int id = Integer.parseInt(req.getParameter("id"));
-        int resposta = 0;
         MotivoFaltaDAO motivodao = new MotivoFaltaDAO();
         if (action == 0){
             MotivoFalta motivo = motivodao.listarMotivoFaltaPorID(id);
             req.setAttribute("motivo", motivo);
-            req.getRequestDispatcher("view/AlterarMotivoFalta.jsp").forward(req, resp);
+            req.setAttribute("popup-alterar", true);
+            req.getRequestDispatcher("ListarMotivosFalta").forward(req, resp);
         }
         else if (action == 1) {
             String motivo = req.getParameter("motivo");
