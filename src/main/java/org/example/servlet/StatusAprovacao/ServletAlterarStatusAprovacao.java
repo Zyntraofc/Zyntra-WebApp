@@ -34,44 +34,44 @@ public class ServletAlterarStatusAprovacao extends HttpServlet {
             char statusAtual = statusID.getStatus();
             char novoStatus = status.charAt(0);
 
-//            // atualizações
-//            if (statusAtual != novoStatus) {
-//                boolean sucesso = statusdao.alterarStatusStatusAprovacao(id, novoStatus);
-//                if (sucesso){
-//                    EmpresaDAO empresadao = new EmpresaDAO();
-//                    Empresa empresa = empresadao.listarEmpresaPorIdStatusAprovacao(id);
-//                    int idTipoEmpresa = empresa.getIdTipoEmpresa();
-//                    TipoEmpresaDAO tipoempresadao = new TipoEmpresaDAO();
-//                    // Se o novo status for ativo:
-//                    if (novoStatus == 'a') {
-//                        // Verificar se já existe alguma empresa ativa com esse tipo de empresa
-////                        ...
-//
-//                        if (!existeAtiva) {
-//                            tipoempresadao.alterarStatusTipoEmpresa(idTipoEmpresa, "a");
-//                        }
-//                    }
-//
-//                    // Se o status anterior era ativo e o novo não é:
-//                    if (statusAtual == 'a') {
-//                        TipoEmpresaDAO tipoempresadao = new TipoEmpresaDAO();
-//                        // Verificar se ainda há outras empresas ativas desse tipo
-////                        ...
-//
-//                        // Se não houver, tornar o tipo de empresa inativo
-//                        if (!existeOutraAtiva) {
-//                            tipoempresadao.alterarStatusTipoEmpresa(idTipoEmpresa, 'i');
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//                if (statusdao.alterarStatusStatusAprovacao(id, status.charAt(0))) req.setAttribute("erro", "Atualizado com sucesso");
-//                else req.setAttribute("erro", "Erro ao atualizar status!");}
-//            if (!statusID.getMotivoRejeicao().equals(motivoRejeicao) && status.charAt(0) == 'r') {
-//                if (statusdao.alterarMotivoStatusAprovacao(id, motivoRejeicao)) req.setAttribute("erro", "Atualizado com sucesso");
-//                else req.setAttribute("erro", "Erro ao atualizar motivo!");}
-//            }
+            // Atualização de status de aprovação
+            if (statusAtual != novoStatus) {
+                boolean sucesso = statusdao.alterarStatusStatusAprovacao(id, novoStatus);
+                if (sucesso){
+                    EmpresaDAO empresadao = new EmpresaDAO();
+                    Empresa empresa = empresadao.listarEmpresaPorIdStatusAprovacao(id);
+                    int idTipoEmpresa = empresa.getIdTipoEmpresa();
+                    TipoEmpresaDAO tipoempresadao = new TipoEmpresaDAO();
+                    List<Empresa> empresas = empresadao.listarEmpresaPorIdTipoEmpresa(idTipoEmpresa);
+                    // Se o novo status for ativo:
+                    if (novoStatus == 'a') {
+                        // Verificar se já existe alguma empresa ativa com esse tipo de empresa
+                         int qntd = 0;
+                        for (Empresa e : empresas){
+                            if (statusdao.listarStatusAprovacaoPorID(e.getIdStatusAprovacao()).getStatus()=='a') qntd+=1;
+                        } if (qntd==1) {
+                            tipoempresadao.alterarStatusTipoEmpresa(idTipoEmpresa, 'a');
+                        }
+                    }
+                    // Se o status anterior era ativo e o novo não é:
+                    if (statusAtual == 'a') {
+                        // Verificar se ainda há outras empresas ativas desse tipo
+                        boolean inativo = true;
+                        for (Empresa e : empresas){
+                            if (statusdao.listarStatusAprovacaoPorID(e.getIdStatusAprovacao()).getStatus()=='a') inativo=false;
+                        }
+                        // Se não houver, tornar o tipo de empresa inativo
+                        if (inativo) {
+                            tipoempresadao.alterarStatusTipoEmpresa(idTipoEmpresa, 'i');
+                        }
+                    } req.setAttribute("erro", "Atualizado com sucesso!");
+                } else req.setAttribute("erro", "Erro ao atualizar status!");
+            }
+
+            if (!statusID.getMotivoRejeicao().equals(motivoRejeicao) && status.charAt(0) == 'r') {
+                if (statusdao.alterarMotivoStatusAprovacao(id, motivoRejeicao)) req.setAttribute("erro", "Atualizado com sucesso");
+                else req.setAttribute("erro", "Erro ao atualizar motivo!");}
+            }
 
             java.util.List<StatusAprovacao> statuses = statusdao.listarTodosStatusAprovacao();
             req.setAttribute("statuses", statuses);
