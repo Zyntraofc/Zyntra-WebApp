@@ -94,7 +94,7 @@
         <tr>
             <td>${tipoEmpresa.nome}</td>
             <td>${tipoEmpresa.id}</td>
-            <td>${tipoEmpresa == 'i' ?"Inativo": "Ativo"}</td>
+            <td>${String.valueOf(tipoEmpresa.status).equals("i") ?"Inativo": "Ativo"}</td>
             <td>${tipoEmpresa.ultimaAtualizacao}</td>
             <td>${tipoEmpresa.descricao}</td>
             <td>

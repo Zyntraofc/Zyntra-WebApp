@@ -9,6 +9,8 @@ import org.example.dao.EmpresaDAO;
 import org.example.dao.TipoEmpresaDAO;
 import org.example.model.StatusAprovacao;
 import org.example.model.Empresa;
+
+import java.time.LocalDate;
 import java.util.List;
 
 @WebServlet("/AlterarStatusAprovacao")
@@ -51,6 +53,7 @@ public class ServletAlterarStatusAprovacao extends HttpServlet {
                             if (statusdao.listarStatusAprovacaoPorID(e.getIdStatusAprovacao()).getStatus()=='a') qntd+=1;
                         } if (qntd==1) {
                             tipoempresadao.alterarStatusTipoEmpresa(idTipoEmpresa, 'a');
+                            tipoempresadao.alterarUltimaAtualizacaoTipoEmpresa(idTipoEmpresa, LocalDate.now());
                         }
                     }
                     // Se o status anterior era ativo e o novo não é:
@@ -63,6 +66,7 @@ public class ServletAlterarStatusAprovacao extends HttpServlet {
                         // Se não houver, tornar o tipo de empresa inativo
                         if (inativo) {
                             tipoempresadao.alterarStatusTipoEmpresa(idTipoEmpresa, 'i');
+                            tipoempresadao.alterarUltimaAtualizacaoTipoEmpresa(idTipoEmpresa, LocalDate.now());
                         }
                     } req.setAttribute("erro", "Atualizado com sucesso!");
                 } else req.setAttribute("erro", "Erro ao atualizar status!");

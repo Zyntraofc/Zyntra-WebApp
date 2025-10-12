@@ -153,7 +153,7 @@
 
 
         <label for="motivoRejeicao">Motivo de rejeição</label>
-        <textarea name="motivoRejeicao" id="motivoRejeicao" rows="4">"${alterarStatus.getMotivoRejeicao()}"</textarea>
+        <textarea name="motivoRejeicao" id="motivoRejeicao" rows="4">${alterarStatus.getMotivoRejeicao()}</textarea>
 
         <div class="status">
         <input type="radio" name="status" value="a" id="ativo" ${String.valueOf(alterarStatus.status).equals("a") ? 'checked' : ''}>
