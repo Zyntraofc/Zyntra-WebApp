@@ -29,16 +29,13 @@ public class ConexaoManager{
 
 
 
-    public static void commitAndClose(){
+    public static void commit(){
         Connection conn = threadConexao.get();
-        Conexao conexao = new Conexao();
         if(conn != null){
             try{
                 conn.commit();
             }catch(SQLException sqle){
                 throw new FailedCommitException("Erro ao comitar comando no banco: " + sqle.getMessage(), sqle);
-            }finally{
-                desconectar();
             }
         }
     }
@@ -46,16 +43,13 @@ public class ConexaoManager{
 
 
 
-    public static void rollbackAndClose(){
+    public static void rollback(){
         Connection conn = threadConexao.get();
-        Conexao conexao = new Conexao();
         if(conn != null){
             try{
                 conn.rollback();
             }catch(SQLException sqle){
                 throw new RollbackException("Erro no rollback: "+sqle.getMessage(), sqle);
-            }finally{
-                desconectar();
             }
         }
     }
@@ -63,7 +57,7 @@ public class ConexaoManager{
 
 
 
-    private static void desconectar(){
+    public static void desconectar(){
         Connection conn = threadConexao.get();
         Conexao conexao = new Conexao();
         try{
