@@ -1,7 +1,7 @@
 package org.example.dao;
 
 //Importações
-import org.example.conexao.Conexao;
+import org.example.conexao.ConexaoManager;
 import org.example.model.Empresa;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,7 +13,8 @@ import java.util.ArrayList;
 
 public class EmpresaDAO {
 
-    public boolean inserirEmpresa(Connection conn, Empresa empresa){
+    public boolean inserirEmpresa(Empresa empresa){
+        Connection conn = ConexaoManager.conectar();
         //Comando SQL para inserir uma nova empresa na tabela
         String comandoInserir = "insert into empresa (id_tipo_empresa, id_indice_classificacao, id_status_aprovacao, nome, cnpj, email, telefone) values (?,?,?,?,?,?,?)";
         //Variável para controlar o número de linhas afetadas pela operação
@@ -42,12 +43,15 @@ public class EmpresaDAO {
                         empresa.setId(rs.getInt(1));
                     }
                 }
+                ConexaoManager.commitAndClose();
                 //Retorna verdadeiro indicando sucesso na inserção
                 return true;
             }
+            ConexaoManager.rollbackAndClose();
             //Retorna falso indicando falha na inserção
             return false;
         }catch(SQLException sqle){
+            ConexaoManager.rollbackAndClose();
             //Imprime stack trace em caso de exceção SQL
             sqle.printStackTrace();
             //Retorna falso indicando falha na operação
@@ -56,12 +60,9 @@ public class EmpresaDAO {
     }
 
     public Empresa listarEmpresaPorId(int id){
-        //Instancia da classe de conexão com o banco de dados
-        Conexao conexao = new Conexao();
         //Comando SQL para buscar empresa por ID
         String comandoListar = "select * from empresa where id_empresa = ?";
-        //Estabelece conexão com o banco de dados
-        Connection conn = conexao.conectar();
+        Connection conn = ConexaoManager.conectar();
         //Prepara o statement SQL para consulta
         try(PreparedStatement pstmt = conn.prepareStatement(comandoListar)){
             //Atribui o ID ao parâmetro da consulta
@@ -83,76 +84,30 @@ public class EmpresaDAO {
                 );
                 //Define o ID da empresa a partir do banco de dados
                 empresa.setId(rs.getInt("id_empresa"));
+                ConexaoManager.commitAndClose();
                 //Retorna a empresa encontrada
                 return empresa;
             }
+            ConexaoManager.commitAndClose();
             //Retorna null se nenhuma empresa for encontrada
             return null;
         }catch(SQLException sqle){
+            ConexaoManager.rollbackAndClose();
             //Imprime stack trace em caso de exceção SQL
             sqle.printStackTrace();
             //Retorna null em caso de erro
             return null;
-        }finally{
-            //Desconecta do banco de dados antes de retornar
-            conexao.desconectar(conn);
         }
     }
 
-    public Empresa listarEmpresaPorCnpj(String cnpj){
-        //Instancia da classe de conexão com o banco de dados
-        Conexao conexao = new Conexao();
-        //Comando SQL para buscar empresa por CNPJ
-        String comandoListar = "select * from empresa where cnpj = ?";
-        //Estabelece conexão com o banco de dados
-        Connection conn = conexao.conectar();
-        //Prepara o statement SQL para consulta
-        try(PreparedStatement pstmt = conn.prepareStatement(comandoListar)){
-            //Atribui o CNPJ ao parâmetro da consulta
-            pstmt.setString(1, cnpj);
-
-            //Executa a consulta e obtém o resultado
-            ResultSet rs = pstmt.executeQuery();
-            //Verifica se há resultados na consulta
-            if(rs.next()){
-                //Cria novo objeto Empresa com dados do banco
-                Empresa empresa = new Empresa(
-                        rs.getInt("id_tipo_empresa"),
-                        rs.getInt("id_indice_classificacao"),
-                        rs.getInt("id_status_aprovacao"),
-                        rs.getString("nome"),
-                        rs.getString("cnpj"),
-                        rs.getString("email"),
-                        rs.getString("telefone")
-                );
-                //Define o ID da empresa a partir do banco de dados
-                empresa.setId(rs.getInt("id_empresa"));
-                //Retorna a empresa encontrada
-                return empresa;
-            }
-            //Retorna null se nenhuma empresa for encontrada
-            return null;
-        }catch(SQLException sqle){
-            //Imprime stack trace em caso de exceção SQL
-            sqle.printStackTrace();
-            //Retorna null em caso de erro
-            return null;
-        }finally{
-            //Desconecta do banco de dados antes de retornar
-            conexao.desconectar(conn);
-        }
-    }
-
+    //Metodo de listagem de empresas por id de status aprovação
     public Empresa listarEmpresaPorIdStatusAprovacao(int idStatusAprovacao){
-        //Instancia da classe de conexão com o banco de dados
-        Conexao conexao = new Conexao();
-        //Comando SQL para buscar empresa por CNPJ
+        //Comando SQL para buscar empresa por status de aprovação
         String comandoListar = "select * from empresa where id_status_aprovacao = ?";
-        //Estabelece conexão com o banco de dados
-        Connection conn = conexao.conectar();
+        Connection conn = ConexaoManager.conectar();
         //Prepara o statement SQL para consulta
         try(PreparedStatement pstmt = conn.prepareStatement(comandoListar)){
-            //Atribui o CNPJ ao parâmetro da consulta
+            //Atribui o status de aprovação ao parâmetro da consulta
             pstmt.setInt(1, idStatusAprovacao);
 
             //Executa a consulta e obtém o resultado
@@ -171,74 +126,67 @@ public class EmpresaDAO {
                 );
                 //Define o ID da empresa a partir do banco de dados
                 empresa.setId(rs.getInt("id_empresa"));
+                ConexaoManager.commitAndClose();
                 //Retorna a empresa encontrada
                 return empresa;
             }
+            ConexaoManager.commitAndClose();
             //Retorna null se nenhuma empresa for encontrada
             return null;
         }catch(SQLException sqle){
+            ConexaoManager.rollbackAndClose();
             //Imprime stack trace em caso de exceção SQL
             sqle.printStackTrace();
             //Retorna null em caso de erro
             return null;
-        }finally{
-            //Desconecta do banco de dados antes de retornar
-            conexao.desconectar(conn);
         }
     }
 
     public List<Empresa> listarEmpresaPorIdTipoEmpresa(int idTipoEmpresa){
-        //Instancia da classe de conexão com o banco de dados
-        Conexao conexao = new Conexao();
-        //Comando SQL para buscar empresa por CNPJ
+        Connection conn = ConexaoManager.conectar();
+        //Comando SQL para buscar empresas por tipo de empresa
         String comandoListar = "select * from empresa where id_tipo_empresa = ?";
-        //Estabelece conexão com o banco de dados
-        Connection conn = conexao.conectar();
         //Cria lista vazia para armazenar empresas
         List<Empresa> empresas = new ArrayList<>();
         //Prepara o statement SQL para consulta
         try(PreparedStatement pstmt = conn.prepareStatement(comandoListar)){
-            //Atribui o CNPJ ao parâmetro da consulta
+            //Atribui o tipo de empresa ao parâmetro da consulta
             pstmt.setInt(1, idTipoEmpresa);
             //Executa a consulta e obtém o resultado
             ResultSet rs = pstmt.executeQuery();
             //Verifica se há resultados na consulta
             while(rs.next()){
                 //Cria novo objeto Empresa com dados do banco
-                    Empresa empresa = new Empresa(
-                            rs.getInt("id_tipo_empresa"),
-                            rs.getInt("id_indice_classificacao"),
-                            rs.getInt("id_status_aprovacao"),
-                            rs.getString("nome"),
-                            rs.getString("cnpj"),
-                            rs.getString("email"),
-                            rs.getString("telefone")
-                    );
-                    //Define o ID da empresa a partir do banco de dados
-                    empresa.setId(rs.getInt("id_empresa"));
-                    //Adiciona empresa à lista
-                    empresas.add(empresa);
+                Empresa empresa = new Empresa(
+                        rs.getInt("id_tipo_empresa"),
+                        rs.getInt("id_indice_classificacao"),
+                        rs.getInt("id_status_aprovacao"),
+                        rs.getString("nome"),
+                        rs.getString("cnpj"),
+                        rs.getString("email"),
+                        rs.getString("telefone")
+                );
+                //Define o ID da empresa a partir do banco de dados
+                empresa.setId(rs.getInt("id_empresa"));
+                //Adiciona empresa à lista
+                empresas.add(empresa);
             }
+            ConexaoManager.commitAndClose();
             //Retorna lista de empresas
             return empresas;
         }catch(SQLException sqle){
+            ConexaoManager.rollbackAndClose();
             //Imprime stack trace em caso de exceção SQL
             sqle.printStackTrace();
-            //Retorna empresas de forma vazia
+            //Retorna lista vazia em caso de erro
             return empresas;
-        }finally{
-            //Desconecta do banco de dados antes de retornar
-            conexao.desconectar(conn);
         }
     }
 
     public List<Empresa> listarEmpresas(){
-        //Instancia da classe de conexão com o banco de dados
-        Conexao conexao = new Conexao();
+        Connection conn = ConexaoManager.conectar();
         //Comando SQL para listar todas as empresas
         String comandoListar = "select * from empresa";
-        //Estabelece conexão com o banco de dados
-        Connection conn = conexao.conectar();
         //Cria lista vazia para armazenar empresas
         List<Empresa> empresas = new ArrayList<>();
         //Cria statement para execução da consulta
@@ -262,270 +210,159 @@ public class EmpresaDAO {
                 //Adiciona empresa à lista
                 empresas.add(empresa);
             }
+            ConexaoManager.commitAndClose();
             //Retorna lista de empresas
             return empresas;
         }catch(SQLException sqle){
+            ConexaoManager.rollbackAndClose();
             //Imprime stack trace em caso de exceção SQL
             sqle.printStackTrace();
             //Retorna lista vazia em caso de erro
             return empresas;
-        }finally{
-            //Desconecta do banco de dados antes de retornar
-            conexao.desconectar(conn);
         }
     }
 
     public boolean alterarIdTipoEmpresaEmpresa(int id, int idTipoEmpresaNovo){
-        //Instancia da classe de conexão com o banco de dados
-        Conexao conexao = new Conexao();
+        Connection conn = ConexaoManager.conectar();
         //Comando SQL para atualizar tipo de empresa
         String comandoAtualizar = "update empresa set id_tipo_empresa = ? where id_empresa = ?";
-        //Estabelece conexão com o banco de dados
-        Connection conn = conexao.conectar();
         //Variável para controlar o número de linhas afetadas
         int linhasAfetadas = 0;
-        //Prepara o statement SQL para atualização
         try(PreparedStatement pstmt = conn.prepareStatement(comandoAtualizar)){
-            //Atribui novo ID do tipo de empresa ao primeiro parâmetro
             pstmt.setInt(1, idTipoEmpresaNovo);
-            //Atribui ID da empresa ao segundo parâmetro
             pstmt.setInt(2, id);
-
-            //Executa a atualização e obtém número de linhas afetadas
             linhasAfetadas = pstmt.executeUpdate();
-
-            //Retorna verdadeiro se pelo menos uma linha foi afetada
+            ConexaoManager.commitAndClose();
             return linhasAfetadas > 0;
         }catch(SQLException sqle){
-            //Imprime stack trace em caso de exceção SQL
+            ConexaoManager.rollbackAndClose();
             sqle.printStackTrace();
-            //Retorna falso em caso de erro
             return false;
-        }finally{
-            //Desconecta do banco de dados antes de retornar
-            conexao.desconectar(conn);
         }
     }
 
     public boolean alterarIdIndiceClassificacaoEmpresa(int id, int idIndiceClassificacaoNovo){
-        //Instancia da classe de conexão com o banco de dados
-        Conexao conexao = new Conexao();
+        Connection conn = ConexaoManager.conectar();
         //Comando SQL para atualizar índice de classificação
         String comandoAtualizar = "update empresa set id_indice_classificacao = ? where id_empresa = ?";
-        //Estabelece conexão com o banco de dados
-        Connection conn = conexao.conectar();
-        //Variável para controlar o número de linhas afetadas
         int linhasAfetadas = 0;
-        //Prepara o statement SQL para atualização
         try(PreparedStatement pstmt = conn.prepareStatement(comandoAtualizar)){
-            //Atribui novo ID do índice de classificação ao primeiro parâmetro
             pstmt.setInt(1, idIndiceClassificacaoNovo);
-            //Atribui ID da empresa ao segundo parâmetro
             pstmt.setInt(2, id);
-
-            //Executa a atualização e obtém número de linhas afetadas
             linhasAfetadas = pstmt.executeUpdate();
-
-            //Retorna verdadeiro se pelo menos uma linha foi afetada
+            ConexaoManager.commitAndClose();
             return linhasAfetadas > 0;
         }catch(SQLException sqle){
-            //Imprime stack trace em caso de exceção SQL
+            ConexaoManager.rollbackAndClose();
             sqle.printStackTrace();
-            //Retorna falso em caso de erro
             return false;
-        }finally{
-            //Desconecta do banco de dados antes de retornar
-            conexao.desconectar(conn);
         }
     }
 
     public boolean alterarIdStatusAprovacaoEmpresa(int id, int idStatusAprovacaoNovo){
-        //Instancia da classe de conexão com o banco de dados
-        Conexao conexao = new Conexao();
-        //Comando SQL CORRIGIDO para atualizar status de aprovação
+        Connection conn = ConexaoManager.conectar();
+        //Comando SQL para atualizar status de aprovação
         String comandoAtualizar = "update empresa set id_status_aprovacao = ? where id_empresa = ?";
-        //Estabelece conexão com o banco de dados
-        Connection conn = conexao.conectar();
-        //Variável para controlar o número de linhas afetadas
         int linhasAfetadas = 0;
-        //Prepara o statement SQL para atualização
         try(PreparedStatement pstmt = conn.prepareStatement(comandoAtualizar)){
-            //Atribui novo ID do status de aprovação ao primeiro parâmetro
             pstmt.setInt(1, idStatusAprovacaoNovo);
-            //Atribui ID da empresa ao segundo parâmetro
             pstmt.setInt(2, id);
-
-            //Executa a atualização e obtém número de linhas afetadas
             linhasAfetadas = pstmt.executeUpdate();
-
-            //Retorna verdadeiro se pelo menos uma linha foi afetada
+            ConexaoManager.commitAndClose();
             return linhasAfetadas > 0;
         }catch(SQLException sqle){
-            //Imprime stack trace em caso de exceção SQL
+            ConexaoManager.rollbackAndClose();
             sqle.printStackTrace();
-            //Retorna falso em caso de erro
             return false;
-        }finally{
-            //Desconecta do banco de dados antes de retornar
-            conexao.desconectar(conn);
         }
     }
 
     public boolean alterarNomeEmpresa(int id, String nomeNovo){
-        //Instancia da classe de conexão com o banco de dados
-        Conexao conexao = new Conexao();
+        Connection conn = ConexaoManager.conectar();
         //Comando SQL para atualizar nome da empresa
         String comandoAtualizar = "update empresa set nome = ? where id_empresa = ?";
-        //Estabelece conexão com o banco de dados
-        Connection conn = conexao.conectar();
-        //Variável para controlar o número de linhas afetadas
         int linhasAfetadas = 0;
-        //Prepara o statement SQL para atualização
         try(PreparedStatement pstmt = conn.prepareStatement(comandoAtualizar)){
-            //Atribui novo nome ao primeiro parâmetro
             pstmt.setString(1, nomeNovo);
-            //Atribui ID da empresa ao segundo parâmetro
             pstmt.setInt(2, id);
-
-            //Executa a atualização e obtém número de linhas afetadas
             linhasAfetadas = pstmt.executeUpdate();
-
-            //Retorna verdadeiro se pelo menos uma linha foi afetada
+            ConexaoManager.commitAndClose();
             return linhasAfetadas > 0;
         }catch(SQLException sqle){
-            //Imprime stack trace em caso de exceção SQL
+            ConexaoManager.rollbackAndClose();
             sqle.printStackTrace();
-            //Retorna falso em caso de erro
             return false;
-        }finally{
-            //Desconecta do banco de dados antes de retornar
-            conexao.desconectar(conn);
         }
     }
 
     public boolean alterarCnpjEmpresa(int id, String cnpjNovo){
-        //Instancia da classe de conexão com o banco de dados
-        Conexao conexao = new Conexao();
+        Connection conn = ConexaoManager.conectar();
         //Comando SQL para atualizar CNPJ da empresa
         String comandoAtualizar = "update empresa set cnpj = ? where id_empresa = ?";
-        //Estabelece conexão com o banco de dados
-        Connection conn = conexao.conectar();
-        //Variável para controlar o número de linhas afetadas
         int linhasAfetadas = 0;
-        //Prepara o statement SQL para atualização
         try(PreparedStatement pstmt = conn.prepareStatement(comandoAtualizar)){
-            //Atribui novo CNPJ ao primeiro parâmetro
             pstmt.setString(1, cnpjNovo);
-            //Atribui ID da empresa ao segundo parâmetro
             pstmt.setInt(2, id);
-
-            //Executa a atualização e obtém número de linhas afetadas
             linhasAfetadas = pstmt.executeUpdate();
-
-            //Retorna verdadeiro se pelo menos uma linha foi afetada
+            ConexaoManager.commitAndClose();
             return linhasAfetadas > 0;
         }catch(SQLException sqle){
-            //Imprime stack trace em caso de exceção SQL
+            ConexaoManager.rollbackAndClose();
             sqle.printStackTrace();
-            //Retorna falso em caso de erro
             return false;
-        }finally{
-            //Desconecta do banco de dados antes de retornar
-            conexao.desconectar(conn);
         }
     }
 
     public boolean alterarEmailEmpresa(int id, String emailNovo){
-        //Instancia da classe de conexão com o banco de dados
-        Conexao conexao = new Conexao();
+        Connection conn = ConexaoManager.conectar();
         //Comando SQL para atualizar email da empresa
         String comandoAtualizar = "update empresa set email = ? where id_empresa = ?";
-        //Estabelece conexão com o banco de dados
-        Connection conn = conexao.conectar();
-        //Variável para controlar o número de linhas afetadas
         int linhasAfetadas = 0;
-        //Prepara o statement SQL para atualização
         try(PreparedStatement pstmt = conn.prepareStatement(comandoAtualizar)){
-            //Atribui novo email ao primeiro parâmetro
             pstmt.setString(1, emailNovo);
-            //Atribui ID da empresa ao segundo parâmetro
             pstmt.setInt(2, id);
-
-            //Executa a atualização e obtém número de linhas afetadas
             linhasAfetadas = pstmt.executeUpdate();
-
-            //Retorna verdadeiro se pelo menos uma linha foi afetada
+            ConexaoManager.commitAndClose();
             return linhasAfetadas > 0;
         }catch(SQLException sqle){
-            //Imprime stack trace em caso de exceção SQL
+            ConexaoManager.rollbackAndClose();
             sqle.printStackTrace();
-            //Retorna falso em caso de erro
             return false;
-        }finally{
-            //Desconecta do banco de dados antes de retornar
-            conexao.desconectar(conn);
         }
     }
 
     public boolean alterarTelefoneEmpresa(int id, String telefoneNovo){
-        //Instancia da classe de conexão com o banco de dados
-        Conexao conexao = new Conexao();
-        //Comando SQL CORRIGIDO para atualizar telefone (não "numero")
+        Connection conn = ConexaoManager.conectar();
+        //Comando SQL para atualizar telefone
         String comandoAtualizar = "update empresa set telefone = ? where id_empresa = ?";
-        //Estabelece conexão com o banco de dados
-        Connection conn = conexao.conectar();
-        //Variável para controlar o número de linhas afetadas
         int linhasAfetadas = 0;
-        //Prepara o statement SQL para atualização
         try(PreparedStatement pstmt = conn.prepareStatement(comandoAtualizar)){
-            //Atribui novo telefone ao primeiro parâmetro
             pstmt.setString(1, telefoneNovo);
-            //Atribui ID da empresa ao segundo parâmetro
             pstmt.setInt(2, id);
-
-            //Executa a atualização e obtém número de linhas afetadas
             linhasAfetadas = pstmt.executeUpdate();
-
-            //Retorna verdadeiro se pelo menos uma linha foi afetada
+            ConexaoManager.commitAndClose();
             return linhasAfetadas > 0;
         }catch(SQLException sqle){
-            //Imprime stack trace em caso de exceção SQL
+            ConexaoManager.rollbackAndClose();
             sqle.printStackTrace();
-            //Retorna falso em caso de erro
             return false;
-        }finally{
-            //Desconecta do banco de dados antes de retornar
-            conexao.desconectar(conn);
         }
     }
 
     public boolean deletarEmpresa(int id){
-        //Instancia da classe de conexão com o banco de dados
-        Conexao conexao = new Conexao();
+        Connection conn = ConexaoManager.conectar();
         //Comando SQL para deletar empresa
         String comandoDeletar = "delete from empresa where id_empresa = ?";
-        //Estabelece conexão com o banco de dados
-        Connection conn = conexao.conectar();
-        //Variável para controlar o número de linhas afetadas
         int linhasAfetadas = 0;
-        //Prepara o statement SQL para exclusão
         try(PreparedStatement pstmt = conn.prepareStatement(comandoDeletar)){
-            //Atribui ID da empresa ao parâmetro
             pstmt.setInt(1 ,id);
-            //Executa a exclusão e obtém número de linhas afetadas
             linhasAfetadas = pstmt.executeUpdate();
-
-            //Retorna verdadeiro se pelo menos uma linha foi afetada
+            ConexaoManager.commitAndClose();
             return linhasAfetadas > 0;
-
         }catch(SQLException sqle) {
-            //Imprime stack trace em caso de exceção SQL
+            ConexaoManager.rollbackAndClose();
             sqle.printStackTrace();
-            //Retorna falso em caso de erro
             return false;
-        }finally{
-            //Desconecta do banco de dados antes de retornar
-            conexao.desconectar(conn);
         }
     }
 }

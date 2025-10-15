@@ -5,7 +5,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import org.example.dao.AdministradorDAO;
-import org.example.dao.HashSenha;
+import org.example.utils.autenticacao.HashSenha;
 import org.example.model.Administrador;
 
 

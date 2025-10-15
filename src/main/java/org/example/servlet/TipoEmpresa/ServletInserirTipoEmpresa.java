@@ -1,17 +1,12 @@
 package org.example.servlet.TipoEmpresa;
 
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
-import java.util.ArrayList;
-import java.util.List;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import org.example.dao.TipoEmpresaDAO;
 import org.example.model.TipoEmpresa;
-import org.example.regex.*;
 
 @WebServlet("/InserirTipoEmpresa")
 public class ServletInserirTipoEmpresa extends HttpServlet{

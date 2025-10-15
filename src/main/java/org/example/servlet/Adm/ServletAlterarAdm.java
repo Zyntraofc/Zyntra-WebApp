@@ -5,7 +5,7 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import org.example.dao.AdministradorDAO;
 import org.example.model.Administrador;
-import org.example.regex.*;
+import org.example.utils.regex.ValidacaoEmail;
 
 @WebServlet("/AlterarAdm")
 public class ServletAlterarAdm extends HttpServlet {

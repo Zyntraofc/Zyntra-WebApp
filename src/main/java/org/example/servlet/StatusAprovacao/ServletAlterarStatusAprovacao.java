@@ -48,7 +48,7 @@ public class ServletAlterarStatusAprovacao extends HttpServlet {
                     // Se o novo status for ativo:
                     if (novoStatus == 'a') {
                         // Verificar se já existe alguma empresa ativa com esse tipo de empresa
-                         int qntd = 0;
+                        int qntd = 0;
                         for (Empresa e : empresas){
                             if (statusdao.listarStatusAprovacaoPorID(e.getIdStatusAprovacao()).getStatus()=='a') qntd+=1;
                         } if (qntd==1) {
@@ -74,12 +74,12 @@ public class ServletAlterarStatusAprovacao extends HttpServlet {
 
             if (!statusID.getMotivoRejeicao().equals(motivoRejeicao) && status.charAt(0) == 'r') {
                 if (statusdao.alterarMotivoStatusAprovacao(id, motivoRejeicao)) req.setAttribute("erro", "Atualizado com sucesso");
-                else req.setAttribute("erro", "Erro ao atualizar motivo!");}
+                else req.setAttribute("erro", "Erro ao atualizar motivo!");
             }
+        } // CORREÇÃO: Fechamento correto do else if
 
-            java.util.List<StatusAprovacao> statuses = statusdao.listarTodosStatusAprovacao();
-            req.setAttribute("statuses", statuses);
-            req.getRequestDispatcher("view/CrudStatusAprovacao.jsp").forward(req, resp);
-        }
+        java.util.List<StatusAprovacao> statuses = statusdao.listarTodosStatusAprovacao();
+        req.setAttribute("statuses", statuses);
+        req.getRequestDispatcher("view/CrudStatusAprovacao.jsp").forward(req, resp);
     }
-
+}

@@ -4,16 +4,15 @@ import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-import org.example.conexao.Conexao;
 import org.example.dao.EmpresaDAO;
 import org.example.dao.StatusAprovacaoDAO;
 import org.example.model.StatusAprovacao;
 import org.example.model.Empresa;
-import java.sql.Connection;
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.InputMismatchException;
-import org.example.regex.*;
+
+import org.example.utils.regex.ValidacaoEmail;
+import org.example.utils.regex.ValidacaoTelefone;
 
 @WebServlet("/InserirEmpresa")
 public class ServletInserirEmpresa extends HttpServlet{
@@ -28,12 +27,7 @@ public class ServletInserirEmpresa extends HttpServlet{
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException{
-        Conexao conexao = new Conexao();
-        Connection conn = null;
         try{
-            conn = conexao.conectar();
-            conn.setAutoCommit(false); // inicia transação manual
-
             int idTipoEmpresa = Integer.parseInt(req.getParameter("idTipoEmpresa"));
             int idIndiceClassificacao = Integer.parseInt(req.getParameter("idIndiceClassificacao"));
             String nome = req.getParameter("nome");
@@ -61,20 +55,21 @@ public class ServletInserirEmpresa extends HttpServlet{
 
             StatusAprovacaoDAO statusDao = new StatusAprovacaoDAO();
             StatusAprovacao status = new StatusAprovacao(LocalDate.now());
-            int idStatusAprovacao = statusDao.inserirStatusAprovacao(conn, status);
+            int idStatusAprovacao = statusDao.inserirStatusAprovacao(status); // CORREÇÃO: Método correto
 
             if (idStatusAprovacao <= 0) {
-                throw new SQLException("Falha ao criar o status de aprovação.");
+                req.setAttribute("erro", "Falha ao criar o status de aprovação.");
+                req.getRequestDispatcher("view/InserirEmpresa.jsp").forward(req, resp);
+                return;
             }
 
             Empresa empresaNova = new Empresa(idTipoEmpresa, idIndiceClassificacao, idStatusAprovacao, nome, cnpj, email, telefone);
             EmpresaDAO dao = new EmpresaDAO();
-            if(!dao.inserirEmpresa(conn, empresaNova)){
-                throw new SQLException("Falha ao inserir a empresa.");
+            if(!dao.inserirEmpresa(empresaNova)){ // CORREÇÃO: Método correto
+                req.setAttribute("erro", "Falha ao inserir a empresa.");
+                req.getRequestDispatcher("view/InserirEmpresa.jsp").forward(req, resp);
+                return;
             }
-
-            // --- Se tudo deu certo, confirma a transação ---
-            conn.commit();
 
             req.setAttribute("erro", "Empresa e Status inseridos com sucesso");
             String caminho = req.getParameter("caminho");
@@ -82,24 +77,10 @@ public class ServletInserirEmpresa extends HttpServlet{
         }catch(InputMismatchException ime){
             req.setAttribute("erro", "Digite os dados corretamente corretamente");
             req.getRequestDispatcher("view/InserirEmpresa.jsp").forward(req, resp);
-            try {
-                conn.rollback(); // desfaz tudo se algo falhar
-            } catch (SQLException se) {
-                se.printStackTrace();
-            }
-        } catch (SQLException sqle){
-            sqle.printStackTrace();
-            try {
-                if (conn != null) conn.rollback(); // desfaz tudo se algo falhar
-            } catch (SQLException se) {
-                se.printStackTrace();
-            }
-        } finally {
-            if (conn != null) {
-                try { conn.close(); } catch (SQLException se) { se.printStackTrace(); }
-            }
+        } catch (Exception e){
+            e.printStackTrace();
+            req.setAttribute("erro", "Erro interno do sistema");
+            req.getRequestDispatcher("view/InserirEmpresa.jsp").forward(req, resp);
         }
     }
-
-
 }

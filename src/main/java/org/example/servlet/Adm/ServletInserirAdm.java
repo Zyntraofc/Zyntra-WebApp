@@ -5,10 +5,12 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import org.example.dao.AdministradorDAO;
-import org.example.dao.HashSenha;
+import org.example.utils.autenticacao.HashSenha;
 import org.example.model.Administrador;
 import java.util.InputMismatchException;
-import org.example.regex.*;
+
+import org.example.utils.regex.ValidacaoEmail;
+import org.example.utils.regex.ValidacaoSenha;
 
 @WebServlet("/InserirAdm")
 public class ServletInserirAdm extends HttpServlet{
@@ -35,20 +37,20 @@ public class ServletInserirAdm extends HttpServlet{
                         req.getRequestDispatcher("ListarAdministradores").forward(req, resp);
                     } else {
                         req.setAttribute("erro", "Erro ao inserir adm");
-                        req.getRequestDispatcher("view/InserirAdm.jsp").forward(req, resp);
+                        req.getRequestDispatcher("ListarAdministradores").forward(req, resp);
                     }
                 } else {
                     req.setAttribute("erro", "Senha: mínimo 8 caracteres, com maiúscula, minúscula e símbolo especial.");
-                    req.getRequestDispatcher("view/InserirAdm.jsp").forward(req, resp);
+                    req.getRequestDispatcher("ListarAdministradores").forward(req, resp);
                 }
             }else{
                 req.setAttribute("erro", "Digite o email corretamente");
-                req.getRequestDispatcher("view/InserirAdm.jsp").forward(req, resp);
+                req.getRequestDispatcher("ListarAdministradores").forward(req, resp);
             }
 
         }catch(InputMismatchException ime){
             req.setAttribute("erro", "Digite os dados corretamente ");
-            req.getRequestDispatcher("view/InserirAdm.jsp").forward(req, resp);
+            req.getRequestDispatcher("ListarAdministradores").forward(req, resp);
         }
     }
 }
