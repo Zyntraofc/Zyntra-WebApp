@@ -6,11 +6,11 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import org.example.conexao.Conexao;
 import org.example.dao.EmpresaDAO;
+import org.example.dao.IndiceClassificacaoDAO;
 import org.example.dao.StatusAprovacaoDAO;
 import org.example.dao.TipoEmpresaDAO;
 import org.example.model.StatusAprovacao;
 import org.example.model.Empresa;
-import org.example.model.TipoEmpresa;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -37,8 +37,7 @@ public class ServletInserirEmpresa extends HttpServlet{
             conn.setAutoCommit(false); // inicia transação manual
 
             String tipoEmpresa = req.getParameter("tipoEmpresa");
-            TipoEmpresaDAO tipoempresadao = new TipoEmpresaDAO();
-            int idTipoEmpresa = tipoempresadao.listarTipoEmpresaPorNome(tipoEmpresa).getId();
+            int idTipoEmpresa = Integer.parseInt(req.getParameter("idTipoEmpresa"));
             String nome = req.getParameter("nome");
             String cnpj = req.getParameter("cnpj");
             String email = req.getParameter("email");
@@ -70,7 +69,8 @@ public class ServletInserirEmpresa extends HttpServlet{
                 throw new SQLException("Falha ao criar o status de aprovação.");
             }
 
-            Empresa empresaNova = new Empresa(idTipoEmpresa, idStatusAprovacao, nome, cnpj, email, telefone);
+            IndiceClassificacaoDAO indicedao = new IndiceClassificacaoDAO();
+            Empresa empresaNova = new Empresa(idTipoEmpresa, indicedao.listarIndiceClassificacaoPorPorcentagem(0).getId(),idStatusAprovacao, nome, cnpj, email, telefone);
             EmpresaDAO dao = new EmpresaDAO();
             if(!dao.inserirEmpresa(conn, empresaNova)){
                 throw new SQLException("Falha ao inserir a empresa.");

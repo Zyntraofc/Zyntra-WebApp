@@ -71,33 +71,6 @@ public class TipoEmpresaDAO {
         }
     }
 
-    // Metodo para listar tipo de empresa pelo nome
-    public TipoEmpresa listarTipoEmpresaPorNome(String nome){
-        Conexao conexao = new Conexao();
-        String comandoListar = "select * from tipo_empresa where nome = ?";
-        Connection conn = conexao.conectar();
-        try(PreparedStatement pstmt = conn.prepareStatement(comandoListar)){
-            pstmt.setString(1, nome);
-            ResultSet rs = pstmt.executeQuery();
-            if(rs.next()){
-                TipoEmpresa tipoEmpresa = new TipoEmpresa(
-                        rs.getString("nome"),
-                        rs.getString("status").charAt(0),
-                        rs.getDate("ultima_atualizacao").toLocalDate(),
-                        rs.getString("descricao")
-                );
-                tipoEmpresa.setId(rs.getInt("id_tipo_empresa"));
-                return tipoEmpresa;
-            }
-            return null;
-        }catch(SQLException sqle){
-            sqle.printStackTrace();
-            return null;
-        }finally{
-            conexao.desconectar(conn);
-        }
-    }
-
     // Metodo para listar todos os tipos de empresa
     public List<TipoEmpresa> listarTiposEmpresa(){
         Conexao conexao = new Conexao();

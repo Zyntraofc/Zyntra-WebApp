@@ -5,6 +5,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import org.example.dao.EmpresaDAO;
+import org.example.dao.TipoEmpresaDAO;
 import org.example.model.Empresa;
 import java.util.List;
 
@@ -15,6 +16,8 @@ public class ServletListarEmpresas extends HttpServlet{
     }
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException{
+        TipoEmpresaDAO tipodao = new TipoEmpresaDAO();
+        req.setAttribute("tipos", tipodao.listarTiposEmpresa());
         EmpresaDAO empresadao = new EmpresaDAO();
         List<Empresa> empresas = empresadao.listarEmpresas();
         req.setAttribute("empresas", empresas);

@@ -395,6 +395,38 @@ textarea{
     cursor: not-allowed;
 }
 
+.popup select {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 12px; /* bordas mais arredondadas */
+    border: 1.5px solid #e0e0e0;
+    font-size: 15px;
+    color: #333;
+    background-color: #fff;
+    text-align: center; /* centraliza o texto selecionado */
+    appearance: none; /* remove a seta padrão do browser */
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 18px;
+    max-height: 150px; /* altura máxima da lista */
+    overflow-y: auto;  /* barra de rolagem se passar do limite */
+}
+.popup select option{
+    border-radius: 200px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.popup select:focus {
+    border-color: #2e5bff;
+    box-shadow: 0 0 0 2px rgba(46, 91, 255, 0.15);
+}
+/* opção “placeholder” sem seleção inicial */
+.popup select option[disabled] {
+    color: #999;
+    text-align: center;
+}
+
 .popup .botoes {
     display: flex;
     justify-content: flex-end;
