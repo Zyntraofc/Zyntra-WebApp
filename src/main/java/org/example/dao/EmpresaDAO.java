@@ -43,15 +43,15 @@ public class EmpresaDAO {
                         empresa.setId(rs.getInt(1));
                     }
                 }
-                ConexaoManager.commitAndClose();
+                ConexaoManager.commit();
                 //Retorna verdadeiro indicando sucesso na inserção
                 return true;
             }
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             //Retorna falso indicando falha na inserção
             return false;
         }catch(SQLException sqle){
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             //Imprime stack trace em caso de exceção SQL
             sqle.printStackTrace();
             //Retorna falso indicando falha na operação
@@ -84,15 +84,15 @@ public class EmpresaDAO {
                 );
                 //Define o ID da empresa a partir do banco de dados
                 empresa.setId(rs.getInt("id_empresa"));
-                ConexaoManager.commitAndClose();
+                ConexaoManager.commit();
                 //Retorna a empresa encontrada
                 return empresa;
             }
-            ConexaoManager.commitAndClose();
+            ConexaoManager.commit();
             //Retorna null se nenhuma empresa for encontrada
             return null;
         }catch(SQLException sqle){
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             //Imprime stack trace em caso de exceção SQL
             sqle.printStackTrace();
             //Retorna null em caso de erro
@@ -126,15 +126,15 @@ public class EmpresaDAO {
                 );
                 //Define o ID da empresa a partir do banco de dados
                 empresa.setId(rs.getInt("id_empresa"));
-                ConexaoManager.commitAndClose();
+                ConexaoManager.commit();
                 //Retorna a empresa encontrada
                 return empresa;
             }
-            ConexaoManager.commitAndClose();
+            ConexaoManager.commit();
             //Retorna null se nenhuma empresa for encontrada
             return null;
         }catch(SQLException sqle){
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             //Imprime stack trace em caso de exceção SQL
             sqle.printStackTrace();
             //Retorna null em caso de erro
@@ -171,11 +171,11 @@ public class EmpresaDAO {
                 //Adiciona empresa à lista
                 empresas.add(empresa);
             }
-            ConexaoManager.commitAndClose();
+            ConexaoManager.commit();
             //Retorna lista de empresas
             return empresas;
         }catch(SQLException sqle){
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             //Imprime stack trace em caso de exceção SQL
             sqle.printStackTrace();
             //Retorna lista vazia em caso de erro
@@ -210,11 +210,11 @@ public class EmpresaDAO {
                 //Adiciona empresa à lista
                 empresas.add(empresa);
             }
-            ConexaoManager.commitAndClose();
+            ConexaoManager.commit();
             //Retorna lista de empresas
             return empresas;
         }catch(SQLException sqle){
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             //Imprime stack trace em caso de exceção SQL
             sqle.printStackTrace();
             //Retorna lista vazia em caso de erro
@@ -232,10 +232,10 @@ public class EmpresaDAO {
             pstmt.setInt(1, idTipoEmpresaNovo);
             pstmt.setInt(2, id);
             linhasAfetadas = pstmt.executeUpdate();
-            ConexaoManager.commitAndClose();
+            ConexaoManager.commit();
             return linhasAfetadas > 0;
         }catch(SQLException sqle){
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             sqle.printStackTrace();
             return false;
         }
@@ -250,10 +250,10 @@ public class EmpresaDAO {
             pstmt.setInt(1, idIndiceClassificacaoNovo);
             pstmt.setInt(2, id);
             linhasAfetadas = pstmt.executeUpdate();
-            ConexaoManager.commitAndClose();
+            ConexaoManager.commit();
             return linhasAfetadas > 0;
         }catch(SQLException sqle){
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             sqle.printStackTrace();
             return false;
         }
@@ -268,10 +268,10 @@ public class EmpresaDAO {
             pstmt.setInt(1, idStatusAprovacaoNovo);
             pstmt.setInt(2, id);
             linhasAfetadas = pstmt.executeUpdate();
-            ConexaoManager.commitAndClose();
+            ConexaoManager.commit();
             return linhasAfetadas > 0;
         }catch(SQLException sqle){
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             sqle.printStackTrace();
             return false;
         }
@@ -286,10 +286,10 @@ public class EmpresaDAO {
             pstmt.setString(1, nomeNovo);
             pstmt.setInt(2, id);
             linhasAfetadas = pstmt.executeUpdate();
-            ConexaoManager.commitAndClose();
+            ConexaoManager.commit();
             return linhasAfetadas > 0;
         }catch(SQLException sqle){
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             sqle.printStackTrace();
             return false;
         }
@@ -304,10 +304,10 @@ public class EmpresaDAO {
             pstmt.setString(1, cnpjNovo);
             pstmt.setInt(2, id);
             linhasAfetadas = pstmt.executeUpdate();
-            ConexaoManager.commitAndClose();
+            ConexaoManager.commit();
             return linhasAfetadas > 0;
         }catch(SQLException sqle){
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             sqle.printStackTrace();
             return false;
         }
@@ -322,10 +322,10 @@ public class EmpresaDAO {
             pstmt.setString(1, emailNovo);
             pstmt.setInt(2, id);
             linhasAfetadas = pstmt.executeUpdate();
-            ConexaoManager.commitAndClose();
+            ConexaoManager.commit();
             return linhasAfetadas > 0;
         }catch(SQLException sqle){
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             sqle.printStackTrace();
             return false;
         }
@@ -340,10 +340,10 @@ public class EmpresaDAO {
             pstmt.setString(1, telefoneNovo);
             pstmt.setInt(2, id);
             linhasAfetadas = pstmt.executeUpdate();
-            ConexaoManager.commitAndClose();
+            ConexaoManager.commit();
             return linhasAfetadas > 0;
         }catch(SQLException sqle){
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             sqle.printStackTrace();
             return false;
         }
@@ -357,10 +357,10 @@ public class EmpresaDAO {
         try(PreparedStatement pstmt = conn.prepareStatement(comandoDeletar)){
             pstmt.setInt(1 ,id);
             linhasAfetadas = pstmt.executeUpdate();
-            ConexaoManager.commitAndClose();
+            ConexaoManager.commit();
             return linhasAfetadas > 0;
         }catch(SQLException sqle) {
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             sqle.printStackTrace();
             return false;
         }

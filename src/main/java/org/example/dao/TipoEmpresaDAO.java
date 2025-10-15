@@ -32,14 +32,14 @@ public class TipoEmpresaDAO {
                         tipoEmpresa.setId(rs.getInt(1));
                     }
                 }
-                ConexaoManager.commitAndClose();
+                ConexaoManager.commit();
                 return true;
             }
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             return false;
         }catch(SQLException sqle){
             sqle.printStackTrace();
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             return false;
         }
     }
@@ -59,14 +59,14 @@ public class TipoEmpresaDAO {
                         rs.getString("descricao")
                 );
                 tipoEmpresa.setId(rs.getInt("id_tipo_empresa"));
-                ConexaoManager.commitAndClose();
+                ConexaoManager.commit();
                 return tipoEmpresa;
             }
-            ConexaoManager.commitAndClose();
+            ConexaoManager.commit();
             return null;
         }catch(SQLException sqle){
             sqle.printStackTrace();
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             return null;
         }
     }
@@ -88,11 +88,11 @@ public class TipoEmpresaDAO {
                 tipoEmpresaTemporario.setId(rs.getInt("id_tipo_empresa"));
                 tiposEmpresa.add(tipoEmpresaTemporario);
             }
-            ConexaoManager.commitAndClose();
+            ConexaoManager.commit();
             return tiposEmpresa;
         }catch(SQLException sqle){
             sqle.printStackTrace();
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             return new ArrayList<>(); // <- retorna lista vazia em vez de null
         }
     }
@@ -107,14 +107,14 @@ public class TipoEmpresaDAO {
             pstmt.setInt(2, id);
             linhasAfetadas = pstmt.executeUpdate();
             if(linhasAfetadas > 0){
-                ConexaoManager.commitAndClose();
+                ConexaoManager.commit();
                 return true;
             }
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             return false;
         }catch(SQLException sqle){
             sqle.printStackTrace();
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             return false;
         }
     }
@@ -129,14 +129,14 @@ public class TipoEmpresaDAO {
             pstmt.setInt(2, id);
             linhasAfetadas = pstmt.executeUpdate();
             if(linhasAfetadas > 0){
-                ConexaoManager.commitAndClose();
+                ConexaoManager.commit();
                 return true;
             }
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             return false;
         }catch(SQLException sqle){
             sqle.printStackTrace();
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             return false;
         }
     }
@@ -151,14 +151,14 @@ public class TipoEmpresaDAO {
             pstmt.setInt(2, id);
             linhasAfetadas = pstmt.executeUpdate();
             if(linhasAfetadas > 0){
-                ConexaoManager.commitAndClose();
+                ConexaoManager.commit();
                 return true;
             }
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             return false;
         }catch(SQLException sqle){
             sqle.printStackTrace();
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             return false;
         }
     }
@@ -173,14 +173,14 @@ public class TipoEmpresaDAO {
             pstmt.setInt(2, id);
             linhasAfetadas = pstmt.executeUpdate();
             if(linhasAfetadas > 0){
-                ConexaoManager.commitAndClose();
+                ConexaoManager.commit();
                 return true;
             }
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             return false;
         }catch(SQLException sqle){
             sqle.printStackTrace();
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             return false;
         }
     }
@@ -194,14 +194,14 @@ public class TipoEmpresaDAO {
             pstmt.setInt(1, id);
             linhasAfetadas = pstmt.executeUpdate();
             if(linhasAfetadas > 0){
-                ConexaoManager.commitAndClose();
+                ConexaoManager.commit();
                 return true;
             }
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             return false;
         }catch(SQLException sqle){
             sqle.printStackTrace();
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             return false;
         }
     }

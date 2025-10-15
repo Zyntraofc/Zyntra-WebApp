@@ -30,7 +30,7 @@ public class AdministradorDAO {
             return false;
 
         } catch (SQLException sqle) {
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             sqle.printStackTrace();
             return false;
         }
@@ -54,7 +54,7 @@ public class AdministradorDAO {
             return null;
 
         } catch (SQLException sqle) {
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             sqle.printStackTrace();
             return null;
         }
@@ -78,7 +78,7 @@ public class AdministradorDAO {
             return null;
 
         } catch (SQLException sqle) {
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             sqle.printStackTrace();
             return null;
         }
@@ -100,10 +100,10 @@ public class AdministradorDAO {
             }
 
         } catch (SQLException sqle) {
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             sqle.printStackTrace();
         } finally {
-            ConexaoManager.commitAndClose();
+            ConexaoManager.commit();
         }
 
         return administradores;
@@ -119,11 +119,11 @@ public class AdministradorDAO {
             pstmt.setInt(2, id);
             return pstmt.executeUpdate() > 0;
         } catch (SQLException sqle) {
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             sqle.printStackTrace();
             return false;
         } finally {
-            ConexaoManager.commitAndClose();
+            ConexaoManager.commit();
         }
     }
 
@@ -137,11 +137,11 @@ public class AdministradorDAO {
             pstmt.setInt(2, id);
             return pstmt.executeUpdate() > 0;
         } catch (SQLException sqle) {
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             sqle.printStackTrace();
             return false;
         } finally {
-            ConexaoManager.commitAndClose();
+            ConexaoManager.commit();
         }
     }
 
@@ -154,11 +154,11 @@ public class AdministradorDAO {
             pstmt.setInt(1, id);
             return pstmt.executeUpdate() > 0;
         } catch (SQLException sqle) {
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             sqle.printStackTrace();
             return false;
         } finally {
-            ConexaoManager.commitAndClose();
+            ConexaoManager.commit();
         }
     }
 }

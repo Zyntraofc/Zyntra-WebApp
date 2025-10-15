@@ -29,13 +29,13 @@ public class IndiceClassificacaoDAO {
                         indiceClassificacao.setId(rs.getInt(1)); // Define o ID gerado no objeto
                     }
                 }
-                ConexaoManager.commitAndClose();
+                ConexaoManager.commit();
                 return true;//Retorna sucesso
             }
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             return false;//Retorna falha
         }catch(SQLException sqle){
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             sqle.printStackTrace();//Imprime erro
             return false;//Retorna falha
         }
@@ -57,13 +57,13 @@ public class IndiceClassificacaoDAO {
                         rs.getDouble("porcentagem_maxima")
                 );
                 indice.setId(rs.getInt("id_indice_classificacao"));//Define o ID do banco
-                ConexaoManager.commitAndClose();
+                ConexaoManager.commit();
                 return indice;//Retorna o índice encontrado
             }
-            ConexaoManager.commitAndClose();
+            ConexaoManager.commit();
             return null;//Retorna null se não encontrado
         }catch(SQLException sqle){
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             sqle.printStackTrace();//Imprime erro
             return null;//Retorna null em caso de erro
         }
@@ -85,13 +85,13 @@ public class IndiceClassificacaoDAO {
                         rs.getDouble("porcentagem_maxima")
                 );
                 indice.setId(rs.getInt("id_indice_classificacao"));//Define o ID do banco
-                ConexaoManager.commitAndClose();
+                ConexaoManager.commit();
                 return indice;//Retorna o índice encontrado
             }
-            ConexaoManager.commitAndClose();
+            ConexaoManager.commit();
             return null;//Retorna null se não encontrado
         }catch(SQLException sqle){
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             sqle.printStackTrace();//Imprime erro
             return null;//Retorna null em caso de erro
         }
@@ -114,10 +114,10 @@ public class IndiceClassificacaoDAO {
                 indice.setId(rs.getInt("id_indice_classificacao"));//Define o ID do banco
                 indicesClassificacao.add(indice);//Adiciona à lista
             }
-            ConexaoManager.commitAndClose();
+            ConexaoManager.commit();
             return indicesClassificacao;//Retorna a lista completa
         }catch(SQLException sqle){
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             sqle.printStackTrace();//Imprime erro
             return indicesClassificacao;//Retorna lista vazia em caso de erro
         }
@@ -132,10 +132,10 @@ public class IndiceClassificacaoDAO {
             pstmt.setString(1, recomendacaoNova);//Atribui nova recomendação
             pstmt.setInt(2, id);//Atribui ID do índice
             linhasAfetadas = pstmt.executeUpdate();//Executa a atualização
-            ConexaoManager.commitAndClose();
+            ConexaoManager.commit();
             return linhasAfetadas > 0;//Retorna se foi bem-sucedido
         }catch(SQLException sqle){
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             sqle.printStackTrace();//Imprime erro
             return false;//Retorna falha
         }
@@ -150,10 +150,10 @@ public class IndiceClassificacaoDAO {
             pstmt.setString(1, preocupacaoNova);//Atribui nova preocupação
             pstmt.setInt(2, id);//Atribui ID do índice
             linhasAfetadas = pstmt.executeUpdate();//Executa a atualização
-            ConexaoManager.commitAndClose();
+            ConexaoManager.commit();
             return linhasAfetadas > 0;//Retorna se foi bem-sucedido
         }catch(SQLException sqle){
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             sqle.printStackTrace();//Imprime erro
             return false;//Retorna falha
         }
@@ -168,10 +168,10 @@ public class IndiceClassificacaoDAO {
             pstmt.setDouble(1, porcentagemMinimaNova);//Atribui nova porcentagem mínima
             pstmt.setInt(2, id);//Atribui ID do índice
             linhasAfetadas = pstmt.executeUpdate();//Executa a atualização
-            ConexaoManager.commitAndClose();
+            ConexaoManager.commit();
             return linhasAfetadas > 0;//Retorna se foi bem-sucedido
         }catch(SQLException sqle){
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             sqle.printStackTrace();//Imprime erro
             return false;//Retorna falha
         }
@@ -186,10 +186,10 @@ public class IndiceClassificacaoDAO {
             pstmt.setDouble(1, porcentagemMaximaNova);//Atribui nova porcentagem máxima
             pstmt.setInt(2, id);//Atribui ID do índice
             linhasAfetadas = pstmt.executeUpdate();//Executa a atualização
-            ConexaoManager.commitAndClose();
+            ConexaoManager.commit();
             return linhasAfetadas > 0;//Retorna se foi bem-sucedido
         }catch(SQLException sqle){
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             sqle.printStackTrace();//Imprime erro
             return false;//Retorna falha
         }
@@ -203,10 +203,10 @@ public class IndiceClassificacaoDAO {
         try(PreparedStatement pstmt = conn.prepareStatement(comandoDeletar)){//Prepara o comando SQL
             pstmt.setInt(1 ,id);//Atribui ID do índice
             linhasAfetadas = pstmt.executeUpdate();//Executa a exclusão
-            ConexaoManager.commitAndClose();
+            ConexaoManager.commit();
             return linhasAfetadas > 0;//Retorna se foi bem-sucedido
         }catch(SQLException sqle) {
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             sqle.printStackTrace();//Imprime erro
             return false;//Retorna falha
         }

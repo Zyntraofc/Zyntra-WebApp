@@ -41,16 +41,16 @@ public class StatusAprovacaoDAO {
             if(linhasAfetadas > 0){//Verifica se a inserção foi bem-sucedida
                 try(ResultSet rs = pstmt.getGeneratedKeys()){//Obtém as chaves geradas
                     if(rs.next()){
-                        ConexaoManager.commitAndClose();
-                        return rs.getInt(1); // retorna o ID gerado no objeto
+                        ConexaoManager.commit();
+                        return rs.getInt(1);
                     }
                 }
             }
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             return 0;
         } catch(SQLException sqle){
             sqle.printStackTrace();//Imprime erro
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             return -1;//Retorna falha
         }
     }
@@ -89,14 +89,14 @@ public class StatusAprovacaoDAO {
                         dataAprovacao
                 );
                 statusAprovacao.setId(rs.getInt("id_status_aprovacao"));//Define o ID do banco
-                ConexaoManager.commitAndClose();
+                ConexaoManager.commit();
                 return statusAprovacao;//Retorna o status encontrado
             }
-            ConexaoManager.commitAndClose();
+            ConexaoManager.commit();
             return null;//Retorna null se não encontrado
         } catch(SQLException sqle){
             sqle.printStackTrace();//Imprime erro
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             return null;//Retorna null em caso de erro
         }
     }
@@ -137,11 +137,11 @@ public class StatusAprovacaoDAO {
                 statusObj.setId(rs.getInt("id_status_aprovacao"));//Define o ID do banco
                 statusAprovacao.add(statusObj);//Adiciona à lista
             }
-            ConexaoManager.commitAndClose();
+            ConexaoManager.commit();
             return statusAprovacao;//Retorna a lista completa
         } catch(SQLException sqle){
             sqle.printStackTrace();//Imprime erro
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             return statusAprovacao;//Retorna lista vazia em caso de erro
         }
     }
@@ -168,14 +168,14 @@ public class StatusAprovacaoDAO {
 
             int linhasAfetadas = pstmt.executeUpdate();
             if(linhasAfetadas > 0){
-                ConexaoManager.commitAndClose();
+                ConexaoManager.commit();
                 return true;
             }
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             return false;
         } catch (SQLException sqle) {
             sqle.printStackTrace();
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             return false;
         }
     }
@@ -191,14 +191,14 @@ public class StatusAprovacaoDAO {
 
             int linhasAfetadas = pstmt.executeUpdate();
             if(linhasAfetadas > 0){
-                ConexaoManager.commitAndClose();
+                ConexaoManager.commit();
                 return true;
             }
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             return false;
         } catch (SQLException sqle) {
             sqle.printStackTrace();
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             return false;
         }
     }
@@ -213,14 +213,14 @@ public class StatusAprovacaoDAO {
             pstmt.setInt(1, id);//Atribui ID do status
             linhasAfetadas = pstmt.executeUpdate();//Executa a exclusão
             if(linhasAfetadas > 0){
-                ConexaoManager.commitAndClose();
+                ConexaoManager.commit();
                 return true;
             }
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             return false;
         } catch(SQLException sqle){
             sqle.printStackTrace();//Imprime erro
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             return false;//Retorna falha
         }
     }

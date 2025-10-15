@@ -24,14 +24,14 @@ public class MotivoFaltaDAO {
                         motivoFalta.setId(rs.getInt(1));//Atribui o id_motivo_falta ao objeto
                     }
                 }
-                ConexaoManager.commitAndClose();
+                ConexaoManager.commit();
                 return true;
             }
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             return false;
         }catch(SQLException sqle){
             sqle.printStackTrace();
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             return false;
         }
     }
@@ -48,14 +48,14 @@ public class MotivoFaltaDAO {
                         rs.getString("motivo")
                 );
                 motivoFaltaTemporario.setId(rs.getInt("id_motivo_falta"));//Seta o ID vindo do banco
-                ConexaoManager.commitAndClose();
+                ConexaoManager.commit();
                 return motivoFaltaTemporario;
             }
-            ConexaoManager.commitAndClose();
+            ConexaoManager.commit();
             return null;
         }catch(SQLException sqle){
             sqle.printStackTrace();
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             return null;
         }
     }
@@ -74,11 +74,11 @@ public class MotivoFaltaDAO {
                 motivoFaltaTemporario.setId(rs.getInt("id_motivo_falta"));//Seta o ID em cada objeto
                 motivosFalta.add(motivoFaltaTemporario);
             }
-            ConexaoManager.commitAndClose();
+            ConexaoManager.commit();
             return motivosFalta;
         }catch(SQLException sqle){
             sqle.printStackTrace();
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             return motivosFalta;
         }
     }
@@ -93,14 +93,14 @@ public class MotivoFaltaDAO {
             pstmt.setInt(2, id);//ID alvo da alteração
             linhasAfetadas = pstmt.executeUpdate();//Executa atualização
             if(linhasAfetadas > 0){
-                ConexaoManager.commitAndClose();
+                ConexaoManager.commit();
                 return true;
             }
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             return false;
         }catch(SQLException sqle){
             sqle.printStackTrace();
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             return false;
         }
     }
@@ -114,14 +114,14 @@ public class MotivoFaltaDAO {
             pstmt.setInt(1, id);//ID alvo do delete
             linhasAfetadas = pstmt.executeUpdate();//Executa comando
             if(linhasAfetadas > 0){
-                ConexaoManager.commitAndClose();
+                ConexaoManager.commit();
                 return true;
             }
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             return false;
         }catch(SQLException sqle){
             sqle.printStackTrace();
-            ConexaoManager.rollbackAndClose();
+            ConexaoManager.rollback();
             return false;
         }
     }
