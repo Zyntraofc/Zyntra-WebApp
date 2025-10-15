@@ -37,11 +37,16 @@ public class ServletDeletarEmpresa extends HttpServlet{
             StatusAprovacaoDAO statusdao = new StatusAprovacaoDAO();
             empresadao.deletarEmpresa(id);
             statusdao.deletarStatusAprovacao(idStatus);
-            if(empresadao.listarEmpresaPorIdTipoEmpresa(idTipoEmpresa).size() == 0){
+            boolean inativo = true;
+            for(Empresa e : empresadao.listarEmpresaPorIdTipoEmpresa(idTipoEmpresa)){
+                if(statusdao.listarStatusAprovacaoPorID(e.getIdStatusAprovacao()).getStatus()=='a') inativo = false;
+            }
+            if (inativo){
                 TipoEmpresaDAO tipoempresadao = new TipoEmpresaDAO();
                 tipoempresadao.alterarStatusTipoEmpresa(idTipoEmpresa, 'i');
                 tipoempresadao.alterarUltimaAtualizacaoTipoEmpresa(idTipoEmpresa, LocalDate.now());
             }
+
             req.setAttribute("erro", "Empresa e Status deletados com sucesso");
             req.getRequestDispatcher("Listar"+caminho).forward(req, resp);
         }else if(action == 2){

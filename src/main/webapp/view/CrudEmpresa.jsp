@@ -147,14 +147,19 @@
     <input type="hidden" name="action" value="1">
     <input type="hidden" name="id" value="${empresa.getId()}">
 
-    <label for="idTipoEmpresa">ID Tipo de Empresa</label>
-    <input type="number" id="idTipoEmpresa" name="idTipoEmpresa" value="${empresa.getIdTipoEmpresa()}">
+    <label for="idTipoEmpresa">Tipo de Empresa</label>
+    <select name="idTipoEmpresa" id="idTipoEmpresa" required>
+      <c:forEach var="tipo" items="${tipos}">
+        <option value="${tipo.id}" ${empresa.idTipoEmpresa == tipo.id ? "selected" : ""}>${tipo.nome}</option>
+      </c:forEach>
+    </select>
 
-    <label for="idIndiceClassificacao">ID Índice de Classificação</label>
-    <input type="number" id="idIndiceClassificacao" name="idIndiceClassificacao" value="${empresa.getIdIndiceClassificacao()}">
-
-    <label for="idStatusAprovacao">ID Status de Aprovação</label>
-    <input type="number" id="idStatusAprovacao" name="idStatusAprovacao" value="${empresa.getIdStatusAprovacao()}">
+    <label for="IndiceClassificacao">Índice de Classificação</label>
+    <select name="idIndiceClassificacao" id="IndiceClassificacao" required>
+      <c:forEach var="status" items="${statuses}">
+        <option value="${status.id}" ${empresa.idIndiceClassificacao == status.id ? "selected" : ""}>${String.format("%.1f", status.porcentagemMinima)}% - ${String.format("%.1f", status.porcentagemMaxima)}%</option>
+      </c:forEach>
+    </select>
 
     <label for="nome">Nome</label>
     <input type="text" id="nome" name="nome" value="${empresa.getNome()}">

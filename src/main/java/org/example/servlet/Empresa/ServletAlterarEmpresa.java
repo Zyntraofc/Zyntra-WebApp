@@ -36,7 +36,6 @@ public class ServletAlterarEmpresa extends HttpServlet {
         } else if (action == 1) {
             int idTipoEmpresa = Integer.parseInt(req.getParameter("idTipoEmpresa"));
             int idIndiceClassificacao = Integer.parseInt(req.getParameter("idIndiceClassificacao"));
-            int idStatusAprovacao = Integer.parseInt(req.getParameter("idStatusAprovacao"));
             String nome = req.getParameter("nome");
             String email = req.getParameter("email");
             String telefone = req.getParameter("telefone");
@@ -83,9 +82,6 @@ public class ServletAlterarEmpresa extends HttpServlet {
 
             if (idIndiceClassificacao != empresa.getIdIndiceClassificacao()) {
                 empresadao.alterarIdIndiceClassificacaoEmpresa(id, idIndiceClassificacao);
-            }
-            if (idStatusAprovacao != empresa.getIdStatusAprovacao()) {
-                empresadao.alterarIdStatusAprovacaoEmpresa(id, idStatusAprovacao);
             }
             if (!nome.equals(empresa.getNome())) {
                 empresadao.alterarNomeEmpresa(id, nome);
