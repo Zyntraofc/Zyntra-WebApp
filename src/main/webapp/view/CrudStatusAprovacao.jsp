@@ -151,10 +151,6 @@
         <input type="hidden" name="action" value="1">
         <input type="hidden" name="id" value="${alterarStatus.getId()}">
 
-
-        <label for="motivoRejeicao">Motivo de rejeição</label>
-        <textarea name="motivoRejeicao" id="motivoRejeicao" rows="4">${alterarStatus.getMotivoRejeicao()}</textarea>
-
         <div class="status">
         <input type="radio" name="status" value="a" id="ativo" ${String.valueOf(alterarStatus.status).equals("a") ? 'checked' : ''}>
         <label for="ativo">Ativo</label>
@@ -163,6 +159,9 @@
         <input type="radio" name="status" value="r" id="recusado" ${String.valueOf(alterarStatus.status).equals("r") ? 'checked' : ''}>
         <label for="recusado">Recusado</label>
         </div>
+
+        <label for="motivoRejeicao">Motivo de rejeição</label>
+        <textarea name="motivoRejeicao" id="motivoRejeicao" rows="4">${alterarStatus.getMotivoRejeicao()}</textarea>
 
         <div class="botoes">
             <div class="cancelar"> <a href="ListarStatusAprovacao">✖ Cancelar</a></div>

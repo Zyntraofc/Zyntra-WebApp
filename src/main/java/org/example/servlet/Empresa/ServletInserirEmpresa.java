@@ -7,8 +7,10 @@ import jakarta.servlet.annotation.*;
 import org.example.conexao.Conexao;
 import org.example.dao.EmpresaDAO;
 import org.example.dao.StatusAprovacaoDAO;
+import org.example.dao.TipoEmpresaDAO;
 import org.example.model.StatusAprovacao;
 import org.example.model.Empresa;
+import org.example.model.TipoEmpresa;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -34,8 +36,9 @@ public class ServletInserirEmpresa extends HttpServlet{
             conn = conexao.conectar();
             conn.setAutoCommit(false); // inicia transação manual
 
-            int idTipoEmpresa = Integer.parseInt(req.getParameter("idTipoEmpresa"));
-            int idIndiceClassificacao = Integer.parseInt(req.getParameter("idIndiceClassificacao"));
+            String tipoEmpresa = req.getParameter("tipoEmpresa");
+            TipoEmpresaDAO tipoempresadao = new TipoEmpresaDAO();
+            int idTipoEmpresa = tipoempresadao.listarTipoEmpresaPorNome(tipoEmpresa).getId();
             String nome = req.getParameter("nome");
             String cnpj = req.getParameter("cnpj");
             String email = req.getParameter("email");
@@ -67,7 +70,7 @@ public class ServletInserirEmpresa extends HttpServlet{
                 throw new SQLException("Falha ao criar o status de aprovação.");
             }
 
-            Empresa empresaNova = new Empresa(idTipoEmpresa, idIndiceClassificacao, idStatusAprovacao, nome, cnpj, email, telefone);
+            Empresa empresaNova = new Empresa(idTipoEmpresa, idStatusAprovacao, nome, cnpj, email, telefone);
             EmpresaDAO dao = new EmpresaDAO();
             if(!dao.inserirEmpresa(conn, empresaNova)){
                 throw new SQLException("Falha ao inserir a empresa.");

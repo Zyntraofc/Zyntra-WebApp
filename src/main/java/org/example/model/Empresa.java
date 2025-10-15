@@ -22,6 +22,16 @@ public class Empresa extends BaseModel{//Abertura da classe
         this.telefone = telefone;
     }
 
+    public Empresa(int idTipoEmpresa, int idStatusAprovacao, String nome, String cnpj, String email, String telefone) {
+        this.idTipoEmpresa = idTipoEmpresa;
+        this.idIndiceClassificacao = idIndiceClassificacao;
+        this.idStatusAprovacao = idStatusAprovacao;
+        this.nome = nome;
+        this.cnpj = cnpj;
+        this.email = email;
+        this.telefone = telefone;
+    }
+
     //Metodos getters
     public int getIdTipoEmpresa() {
         return this.idTipoEmpresa;

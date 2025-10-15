@@ -96,6 +96,35 @@ public class IndiceClassificacaoDAO {//Abertura da classe
         }
     }
 
+    //Metodo para listar todos os indices de classificacao por porcentagem recebida
+    public IndiceClassificacao listarIndiceClassificacaoPorPorcentagem(double porcentagem){
+        Conexao conexao = new Conexao();//Instancia da conexão
+        String comandoListar = "select * from indice_classificacao where porcentagem_minima <= ? AND porcentagem_maxima > ?";//Comando SQL para buscar por porcentagem
+        Connection conn = conexao.conectar();//Conecta ao banco de dados
+        try(PreparedStatement pstmt = conn.prepareStatement(comandoListar)){//Prepara o comando SQL
+            pstmt.setDouble(1, porcentagem);//Atribui a porcentagem ao parâmetro
+            pstmt.setDouble(2, porcentagem);
+
+            ResultSet rs = pstmt.executeQuery();//Executa a consulta
+            if(rs.next()){//Se encontrar resultado
+                IndiceClassificacao indice = new IndiceClassificacao(//Cria objeto com dados do banco
+                        rs.getString("recomendacao"),
+                        rs.getString("preocupacao"),
+                        rs.getDouble("porcentagem_minima"),
+                        rs.getDouble("porcentagem_maxima")
+                );
+                indice.setId(rs.getInt("id_indice_classificacao"));//Define o ID do banco
+                return indice;//Retorna o índice encontrado
+            }
+            return null;//Retorna null se não encontrado
+        }catch(SQLException sqle){
+            sqle.printStackTrace();//Imprime erro
+            return null;//Retorna null em caso de erro
+        }finally{
+            conexao.desconectar(conn);//Desconecta do banco
+        }
+    }
+
     //Metodo para atualizar a coluna recomendacao pelo id
     public boolean alterarRecomendacaoIndiceClassificacao(int id, String recomendacaoNova){
         Conexao conexao = new Conexao();//Instancia da conexão
