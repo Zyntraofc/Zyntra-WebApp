@@ -17,10 +17,13 @@ public class ServletListarEmpresas extends HttpServlet{
     }
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException{
-        TipoEmpresaDAO tipodao = new TipoEmpresaDAO();
-        req.setAttribute("tipos", tipodao.listarTiposEmpresa());
-        IndiceClassificacaoDAO indicedao = new IndiceClassificacaoDAO();
-        req.setAttribute("statuses", indicedao.listarIndicesClassificacao());
+        if (req.getAttribute("popup-alterar")!=null) {
+            IndiceClassificacaoDAO indicedao = new IndiceClassificacaoDAO();
+            req.setAttribute("statuses", indicedao.listarIndicesClassificacao());
+        } if (req.getAttribute("popup-alterar")!=null | req.getAttribute("popup-inserir")!=null){
+            TipoEmpresaDAO tipodao = new TipoEmpresaDAO();
+            req.setAttribute("tipos", tipodao.listarTiposEmpresa());
+        }
         EmpresaDAO empresadao = new EmpresaDAO();
         List<Empresa> empresas = empresadao.listarEmpresas();
         req.setAttribute("empresas", empresas);

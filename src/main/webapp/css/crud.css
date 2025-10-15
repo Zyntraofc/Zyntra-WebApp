@@ -223,7 +223,7 @@ main form {
 }
 
 main form input {
-    flex: 1;                          /* Input ocupa todo espaço restante */
+    flex: 1;                          /* Input ocupa */
     border: none;                     /* Remove borda padrão */
     outline: none;                    /* Remove borda azul ao clicar */
     font-size: 14px;

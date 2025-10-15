@@ -179,11 +179,13 @@
     <form action="InserirEmpresa" method="post">
         <input type="hidden" name="caminho" value="${caminho}">
 
-        <label for="NovoTipoEmpresa">ID Tipo de Empresa</label>
-        <input type="number" id="NovoTipoEmpresa" name="idTipoEmpresa">
-
-        <label for="NovoIndiceClassificacao">ID Índice de Classificação</label>
-        <input type="number" id="NovoIndiceClassificacao" name="idIndiceClassificacao">
+        <label for="NovoTipoEmpresa">Tipo de Empresa</label>
+        <select name="idTipoEmpresa" id="NovoTipoEmpresa" required>
+            <option  value="" disabled selected>Selecione o tipo de empresa </option>
+            <c:forEach var="tipo" items="${tipos}">
+                <option value="${tipo.id}">${tipo.nome}</option>
+            </c:forEach>
+        </select>
 
         <label for="Novonome">Nome</label>
         <input type="text" id="Novonome" name="nome">
