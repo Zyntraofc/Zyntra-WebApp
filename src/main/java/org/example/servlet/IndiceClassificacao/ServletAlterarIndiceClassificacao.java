@@ -5,6 +5,7 @@ import java.util.List;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.example.conexao.ConexaoManager;
 import org.example.dao.IndiceClassificacaoDAO;
 import org.example.model.IndiceClassificacao;
 
@@ -64,5 +65,6 @@ public class ServletAlterarIndiceClassificacao extends HttpServlet{
                 req.getRequestDispatcher("ListarIndiceClassificacao").forward(req, resp);
             }
         }
+        ConexaoManager.desconectar();
     }
 }

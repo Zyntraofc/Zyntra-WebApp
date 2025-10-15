@@ -7,6 +7,7 @@ import java.time.format.DateTimeParseException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.example.conexao.ConexaoManager;
 import org.example.dao.TipoEmpresaDAO;
 import org.example.model.TipoEmpresa;
 
@@ -42,5 +43,6 @@ public class ServletAlterarTipoEmpresa extends HttpServlet {
             req.setAttribute("erro", "Tipo empresa atualizado com sucesso!");
             req.getRequestDispatcher("ListarTipoEmpresa").forward(req, resp);
         }
+        ConexaoManager.desconectar();
     }
 }

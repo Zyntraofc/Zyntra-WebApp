@@ -5,6 +5,7 @@ import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.example.conexao.ConexaoManager;
 import org.example.dao.EmpresaDAO;
 import org.example.dao.TipoEmpresaDAO;
 import org.example.model.Empresa;
@@ -30,5 +31,6 @@ public class ServletDeletarTipoEmpresa extends HttpServlet{
         }else if(action == 2){
             req.getRequestDispatcher("ListarTipoEmpresa").forward(req, resp);
         }
+        ConexaoManager.desconectar();
     }
 }

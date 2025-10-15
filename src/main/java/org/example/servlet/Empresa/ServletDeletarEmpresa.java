@@ -4,6 +4,7 @@ import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.example.conexao.ConexaoManager;
 import org.example.dao.EmpresaDAO;
 import org.example.dao.StatusAprovacaoDAO;
 import org.example.model.Empresa;
@@ -37,6 +38,7 @@ public class ServletDeletarEmpresa extends HttpServlet{
         }else if(action == 2){
             req.getRequestDispatcher("Listar"+caminho).forward(req, resp);
         }
+        ConexaoManager.desconectar();
     }
 
 }

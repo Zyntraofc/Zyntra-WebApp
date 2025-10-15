@@ -4,6 +4,7 @@ import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.example.conexao.ConexaoManager;
 import org.example.dao.StatusAprovacaoDAO;
 import org.example.dao.EmpresaDAO;
 import org.example.dao.TipoEmpresaDAO;
@@ -76,10 +77,11 @@ public class ServletAlterarStatusAprovacao extends HttpServlet {
                 if (statusdao.alterarMotivoStatusAprovacao(id, motivoRejeicao)) req.setAttribute("erro", "Atualizado com sucesso");
                 else req.setAttribute("erro", "Erro ao atualizar motivo!");
             }
-        } // CORREÇÃO: Fechamento correto do else if
+        }
 
-        java.util.List<StatusAprovacao> statuses = statusdao.listarTodosStatusAprovacao();
+        List<StatusAprovacao> statuses = statusdao.listarTodosStatusAprovacao();
         req.setAttribute("statuses", statuses);
         req.getRequestDispatcher("view/CrudStatusAprovacao.jsp").forward(req, resp);
+        ConexaoManager.desconectar();
     }
 }

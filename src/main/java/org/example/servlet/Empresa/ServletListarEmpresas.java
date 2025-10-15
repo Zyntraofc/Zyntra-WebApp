@@ -4,6 +4,7 @@ import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.example.conexao.ConexaoManager;
 import org.example.dao.EmpresaDAO;
 import org.example.model.Empresa;
 import java.util.List;
@@ -19,6 +20,7 @@ public class ServletListarEmpresas extends HttpServlet{
         List<Empresa> empresas = empresadao.listarEmpresas();
         req.setAttribute("empresas", empresas);
         req.getRequestDispatcher("view/CrudEmpresa.jsp").forward(req, resp);
+        ConexaoManager.desconectar();
     }
 
 }

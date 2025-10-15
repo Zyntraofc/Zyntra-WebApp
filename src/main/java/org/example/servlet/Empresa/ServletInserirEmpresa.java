@@ -4,6 +4,7 @@ import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.example.conexao.ConexaoManager;
 import org.example.dao.EmpresaDAO;
 import org.example.dao.StatusAprovacaoDAO;
 import org.example.model.StatusAprovacao;
@@ -55,7 +56,7 @@ public class ServletInserirEmpresa extends HttpServlet{
 
             StatusAprovacaoDAO statusDao = new StatusAprovacaoDAO();
             StatusAprovacao status = new StatusAprovacao(LocalDate.now());
-            int idStatusAprovacao = statusDao.inserirStatusAprovacao(status); // CORREÇÃO: Método correto
+            int idStatusAprovacao = statusDao.inserirStatusAprovacao(status);
 
             if (idStatusAprovacao <= 0) {
                 req.setAttribute("erro", "Falha ao criar o status de aprovação.");
@@ -65,12 +66,12 @@ public class ServletInserirEmpresa extends HttpServlet{
 
             Empresa empresaNova = new Empresa(idTipoEmpresa, idIndiceClassificacao, idStatusAprovacao, nome, cnpj, email, telefone);
             EmpresaDAO dao = new EmpresaDAO();
-            if(!dao.inserirEmpresa(empresaNova)){ // CORREÇÃO: Método correto
+            if(!dao.inserirEmpresa(empresaNova)){
                 req.setAttribute("erro", "Falha ao inserir a empresa.");
                 req.getRequestDispatcher("view/InserirEmpresa.jsp").forward(req, resp);
                 return;
             }
-
+            ConexaoManager.desconectar();
             req.setAttribute("erro", "Empresa e Status inseridos com sucesso");
             String caminho = req.getParameter("caminho");
             req.getRequestDispatcher("Listar" + caminho).forward(req, resp);

@@ -5,6 +5,7 @@ import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.example.conexao.ConexaoManager;
 import org.example.dao.TipoEmpresaDAO;
 import org.example.model.TipoEmpresa;
 
@@ -34,5 +35,6 @@ public class ServletInserirTipoEmpresa extends HttpServlet{
             req.setAttribute("erro", "Não foi possível inserir tipo empresa");
             req.getRequestDispatcher("/view/InserirTipoEmpresa.jsp").forward(req, resp);
         }
+        ConexaoManager.desconectar();
     }
 }

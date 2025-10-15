@@ -3,6 +3,7 @@ import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.example.conexao.ConexaoManager;
 import org.example.dao.AdministradorDAO;
 import org.example.model.Administrador;
 import org.example.utils.regex.ValidacaoEmail;
@@ -44,5 +45,6 @@ public class ServletAlterarAdm extends HttpServlet {
             req.setAttribute("administradores", administradores);
             req.getRequestDispatcher("view/CrudAdm.jsp").forward(req, resp);
         }
+        ConexaoManager.desconectar();
     }
 }

@@ -4,6 +4,7 @@ import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.example.conexao.ConexaoManager;
 import org.example.dao.MotivoFaltaDAO;
 import org.example.model.MotivoFalta;
 
@@ -20,6 +21,7 @@ public class ServletListarMotivoFalta extends HttpServlet{
         List<MotivoFalta> motivos = motivodao.listarMotivosFalta();
         req.setAttribute("motivos", motivos);
         req.getRequestDispatcher("view/CrudMotivoFalta.jsp").forward(req, resp);
+        ConexaoManager.desconectar();
     }
 
 }

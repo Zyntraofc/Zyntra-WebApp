@@ -4,6 +4,7 @@ import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.example.conexao.ConexaoManager;
 import org.example.dao.IndiceClassificacaoDAO;
 import org.example.model.IndiceClassificacao;
 import java.util.List;
@@ -21,6 +22,6 @@ public class ServletListarIndiceClassificacao extends HttpServlet{
         List<IndiceClassificacao> indicesClassificacao = indiceclassificacaodao.listarIndicesClassificacao();
         req.setAttribute("indicesClassificacao", indicesClassificacao);
         req.getRequestDispatcher("view/CrudIndiceClassificacao.jsp").forward(req, resp);
-
+        ConexaoManager.desconectar();
     }
 }

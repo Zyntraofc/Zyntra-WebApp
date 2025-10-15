@@ -4,6 +4,7 @@ import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.example.conexao.ConexaoManager;
 import org.example.dao.AdministradorDAO;
 import org.example.utils.autenticacao.HashSenha;
 import org.example.model.Administrador;
@@ -39,6 +40,7 @@ public class ServletInserirAdm extends HttpServlet{
                         req.setAttribute("erro", "Erro ao inserir adm");
                         req.getRequestDispatcher("ListarAdministradores").forward(req, resp);
                     }
+                    ConexaoManager.desconectar();
                 } else {
                     req.setAttribute("erro", "Senha: mínimo 8 caracteres, com maiúscula, minúscula e símbolo especial.");
                     req.getRequestDispatcher("ListarAdministradores").forward(req, resp);

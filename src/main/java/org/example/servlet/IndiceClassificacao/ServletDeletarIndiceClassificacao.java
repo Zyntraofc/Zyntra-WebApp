@@ -5,6 +5,7 @@ import java.util.List;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.example.conexao.ConexaoManager;
 import org.example.dao.IndiceClassificacaoDAO;
 import org.example.model.IndiceClassificacao;
 
@@ -27,5 +28,6 @@ public class ServletDeletarIndiceClassificacao extends HttpServlet{
         }else if(action == 2){
             req.getRequestDispatcher("ListarIndiceClassificacao").forward(req, resp);
         }
+        ConexaoManager.desconectar();
     }
 }

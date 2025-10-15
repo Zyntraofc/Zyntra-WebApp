@@ -6,6 +6,7 @@ import java.util.List;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.example.conexao.ConexaoManager;
 import org.example.dao.TipoEmpresaDAO;
 import org.example.model.TipoEmpresa;
 
@@ -22,5 +23,6 @@ public class ServletListarTipoEmpresa extends HttpServlet{
         List<TipoEmpresa> tiposEmpresa = tipoempresadao.listarTiposEmpresa();
         req.setAttribute("tiposEmpresa", tiposEmpresa);
         req.getRequestDispatcher("view/CrudTipoEmpresa.jsp").forward(req, resp);
+        ConexaoManager.desconectar();
     }
 }

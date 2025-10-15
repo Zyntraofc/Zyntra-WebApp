@@ -3,6 +3,7 @@ import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.example.conexao.ConexaoManager;
 import org.example.dao.MotivoFaltaDAO;
 import org.example.model.MotivoFalta;
 
@@ -21,5 +22,6 @@ public class ServletInserirMotivoFalta extends HttpServlet{
         MotivoFaltaDAO motivodao = new MotivoFaltaDAO();
         motivodao.inserirMotivoFalta(motivoFalta);
         req.getRequestDispatcher("ListarMotivosFalta").forward(req, resp);
+        ConexaoManager.desconectar();
     }
 }
