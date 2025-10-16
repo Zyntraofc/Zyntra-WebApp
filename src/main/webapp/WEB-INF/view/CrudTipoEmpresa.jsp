@@ -19,30 +19,44 @@
     </div>
 
     <div class="barra-lateral">
-        <form action="ListarEmpresas" method="post">
+        <form action="Autenticar" method="post">
             <button type="submit" class="botao">Empresa</button>
+            <input type="hidden" name="endpointInput" value="private/ListarEmpresas">
+            <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
         </form>
-        <form action="ListarAdministradores" method="post">
+        <form action="Autenticar" method="post">
             <button type="submit" class="botao">Adm</button>
+            <input type="hidden" name="endpointInput" value="private/ListarAdministradores">
+            <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
         </form>
-        <form action="ListarStatusAprovacao" method="post">
+        <form action="Autenticar" method="post">
             <button type="submit" class="botao">Status Aprovação</button>
+            <input type="hidden" name="endpointInput" value="private/ListarStatusAprovacao">
+            <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
         </form>
-        <form action="ListarIndiceClassificacao" method="post">
+        <form action="Autenticar" method="post">
             <button type="submit" class="botao">Indices Classificação</button>
+            <input type="hidden" name="endpointInput" value="private/ListarIndiceClassificacao">
+            <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
         </form>
-        <form action="ListarTipoEmpresa" method="post">
+        <form action="Autenticar" method="post">
             <button type="submit" class="botao active">Tipo Empresa</button>
+            <input type="hidden" name="endpointInput" value="private/ListarTipoEmpresa">
+            <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
         </form>
-        <form action="ListarMotivosFalta" method="post">
+        <form action="Autenticar" method="post">
             <button type="submit" class="botao">Motivo Falta</button>
+            <input type="hidden" name="endpointInput" value="private/ListarMotivosFalta">
+            <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
         </form>
 
         <div class="sair-container">
-            <a href="index.html" class="sair">
-                <img src="assets/Saida.png" alt="Sair">
-                <span>Sair</span>
-            </a>
+            <form action="Logout">
+                <button type="submit" class="sair">
+                    <img href="assets/Saida.png" alt="Sair">
+                    <span>Sair</span>
+                </button>
+            </form>
         </div>
     </div>
 </aside>
