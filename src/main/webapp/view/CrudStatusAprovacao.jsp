@@ -3,6 +3,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/crud.css">
+    <script src="${pageContext.request.contextPath}/js/mascara.js" defer></script>it
     <title>Crud Status Aprovação - Área restrita</title>
 </head>
 <body>
@@ -94,21 +95,25 @@
 
         <tr>
             <td>${status.id}</td>
-            <td>${nomesEmpresas[status.id]}</td>
+            <td class="sensivel">${nomesEmpresas[status.id]}</td>
             <td>${String.valueOf(status.status).equals("a") ? "Aprovado" : String.valueOf(status.status).equals("r") ? "Recusado" : "Pendente"}</td>
-            <td>${status.dataSolicitacao}</td>
+            <td class="sensivel">${status.dataSolicitacao}</td>
             <td>
                 <div style="display: flex">
+                    <button style="border: none; background: none; cursor: pointer" class="toggleLinha" data-olho="${pageContext.request.contextPath}/assets/icons/icon-olho.png"
+                            data-olho-fechado="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png">
+                        <img src="${pageContext.request.contextPath}/assets/icons/icon-olho.png" />
+                    </button>
                     <form action="AlterarStatusAprovacao" method="post">
                         <input type="hidden" name="id" value="${status.id}">
                         <input type="hidden" name="action" value="0">
-                        <button type="submit">Alterar</button>
+                        <button type="submit" style="border: none; background: none; cursor: pointer" > <img src="${pageContext.request.contextPath}/assets/icons/icon-edit.png"></button>
                     </form>
                     <form action="DeletarEmpresa" method="post">
                         <input type="hidden" name="idStatus" value="${status.id}">
                         <input type="hidden" name="caminho" value="StatusAprovacao">
                         <input type="hidden" name="action" value="0">
-                        <button type="submit">Deletar</button>
+                        <button type="submit" style="border: none; background: none; cursor: pointer" ><img src="${pageContext.request.contextPath}/assets/icons/icon-excluir.png"></button>
                     </form>
                 </div>
             </td>
