@@ -3,6 +3,7 @@
 <html>
 <head>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/crud.css">
+  <script src="${pageContext.request.contextPath}/js/mascara.js" defer></script>
   <title>Crud Empresa - Área restrita</title>
 </head>
 <body>
@@ -94,15 +95,19 @@
   <tbody>
   <c:forEach var="empresa" items="${empresas}">
     <tr>
-      <td>${empresa.id}</td>
+      <td >${empresa.id}</td>
       <td>${empresa.nome}</td>
-      <td>${empresa.email}</td>
-      <td>${empresa.cnpj}</td>
-      <td>${empresa.telefone}</td>
+      <td class="sensivel">${empresa.email}</td>
+      <td class="sensivel">${empresa.cnpj}</td>
+      <td class="sensivel">${empresa.telefone}</td>
       <td>${tiposEmpresa[empresa.id]}</td>
 
       <td>
         <div style="display: flex">
+          <button style="border: none; background: none; cursor: pointer" class="toggleLinha" data-olho="${pageContext.request.contextPath}/assets/icons/icon-olho.png"
+                  data-olho-fechado="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png">
+            <img src="${pageContext.request.contextPath}/assets/icons/icon-olho.png" />
+          </button>
           <form action="AlterarEmpresa" method="post">
             <input type="hidden" name="id" value="${empresa.id}">
             <input type="hidden" name="action" value="0">
