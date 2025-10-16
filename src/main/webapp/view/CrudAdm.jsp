@@ -4,6 +4,7 @@
 <head>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/crud.css">
   <title>Crud Adm - Área restrita</title>
+  <script src="${pageContext.request.contextPath}/js/mascara.js" defer></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pap4G5rY9O6..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -94,18 +95,22 @@
       <tr>
         <td>${administrador.id}</td>
         <td>${administrador.email}</td>
-        <td>${administrador.hashSenha}</td>
+        <td class="sensivel">${administrador.hashSenha}</td>
         <td>
           <div style="display: flex">
+            <button style="border: none; background: none; cursor: pointer" class="toggleLinha" data-olho="${pageContext.request.contextPath}/assets/icons/icon-olho.png"
+                    data-olho-fechado="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png">
+              <img src="${pageContext.request.contextPath}/assets/icons/icon-olho.png" />
+            </button>
             <form action="AlterarAdm" method="post">
               <input type="hidden" name="id" value="${administrador.id}">
               <input type="hidden" name="action" value="0">
-              <button type="submit">Alterar</button>
+              <button type="submit" style="border: none; background: none; cursor: pointer" > <img src="${pageContext.request.contextPath}/assets/icons/icon-edit.png"></button>
             </form>
             <form action="DeletarAdm" method="post">
               <input type="hidden" name="id" value="${administrador.id}">
               <input type="hidden" name="action" value="0">
-              <button type="submit">Deletar</button>
+              <button type="submit" style="border: none; background: none; cursor: pointer" ><img src="${pageContext.request.contextPath}/assets/icons/icon-excluir.png"></button>
             </form>
           </div>
         </td>
