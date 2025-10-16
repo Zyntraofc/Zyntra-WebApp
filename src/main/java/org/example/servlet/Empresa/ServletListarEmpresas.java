@@ -9,7 +9,7 @@ import org.example.dao.EmpresaDAO;
 import org.example.model.Empresa;
 import java.util.List;
 
-@WebServlet("/ListarEmpresas")
+@WebServlet("/private/ListarEmpresas")
 public class ServletListarEmpresas extends HttpServlet{
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req, resp);
@@ -19,7 +19,7 @@ public class ServletListarEmpresas extends HttpServlet{
         EmpresaDAO empresadao = new EmpresaDAO();
         List<Empresa> empresas = empresadao.listarEmpresas();
         req.setAttribute("empresas", empresas);
-        req.getRequestDispatcher("view/CrudEmpresa.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/view/CrudEmpresa.jsp").forward(req, resp);
         ConexaoManager.desconectar();
     }
 

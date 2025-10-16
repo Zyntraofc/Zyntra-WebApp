@@ -7,7 +7,7 @@ import org.example.conexao.ConexaoManager;
 import org.example.dao.MotivoFaltaDAO;
 import org.example.model.MotivoFalta;
 
-@WebServlet("/AlterarMotivoFalta")
+@WebServlet("/private/AlterarMotivoFalta")
 public class ServletAlterarMotivoFalta extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         int action = Integer.parseInt(req.getParameter("action"));
@@ -17,7 +17,7 @@ public class ServletAlterarMotivoFalta extends HttpServlet {
             MotivoFalta motivo = motivodao.listarMotivoFaltaPorID(id);
             req.setAttribute("motivo", motivo);
             req.setAttribute("popup-alterar", true);
-            req.getRequestDispatcher("ListarMotivosFalta").forward(req, resp);
+            req.getRequestDispatcher("private/ListarMotivosFalta").forward(req, resp);
         }
         else if (action == 1) {
             String motivo = req.getParameter("motivo");
@@ -27,7 +27,7 @@ public class ServletAlterarMotivoFalta extends HttpServlet {
             else req.setAttribute("erro", "Erro!");
             java.util.List<MotivoFalta> motivos = motivodao.listarMotivosFalta();
             req.setAttribute("motivos", motivos);
-            req.getRequestDispatcher("view/CrudMotivoFalta.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/view/CrudMotivoFalta.jsp").forward(req, resp);
         }
         ConexaoManager.desconectar();
     }

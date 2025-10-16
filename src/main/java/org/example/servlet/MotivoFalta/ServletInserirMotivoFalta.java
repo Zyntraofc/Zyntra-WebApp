@@ -7,12 +7,12 @@ import org.example.conexao.ConexaoManager;
 import org.example.dao.MotivoFaltaDAO;
 import org.example.model.MotivoFalta;
 
-@WebServlet("/InserirMotivoFalta")
+@WebServlet("/private/InserirMotivoFalta")
 public class ServletInserirMotivoFalta extends HttpServlet{
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException{
         req.setAttribute("popup-inserir", true);
-        req.getRequestDispatcher("ListarMotivosFalta").forward(req, resp);
+        req.getRequestDispatcher("private/ListarMotivosFalta").forward(req, resp);
     }
 
     @Override
@@ -21,7 +21,7 @@ public class ServletInserirMotivoFalta extends HttpServlet{
         MotivoFalta motivoFalta = new MotivoFalta(motivo);
         MotivoFaltaDAO motivodao = new MotivoFaltaDAO();
         motivodao.inserirMotivoFalta(motivoFalta);
-        req.getRequestDispatcher("ListarMotivosFalta").forward(req, resp);
+        req.getRequestDispatcher("private/ListarMotivosFalta").forward(req, resp);
         ConexaoManager.desconectar();
     }
 }

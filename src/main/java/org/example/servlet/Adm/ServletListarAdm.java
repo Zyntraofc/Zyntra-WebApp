@@ -9,7 +9,7 @@ import org.example.dao.AdministradorDAO;
 import org.example.model.Administrador;
 import java.util.List;
 
-@WebServlet("/ListarAdministradores")
+@WebServlet("/private/ListarAdministradores")
 public class ServletListarAdm extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -32,7 +32,7 @@ public class ServletListarAdm extends HttpServlet{
             req.setAttribute("administrador", admin);
         }
 
-        req.getRequestDispatcher("view/CrudAdm.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/view/CrudAdm.jsp").forward(req, resp);
         ConexaoManager.desconectar();
     }
 

@@ -9,7 +9,7 @@ import org.example.conexao.ConexaoManager;
 import org.example.dao.IndiceClassificacaoDAO;
 import org.example.model.IndiceClassificacao;
 
-@WebServlet("/AlterarIndiceClassificacao")
+@WebServlet("/private/AlterarIndiceClassificacao")
 public class ServletAlterarIndiceClassificacao extends HttpServlet{
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
@@ -22,7 +22,7 @@ public class ServletAlterarIndiceClassificacao extends HttpServlet{
             IndiceClassificacao indiceClassificacao = indicedao.listarIndiceClassificacaoPorId(id);
             req.setAttribute("indiceClassificacao", indiceClassificacao);
             req.setAttribute("popup-alterar", true);
-            req.getRequestDispatcher("ListarIndiceClassificacao").forward(req, resp);
+            req.getRequestDispatcher("private/ListarIndiceClassificacao").forward(req, resp);
         }else if(action == 1){
             IndiceClassificacao indiceClassificacao = indicedao.listarIndiceClassificacaoPorId(id);
             String preocupacao = req.getParameter("preocupacao");
@@ -43,10 +43,10 @@ public class ServletAlterarIndiceClassificacao extends HttpServlet{
             }
             if (sobrepoe) {
                 req.setAttribute("erro", "O intervalo informado sobrepõe outro já existente!");
-                req.getRequestDispatcher("view/InserirIndiceClassificacao.jsp").forward(req, resp);
+                req.getRequestDispatcher("/WEB-INF/view/InserirIndiceClassificacao.jsp").forward(req, resp);
             } else if (porcentagemMinima >= porcentagemMaxima) {
                 req.setAttribute("erro", "A porcentagem mínima deve ser menor que a máxima!");
-                req.getRequestDispatcher("view/InserirIndiceClassificacao.jsp").forward(req, resp);
+                req.getRequestDispatcher("/WEB-INF/view/InserirIndiceClassificacao.jsp").forward(req, resp);
             } else{
                 if(!indiceClassificacao.getPreocupacao().equals(preocupacao)){
                     indicedao.alterarPreocupacaoIndiceClassificacao(id, preocupacao);
@@ -62,7 +62,7 @@ public class ServletAlterarIndiceClassificacao extends HttpServlet{
                 }
 
                 req.setAttribute("erro", "Indice classificação alterado com sucesso");
-                req.getRequestDispatcher("ListarIndiceClassificacao").forward(req, resp);
+                req.getRequestDispatcher("private/ListarIndiceClassificacao").forward(req, resp);
             }
         }
         ConexaoManager.desconectar();

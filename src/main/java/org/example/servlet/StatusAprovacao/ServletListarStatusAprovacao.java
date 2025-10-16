@@ -9,7 +9,7 @@ import org.example.dao.StatusAprovacaoDAO;
 import org.example.model.StatusAprovacao;
 import java.util.List;
 
-@WebServlet("/ListarStatusAprovacao")
+@WebServlet("/private/ListarStatusAprovacao")
 public class ServletListarStatusAprovacao extends HttpServlet{
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req, resp);
@@ -19,7 +19,7 @@ public class ServletListarStatusAprovacao extends HttpServlet{
         StatusAprovacaoDAO statusdao = new StatusAprovacaoDAO();
         List<StatusAprovacao> statuses = statusdao.listarTodosStatusAprovacao();
         req.setAttribute("statuses", statuses);
-        req.getRequestDispatcher("view/CrudStatusAprovacao.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/view/CrudStatusAprovacao.jsp").forward(req, resp);
         ConexaoManager.desconectar();
     }
 }

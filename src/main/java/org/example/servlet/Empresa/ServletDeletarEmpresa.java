@@ -9,7 +9,7 @@ import org.example.dao.EmpresaDAO;
 import org.example.dao.StatusAprovacaoDAO;
 import org.example.model.Empresa;
 
-@WebServlet("/DeletarEmpresa")
+@WebServlet("/private/DeletarEmpresa")
 public class ServletDeletarEmpresa extends HttpServlet{
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException{
