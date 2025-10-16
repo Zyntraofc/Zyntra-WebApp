@@ -157,8 +157,8 @@ public class StatusAprovacaoDAO {
             comandoAtualizar = "update status_aprovacao set status = ?, motivo_rejeicao = NULL, data_aprovacao = NULL where id_status_aprovacao = ?";
         }
         else {
-            // Para outros status, só atualiza o status
-            comandoAtualizar = "update status_aprovacao set status = ? where id_status_aprovacao = ?";
+            // Para outros status, só atualiza o status e zera a data de aprovação
+            comandoAtualizar = "update status_aprovacao set status = ?, data_aprovacao = NULL where id_status_aprovacao = ?";
         }
         try (PreparedStatement pstmt = conn.prepareStatement(comandoAtualizar)) {
             pstmt.setString(1, String.valueOf(status));

@@ -81,22 +81,18 @@
 <table border="1">
   <thead>
   <tr>
-    <th>Preocupação</th>
     <th>ID</th>
-    <th>Porcentagem mínima</th>
-    <th>Porcentagem máxima</th>
-    <th>Recomendação</th>
+    <th>Preocupação</th>
+    <th>Porcentagem</th>
     <th>Ações</th>
   </tr>
   </thead>
   <tbody>
   <c:forEach var="indiceClassificacao" items="${indicesClassificacao}">
     <tr>
-      <td>${indiceClassificacao.preocupacao}</td>
       <td>${indiceClassificacao.id}</td>
-      <td>${indiceClassificacao.porcentagemMinima}</td>
-      <td>${indiceClassificacao.porcentagemMaxima}</td>
-      <td>${indiceClassificacao.recomendacao}</td>
+      <td>${indiceClassificacao.preocupacao}</td>
+      <td>${indiceClassificacao.porcentagemMinima} - ${indiceClassificacao.porcentagemMaxima}%</td>
       <td>
         <div style="display: flex">
           <form action="AlterarIndiceClassificacao" method="post">

@@ -82,20 +82,25 @@
 <table border="1">
   <thead>
   <tr>
-    <th>Nome</th>
     <th>ID</th>
-    <th>CNPJ</th>
+    <th>Nome</th>
     <th>Email</th>
+    <th>CNPJ</th>
+    <th>Telefone</th>
+    <th>Tipo de empresa</th>
     <th>Ações</th>
   </tr>
   </thead>
   <tbody>
   <c:forEach var="empresa" items="${empresas}">
     <tr>
-      <td>${empresa.nome}</td>
       <td>${empresa.id}</td>
-      <td>${empresa.cnpj}</td>
+      <td>${empresa.nome}</td>
       <td>${empresa.email}</td>
+      <td>${empresa.cnpj}</td>
+      <td>${empresa.telefone}</td>
+      <td>${tiposEmpresa[empresa.id]}</td>
+
       <td>
         <div style="display: flex">
           <form action="AlterarEmpresa" method="post">

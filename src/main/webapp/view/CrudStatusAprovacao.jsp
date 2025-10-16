@@ -83,23 +83,20 @@
     <thead>
     <tr>
         <th>ID</th>
+        <th>Nome da Empresa</th>
         <th>Status</th>
-        <th>Motivo de Rejeição</th>
         <th>Data de Solicitação</th>
-        <th>Data de Aprovação</th>
         <th>Ações</th>
     </tr>
     </thead>
     <tbody>
     <c:forEach var="status" items="${statuses}">
+
         <tr>
             <td>${status.id}</td>
+            <td>${nomesEmpresas[status.id]}</td>
             <td>${String.valueOf(status.status).equals("a") ? "Aprovado" : String.valueOf(status.status).equals("r") ? "Recusado" : "Pendente"}</td>
-            <td>${not empty status.motivoRejeicao ? status.motivoRejeicao : "null"}</td>
             <td>${status.dataSolicitacao}</td>
-            <td>${status.dataAprovacao!=null ? status.dataAprovacao : "null"}</td>
-
-
             <td>
                 <div style="display: flex">
                     <form action="AlterarStatusAprovacao" method="post">

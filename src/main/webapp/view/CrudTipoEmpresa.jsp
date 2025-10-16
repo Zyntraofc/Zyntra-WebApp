@@ -81,22 +81,21 @@
 <table border="1">
     <thead>
     <tr>
-        <th>Nome</th>
         <th>ID</th>
+        <th>Nome</th>
         <th>Status</th>
         <th>Última atualização</th>
-        <th>Descrição</th>
         <th>Ações</th>
     </tr>
     </thead>
     <tbody>
     <c:forEach var="tipoEmpresa" items="${tiposEmpresa}">
         <tr>
-            <td>${tipoEmpresa.nome}</td>
             <td>${tipoEmpresa.id}</td>
+            <td>${tipoEmpresa.nome}</td>
+
             <td>${String.valueOf(tipoEmpresa.status).equals("i") ?"Inativo": "Ativo"}</td>
             <td>${tipoEmpresa.ultimaAtualizacao}</td>
-            <td>${tipoEmpresa.descricao}</td>
             <td>
                 <div style="display: flex">
                     <form action="AlterarTipoEmpresa" method="post">

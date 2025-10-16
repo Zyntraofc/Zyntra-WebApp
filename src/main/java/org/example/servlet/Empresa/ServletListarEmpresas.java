@@ -8,7 +8,11 @@ import org.example.dao.EmpresaDAO;
 import org.example.dao.IndiceClassificacaoDAO;
 import org.example.dao.TipoEmpresaDAO;
 import org.example.model.Empresa;
+import org.example.model.StatusAprovacao;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet("/ListarEmpresas")
 public class ServletListarEmpresas extends HttpServlet{
@@ -17,16 +21,25 @@ public class ServletListarEmpresas extends HttpServlet{
     }
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException{
+        TipoEmpresaDAO tipodao = new TipoEmpresaDAO();
         if (req.getAttribute("popup-alterar")!=null) {
             IndiceClassificacaoDAO indicedao = new IndiceClassificacaoDAO();
             req.setAttribute("statuses", indicedao.listarIndicesClassificacao());
         } if (req.getAttribute("popup-alterar")!=null | req.getAttribute("popup-inserir")!=null){
-            TipoEmpresaDAO tipodao = new TipoEmpresaDAO();
             req.setAttribute("tipos", tipodao.listarTiposEmpresa());
         }
         EmpresaDAO empresadao = new EmpresaDAO();
         List<Empresa> empresas = empresadao.listarEmpresas();
         req.setAttribute("empresas", empresas);
+
+        // cria um mapa onde a chave é o id do status e o valor é o nome da empresa
+        Map<Integer, String> tiposEmpresa = new HashMap<>();
+        for (Empresa e : empresas) {
+            String tipoEmpresa = tipodao.listarTipoEmpresaPorId(e.getIdTipoEmpresa()).getNome();
+            tiposEmpresa.put(e.getId(), tipoEmpresa);
+        }
+        req.setAttribute("tiposEmpresa", tiposEmpresa);
+
         req.getRequestDispatcher("view/CrudEmpresa.jsp").forward(req, resp);
     }
 
