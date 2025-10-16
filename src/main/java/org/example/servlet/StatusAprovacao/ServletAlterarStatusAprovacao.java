@@ -14,7 +14,7 @@ import org.example.model.Empresa;
 import java.time.LocalDate;
 import java.util.List;
 
-@WebServlet("/AlterarStatusAprovacao")
+@WebServlet("/private/AlterarStatusAprovacao")
 public class ServletAlterarStatusAprovacao extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         int action = Integer.parseInt(req.getParameter("action"));
@@ -27,7 +27,7 @@ public class ServletAlterarStatusAprovacao extends HttpServlet {
             req.setAttribute("popup-alterar", true);
             List<StatusAprovacao> statuses = statusdao.listarTodosStatusAprovacao();
             req.setAttribute("statuses", statuses);
-            req.getRequestDispatcher("view/CrudStatusAprovacao.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/view/CrudStatusAprovacao.jsp").forward(req, resp);
         }
         else if (action == 1) {
             String status = req.getParameter("status");
@@ -81,7 +81,7 @@ public class ServletAlterarStatusAprovacao extends HttpServlet {
 
         List<StatusAprovacao> statuses = statusdao.listarTodosStatusAprovacao();
         req.setAttribute("statuses", statuses);
-        req.getRequestDispatcher("view/CrudStatusAprovacao.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/view/CrudStatusAprovacao.jsp").forward(req, resp);
         ConexaoManager.desconectar();
     }
 }

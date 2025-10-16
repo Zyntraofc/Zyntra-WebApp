@@ -15,7 +15,7 @@ import java.util.InputMismatchException;
 import org.example.utils.regex.ValidacaoEmail;
 import org.example.utils.regex.ValidacaoTelefone;
 
-@WebServlet("/InserirEmpresa")
+@WebServlet("/private/InserirEmpresa")
 public class ServletInserirEmpresa extends HttpServlet{
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException{
@@ -41,16 +41,16 @@ public class ServletInserirEmpresa extends HttpServlet{
 
             if(!valemail.validarEmail(email)){
                 req.setAttribute("erro", "Digite o email corretamente");
-                req.getRequestDispatcher("view/InserirEmpresa.jsp").forward(req, resp);
+                req.getRequestDispatcher("private/ListarEmpresas").forward(req, resp);
                 return;
             } if(!valefone.validarTelefone(telefone)){
                 req.setAttribute("erro", "Digite os telefone");
-                req.getRequestDispatcher("view/InserirEmpresa.jsp").forward(req, resp);
+                req.getRequestDispatcher("private/ListarEmpresas").forward(req, resp);
                 return;
             }
             if(cnpj.length() != 14){
                 req.setAttribute("erro", "Digite o cnpj corretamente");
-                req.getRequestDispatcher("view/InserirEmpresa.jsp").forward(req, resp);
+                req.getRequestDispatcher("private/ListarEmpresas").forward(req, resp);
                 return;
             }
 
@@ -60,7 +60,7 @@ public class ServletInserirEmpresa extends HttpServlet{
 
             if (idStatusAprovacao <= 0) {
                 req.setAttribute("erro", "Falha ao criar o status de aprovação.");
-                req.getRequestDispatcher("view/InserirEmpresa.jsp").forward(req, resp);
+                req.getRequestDispatcher("private/ListarEmpresas").forward(req, resp);
                 return;
             }
 
@@ -68,7 +68,7 @@ public class ServletInserirEmpresa extends HttpServlet{
             EmpresaDAO dao = new EmpresaDAO();
             if(!dao.inserirEmpresa(empresaNova)){
                 req.setAttribute("erro", "Falha ao inserir a empresa.");
-                req.getRequestDispatcher("view/InserirEmpresa.jsp").forward(req, resp);
+                req.getRequestDispatcher("private/ListarEmpresas").forward(req, resp);
                 return;
             }
             ConexaoManager.desconectar();
@@ -77,11 +77,11 @@ public class ServletInserirEmpresa extends HttpServlet{
             req.getRequestDispatcher("Listar" + caminho).forward(req, resp);
         }catch(InputMismatchException ime){
             req.setAttribute("erro", "Digite os dados corretamente corretamente");
-            req.getRequestDispatcher("view/InserirEmpresa.jsp").forward(req, resp);
+            req.getRequestDispatcher("private/ListarEmpresas").forward(req, resp);
         } catch (Exception e){
             e.printStackTrace();
             req.setAttribute("erro", "Erro interno do sistema");
-            req.getRequestDispatcher("view/InserirEmpresa.jsp").forward(req, resp);
+            req.getRequestDispatcher("private/ListarEmpresas").forward(req, resp);
         }
     }
 }

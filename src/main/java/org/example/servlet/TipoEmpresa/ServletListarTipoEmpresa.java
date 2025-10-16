@@ -10,7 +10,7 @@ import org.example.conexao.ConexaoManager;
 import org.example.dao.TipoEmpresaDAO;
 import org.example.model.TipoEmpresa;
 
-@WebServlet("/ListarTipoEmpresa")
+@WebServlet("/private/ListarTipoEmpresa")
 public class ServletListarTipoEmpresa extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -22,7 +22,7 @@ public class ServletListarTipoEmpresa extends HttpServlet{
         TipoEmpresaDAO tipoempresadao = new TipoEmpresaDAO();
         List<TipoEmpresa> tiposEmpresa = tipoempresadao.listarTiposEmpresa();
         req.setAttribute("tiposEmpresa", tiposEmpresa);
-        req.getRequestDispatcher("view/CrudTipoEmpresa.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/view/CrudTipoEmpresa.jsp").forward(req, resp);
         ConexaoManager.desconectar();
     }
 }

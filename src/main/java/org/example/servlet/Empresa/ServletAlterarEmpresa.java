@@ -17,7 +17,7 @@ import org.example.model.StatusAprovacao;
 import org.example.utils.regex.ValidacaoEmail;
 import org.example.utils.regex.ValidacaoTelefone;
 
-@WebServlet("/AlterarEmpresa")
+@WebServlet("/private/AlterarEmpresa")
 public class ServletAlterarEmpresa extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
@@ -33,7 +33,7 @@ public class ServletAlterarEmpresa extends HttpServlet {
             Empresa empresa = empresadao.listarEmpresaPorId(id);
             req.setAttribute("empresa", empresa);
             req.setAttribute("popup-alterar", true);
-            req.getRequestDispatcher("ListarEmpresas").forward(req, resp);
+            req.getRequestDispatcher("private/ListarEmpresas").forward(req, resp);
 
         } else if (action == 1) {
             int idTipoEmpresa = Integer.parseInt(req.getParameter("idTipoEmpresa"));
@@ -60,7 +60,7 @@ public class ServletAlterarEmpresa extends HttpServlet {
                     List<Empresa> empresasAntigoTipo = empresadao.listarEmpresaPorIdTipoEmpresa(idTipoEmpresaAntigo);
                     if (!empresasAntigoTipo.isEmpty()) {
                         for (Empresa e : empresasAntigoTipo) {
-                            if (statusdao.listarStatusAprovacaoPorID(e.getIdStatusAprovacao()).getStatus() == 'a') tipoAntigoInativo = false; // CORREÇÃO: listarStatusAprovacaoPorId
+                            if (statusdao.listarStatusAprovacaoPorID(e.getIdStatusAprovacao()).getStatus() == 'a') tipoAntigoInativo = false;
                         }
                     }
                     if (tipoAntigoInativo) {
@@ -72,7 +72,7 @@ public class ServletAlterarEmpresa extends HttpServlet {
                     List<Empresa> empresasNovoTipo = empresadao.listarEmpresaPorIdTipoEmpresa(idTipoEmpresa);
                     if (!empresasNovoTipo.isEmpty()) {
                         for (Empresa e : empresasNovoTipo) {
-                            if (statusdao.listarStatusAprovacaoPorID(e.getIdStatusAprovacao()).getStatus() == 'a') qntdEmpresas += 1; // CORREÇÃO: listarStatusAprovacaoPorId
+                            if (statusdao.listarStatusAprovacaoPorID(e.getIdStatusAprovacao()).getStatus() == 'a') qntdEmpresas += 1;
                         }
                     }
                     if (qntdEmpresas == 1) {
@@ -96,7 +96,7 @@ public class ServletAlterarEmpresa extends HttpServlet {
                     empresadao.alterarEmailEmpresa(id, email);
                 } else {
                     req.setAttribute("erro", "Email inválido");
-                    req.getRequestDispatcher("view/AlterarEmpresa.jsp").forward(req, resp);
+                    req.getRequestDispatcher("private/ListarEmpresas").forward(req, resp);
                     resposta++;
                 }
             }
@@ -105,13 +105,13 @@ public class ServletAlterarEmpresa extends HttpServlet {
                     empresadao.alterarTelefoneEmpresa(id, telefone);
                 } else {
                     req.setAttribute("erro", "Telefone inválido");
-                    req.getRequestDispatcher("view/AlterarEmpresa.jsp").forward(req, resp);
+                    req.getRequestDispatcher("private/ListarEmpresas").forward(req, resp);
                     resposta++;
                 }
             }
             if(resposta ==0){
                 req.setAttribute("erro", "Empresa atualizada com sucesso");
-                req.getRequestDispatcher("ListarEmpresas").forward(req, resp);
+                req.getRequestDispatcher("private/ListarEmpresas").forward(req, resp);
             }
         }
         ConexaoManager.desconectar();

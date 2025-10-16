@@ -9,7 +9,7 @@ import org.example.dao.IndiceClassificacaoDAO;
 import org.example.model.IndiceClassificacao;
 import java.util.List;
 
-@WebServlet("/ListarIndiceClassificacao")
+@WebServlet("/private/ListarIndiceClassificacao")
 public class ServletListarIndiceClassificacao extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -21,7 +21,7 @@ public class ServletListarIndiceClassificacao extends HttpServlet{
         IndiceClassificacaoDAO indiceclassificacaodao = new IndiceClassificacaoDAO();
         List<IndiceClassificacao> indicesClassificacao = indiceclassificacaodao.listarIndicesClassificacao();
         req.setAttribute("indicesClassificacao", indicesClassificacao);
-        req.getRequestDispatcher("view/CrudIndiceClassificacao.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/view/CrudIndiceClassificacao.jsp").forward(req, resp);
         ConexaoManager.desconectar();
     }
 }

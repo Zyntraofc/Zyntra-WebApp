@@ -11,7 +11,7 @@ import org.example.conexao.ConexaoManager;
 import org.example.dao.TipoEmpresaDAO;
 import org.example.model.TipoEmpresa;
 
-@WebServlet("/AlterarTipoEmpresa")
+@WebServlet("/private/AlterarTipoEmpresa")
 public class ServletAlterarTipoEmpresa extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
@@ -26,7 +26,7 @@ public class ServletAlterarTipoEmpresa extends HttpServlet {
             // prepara atributos para a página de alteração
             req.setAttribute("tipoEmpresa", tipoEmpresa);
             req.setAttribute("popup-alterar", true);
-            req.getRequestDispatcher("ListarTipoEmpresa").forward(req, resp);
+            req.getRequestDispatcher("private/ListarTipoEmpresa").forward(req, resp);
 
         } else if (action == 1) {
             String nome = req.getParameter("nome");
@@ -41,7 +41,7 @@ public class ServletAlterarTipoEmpresa extends HttpServlet {
             }
 
             req.setAttribute("erro", "Tipo empresa atualizado com sucesso!");
-            req.getRequestDispatcher("ListarTipoEmpresa").forward(req, resp);
+            req.getRequestDispatcher("private/ListarTipoEmpresa").forward(req, resp);
         }
         ConexaoManager.desconectar();
     }
