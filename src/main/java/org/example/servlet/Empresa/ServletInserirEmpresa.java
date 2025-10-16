@@ -45,6 +45,7 @@ public class ServletInserirEmpresa extends HttpServlet{
 
             ValidacaoEmail valemail = new ValidacaoEmail();
             ValidacaoTelefone valefone = new ValidacaoTelefone();
+            ValidacaoCnpj valecnpj = new ValidacaoCnpj();
 
             if(!valemail.validarEmail(email)){
                 req.setAttribute("erro", "Digite o email corretamente");
@@ -55,7 +56,7 @@ public class ServletInserirEmpresa extends HttpServlet{
                 req.getRequestDispatcher("view/InserirEmpresa.jsp").forward(req, resp);
                 return;
             }
-            if(cnpj.length() != 14){
+            if(!valecnpj.isCNPJValido(cnpj)){
                 req.setAttribute("erro", "Digite o cnpj corretamente");
                 req.getRequestDispatcher("view/InserirEmpresa.jsp").forward(req, resp);
                 return;

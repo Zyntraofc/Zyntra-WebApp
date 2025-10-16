@@ -6,6 +6,7 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import org.example.dao.AdministradorDAO;
 import org.example.model.Administrador;
+import java.util.List;
 
 @WebServlet("/DeletarAdm")
 public class ServletDeletarAdm extends HttpServlet{
@@ -21,12 +22,12 @@ public class ServletDeletarAdm extends HttpServlet{
             req.getRequestDispatcher("ListarAdministradores").forward(req, resp);
         }else if(action == 1){
             admdao.deletarAdministrador(id);
-            java.util.List<Administrador> administradores = admdao.listarAdministradores();
+            List<Administrador> administradores = admdao.listarAdministradores();
             req.setAttribute("administradores", administradores);
             req.setAttribute("erro", "Adm deletado com sucesso");
             req.getRequestDispatcher("view/CrudAdm.jsp").forward(req, resp);
         }else if(action == 2) {
-            java.util.List<Administrador> administradores = admdao.listarAdministradores();
+            List<Administrador> administradores = admdao.listarAdministradores();
             req.setAttribute("administradores", administradores);
             req.getRequestDispatcher("view/CrudAdm.jsp").forward(req, resp);
         }

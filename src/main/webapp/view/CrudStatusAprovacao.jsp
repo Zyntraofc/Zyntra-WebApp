@@ -3,7 +3,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/crud.css">
-    <script src="${pageContext.request.contextPath}/js/mascara.js" defer></script>it
+    <script src="${pageContext.request.contextPath}/js/mascara.js" defer></script>
     <title>Crud Status Aprovação - Área restrita</title>
 </head>
 <body>
