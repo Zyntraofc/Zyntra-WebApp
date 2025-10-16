@@ -3,10 +3,11 @@ import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.example.conexao.ConexaoManager;
 import org.example.dao.AdministradorDAO;
-import org.example.dao.HashSenha;
+import org.example.utils.autenticacao.HashSenha;
 import org.example.model.Administrador;
-import org.example.regex.*;
+import org.example.utils.regex.ValidacaoSenha;
 
 @WebServlet("/AlterarSenha")
 public class ServletAlterarSenha extends HttpServlet {
@@ -47,6 +48,7 @@ public class ServletAlterarSenha extends HttpServlet {
             req.setAttribute("popup-alterar", true);
             req.getRequestDispatcher("ListarAdministradores").forward(req, resp);
         }
+        ConexaoManager.desconectar();
     }
 }
 

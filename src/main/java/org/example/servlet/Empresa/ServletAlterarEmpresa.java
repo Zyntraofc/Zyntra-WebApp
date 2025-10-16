@@ -7,13 +7,15 @@ import java.util.List;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.example.conexao.ConexaoManager;
 import org.example.dao.EmpresaDAO;
 import org.example.dao.TipoEmpresaDAO;
 import org.example.model.Empresa;
 import org.example.model.TipoEmpresa;
 import org.example.dao.StatusAprovacaoDAO;
 import org.example.model.StatusAprovacao;
-import org.example.regex.*;
+import org.example.utils.regex.ValidacaoEmail;
+import org.example.utils.regex.ValidacaoTelefone;
 
 @WebServlet("/AlterarEmpresa")
 public class ServletAlterarEmpresa extends HttpServlet {
@@ -47,7 +49,7 @@ public class ServletAlterarEmpresa extends HttpServlet {
             int idTipoEmpresaAntigo = empresa.getIdTipoEmpresa();
 
             // Verifica se a empresa é ativa com base no status de aprovação
-            StatusAprovacao status = statusdao.listarStatusAprovacaoPorID(empresa.getIdStatusAprovacao());
+            StatusAprovacao status = statusdao.listarStatusAprovacaoPorID(empresa.getIdStatusAprovacao()); // CORREÇÃO: listarStatusAprovacaoPorId
             boolean empresaAtiva = status.getStatus() == 'a';
 
             // atualizações
@@ -58,7 +60,7 @@ public class ServletAlterarEmpresa extends HttpServlet {
                     List<Empresa> empresasAntigoTipo = empresadao.listarEmpresaPorIdTipoEmpresa(idTipoEmpresaAntigo);
                     if (!empresasAntigoTipo.isEmpty()) {
                         for (Empresa e : empresasAntigoTipo) {
-                            if (statusdao.listarStatusAprovacaoPorID(e.getIdStatusAprovacao()).getStatus() == 'a') tipoAntigoInativo = false;
+                            if (statusdao.listarStatusAprovacaoPorID(e.getIdStatusAprovacao()).getStatus() == 'a') tipoAntigoInativo = false; // CORREÇÃO: listarStatusAprovacaoPorId
                         }
                     }
                     if (tipoAntigoInativo) {
@@ -70,7 +72,7 @@ public class ServletAlterarEmpresa extends HttpServlet {
                     List<Empresa> empresasNovoTipo = empresadao.listarEmpresaPorIdTipoEmpresa(idTipoEmpresa);
                     if (!empresasNovoTipo.isEmpty()) {
                         for (Empresa e : empresasNovoTipo) {
-                            if (statusdao.listarStatusAprovacaoPorID(e.getIdStatusAprovacao()).getStatus() == 'a') qntdEmpresas += 1;
+                            if (statusdao.listarStatusAprovacaoPorID(e.getIdStatusAprovacao()).getStatus() == 'a') qntdEmpresas += 1; // CORREÇÃO: listarStatusAprovacaoPorId
                         }
                     }
                     if (qntdEmpresas == 1) {
@@ -79,7 +81,6 @@ public class ServletAlterarEmpresa extends HttpServlet {
                     }
                 }
             }
-
 
             if (idIndiceClassificacao != empresa.getIdIndiceClassificacao()) {
                 empresadao.alterarIdIndiceClassificacaoEmpresa(id, idIndiceClassificacao);
@@ -113,5 +114,6 @@ public class ServletAlterarEmpresa extends HttpServlet {
                 req.getRequestDispatcher("ListarEmpresas").forward(req, resp);
             }
         }
+        ConexaoManager.desconectar();
     }
 }

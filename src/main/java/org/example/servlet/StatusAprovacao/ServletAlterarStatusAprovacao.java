@@ -4,6 +4,7 @@ import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.example.conexao.ConexaoManager;
 import org.example.dao.StatusAprovacaoDAO;
 import org.example.dao.EmpresaDAO;
 import org.example.dao.TipoEmpresaDAO;
@@ -48,7 +49,7 @@ public class ServletAlterarStatusAprovacao extends HttpServlet {
                     // Se o novo status for ativo:
                     if (novoStatus == 'a') {
                         // Verificar se já existe alguma empresa ativa com esse tipo de empresa
-                         int qntd = 0;
+                        int qntd = 0;
                         for (Empresa e : empresas){
                             if (statusdao.listarStatusAprovacaoPorID(e.getIdStatusAprovacao()).getStatus()=='a') qntd+=1;
                         } if (qntd==1) {
@@ -74,12 +75,13 @@ public class ServletAlterarStatusAprovacao extends HttpServlet {
 
             if (!statusID.getMotivoRejeicao().equals(motivoRejeicao) && status.charAt(0) == 'r') {
                 if (statusdao.alterarMotivoStatusAprovacao(id, motivoRejeicao)) req.setAttribute("erro", "Atualizado com sucesso");
-                else req.setAttribute("erro", "Erro ao atualizar motivo!");}
+                else req.setAttribute("erro", "Erro ao atualizar motivo!");
             }
-
-            java.util.List<StatusAprovacao> statuses = statusdao.listarTodosStatusAprovacao();
-            req.setAttribute("statuses", statuses);
-            req.getRequestDispatcher("view/CrudStatusAprovacao.jsp").forward(req, resp);
         }
-    }
 
+        List<StatusAprovacao> statuses = statusdao.listarTodosStatusAprovacao();
+        req.setAttribute("statuses", statuses);
+        req.getRequestDispatcher("view/CrudStatusAprovacao.jsp").forward(req, resp);
+        ConexaoManager.desconectar();
+    }
+}

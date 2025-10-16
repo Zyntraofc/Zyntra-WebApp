@@ -4,6 +4,7 @@ import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.example.conexao.ConexaoManager;
 import org.example.dao.StatusAprovacaoDAO;
 import org.example.model.StatusAprovacao;
 import java.util.List;
@@ -19,5 +20,6 @@ public class ServletListarStatusAprovacao extends HttpServlet{
         List<StatusAprovacao> statuses = statusdao.listarTodosStatusAprovacao();
         req.setAttribute("statuses", statuses);
         req.getRequestDispatcher("view/CrudStatusAprovacao.jsp").forward(req, resp);
+        ConexaoManager.desconectar();
     }
 }

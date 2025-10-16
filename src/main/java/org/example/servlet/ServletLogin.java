@@ -4,8 +4,9 @@ import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.example.conexao.ConexaoManager;
 import org.example.dao.AdministradorDAO;
-import org.example.dao.HashSenha;
+import org.example.utils.autenticacao.HashSenha;
 import org.example.model.Administrador;
 
 
@@ -44,6 +45,7 @@ public class ServletLogin extends HttpServlet {
             req.setAttribute("senhaDigitada", senha);
             req.getRequestDispatcher("/view/login.jsp").forward(req, resp);
         }
+        ConexaoManager.desconectar();
     }
 }
 

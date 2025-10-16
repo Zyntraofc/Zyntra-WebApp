@@ -9,7 +9,7 @@ public class Conexao {
     private static Dotenv dotenv = Dotenv.configure().load();
 
     //Metodo para conectar e manter conexao com o database
-    public Connection conectar() {
+    public Connection getConnection() {
         try {
             // Carregar driver do PostgresSQL
             Class.forName("org.postgresql.Driver");
@@ -36,7 +36,7 @@ public class Conexao {
     }
 
     //Metodo para fechar a conexao com o banco de dados
-    public void desconectar(Connection con) {//Recebimento do atributo Connection que será fechado
+    public void closeConnection(Connection con) {//Recebimento do atributo Connection que será fechado
         if (con != null) {//Verificacao se a conexao não está fechada já
             try {
                 con.close();//Fechament da conexao

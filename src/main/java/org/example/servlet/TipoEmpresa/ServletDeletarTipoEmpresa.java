@@ -1,16 +1,15 @@
 package org.example.servlet.TipoEmpresa;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.example.conexao.ConexaoManager;
 import org.example.dao.EmpresaDAO;
 import org.example.dao.TipoEmpresaDAO;
 import org.example.model.Empresa;
 import org.example.model.TipoEmpresa;
-import org.example.regex.*;
 
 @WebServlet("/DeletarTipoEmpresa")
 public class ServletDeletarTipoEmpresa extends HttpServlet{
@@ -32,5 +31,6 @@ public class ServletDeletarTipoEmpresa extends HttpServlet{
         }else if(action == 2){
             req.getRequestDispatcher("ListarTipoEmpresa").forward(req, resp);
         }
+        ConexaoManager.desconectar();
     }
 }

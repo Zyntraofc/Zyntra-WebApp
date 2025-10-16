@@ -50,7 +50,7 @@ src/
 │   │   ├── org.example.dao/                     # Camada de acesso a dados (Data Access Object)
 │   │   ├── org.example.model/                   # Classes de modelo (entidades, JavaBeans)
 │   │   ├── org.example/             # Pacote auxiliar ou exemplos
-│   │   └── org.example.regex/                   # Lógica com expressões regulares
+│   │   └── org.example.utils/                   # Lógica com expressões regulares
 │   ├── resources/                   # Arquivos de recursos usados pelo Java (configurações, etc.)
 │   └── webapp/                      # Parte visual do projeto (front-end JSP)
 │       ├── assets/                  # Recursos estáticos
