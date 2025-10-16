@@ -101,12 +101,12 @@
                     <form action="AlterarTipoEmpresa" method="post">
                         <input type="hidden" name="id" value="${tipoEmpresa.id}">
                         <input type="hidden" name="action" value="0">
-                        <button type="submit">Alterar</button>
+                        <button type="submit" style="border: none; background: none; cursor: pointer" > <img src="${pageContext.request.contextPath}/assets/icons/icon-edit.png"></button>
                     </form>
                     <form action="DeletarTipoEmpresa" method="post">
                         <input type="hidden" name="id" value="${tipoEmpresa.id}">
                         <input type="hidden" name="action" value="0">
-                        <button type="submit">Deletar</button>
+                        <button type="submit" style="border: none; background: none; cursor: pointer" ><img src="${pageContext.request.contextPath}/assets/icons/icon-excluir.png"></button>
                     </form>
                 </div>
             </td>
