@@ -1,4 +1,4 @@
-package org.example.dao;
+package org.example.utils.autenticacao;
 
 //Importações
 import java.security.NoSuchAlgorithmException;

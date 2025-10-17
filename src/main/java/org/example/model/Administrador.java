@@ -1,7 +1,7 @@
 package org.example.model;
 
 //Importação da classe hashSenha para criptografia da senha do administrador
-import org.example.dao.HashSenha;
+import org.example.utils.autenticacao.HashSenha;
 
 public class Administrador extends BaseModel{//Abertura da classe model Administrador
 

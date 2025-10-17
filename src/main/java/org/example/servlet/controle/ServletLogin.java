@@ -1,11 +1,12 @@
-package org.example.servlet;
+package org.example.servlet.controle;
 
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.example.conexao.ConexaoManager;
 import org.example.dao.AdministradorDAO;
-import org.example.dao.HashSenha;
+import org.example.utils.autenticacao.HashSenha;
 import org.example.model.Administrador;
 
 
@@ -15,7 +16,7 @@ public class ServletLogin extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // caminho absoluto a partir do contexto
-        req.getRequestDispatcher("/view/login.jsp").forward(req, resp);
+        req.getRequestDispatcher("/login.jsp").forward(req, resp);
     }
 
     @Override
@@ -29,21 +30,22 @@ public class ServletLogin extends HttpServlet {
         if (listagem != null) {
             if (listagem.getHashSenha().equals(String.valueOf(new HashSenha(senha)))) {
                 HttpSession session = req.getSession(true);
-                session.setAttribute("usuarioLogado", listagem.getEmail());
+                session.setAttribute("usuario", listagem.getEmail());
                 session.setMaxInactiveInterval(600);
-                req.getRequestDispatcher("ListarEmpresas").forward(req, resp);
+                req.getRequestDispatcher("private/ListarEmpresas").forward(req, resp);
             } else {
                 req.setAttribute("erroLogin", "Usuário ou senha incorretos!");
                 req.setAttribute("emailDigitado", email);
                 req.setAttribute("senhaDigitada", senha);
-                req.getRequestDispatcher("/view/login.jsp").forward(req, resp);
+                req.getRequestDispatcher("/login.jsp").forward(req, resp);
             }
         } else {
             req.setAttribute("erroLogin", "Usuário ou senha incorretos!");
             req.setAttribute("emailDigitado", email);
             req.setAttribute("senhaDigitada", senha);
-            req.getRequestDispatcher("/view/login.jsp").forward(req, resp);
+            req.getRequestDispatcher("/login.jsp").forward(req, resp);
         }
+        ConexaoManager.desconectar();
     }
 }
 

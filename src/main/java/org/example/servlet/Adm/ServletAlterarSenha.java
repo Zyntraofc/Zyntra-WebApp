@@ -3,12 +3,13 @@ import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.example.conexao.ConexaoManager;
 import org.example.dao.AdministradorDAO;
-import org.example.dao.HashSenha;
+import org.example.utils.autenticacao.HashSenha;
 import org.example.model.Administrador;
-import org.example.regex.*;
+import org.example.utils.regex.ValidacaoSenha;
 
-@WebServlet("/AlterarSenha")
+@WebServlet("/private/AlterarSenha")
 public class ServletAlterarSenha extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         int action = Integer.parseInt(req.getParameter("action"));
@@ -19,7 +20,7 @@ public class ServletAlterarSenha extends HttpServlet {
             Administrador adm = admdao.listarAdministradorPorId(id);
             req.setAttribute("administrador", adm);
             req.setAttribute("popup-senha", true);
-            req.getRequestDispatcher("ListarAdministradores").forward(req, resp);
+            req.getRequestDispatcher("/private/ListarAdministradores").forward(req, resp);
         }
         else if (action == 1) {
             String senhaAtual = req.getParameter("senhaAtual");
@@ -45,8 +46,9 @@ public class ServletAlterarSenha extends HttpServlet {
             Administrador administrador = admdao.listarAdministradorPorId(id);
             req.setAttribute("administrador", administrador);
             req.setAttribute("popup-alterar", true);
-            req.getRequestDispatcher("ListarAdministradores").forward(req, resp);
+            req.getRequestDispatcher("/private/ListarAdministradores").forward(req, resp);
         }
+        ConexaoManager.desconectar();
     }
 }
 

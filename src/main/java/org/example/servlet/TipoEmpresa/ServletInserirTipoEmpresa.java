@@ -1,24 +1,20 @@
 package org.example.servlet.TipoEmpresa;
 
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
-import java.util.ArrayList;
-import java.util.List;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.example.conexao.ConexaoManager;
 import org.example.dao.TipoEmpresaDAO;
 import org.example.model.TipoEmpresa;
-import org.example.regex.*;
 
-@WebServlet("/InserirTipoEmpresa")
+@WebServlet("/private/InserirTipoEmpresa")
 public class ServletInserirTipoEmpresa extends HttpServlet{
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException{
         req.setAttribute("popup-inserir", true);
-        req.getRequestDispatcher("ListarTipoEmpresa").forward(req, resp);
+        req.getRequestDispatcher("/private/ListarTipoEmpresa").forward(req, resp);
     }
 
     @Override
@@ -34,10 +30,11 @@ public class ServletInserirTipoEmpresa extends HttpServlet{
         TipoEmpresaDAO tipoempresadao = new TipoEmpresaDAO();
         if (tipoempresadao.inserirTipoEmpresa(tipoEmpresaNovo)) {
             req.setAttribute("erro", "Tipo empresa inserido com sucesso!");
-            req.getRequestDispatcher("ListarTipoEmpresa").forward(req, resp);
+            req.getRequestDispatcher("/private/ListarTipoEmpresa").forward(req, resp);
         } else {
             req.setAttribute("erro", "Não foi possível inserir tipo empresa");
-            req.getRequestDispatcher("/view/InserirTipoEmpresa.jsp").forward(req, resp);
+            req.getRequestDispatcher("/private/ListarTipoEmpresa").forward(req, resp);
         }
+        ConexaoManager.desconectar();
     }
 }

@@ -3,11 +3,12 @@ import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.example.conexao.ConexaoManager;
 import org.example.dao.AdministradorDAO;
 import org.example.model.Administrador;
-import org.example.regex.*;
+import org.example.utils.regex.ValidacaoEmail;
 
-@WebServlet("/AlterarAdm")
+@WebServlet("/private/AlterarAdm")
 public class ServletAlterarAdm extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         int action = Integer.parseInt(req.getParameter("action"));
@@ -19,7 +20,7 @@ public class ServletAlterarAdm extends HttpServlet {
             Administrador adm = admdao.listarAdministradorPorId(id);
             req.setAttribute("administrador", adm);
             req.setAttribute("popup-alterar", true);
-            req.getRequestDispatcher("ListarAdministradores").forward(req, resp);
+            req.getRequestDispatcher("/private/ListarAdministradores").forward(req, resp);
         }
         else if (action == 1) {
             String email = req.getParameter("email");
@@ -42,7 +43,8 @@ public class ServletAlterarAdm extends HttpServlet {
             }
             java.util.List<Administrador> administradores = admdao.listarAdministradores();
             req.setAttribute("administradores", administradores);
-            req.getRequestDispatcher("view/CrudAdm.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/view/CrudAdm.jsp").forward(req, resp);
         }
+        ConexaoManager.desconectar();
     }
 }

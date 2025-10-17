@@ -1,4 +1,4 @@
-package org.example.regex;
+package org.example.utils.regex;
 
 import java.util.regex.*;
 

@@ -7,12 +7,13 @@ import java.util.List;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.example.conexao.ConexaoManager;
 import org.example.dao.EmpresaDAO;
 import org.example.dao.StatusAprovacaoDAO;
 import org.example.dao.TipoEmpresaDAO;
 import org.example.model.Empresa;
 
-@WebServlet("/DeletarEmpresa")
+@WebServlet("/private/DeletarEmpresa")
 public class ServletDeletarEmpresa extends HttpServlet{
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException{
@@ -52,6 +53,7 @@ public class ServletDeletarEmpresa extends HttpServlet{
         }else if(action == 2){
             req.getRequestDispatcher("Listar"+caminho).forward(req, resp);
         }
+        ConexaoManager.desconectar();
     }
 
 }

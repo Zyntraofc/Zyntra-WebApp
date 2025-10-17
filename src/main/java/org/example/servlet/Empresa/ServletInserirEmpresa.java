@@ -4,44 +4,54 @@ import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-import org.example.conexao.Conexao;
+import org.example.conexao.ConexaoManager;
 import org.example.dao.EmpresaDAO;
 import org.example.dao.IndiceClassificacaoDAO;
 import org.example.dao.StatusAprovacaoDAO;
 import org.example.dao.TipoEmpresaDAO;
 import org.example.model.StatusAprovacao;
 import org.example.model.Empresa;
-import java.sql.Connection;
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.InputMismatchException;
-import org.example.regex.*;
+import org.example.utils.regex.*;
 
-@WebServlet("/InserirEmpresa")
+import org.example.utils.regex.ValidacaoEmail;
+import org.example.utils.regex.ValidacaoTelefone;
+
+@WebServlet("/private/InserirEmpresa")
 public class ServletInserirEmpresa extends HttpServlet{
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException{
-        // Pega o parâmetro enviado via GET para redirecionar após o processo no servlet
         String caminho = req.getParameter("caminho");
         req.setAttribute("caminho", caminho);
         req.setAttribute("popup-inserir", true);
-        req.getRequestDispatcher("Listar"+caminho).forward(req, resp);
+        req.getRequestDispatcher("/private/Listar" + caminho).forward(req, resp);
     }
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException{
-        Conexao conexao = new Conexao();
-        Connection conn = null;
-        try{
-            conn = conexao.conectar();
-            conn.setAutoCommit(false); // inicia transação manual
+        String caminho = req.getParameter("caminho");
 
-            String tipoEmpresa = req.getParameter("tipoEmpresa");
-            int idTipoEmpresa = Integer.parseInt(req.getParameter("idTipoEmpresa"));
+        try{
+            String idTipoEmpresaStr = req.getParameter("idTipoEmpresa");
             String nome = req.getParameter("nome");
             String cnpj = req.getParameter("cnpj");
             String email = req.getParameter("email");
             String telefone = req.getParameter("telefone");
+
+            // ✅ VALIDA SE OS CAMPOS OBRIGATÓRIOS EXISTEM
+            if(idTipoEmpresaStr == null || idTipoEmpresaStr.isEmpty() ||
+                    nome == null || nome.isEmpty() ||
+                    cnpj == null || cnpj.isEmpty() ||
+                    email == null || email.isEmpty() ||
+                    telefone == null || telefone.isEmpty()) {
+                req.setAttribute("erro", "Preencha todos os campos obrigatórios");
+                req.getRequestDispatcher("/private/Listar" + caminho).forward(req, resp);
+                return;
+            }
+
+            int idTipoEmpresa = Integer.parseInt(idTipoEmpresaStr);
+            int idIndiceClassificacao = 1;
 
             ValidacaoEmail valemail = new ValidacaoEmail();
             ValidacaoTelefone valefone = new ValidacaoTelefone();
@@ -49,61 +59,49 @@ public class ServletInserirEmpresa extends HttpServlet{
 
             if(!valemail.validarEmail(email)){
                 req.setAttribute("erro", "Digite o email corretamente");
-                req.getRequestDispatcher("view/InserirEmpresa.jsp").forward(req, resp);
+                req.getRequestDispatcher("/private/Listar" + caminho).forward(req, resp);
                 return;
-            } if(!valefone.validarTelefone(telefone)){
-                req.setAttribute("erro", "Digite os telefone");
-                req.getRequestDispatcher("view/InserirEmpresa.jsp").forward(req, resp);
+            }
+            if(!valefone.validarTelefone(telefone)){
+                req.setAttribute("erro", "Digite o telefone corretamente");
+                req.getRequestDispatcher("/private/Listar" + caminho).forward(req, resp);
                 return;
             }
             if(!valecnpj.isCNPJValido(cnpj)){
                 req.setAttribute("erro", "Digite o cnpj corretamente");
-                req.getRequestDispatcher("view/InserirEmpresa.jsp").forward(req, resp);
+                req.getRequestDispatcher("/private/Listar" + caminho).forward(req, resp);
                 return;
             }
 
             StatusAprovacaoDAO statusDao = new StatusAprovacaoDAO();
             StatusAprovacao status = new StatusAprovacao(LocalDate.now());
-            int idStatusAprovacao = statusDao.inserirStatusAprovacao(conn, status);
+            int idStatusAprovacao = statusDao.inserirStatusAprovacao(status);
 
             if (idStatusAprovacao <= 0) {
-                throw new SQLException("Falha ao criar o status de aprovação.");
+                req.setAttribute("erro", "Falha ao criar o status de aprovação.");
+                req.getRequestDispatcher("/private/Listar" + caminho).forward(req, resp);
+                return;
             }
 
-            IndiceClassificacaoDAO indicedao = new IndiceClassificacaoDAO();
-            Empresa empresaNova = new Empresa(idTipoEmpresa, indicedao.listarIndiceClassificacaoPorPorcentagem(0).getId(),idStatusAprovacao, nome, cnpj, email, telefone);
+            Empresa empresaNova = new Empresa(idTipoEmpresa, idIndiceClassificacao, idStatusAprovacao, nome, cnpj, email, telefone);
             EmpresaDAO dao = new EmpresaDAO();
-            if(!dao.inserirEmpresa(conn, empresaNova)){
-                throw new SQLException("Falha ao inserir a empresa.");
+            if(!dao.inserirEmpresa(empresaNova)){
+                req.setAttribute("erro", "Falha ao inserir a empresa.");
+                req.getRequestDispatcher("/private/Listar" + caminho).forward(req, resp);
+                return;
             }
 
-            // --- Se tudo deu certo, confirma a transação ---
-            conn.commit();
-
+            ConexaoManager.desconectar();
             req.setAttribute("erro", "Empresa e Status inseridos com sucesso");
-            String caminho = req.getParameter("caminho");
-            req.getRequestDispatcher("Listar" + caminho).forward(req, resp);
+            req.getRequestDispatcher("/private/Listar" + caminho).forward(req, resp);
+
         }catch(InputMismatchException ime){
-            req.setAttribute("erro", "Digite os dados corretamente corretamente");
-            req.getRequestDispatcher("view/InserirEmpresa.jsp").forward(req, resp);
-            try {
-                conn.rollback(); // desfaz tudo se algo falhar
-            } catch (SQLException se) {
-                se.printStackTrace();
-            }
-        } catch (SQLException sqle){
-            sqle.printStackTrace();
-            try {
-                if (conn != null) conn.rollback(); // desfaz tudo se algo falhar
-            } catch (SQLException se) {
-                se.printStackTrace();
-            }
-        } finally {
-            if (conn != null) {
-                try { conn.close(); } catch (SQLException se) { se.printStackTrace(); }
-            }
+            req.setAttribute("erro", "Digite os dados corretamente");
+            req.getRequestDispatcher("/private/Listar" + caminho).forward(req, resp);
+        } catch (Exception e){
+            e.printStackTrace();
+            req.setAttribute("erro", "Erro interno do sistema");
+            req.getRequestDispatcher("/private/Listar" + caminho).forward(req, resp);
         }
     }
-
-
 }

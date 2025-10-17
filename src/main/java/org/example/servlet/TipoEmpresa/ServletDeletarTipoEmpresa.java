@@ -1,18 +1,17 @@
 package org.example.servlet.TipoEmpresa;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.example.conexao.ConexaoManager;
 import org.example.dao.EmpresaDAO;
 import org.example.dao.TipoEmpresaDAO;
 import org.example.model.Empresa;
 import org.example.model.TipoEmpresa;
-import org.example.regex.*;
 
-@WebServlet("/DeletarTipoEmpresa")
+@WebServlet("/private/DeletarTipoEmpresa")
 public class ServletDeletarTipoEmpresa extends HttpServlet{
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException{
@@ -24,13 +23,14 @@ public class ServletDeletarTipoEmpresa extends HttpServlet{
             TipoEmpresa tipoempresa = tipoempresadao.listarTipoEmpresaPorId(id);
             req.setAttribute("tipoEmpresa", tipoempresa);
             req.setAttribute("popup-deletar", true);
-            req.getRequestDispatcher("ListarTipoEmpresa").forward(req, resp);
+            req.getRequestDispatcher("/private/ListarTipoEmpresa").forward(req, resp);
         }else if(action == 1){
             tipoempresadao.deletarTipoEmpresa(id);
             req.setAttribute("erro", "Tipo empresa deletada com sucesso");
-            req.getRequestDispatcher("ListarTipoEmpresa").forward(req, resp);
+            req.getRequestDispatcher("/private/ListarTipoEmpresa").forward(req, resp);
         }else if(action == 2){
-            req.getRequestDispatcher("ListarTipoEmpresa").forward(req, resp);
+            req.getRequestDispatcher("/private/ListarTipoEmpresa").forward(req, resp);
         }
+        ConexaoManager.desconectar();
     }
 }

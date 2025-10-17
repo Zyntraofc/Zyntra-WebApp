@@ -4,6 +4,7 @@ import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.example.conexao.ConexaoManager;
 import org.example.dao.EmpresaDAO;
 import org.example.dao.IndiceClassificacaoDAO;
 import org.example.dao.TipoEmpresaDAO;
@@ -14,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet("/ListarEmpresas")
+@WebServlet("/private/ListarEmpresas")
 public class ServletListarEmpresas extends HttpServlet{
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req, resp);
@@ -25,9 +26,11 @@ public class ServletListarEmpresas extends HttpServlet{
         if (req.getAttribute("popup-alterar")!=null) {
             IndiceClassificacaoDAO indicedao = new IndiceClassificacaoDAO();
             req.setAttribute("statuses", indicedao.listarIndicesClassificacao());
-        } if (req.getAttribute("popup-alterar")!=null | req.getAttribute("popup-inserir")!=null){
+        }
+        if (req.getAttribute("popup-alterar")!=null || req.getAttribute("popup-inserir")!=null){
             req.setAttribute("tipos", tipodao.listarTiposEmpresa());
         }
+
         EmpresaDAO empresadao = new EmpresaDAO();
         List<Empresa> empresas = empresadao.listarEmpresas();
         req.setAttribute("empresas", empresas);
@@ -40,7 +43,7 @@ public class ServletListarEmpresas extends HttpServlet{
         }
         req.setAttribute("tiposEmpresa", tiposEmpresa);
 
-        req.getRequestDispatcher("view/CrudEmpresa.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/view/CrudEmpresa.jsp").forward(req, resp);
+        ConexaoManager.desconectar();
     }
-
 }

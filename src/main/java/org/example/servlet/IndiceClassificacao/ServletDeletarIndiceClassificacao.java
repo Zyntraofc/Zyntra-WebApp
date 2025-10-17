@@ -5,10 +5,11 @@ import java.util.List;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.example.conexao.ConexaoManager;
 import org.example.dao.IndiceClassificacaoDAO;
 import org.example.model.IndiceClassificacao;
 
-@WebServlet("/DeletarIndiceClassificacao")
+@WebServlet("/private/DeletarIndiceClassificacao")
 public class ServletDeletarIndiceClassificacao extends HttpServlet{
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
@@ -19,13 +20,14 @@ public class ServletDeletarIndiceClassificacao extends HttpServlet{
             IndiceClassificacao indiceClassificacao = indicedao.listarIndiceClassificacaoPorId(id);
             req.setAttribute("popup-deletar", true);
             req.setAttribute("indiceClassificacao", indiceClassificacao);
-            req.getRequestDispatcher("ListarIndiceClassificacao").forward(req, resp);
+            req.getRequestDispatcher("/private/ListarIndiceClassificacao").forward(req, resp);
         }else if(action == 1){
             indicedao.deletarIndiceClassificacao(id);
             req.setAttribute("erro", "Indice classificação deletado com sucesso!");
-            req.getRequestDispatcher("ListarIndiceClassificacao").forward(req, resp);
+            req.getRequestDispatcher("/private/ListarIndiceClassificacao").forward(req, resp);
         }else if(action == 2){
-            req.getRequestDispatcher("ListarIndiceClassificacao").forward(req, resp);
+            req.getRequestDispatcher("/private/ListarIndiceClassificacao").forward(req, resp);
         }
+        ConexaoManager.desconectar();
     }
 }
