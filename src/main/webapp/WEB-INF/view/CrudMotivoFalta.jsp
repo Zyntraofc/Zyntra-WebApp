@@ -68,10 +68,11 @@
 
     <div class="top-bar">
         <form action="">
-            <input type="text" placeholder="Buscar por id, nome, email...">
             <button type="submit">
                 <img src="a${pageContext.request.contextPath}/assets/icons/icon-lupa.png" alt="Pesquisar">
             </button>
+            <input type="text" placeholder="Buscar por id, nome, email...">
+
         </form>
 
         <div class="actions">
