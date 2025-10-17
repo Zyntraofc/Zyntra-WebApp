@@ -21,7 +21,7 @@ public class ServletListarStatusAprovacao extends HttpServlet{
     }
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException{
-        if (req.getAttribute("popup-inserir")!=null | req.getAttribute("popup-inserir")!=null){
+        if (req.getAttribute("popup-inserir")!=null){
             TipoEmpresaDAO tipodao = new TipoEmpresaDAO();
             req.setAttribute("tipos", tipodao.listarTiposEmpresa());
         }
