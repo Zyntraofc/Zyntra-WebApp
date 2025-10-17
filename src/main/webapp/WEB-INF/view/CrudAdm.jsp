@@ -68,7 +68,7 @@
   <p>CRUD</p>
 
   <div class="top-bar">
-    <form action="">
+    <form action="" class="search-form">
       <button type="submit">
         <img src="${pageContext.request.contextPath}/assets/icons/icon-lupa.png" alt="Pesquisar">
       </button>

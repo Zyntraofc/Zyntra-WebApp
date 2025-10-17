@@ -65,8 +65,8 @@
   <p>CRUD</p>
 
   <div class="top-bar">
-    <form action="">
-      <button type="submit">
+    <form action="" class="search-form">
+      <button type="submit" >
         <img src="${pageContext.request.contextPath}/assets/icons/icon-lupa.png" alt="Pesquisar">
       </button>
       <input type="text" placeholder="Buscar por id, nome, email...">

@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap');
+* {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+
 body{margin: 0;
     height: 100vh;
     display: flex;
@@ -18,7 +24,6 @@ body{margin: 0;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 aside {
@@ -156,21 +161,23 @@ main {
 }
 
 main h1 {
-    font-size: 34px;
+    font-size: 40px;
     font-weight: 700;
     color: #111;
-    margin-bottom: 4px;
+    margin-bottom: 12px;
+    margin-top: 20px;
 }
 
 main p {
-    font-size: 14px;
+    font-size: 18px;
     color: #777;
     margin-bottom: 22px;
-    letter-spacing: 0.2px;
-}main .top-bar {
+}
+
+main .top-bar {
      display: flex;
      align-items: center;
-     justify-content: flex-start;
+     justify-content: center;
      margin-bottom: 22px;
      gap: 16px;
      flex-wrap: nowrap;
@@ -181,7 +188,7 @@ main p {
     align-items: center;
     gap: 12px;
     background: #fff;
-    border: 1px solid rgba(100, 100, 160, 0.12);
+    border: 1px solid rgba(29, 29, 29, 0.12);
     border-radius: 28px;
     padding: 12px 18px;
     flex: 0 1 500px;
@@ -194,6 +201,7 @@ main .top-bar form,
     display: flex;
     align-items: center;
     width: 100%;
+    gap: 12px;
 }
 
 .main-search input,
@@ -211,6 +219,17 @@ main .top-bar form button {
     background: transparent;
     border: none;
     cursor: pointer;
+}
+
+.search-form {
+    border: 2px solid #4F59E7;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(79, 89, 231, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.search-form:focus-within {
+    box-shadow: 0 4px 15px rgba(79, 89, 231, 0.3);
 }
 
 .main-search button img,
@@ -241,6 +260,7 @@ main .actions .filtros {
     padding: 10px 14px;
     font-weight: 600;
     cursor: pointer;
+    border: 1px solid #4F59E7;
 }
 
 main .actions .filtros img {
@@ -253,7 +273,7 @@ main .actions .filtros img {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: linear-gradient(90deg, #5366ff, #2e5bff);
+    background: radial-gradient(100.45% 100.45% at 80.43% 14.13%, #9299FF 0%, #3A47FF 100%);
     color: #fff;
     border-radius: 20px;
     padding: 10px 18px;
@@ -300,7 +320,7 @@ main .actions .filtros img {
     color: #4F59E7;
     font-weight: 600;
     text-transform: lowercase;
-    font-size: 14px;
+    font-size: 18px;
     padding: 18px 20px;
     text-align: left;
     border-bottom: none;
