@@ -69,19 +69,19 @@
         <form action="">
             <input type="text" placeholder="Buscar por id, nome, email...">
             <button type="submit">
-                <img src="assets/Vector.png" alt="Pesquisar">
+                <img src="../../assets/icons/icon-" alt="Pesquisar">
             </button>
         </form>
 
         <div class="actions">
             <button class="filtros">
                 <span>Filtros</span>
-                <img src="assets/filtros.png" alt="Filtros">
+                <img src="" alt="Filtros">
             </button>
             <form action="${pageContext.request.contextPath}/private/InserirEmpresa" class="button-adicionar-novo">
                 <input type="hidden" name="caminho" value="StatusAprovacao">
                 <button type="submit">
-                    <img src="assets/add.png" alt="Adicionar">
+                    <img src="" alt="Adicionar">
                     <span>Adicionar Novo</span>
                 </button>
             </form>
@@ -94,7 +94,8 @@
     <%
         }
     %>
-    <table border="1">
+    <section class="table-card">
+    <table>
         <thead>
         <tr>
             <th>ID</th>
@@ -111,11 +112,11 @@
                 <td class="sensivel">${nomesEmpresas[status.id]}</td>
                 <td>${String.valueOf(status.status).equals("a") ? "Aprovado" : String.valueOf(status.status).equals("r") ? "Recusado" : "Pendente"}</td>
                 <td class="sensivel">${status.dataSolicitacao}</td>
-                <td>
+                <td class="actions">
                     <div style="display: flex">
                         <button style="border: none; background: none; cursor: pointer" class="toggleLinha" data-olho="${pageContext.request.contextPath}/assets/icons/icon-olho.png"
                                 data-olho-fechado="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png">
-                            <img src="${pageContext.request.contextPath}/assets/icons/icon-olho.png" />
+                            <img src="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png" />
                         </button>
                         <form action="${pageContext.request.contextPath}/private/AlterarStatusAprovacao" method="post">
                             <input type="hidden" name="id" value="${status.id}">
@@ -134,6 +135,7 @@
         </c:forEach>
         </tbody>
     </table>
+    </section>
 </main>
 <% if (request.getAttribute("popup-deletar") != null) { %>
 <div class="tela-transparente"></div>
@@ -199,15 +201,6 @@
             <option value="" disabled selected>Selecione o tipo de empresa</option>
             <c:forEach var="tipo" items="${tipos}">
                 <option value="${tipo.id}">${tipo.nome}</option>
-            </c:forEach>
-        </select>
-
-
-        <label for="NovoIndiceClassificacao">Índice de Classificação</label>
-        <select name="idIndiceClassificacao" id="NovoIndiceClassificacao" required>
-            <option value="" disabled selected>Selecione o índice de classificação</option>
-            <c:forEach var="status" items="${statuses}">
-                <option value="${status.id}">${String.format("%.1f", status.porcentagemMinima)}% - ${String.format("%.1f", status.porcentagemMaxima)}%</option>
             </c:forEach>
         </select>
 

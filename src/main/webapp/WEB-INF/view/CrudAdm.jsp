@@ -114,7 +114,7 @@
           <div style="display: flex">
             <button style="border: none; background: none; cursor: pointer" class="toggleLinha" data-olho="${pageContext.request.contextPath}/assets/icons/icon-olho.png"
                     data-olho-fechado="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png">
-              <img src="${pageContext.request.contextPath}/assets/icons/icon-olho.png" />
+              <img src="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png" />
             </button>
             <form action="${pageContext.request.contextPath}/private/AlterarAdm" method="post">
               <input type="hidden" name="id" value="${administrador.id}">
