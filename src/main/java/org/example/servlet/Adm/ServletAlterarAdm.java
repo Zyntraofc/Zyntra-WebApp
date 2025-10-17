@@ -20,7 +20,7 @@ public class ServletAlterarAdm extends HttpServlet {
             Administrador adm = admdao.listarAdministradorPorId(id);
             req.setAttribute("administrador", adm);
             req.setAttribute("popup-alterar", true);
-            req.getRequestDispatcher("private/ListarAdministradores").forward(req, resp);
+            req.getRequestDispatcher("/private/ListarAdministradores").forward(req, resp);
         }
         else if (action == 1) {
             String email = req.getParameter("email");

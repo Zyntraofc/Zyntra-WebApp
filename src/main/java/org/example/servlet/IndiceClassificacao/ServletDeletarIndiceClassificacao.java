@@ -20,13 +20,13 @@ public class ServletDeletarIndiceClassificacao extends HttpServlet{
             IndiceClassificacao indiceClassificacao = indicedao.listarIndiceClassificacaoPorId(id);
             req.setAttribute("popup-deletar", true);
             req.setAttribute("indiceClassificacao", indiceClassificacao);
-            req.getRequestDispatcher("private/ListarIndiceClassificacao").forward(req, resp);
+            req.getRequestDispatcher("/private/ListarIndiceClassificacao").forward(req, resp);
         }else if(action == 1){
             indicedao.deletarIndiceClassificacao(id);
             req.setAttribute("erro", "Indice classificação deletado com sucesso!");
-            req.getRequestDispatcher("private/ListarIndiceClassificacao").forward(req, resp);
+            req.getRequestDispatcher("/private/ListarIndiceClassificacao").forward(req, resp);
         }else if(action == 2){
-            req.getRequestDispatcher("private/ListarIndiceClassificacao").forward(req, resp);
+            req.getRequestDispatcher("/private/ListarIndiceClassificacao").forward(req, resp);
         }
         ConexaoManager.desconectar();
     }

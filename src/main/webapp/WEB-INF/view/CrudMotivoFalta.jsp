@@ -20,39 +20,39 @@
     </div>
 
     <div class="barra-lateral">
-        <form action="Autenticar" method="post">
+        <form action="${pageContext.request.contextPath}/Autenticar" method="post">
             <button type="submit" class="botao">Empresa</button>
-            <input type="hidden" name="endpointInput" value="private/ListarEmpresas">
+            <input type="hidden" name="endpointInput" value="/private/ListarEmpresas">
             <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
         </form>
-        <form action="Autenticar" method="post">
+        <form action="${pageContext.request.contextPath}/Autenticar" method="post">
             <button type="submit" class="botao">Adm</button>
-            <input type="hidden" name="endpointInput" value="private/ListarAdministradores">
+            <input type="hidden" name="endpointInput" value="/private/ListarAdministradores">
             <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
         </form>
-        <form action="Autenticar" method="post">
+        <form action="${pageContext.request.contextPath}/Autenticar" method="post">
             <button type="submit" class="botao">Status Aprovação</button>
-            <input type="hidden" name="endpointInput" value="private/ListarStatusAprovacao">
+            <input type="hidden" name="endpointInput" value="/private/ListarStatusAprovacao">
             <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
         </form>
-        <form action="Autenticar" method="post">
+        <form action="${pageContext.request.contextPath}/Autenticar" method="post">
             <button type="submit" class="botao">Indices Classificação</button>
-            <input type="hidden" name="endpointInput" value="private/ListarIndiceClassificacao">
+            <input type="hidden" name="endpointInput" value="/private/ListarIndiceClassificacao">
             <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
         </form>
-        <form action="Autenticar" method="post">
+        <form action="${pageContext.request.contextPath}/Autenticar" method="post">
             <button type="submit" class="botao">Tipo Empresa</button>
-            <input type="hidden" name="endpointInput" value="private/ListarTipoEmpresa">
+            <input type="hidden" name="endpointInput" value="/private/ListarTipoEmpresa">
             <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
         </form>
-        <form action="Autenticar" method="post">
+        <form action="${pageContext.request.contextPath}/Autenticar" method="post">
             <button type="submit" class="botao active">Motivo Falta</button>
-            <input type="hidden" name="endpointInput" value="private/ListarMotivosFalta">
+            <input type="hidden" name="endpointInput" value="/private/ListarMotivosFalta">
             <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
         </form>
 
         <div class="sair-container">
-            <form action="Logout">
+            <form action="${pageContext.request.contextPath}/Logout">
                 <button type="submit" class="sair">
                     <img href="assets/Saida.png" alt="Sair">
                     <span>Sair</span>
@@ -79,7 +79,7 @@
                 <span>Filtros</span>
                 <img src="assets/filtros.png" alt="Filtros">
             </button>
-            <form action="InserirMotivoFalta" class="button-adicionar-novo">
+            <form action="${pageContext.request.contextPath}/private/InserirMotivoFalta" class="button-adicionar-novo">
                 <button type="submit">
                     <img src="assets/add.png" alt="Adicionar">
                     <span>Adicionar Novo</span>
@@ -94,38 +94,38 @@
     <%
         }
     %>
-<table border="1">
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Motivo</th>
-        <th>Ações</th>
-    </tr>
-    </thead>
-    <tbody>
-    <c:forEach var="motivo" items="${motivos}">
+    <table border="1">
+        <thead>
         <tr>
-            <td>${motivo.id}</td>
-            <td>${motivo.motivo}</td>
-
-            <td>
-                <div style="display: flex">
-                    <form action="AlterarMotivoFalta" method="post">
-                        <input type="hidden" name="id" value="${motivo.id}">
-                        <input type="hidden" name="action" value="0">
-                        <button type="submit">Alterar</button>
-                    </form>
-                    <form action="DeletarMotivoFalta" method="post">
-                        <input type="hidden" name="id" value="${motivo.id}">
-                        <input type="hidden" name="action" value="0">
-                        <button type="submit">Deletar</button>
-                    </form>
-                </div>
-            </td>
+            <th>ID</th>
+            <th>Motivo</th>
+            <th>Ações</th>
         </tr>
-    </c:forEach>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+        <c:forEach var="motivo" items="${motivos}">
+            <tr>
+                <td>${motivo.id}</td>
+                <td>${motivo.motivo}</td>
+
+                <td>
+                    <div style="display: flex">
+                        <form action="${pageContext.request.contextPath}/private/AlterarMotivoFalta" method="post">
+                            <input type="hidden" name="id" value="${motivo.id}">
+                            <input type="hidden" name="action" value="0">
+                            <button type="submit" style="border: none; background: none; cursor: pointer" > <img src="${pageContext.request.contextPath}/assets/icons/icon-edit.png"></button>
+                        </form>
+                        <form action="${pageContext.request.contextPath}/private/DeletarMotivoFalta" method="post">
+                            <input type="hidden" name="id" value="${motivo.id}">
+                            <input type="hidden" name="action" value="0">
+                            <button type="submit" style="border: none; background: none; cursor: pointer" ><img src="${pageContext.request.contextPath}/assets/icons/icon-excluir.png"></button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
 </main>
 <% if (request.getAttribute("popup-deletar") != null) { %>
 <div class="tela-transparente"></div>
@@ -133,12 +133,12 @@
     <h1>Deletar</h1>
     <p>Deseja mesmo excluir? Esta ação é irreversível.</p>
     <div class="opcoes-deletar">
-        <form action="DeletarMotivoFalta" method="post">
+        <form action="${pageContext.request.contextPath}/private/DeletarMotivoFalta" method="post">
             <input type="hidden" name="action" value="1">
             <input type="hidden" name="id" value="${motivo.getId()}">
             <button type="submit">Sim</button>
         </form>
-        <form action="DeletarMotivoFalta" method="post">
+        <form action="${pageContext.request.contextPath}/private/DeletarMotivoFalta" method="post">
             <input type="hidden" name="id" value="${motivo.getId()}">
             <input type="hidden" name="action" value="2">
             <button type="submit">Não</button>
@@ -152,7 +152,7 @@
 <div class="popup">
     <h1>Editar Motivo de Falta</h1>
 
-    <form action="AlterarMotivoFalta" method="post">
+    <form action="${pageContext.request.contextPath}/private/AlterarMotivoFalta" method="post">
         <input type="hidden" name="action" value="1">
         <input type="hidden" name="id" value="${motivo.getId()}">
 
@@ -160,7 +160,7 @@
         <input type="text" id="motivo" name="motivo" value="${motivo.getMotivo()}">
 
         <div class="botoes">
-            <div class="cancelar"> <a href="ListarMotivosFalta">✖ Cancelar</a></div>
+            <div class="cancelar"> <a href="${pageContext.request.contextPath}/private/ListarMotivosFalta">✖ Cancelar</a></div>
             <button type="submit" class="confirmar">✔ Confirmar</button>
         </div>
     </form>
@@ -171,11 +171,11 @@
 <div class="tela-transparente"></div>
 <div class="popup">
     <h1>Inserir Motivo de Falta</h1>
-    <form action="InserirMotivoFalta" method="post">
+    <form action="${pageContext.request.contextPath}/private/InserirMotivoFalta" method="post">
         <label for="NovoMotivoFalta">Motivo</label>
         <input type="text" name="motivo" id="NovoMotivoFalta">
         <div class="botoes">
-            <div class="cancelar"> <a href="ListarMotivosFalta">✖ Cancelar</a></div>
+            <div class="cancelar"> <a href="${pageContext.request.contextPath}/private/ListarMotivosFalta">✖ Cancelar</a></div>
             <button type="submit" class="confirmar">✔ Confirmar</button>
         </div>
     </form>

@@ -1,12 +1,16 @@
 package org.example.servlet.Empresa;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.util.List;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import org.example.conexao.ConexaoManager;
 import org.example.dao.EmpresaDAO;
 import org.example.dao.StatusAprovacaoDAO;
+import org.example.dao.TipoEmpresaDAO;
 import org.example.model.Empresa;
 
 @WebServlet("/private/DeletarEmpresa")
@@ -30,9 +34,20 @@ public class ServletDeletarEmpresa extends HttpServlet{
         }else if(action == 1){
             int id = Integer.parseInt(req.getParameter("id"));
             int idStatus = Integer.parseInt(req.getParameter("idStatus"));
+            int idTipoEmpresa = empresadao.listarEmpresaPorId(id).getIdTipoEmpresa();
             StatusAprovacaoDAO statusdao = new StatusAprovacaoDAO();
             empresadao.deletarEmpresa(id);
             statusdao.deletarStatusAprovacao(idStatus);
+            boolean inativo = true;
+            for(Empresa e : empresadao.listarEmpresaPorIdTipoEmpresa(idTipoEmpresa)){
+                if(statusdao.listarStatusAprovacaoPorID(e.getIdStatusAprovacao()).getStatus()=='a') inativo = false;
+            }
+            if (inativo){
+                TipoEmpresaDAO tipoempresadao = new TipoEmpresaDAO();
+                tipoempresadao.alterarStatusTipoEmpresa(idTipoEmpresa, 'i');
+                tipoempresadao.alterarUltimaAtualizacaoTipoEmpresa(idTipoEmpresa, LocalDate.now());
+            }
+
             req.setAttribute("erro", "Empresa e Status deletados com sucesso");
             req.getRequestDispatcher("Listar"+caminho).forward(req, resp);
         }else if(action == 2){

@@ -25,6 +25,12 @@
 
     <!-- ===================== DEPENDÊNCIAS ===================== -->
     <dependencies>
+        <!-- Dependência para a verificação de cnpj-->
+        <dependency>
+            <groupId>br.com.caelum.stella</groupId>
+            <artifactId>caelum-stella-core</artifactId>
+            <version>2.2.1</version>
+        </dependency>
         <!-- Dependência para a leitura do .env-->
         <dependency>
             <groupId>io.github.cdimascio</groupId>

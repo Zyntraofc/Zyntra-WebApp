@@ -14,7 +14,7 @@ public class ServletInserirTipoEmpresa extends HttpServlet{
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException{
         req.setAttribute("popup-inserir", true);
-        req.getRequestDispatcher("private/ListarTipoEmpresa").forward(req, resp);
+        req.getRequestDispatcher("/private/ListarTipoEmpresa").forward(req, resp);
     }
 
     @Override
@@ -30,10 +30,10 @@ public class ServletInserirTipoEmpresa extends HttpServlet{
         TipoEmpresaDAO tipoempresadao = new TipoEmpresaDAO();
         if (tipoempresadao.inserirTipoEmpresa(tipoEmpresaNovo)) {
             req.setAttribute("erro", "Tipo empresa inserido com sucesso!");
-            req.getRequestDispatcher("private/ListarTipoEmpresa").forward(req, resp);
+            req.getRequestDispatcher("/private/ListarTipoEmpresa").forward(req, resp);
         } else {
             req.setAttribute("erro", "Não foi possível inserir tipo empresa");
-            req.getRequestDispatcher("private/ListarTipoEmpresa").forward(req, resp);
+            req.getRequestDispatcher("/private/ListarTipoEmpresa").forward(req, resp);
         }
         ConexaoManager.desconectar();
     }

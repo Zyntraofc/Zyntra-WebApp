@@ -26,13 +26,13 @@ public class ServletAlterarTipoEmpresa extends HttpServlet {
             // prepara atributos para a página de alteração
             req.setAttribute("tipoEmpresa", tipoEmpresa);
             req.setAttribute("popup-alterar", true);
-            req.getRequestDispatcher("private/ListarTipoEmpresa").forward(req, resp);
+            req.getRequestDispatcher("/private/ListarTipoEmpresa").forward(req, resp);
 
         } else if (action == 1) {
             String nome = req.getParameter("nome");
             String descricao = req.getParameter("descricao");
 
-            // comparações null-safe: só altera quando realmente mudou
+
             if (nome != "" && !tipoEmpresa.getNome().equals(nome)) {
                 tipoempresadao.alterarNomeTipoEmpresa(id, nome);
             }
@@ -41,7 +41,7 @@ public class ServletAlterarTipoEmpresa extends HttpServlet {
             }
 
             req.setAttribute("erro", "Tipo empresa atualizado com sucesso!");
-            req.getRequestDispatcher("private/ListarTipoEmpresa").forward(req, resp);
+            req.getRequestDispatcher("/private/ListarTipoEmpresa").forward(req, resp);
         }
         ConexaoManager.desconectar();
     }

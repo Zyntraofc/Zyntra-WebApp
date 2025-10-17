@@ -15,7 +15,7 @@ public class ServletInserirIndiceClassificacao extends HttpServlet{
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         req.setAttribute("popup-inserir", true);
-        req.getRequestDispatcher("private/ListarIndiceClassificacao").forward(req, resp);
+        req.getRequestDispatcher("/private/ListarIndiceClassificacao").forward(req, resp);
     }
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
@@ -38,16 +38,16 @@ public class ServletInserirIndiceClassificacao extends HttpServlet{
         }
         if (sobrepoe) {
             req.setAttribute("erro", "O intervalo informado sobrepõe outro já existente!");
-            req.getRequestDispatcher("/WEB-INF/view/InserirIndiceClassificacao.jsp").forward(req, resp);
+            req.getRequestDispatcher("/private/ListarIndiceClassificacao").forward(req, resp);
         } else if (porcentagemMinima >= porcentagemMaxima) {
             req.setAttribute("erro", "A porcentagem mínima deve ser menor que a máxima!");
-            req.getRequestDispatcher("/WEB-INF/view/InserirIndiceClassificacao.jsp").forward(req, resp);
+            req.getRequestDispatcher("/private/ListarIndiceClassificacao").forward(req, resp);
         } else {
             IndiceClassificacao novo = new IndiceClassificacao(recomendacao, preocupacao, porcentagemMinima, porcentagemMaxima);
             if (indicesdao.inserirIndiceClassificacao(novo))req.setAttribute("erro", "Índice de classificação inserido com sucesso!");
             else req.setAttribute("erro", "Erro ao inserir índice");
 
-            req.getRequestDispatcher("private/ListarIndiceClassificacao").forward(req, resp);
+            req.getRequestDispatcher("/private/ListarIndiceClassificacao").forward(req, resp);
         }
         ConexaoManager.desconectar();
     }

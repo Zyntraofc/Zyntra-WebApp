@@ -3,6 +3,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/crud.css">
+    <script src="${pageContext.request.contextPath}/js/mascara.js" defer></script>
     <title>Crud Status Aprovação - Área restrita</title>
 </head>
 <body>
@@ -19,39 +20,39 @@
     </div>
 
     <div class="barra-lateral">
-        <form action="Autenticar" method="post">
+        <form action="${pageContext.request.contextPath}/Autenticar" method="post">
             <button type="submit" class="botao">Empresa</button>
-            <input type="hidden" name="endpointInput" value="private/ListarEmpresas">
+            <input type="hidden" name="endpointInput" value="/private/ListarEmpresas">
             <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
         </form>
-        <form action="Autenticar" method="post">
+        <form action="${pageContext.request.contextPath}/Autenticar" method="post">
             <button type="submit" class="botao">Adm</button>
-            <input type="hidden" name="endpointInput" value="private/ListarAdministradores">
+            <input type="hidden" name="endpointInput" value="/private/ListarAdministradores">
             <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
         </form>
-        <form action="Autenticar" method="post">
+        <form action="${pageContext.request.contextPath}/Autenticar" method="post">
             <button type="submit" class="botao active">Status Aprovação</button>
-            <input type="hidden" name="endpointInput" value="private/ListarStatusAprovacao">
+            <input type="hidden" name="endpointInput" value="/private/ListarStatusAprovacao">
             <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
         </form>
-        <form action="Autenticar" method="post">
+        <form action="${pageContext.request.contextPath}/Autenticar" method="post">
             <button type="submit" class="botao">Indices Classificação</button>
-            <input type="hidden" name="endpointInput" value="private/ListarIndiceClassificacao">
+            <input type="hidden" name="endpointInput" value="/private/ListarIndiceClassificacao">
             <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
         </form>
-        <form action="Autenticar" method="post">
+        <form action="${pageContext.request.contextPath}/Autenticar" method="post">
             <button type="submit" class="botao">Tipo Empresa</button>
-            <input type="hidden" name="endpointInput" value="private/ListarTipoEmpresa">
+            <input type="hidden" name="endpointInput" value="/private/ListarTipoEmpresa">
             <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
         </form>
-        <form action="Autenticar" method="post">
+        <form action="${pageContext.request.contextPath}/Autenticar" method="post">
             <button type="submit" class="botao">Motivo Falta</button>
-            <input type="hidden" name="endpointInput" value="private/ListarMotivosFalta">
+            <input type="hidden" name="endpointInput" value="/private/ListarMotivosFalta">
             <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
         </form>
 
         <div class="sair-container">
-            <form action="Logout">
+            <form action="${pageContext.request.contextPath}/Logout">
                 <button type="submit" class="sair">
                     <img href="assets/Saida.png" alt="Sair">
                     <span>Sair</span>
@@ -77,7 +78,7 @@
                 <span>Filtros</span>
                 <img src="assets/filtros.png" alt="Filtros">
             </button>
-            <form action="InserirEmpresa" class="button-adicionar-novo">
+            <form action="${pageContext.request.contextPath}/private/InserirEmpresa" class="button-adicionar-novo">
                 <input type="hidden" name="caminho" value="StatusAprovacao">
                 <button type="submit">
                     <img src="assets/add.png" alt="Adicionar">
@@ -93,46 +94,46 @@
     <%
         }
     %>
-<table border="1">
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Status</th>
-        <th>Motivo de Rejeição</th>
-        <th>Data de Solicitação</th>
-        <th>Data de Aprovação</th>
-        <th>Ações</th>
-    </tr>
-    </thead>
-    <tbody>
-    <c:forEach var="status" items="${statuses}">
+    <table border="1">
+        <thead>
         <tr>
-            <td>${status.id}</td>
-            <td>${String.valueOf(status.status).equals("a") ? "Aprovado" : String.valueOf(status.status).equals("r") ? "Recusado" : "Pendente"}</td>
-            <td>${not empty status.motivoRejeicao ? status.motivoRejeicao : "null"}</td>
-            <td>${status.dataSolicitacao}</td>
-            <td>${status.dataAprovacao!=null ? status.dataAprovacao : "null"}</td>
-
-
-            <td>
-                <div style="display: flex">
-                    <form action="AlterarStatusAprovacao" method="post">
-                        <input type="hidden" name="id" value="${status.id}">
-                        <input type="hidden" name="action" value="0">
-                        <button type="submit">Alterar</button>
-                    </form>
-                    <form action="DeletarEmpresa" method="post">
-                        <input type="hidden" name="idStatus" value="${status.id}">
-                        <input type="hidden" name="caminho" value="StatusAprovacao">
-                        <input type="hidden" name="action" value="0">
-                        <button type="submit">Deletar</button>
-                    </form>
-                </div>
-            </td>
+            <th>ID</th>
+            <th>Nome da Empresa</th>
+            <th>Status</th>
+            <th>Data de Solicitação</th>
+            <th>Ações</th>
         </tr>
-    </c:forEach>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+        <c:forEach var="status" items="${statuses}">
+            <tr>
+                <td>${status.id}</td>
+                <td class="sensivel">${nomesEmpresas[status.id]}</td>
+                <td>${String.valueOf(status.status).equals("a") ? "Aprovado" : String.valueOf(status.status).equals("r") ? "Recusado" : "Pendente"}</td>
+                <td class="sensivel">${status.dataSolicitacao}</td>
+                <td>
+                    <div style="display: flex">
+                        <button style="border: none; background: none; cursor: pointer" class="toggleLinha" data-olho="${pageContext.request.contextPath}/assets/icons/icon-olho.png"
+                                data-olho-fechado="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png">
+                            <img src="${pageContext.request.contextPath}/assets/icons/icon-olho.png" />
+                        </button>
+                        <form action="${pageContext.request.contextPath}/private/AlterarStatusAprovacao" method="post">
+                            <input type="hidden" name="id" value="${status.id}">
+                            <input type="hidden" name="action" value="0">
+                            <button type="submit" style="border: none; background: none; cursor: pointer" > <img src="${pageContext.request.contextPath}/assets/icons/icon-edit.png"></button>
+                        </form>
+                        <form action="${pageContext.request.contextPath}/private/DeletarEmpresa" method="post">
+                            <input type="hidden" name="idStatus" value="${status.id}">
+                            <input type="hidden" name="caminho" value="StatusAprovacao">
+                            <input type="hidden" name="action" value="0">
+                            <button type="submit" style="border: none; background: none; cursor: pointer" ><img src="${pageContext.request.contextPath}/assets/icons/icon-excluir.png"></button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
 </main>
 <% if (request.getAttribute("popup-deletar") != null) { %>
 <div class="tela-transparente"></div>
@@ -140,14 +141,14 @@
     <h1>Deletar</h1>
     <p>Deseja mesmo excluir? Esta ação é irreversível.</p>
     <div class="opcoes-deletar">
-        <form action="DeletarEmpresa" method="post">
+        <form action="${pageContext.request.contextPath}/private/DeletarEmpresa" method="post">
             <input type="hidden" name="action" value="1">
             <input type="hidden" name="caminho" value="${caminho}">
             <input type="hidden" name="idStatus" value="${empresa.getIdStatusAprovacao()}">
             <input type="hidden" name="id" value="${empresa.getId()}">
             <button type="submit">✔ Confirmar</button>
         </form>
-        <form action="DeletarEmpresa" method="post">
+        <form action="${pageContext.request.contextPath}/private/DeletarEmpresa" method="post">
             <input type="hidden" name="caminho" value="${caminho}">
             <input type="hidden" name="action" value="2">
             <button type="submit">✖ Cancelar</button>
@@ -161,25 +162,24 @@
 <div class="popup">
     <h1>Editar Status de Aprovação</h1>
 
-    <form action="AlterarStatusAprovacao" method="post">
+    <form action="${pageContext.request.contextPath}/private/AlterarStatusAprovacao" method="post">
         <input type="hidden" name="action" value="1">
         <input type="hidden" name="id" value="${alterarStatus.getId()}">
 
+        <div class="status">
+            <input type="radio" name="status" value="a" id="ativo" ${String.valueOf(alterarStatus.status).equals("a") ? 'checked' : ''}>
+            <label for="ativo">Ativo</label>
+            <input type="radio" name="status" value="p" id="pendente" ${String.valueOf(alterarStatus.status).equals("p") ? 'checked' : ''}>
+            <label for="pendente">Pendente</label>
+            <input type="radio" name="status" value="r" id="recusado" ${String.valueOf(alterarStatus.status).equals("r") ? 'checked' : ''}>
+            <label for="recusado">Recusado</label>
+        </div>
 
         <label for="motivoRejeicao">Motivo de rejeição</label>
         <textarea name="motivoRejeicao" id="motivoRejeicao" rows="4">${alterarStatus.getMotivoRejeicao()}</textarea>
 
-        <div class="status">
-        <input type="radio" name="status" value="a" id="ativo" ${String.valueOf(alterarStatus.status).equals("a") ? 'checked' : ''}>
-        <label for="ativo">Ativo</label>
-        <input type="radio" name="status" value="p" id="pendente" ${String.valueOf(alterarStatus.status).equals("p") ? 'checked' : ''}>
-        <label for="pendente">Pendente</label>
-        <input type="radio" name="status" value="r" id="recusado" ${String.valueOf(alterarStatus.status).equals("r") ? 'checked' : ''}>
-        <label for="recusado">Recusado</label>
-        </div>
-
         <div class="botoes">
-            <div class="cancelar"> <a href="ListarStatusAprovacao">✖ Cancelar</a></div>
+            <div class="cancelar"> <a href="${pageContext.request.contextPath}/private/ListarStatusAprovacao">✖ Cancelar</a></div>
             <button type="submit" class="confirmar">✔ Confirmar</button>
         </div>
     </form>
@@ -191,14 +191,25 @@
 <div class="popup">
     <h1>Insira uma empresa para associá-la ao Status</h1>
 
-    <form action="InserirEmpresa" method="post">
+    <form action="${pageContext.request.contextPath}/private/InserirEmpresa" method="post">
         <input type="hidden" name="caminho" value="${caminho}">
 
-        <label for="NovoTipoEmpresa">ID Tipo de Empresa</label>
-        <input type="number" id="NovoTipoEmpresa" name="idTipoEmpresa">
+        <label for="NovoTipoEmpresa">Tipo de Empresa</label>
+        <select name="idTipoEmpresa" id="NovoTipoEmpresa" required>
+            <option value="" disabled selected>Selecione o tipo de empresa</option>
+            <c:forEach var="tipo" items="${tipos}">
+                <option value="${tipo.id}">${tipo.nome}</option>
+            </c:forEach>
+        </select>
 
-        <label for="NovoIndiceClassificacao">ID Índice de Classificação</label>
-        <input type="number" id="NovoIndiceClassificacao" name="idIndiceClassificacao">
+
+        <label for="NovoIndiceClassificacao">Índice de Classificação</label>
+        <select name="idIndiceClassificacao" id="NovoIndiceClassificacao" required>
+            <option value="" disabled selected>Selecione o índice de classificação</option>
+            <c:forEach var="status" items="${statuses}">
+                <option value="${status.id}">${String.format("%.1f", status.porcentagemMinima)}% - ${String.format("%.1f", status.porcentagemMaxima)}%</option>
+            </c:forEach>
+        </select>
 
         <label for="Novonome">Nome</label>
         <input type="text" id="Novonome" name="nome">
@@ -213,7 +224,7 @@
         <input type="text" id="Novotelefone" name="telefone">
 
         <div class="botoes">
-            <div class="cancelar"> <a href="ListarStatusAprovacao">✖ Cancelar</a></div>
+            <div class="cancelar"> <a href="${pageContext.request.contextPath}/private/ListarStatusAprovacao">✖ Cancelar</a></div>
             <button type="submit" class="confirmar">✔ Confirmar</button>
         </div>
     </form>

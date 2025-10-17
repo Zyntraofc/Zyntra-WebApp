@@ -23,13 +23,13 @@ public class ServletDeletarTipoEmpresa extends HttpServlet{
             TipoEmpresa tipoempresa = tipoempresadao.listarTipoEmpresaPorId(id);
             req.setAttribute("tipoEmpresa", tipoempresa);
             req.setAttribute("popup-deletar", true);
-            req.getRequestDispatcher("private/ListarTipoEmpresa").forward(req, resp);
+            req.getRequestDispatcher("/private/ListarTipoEmpresa").forward(req, resp);
         }else if(action == 1){
             tipoempresadao.deletarTipoEmpresa(id);
             req.setAttribute("erro", "Tipo empresa deletada com sucesso");
-            req.getRequestDispatcher("private/ListarTipoEmpresa").forward(req, resp);
+            req.getRequestDispatcher("/private/ListarTipoEmpresa").forward(req, resp);
         }else if(action == 2){
-            req.getRequestDispatcher("private/ListarTipoEmpresa").forward(req, resp);
+            req.getRequestDispatcher("/private/ListarTipoEmpresa").forward(req, resp);
         }
         ConexaoManager.desconectar();
     }

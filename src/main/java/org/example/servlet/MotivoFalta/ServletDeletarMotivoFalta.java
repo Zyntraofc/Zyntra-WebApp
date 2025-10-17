@@ -18,7 +18,7 @@ public class ServletDeletarMotivoFalta extends HttpServlet{
             MotivoFalta motivo = motivodao.listarMotivoFaltaPorID(id);
             req.setAttribute("motivo", motivo);
             req.setAttribute("popup-deletar", true);
-            req.getRequestDispatcher("private/ListarMotivosFalta").forward(req, resp);
+            req.getRequestDispatcher("/private/ListarMotivosFalta").forward(req, resp);
         }else if(action == 1){
             motivodao.deletarMotivoFalta(id);
             java.util.List<MotivoFalta> motivos = motivodao.listarMotivosFalta();

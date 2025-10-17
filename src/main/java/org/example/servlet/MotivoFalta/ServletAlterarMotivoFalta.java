@@ -17,7 +17,7 @@ public class ServletAlterarMotivoFalta extends HttpServlet {
             MotivoFalta motivo = motivodao.listarMotivoFaltaPorID(id);
             req.setAttribute("motivo", motivo);
             req.setAttribute("popup-alterar", true);
-            req.getRequestDispatcher("private/ListarMotivosFalta").forward(req, resp);
+            req.getRequestDispatcher("/private/ListarMotivosFalta").forward(req, resp);
         }
         else if (action == 1) {
             String motivo = req.getParameter("motivo");

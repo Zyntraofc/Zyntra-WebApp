@@ -33,12 +33,11 @@ public class ServletAlterarEmpresa extends HttpServlet {
             Empresa empresa = empresadao.listarEmpresaPorId(id);
             req.setAttribute("empresa", empresa);
             req.setAttribute("popup-alterar", true);
-            req.getRequestDispatcher("private/ListarEmpresas").forward(req, resp);
+            req.getRequestDispatcher("/private/ListarEmpresas").forward(req, resp);
 
         } else if (action == 1) {
             int idTipoEmpresa = Integer.parseInt(req.getParameter("idTipoEmpresa"));
             int idIndiceClassificacao = Integer.parseInt(req.getParameter("idIndiceClassificacao"));
-            int idStatusAprovacao = Integer.parseInt(req.getParameter("idStatusAprovacao"));
             String nome = req.getParameter("nome");
             String email = req.getParameter("email");
             String telefone = req.getParameter("telefone");
@@ -85,9 +84,6 @@ public class ServletAlterarEmpresa extends HttpServlet {
             if (idIndiceClassificacao != empresa.getIdIndiceClassificacao()) {
                 empresadao.alterarIdIndiceClassificacaoEmpresa(id, idIndiceClassificacao);
             }
-            if (idStatusAprovacao != empresa.getIdStatusAprovacao()) {
-                empresadao.alterarIdStatusAprovacaoEmpresa(id, idStatusAprovacao);
-            }
             if (!nome.equals(empresa.getNome())) {
                 empresadao.alterarNomeEmpresa(id, nome);
             }
@@ -96,7 +92,7 @@ public class ServletAlterarEmpresa extends HttpServlet {
                     empresadao.alterarEmailEmpresa(id, email);
                 } else {
                     req.setAttribute("erro", "Email inválido");
-                    req.getRequestDispatcher("private/ListarEmpresas").forward(req, resp);
+                    req.getRequestDispatcher("/private/ListarEmpresas").forward(req, resp);
                     resposta++;
                 }
             }
@@ -105,13 +101,13 @@ public class ServletAlterarEmpresa extends HttpServlet {
                     empresadao.alterarTelefoneEmpresa(id, telefone);
                 } else {
                     req.setAttribute("erro", "Telefone inválido");
-                    req.getRequestDispatcher("private/ListarEmpresas").forward(req, resp);
+                    req.getRequestDispatcher("/private/ListarEmpresas").forward(req, resp);
                     resposta++;
                 }
             }
             if(resposta ==0){
                 req.setAttribute("erro", "Empresa atualizada com sucesso");
-                req.getRequestDispatcher("private/ListarEmpresas").forward(req, resp);
+                req.getRequestDispatcher("/private/ListarEmpresas").forward(req, resp);
             }
         }
         ConexaoManager.desconectar();

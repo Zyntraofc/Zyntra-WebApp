@@ -19,39 +19,39 @@
   </div>
 
   <div class="barra-lateral">
-    <form action="Autenticar" method="post">
+    <form action="${pageContext.request.contextPath}/Autenticar" method="post">
       <button type="submit" class="botao">Empresa</button>
-      <input type="hidden" name="endpointInput" value="private/ListarEmpresas">
+      <input type="hidden" name="endpointInput" value="/private/ListarEmpresas">
       <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
     </form>
-    <form action="Autenticar" method="post">
+    <form action="${pageContext.request.contextPath}/Autenticar" method="post">
       <button type="submit" class="botao">Adm</button>
-      <input type="hidden" name="endpointInput" value="private/ListarAdministradores">
+      <input type="hidden" name="endpointInput" value="/private/ListarAdministradores">
       <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
     </form>
-    <form action="Autenticar" method="post">
+    <form action="${pageContext.request.contextPath}/Autenticar" method="post">
       <button type="submit" class="botao">Status Aprovação</button>
-      <input type="hidden" name="endpointInput" value="private/ListarStatusAprovacao">
+      <input type="hidden" name="endpointInput" value="/private/ListarStatusAprovacao">
       <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
     </form>
-    <form action="Autenticar" method="post">
+    <form action="${pageContext.request.contextPath}/Autenticar" method="post">
       <button type="submit" class="botao active">Indices Classificação</button>
-      <input type="hidden" name="endpointInput" value="private/ListarIndiceClassificacao">
+      <input type="hidden" name="endpointInput" value="/private/ListarIndiceClassificacao">
       <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
     </form>
-    <form action="Autenticar" method="post">
+    <form action="${pageContext.request.contextPath}/Autenticar" method="post">
       <button type="submit" class="botao">Tipo Empresa</button>
-      <input type="hidden" name="endpointInput" value="private/ListarTipoEmpresa">
+      <input type="hidden" name="endpointInput" value="/private/ListarTipoEmpresa">
       <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
     </form>
-    <form action="Autenticar" method="post">
+    <form action="${pageContext.request.contextPath}/Autenticar" method="post">
       <button type="submit" class="botao">Motivo Falta</button>
-      <input type="hidden" name="endpointInput" value="private/ListarMotivosFalta">
+      <input type="hidden" name="endpointInput" value="/private/ListarMotivosFalta">
       <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
     </form>
 
     <div class="sair-container">
-      <form action="Logout">
+      <form action="${pageContext.request.contextPath}/Logout">
         <button type="submit" class="sair">
           <img href="assets/Saida.png" alt="Sair">
           <span>Sair</span>
@@ -77,7 +77,7 @@
         <span>Filtros</span>
         <img src="assets/filtros.png" alt="Filtros">
       </button>
-      <form action="InserirIndiceClassificacao" class="button-adicionar-novo">
+      <form action="${pageContext.request.contextPath}/private/InserirIndiceClassificacao" class="button-adicionar-novo">
         <button type="submit">
           <img src="assets/add.png" alt="Adicionar">
           <span>Adicionar Novo</span>
@@ -92,43 +92,39 @@
   <%
     }
   %>
-<table border="1">
-  <thead>
-  <tr>
-    <th>Preocupação</th>
-    <th>ID</th>
-    <th>Porcentagem mínima</th>
-    <th>Porcentagem máxima</th>
-    <th>Recomendação</th>
-    <th>Ações</th>
-  </tr>
-  </thead>
-  <tbody>
-  <c:forEach var="indiceClassificacao" items="${indicesClassificacao}">
+  <table border="1">
+    <thead>
     <tr>
-      <td>${indiceClassificacao.preocupacao}</td>
-      <td>${indiceClassificacao.id}</td>
-      <td>${indiceClassificacao.porcentagemMinima}</td>
-      <td>${indiceClassificacao.porcentagemMaxima}</td>
-      <td>${indiceClassificacao.recomendacao}</td>
-      <td>
-        <div style="display: flex">
-          <form action="AlterarIndiceClassificacao" method="post">
-            <input type="hidden" name="id" value="${indiceClassificacao.id}">
-            <input type="hidden" name="action" value="0">
-            <button type="submit">Alterar</button>
-          </form>
-          <form action="DeletarIndiceClassificacao" method="post">
-            <input type="hidden" name="id" value="${indiceClassificacao.id}">
-            <input type="hidden" name="action" value="0">
-            <button type="submit">Deletar</button>
-          </form>
-        </div>
-      </td>
+      <th>ID</th>
+      <th>Preocupação</th>
+      <th>Porcentagem</th>
+      <th>Ações</th>
     </tr>
-  </c:forEach>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+    <c:forEach var="indiceClassificacao" items="${indicesClassificacao}">
+      <tr>
+        <td>${indiceClassificacao.id}</td>
+        <td>${indiceClassificacao.preocupacao}</td>
+        <td>${indiceClassificacao.porcentagemMinima} - ${indiceClassificacao.porcentagemMaxima}%</td>
+        <td>
+          <div style="display: flex">
+            <form action="${pageContext.request.contextPath}/private/AlterarIndiceClassificacao" method="post">
+              <input type="hidden" name="id" value="${indiceClassificacao.id}">
+              <input type="hidden" name="action" value="0">
+              <button type="submit" style="border: none; background: none; cursor: pointer" > <img src="${pageContext.request.contextPath}/assets/icons/icon-edit.png"></button>
+            </form>
+            <form action="${pageContext.request.contextPath}/private/DeletarIndiceClassificacao" method="post">
+              <input type="hidden" name="id" value="${indiceClassificacao.id}">
+              <input type="hidden" name="action" value="0">
+              <button type="submit" style="border: none; background: none; cursor: pointer" ><img src="${pageContext.request.contextPath}/assets/icons/icon-excluir.png"></button>
+            </form>
+          </div>
+        </td>
+      </tr>
+    </c:forEach>
+    </tbody>
+  </table>
 
 </main>
 <% if (request.getAttribute("popup-deletar") != null) { %>
@@ -137,17 +133,17 @@
   <h1>Deletar</h1>
   <p>Deseja mesmo excluir? Esta ação é irreversível.</p>
   <div class="opcoes-deletar">
-  <form action="DeletarIndiceClassificacao" method="post">
-    <input type="hidden" name="action" value="1">
-    <input type="hidden" name="id" value="${indiceClassificacao.getId()}">
-    <button type="submit">✔ Confirmar</button>
-  </form>
-  <form action="DeletarIndiceClassificacao" method="post">
-    <input type="hidden" name="id" value="${indiceClassificacao.getId()}">
-    <input type="hidden" name="action" value="2">
-    <button type="submit">✖ Cancelar</button>
-  </form>
-</div>
+    <form action="${pageContext.request.contextPath}/private/DeletarIndiceClassificacao" method="post">
+      <input type="hidden" name="action" value="1">
+      <input type="hidden" name="id" value="${indiceClassificacao.getId()}">
+      <button type="submit">✔ Confirmar</button>
+    </form>
+    <form action="${pageContext.request.contextPath}/private/DeletarIndiceClassificacao" method="post">
+      <input type="hidden" name="id" value="${indiceClassificacao.getId()}">
+      <input type="hidden" name="action" value="2">
+      <button type="submit">✖ Cancelar</button>
+    </form>
+  </div>
 </div>
 <% } %>
 
@@ -156,7 +152,7 @@
 <div class="popup">
   <h1>Editar Índice de Classificação</h1>
 
-  <form action="AlterarIndiceClassificacao" method="post">
+  <form action="${pageContext.request.contextPath}/private/AlterarIndiceClassificacao" method="post">
     <input type="hidden" name="action" value="1">
     <input type="hidden" name="id" value="${indiceClassificacao.getId()}">
 
@@ -172,7 +168,7 @@
     <textarea rows="4" name="recomendacao" id="recomendacao">${indiceClassificacao.getRecomendacao()}</textarea>
 
     <div class="botoes">
-      <div class="cancelar"> <a href="ListarIndiceClassificacao">✖ Cancelar</a></div>
+      <div class="cancelar"> <a href="${pageContext.request.contextPath}/private/ListarIndiceClassificacao">✖ Cancelar</a></div>
       <button type="submit" class="confirmar">✔ Confirmar</button>
     </div>
   </form>
@@ -184,7 +180,7 @@
 <div class="popup">
   <h1>Inserir Índice de Classificação</h1>
 
-  <form action="InserirIndiceClassificacao" method="post">
+  <form action="${pageContext.request.contextPath}/private/InserirIndiceClassificacao" method="post">
     <label for="Novaminima">Porcentagem mínima</label>
     <input type="number" name="porcentagemMinima"  id="Novaminima" placeholder="Digite a porcentagem mínima (%)">
     <label for="Novamaxima">Porcentagem máxima</label>
@@ -195,7 +191,7 @@
     <textarea rows="4" name="recomendacao" id="Novarecomendacao" placeholder="Digite a recomendação para esse índice classificação"></textarea>
 
     <div class="botoes">
-      <div class="cancelar"> <a href="ListarIndiceClassificacao">✖ Cancelar</a></div>
+      <div class="cancelar"> <a href="${pageContext.request.contextPath}/private/ListarIndiceClassificacao">✖ Cancelar</a></div>
       <button type="submit" class="confirmar">✔ Confirmar</button>
     </div>
   </form>
