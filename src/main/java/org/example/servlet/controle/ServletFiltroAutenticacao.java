@@ -11,15 +11,15 @@ import java.io.IOException;
 public class ServletFiltroAutenticacao implements Filter {
 
     @Override
-    public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
+    public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
             throws IOException, ServletException {
 
         HttpServletRequest request = (HttpServletRequest) req;
-        HttpServletResponse response = (HttpServletResponse) res;
+        HttpServletResponse response = (HttpServletResponse) resp;
         HttpSession sessao = request.getSession(false);
 
         if (sessao != null && sessao.getAttribute("usuario") != null) {
-            chain.doFilter(req, res); // continua a requisição
+            chain.doFilter(req, resp);
         } else {
             response.sendRedirect(request.getContextPath() + "/login.jsp");
         }
