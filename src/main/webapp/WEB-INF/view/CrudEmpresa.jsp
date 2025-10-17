@@ -94,7 +94,8 @@
   <%
     }
   %>
-  <table border="1">
+  <section class="table-card">
+  <table>
     <thead>
     <tr>
       <th>ID</th>
@@ -116,7 +117,7 @@
         <td class="sensivel">${empresa.telefone}</td>
         <td>${tiposEmpresa[empresa.id]}</td>
 
-        <td>
+        <td class="actions">
           <div style="display: flex">
             <button style="border: none; background: none; cursor: pointer" class="toggleLinha" data-olho="${pageContext.request.contextPath}/assets/icons/icon-olho.png"
                     data-olho-fechado="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png">
@@ -139,6 +140,7 @@
     </c:forEach>
     </tbody>
   </table>
+  </section>
 </main>
 <% if (request.getAttribute("popup-deletar") != null) { %>
 <div class="tela-transparente"></div>

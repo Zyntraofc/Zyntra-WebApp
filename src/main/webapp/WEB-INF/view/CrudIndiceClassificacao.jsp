@@ -92,7 +92,8 @@
   <%
     }
   %>
-  <table border="1">
+  <section class="table-card">
+  <table>
     <thead>
     <tr>
       <th>ID</th>
@@ -107,7 +108,7 @@
         <td>${indiceClassificacao.id}</td>
         <td>${indiceClassificacao.preocupacao}</td>
         <td>${indiceClassificacao.porcentagemMinima} - ${indiceClassificacao.porcentagemMaxima}%</td>
-        <td>
+        <td class="actions">
           <div style="display: flex">
             <form action="${pageContext.request.contextPath}/private/AlterarIndiceClassificacao" method="post">
               <input type="hidden" name="id" value="${indiceClassificacao.id}">
@@ -125,7 +126,7 @@
     </c:forEach>
     </tbody>
   </table>
-
+  </section>
 </main>
 <% if (request.getAttribute("popup-deletar") != null) { %>
 <div class="tela-transparente"></div>

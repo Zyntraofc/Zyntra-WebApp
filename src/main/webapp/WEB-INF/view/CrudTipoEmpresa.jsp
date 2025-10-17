@@ -92,7 +92,8 @@
     <%
         }
     %>
-    <table border="1">
+    <section class="table-card">
+    <table>
         <thead>
         <tr>
             <th>ID</th>
@@ -109,7 +110,7 @@
                 <td>${tipoEmpresa.nome}</td>
                 <td>${String.valueOf(tipoEmpresa.status).equals("i") ?"Inativo": "Ativo"}</td>
                 <td>${tipoEmpresa.ultimaAtualizacao}</td>
-                <td>
+                <td class="actionsgit">
                     <div style="display: flex">
                         <form action="${pageContext.request.contextPath}/private/AlterarTipoEmpresa" method="post">
                             <input type="hidden" name="id" value="${tipoEmpresa.id}">
@@ -127,7 +128,7 @@
         </c:forEach>
         </tbody>
     </table>
-
+    </section>
 </main>
 
 <% if (request.getAttribute("popup-deletar") != null) { %>

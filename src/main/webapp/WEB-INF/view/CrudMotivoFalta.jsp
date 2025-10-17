@@ -94,7 +94,8 @@
     <%
         }
     %>
-    <table border="1">
+    <section class="table-card">
+    <table>
         <thead>
         <tr>
             <th>ID</th>
@@ -108,7 +109,7 @@
                 <td>${motivo.id}</td>
                 <td>${motivo.motivo}</td>
 
-                <td>
+                <td class="actions">
                     <div style="display: flex">
                         <form action="${pageContext.request.contextPath}/private/AlterarMotivoFalta" method="post">
                             <input type="hidden" name="id" value="${motivo.id}">
@@ -126,6 +127,7 @@
         </c:forEach>
         </tbody>
     </table>
+    </section>
 </main>
 <% if (request.getAttribute("popup-deletar") != null) { %>
 <div class="tela-transparente"></div>
