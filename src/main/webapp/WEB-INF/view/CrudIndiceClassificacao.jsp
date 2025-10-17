@@ -53,7 +53,7 @@
     <div class="sair-container">
       <form action="${pageContext.request.contextPath}/Logout">
         <button type="submit" class="sair">
-          <img href="assets/Saida.png" alt="Sair">
+          <img src="${pageContext.request.contextPath}/assets/icons/icon-saida.png" alt="Sair">
           <span>Sair</span>
         </button>
       </form>
@@ -68,18 +68,18 @@
     <form action="">
       <input type="text" placeholder="Buscar por id, nome, email...">
       <button type="submit">
-        <img src="assets/Vector.png" alt="Pesquisar">
+        <img src="${pageContext.request.contextPath}/assets/icons/icon-lupa.png" alt="Pesquisar">
       </button>
     </form>
 
     <div class="actions">
       <button class="filtros">
         <span>Filtros</span>
-        <img src="assets/filtros.png" alt="Filtros">
+        <img src="${pageContext.request.contextPath}/assets/icons/icon-circunflexo.png" alt="Filtros">
       </button>
       <form action="${pageContext.request.contextPath}/private/InserirIndiceClassificacao" class="button-adicionar-novo">
         <button type="submit">
-          <img src="assets/add.png" alt="Adicionar">
+          <img src="${pageContext.request.contextPath}/assets/icons/icon-add.png" alt="Adicionar">
           <span>Adicionar Novo</span>
         </button>
       </form>
