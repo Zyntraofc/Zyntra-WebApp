@@ -167,16 +167,14 @@ main p {
     color: #777;
     margin-bottom: 22px;
     letter-spacing: 0.2px;
-}
-
-main .top-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 22px;
-    gap: 16px;
-    flex-wrap: wrap;
-}
+}main .top-bar {
+     display: flex;
+     align-items: center;
+     justify-content: flex-start;
+     margin-bottom: 22px;
+     gap: 16px;
+     flex-wrap: nowrap;
+ }
 
 .main-search {
     display: flex;
@@ -186,8 +184,8 @@ main .top-bar {
     border: 1px solid rgba(100, 100, 160, 0.12);
     border-radius: 28px;
     padding: 12px 18px;
-    flex: 1;
-    max-width: 760px;
+    flex: 0 1 500px;
+    max-width: 500px;
     box-shadow: 0 6px 18px rgba(30, 45, 80, 0.05);
 }
 
@@ -230,6 +228,7 @@ main .actions {
     display: flex;
     align-items: center;
     gap: 12px;
+    flex-shrink: 0;
 }
 
 main .actions .filtros {
@@ -288,6 +287,7 @@ main .actions .filtros img {
     box-shadow: 0 20px 50px rgba(21, 32, 80, 0.06);
     overflow: auto;
 }
+
 
 .table-card table {
     width: 100%;
@@ -356,6 +356,29 @@ main .actions .filtros img {
     vertical-align: middle;
     cursor: pointer;
 }
+
+/*Estilização da barra de scroll*/
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #eef0ff;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: #EEF0FF;
+    border-radius: 10px;
+    transition: background 0.3s;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #EEF0FF;
+}
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #939ee7 #EEF0FF;
+}
+
+
 .popup-deletar {
     position: absolute;
     width: 400px;
@@ -807,4 +830,37 @@ textarea{
     display: none;
 }
 
+
+.barra-lateral .sair {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(145deg, #3A47FF, #9299FF);
+    border-radius: 12px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(59, 66, 255, 0.12);
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-clip: padding-box;
+}
+
+.barra-lateral .sair img {
+    height: 18px;
+    width: auto;
+    cursor: pointer;
+    display: block;
+}
+
+
+.barra-lateral .sair:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 66, 255, 0.25);
+}
 
