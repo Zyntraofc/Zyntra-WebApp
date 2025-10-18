@@ -6,6 +6,8 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/crud-responsividade.css">
   <script src="${pageContext.request.contextPath}/js/mascara.js" defer></script>
   <title>Crud Empresa - Área restrita</title>
+  <link rel="icon" type="image/png" href="../../assets/logos/logo-quadrada.png">
+
 </head>
 <body>
 <aside>

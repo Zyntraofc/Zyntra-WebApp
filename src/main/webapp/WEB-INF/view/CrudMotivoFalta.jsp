@@ -4,6 +4,7 @@
 <head>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/crud.css">
     <title>Crud Motivo Falta - Área restrita</title>
+    <link rel="icon" type="image/png" href="../../assets/logos/logo-quadrada.png">
 </head>
 <body>
 
