@@ -22,13 +22,15 @@ public class ServletAlterarMotivoFalta extends HttpServlet {
         else if (action == 1) {
             String motivo = req.getParameter("motivo");
 
-            // atualizações
+
             if(motivodao.alterarMotivoMotivoFalta(id, motivo)) req.setAttribute("erro", "Adm atualizado com sucesso");
             else req.setAttribute("erro", "Erro!");
             java.util.List<MotivoFalta> motivos = motivodao.listarMotivosFalta();
             req.setAttribute("motivos", motivos);
             req.getRequestDispatcher("/WEB-INF/view/CrudMotivoFalta.jsp").forward(req, resp);
         }
+    }
+    public void destroy(){
         ConexaoManager.desconectar();
     }
 }

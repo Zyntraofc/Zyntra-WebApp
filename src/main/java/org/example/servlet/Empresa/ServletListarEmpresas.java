@@ -35,7 +35,7 @@ public class ServletListarEmpresas extends HttpServlet{
         List<Empresa> empresas = empresadao.listarEmpresas();
         req.setAttribute("empresas", empresas);
 
-        // cria um mapa onde a chave é o id do status e o valor é o nome da empresa
+
         Map<Integer, String> tiposEmpresa = new HashMap<>();
         for (Empresa e : empresas) {
             String tipoEmpresa = tipodao.listarTipoEmpresaPorId(e.getIdTipoEmpresa()).getNome();
@@ -44,6 +44,8 @@ public class ServletListarEmpresas extends HttpServlet{
         req.setAttribute("tiposEmpresa", tiposEmpresa);
 
         req.getRequestDispatcher("/WEB-INF/view/CrudEmpresa.jsp").forward(req, resp);
+    }
+    public void destroy(){
         ConexaoManager.desconectar();
     }
 }

@@ -43,6 +43,8 @@ public class ServletAlterarTipoEmpresa extends HttpServlet {
             req.setAttribute("erro", "Tipo empresa atualizado com sucesso!");
             req.getRequestDispatcher("/private/ListarTipoEmpresa").forward(req, resp);
         }
+    }
+    public void destroy(){
         ConexaoManager.desconectar();
     }
 }

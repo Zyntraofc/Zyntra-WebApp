@@ -53,6 +53,8 @@ public class ServletDeletarEmpresa extends HttpServlet{
         }else if(action == 2){
             req.getRequestDispatcher("Listar"+caminho).forward(req, resp);
         }
+    }
+    public void destroy(){
         ConexaoManager.desconectar();
     }
 

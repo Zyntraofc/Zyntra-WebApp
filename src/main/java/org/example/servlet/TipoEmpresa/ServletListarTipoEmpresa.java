@@ -23,6 +23,8 @@ public class ServletListarTipoEmpresa extends HttpServlet{
         List<TipoEmpresa> tiposEmpresa = tipoempresadao.listarTiposEmpresa();
         req.setAttribute("tiposEmpresa", tiposEmpresa);
         req.getRequestDispatcher("/WEB-INF/view/CrudTipoEmpresa.jsp").forward(req, resp);
+    }
+    public void destroy(){
         ConexaoManager.desconectar();
     }
 }

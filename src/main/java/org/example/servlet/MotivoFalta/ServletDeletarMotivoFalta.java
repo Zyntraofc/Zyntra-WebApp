@@ -30,6 +30,8 @@ public class ServletDeletarMotivoFalta extends HttpServlet{
             req.setAttribute("motivos", motivos);
             req.getRequestDispatcher("/WEB-INF/view/CrudMotivoFalta.jsp").forward(req, resp);
         }
+    }
+    public void destroy(){
         ConexaoManager.desconectar();
     }
 }

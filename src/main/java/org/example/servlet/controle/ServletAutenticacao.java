@@ -14,7 +14,6 @@ public class ServletAutenticacao extends HttpServlet{
         HttpSession session = req.getSession(true);
         session.setAttribute("usuario", req.getParameter("usuario"));
         req.getRequestDispatcher(endpoint).forward(req, resp);
-        System.out.println(req.getParameter("usuario"));
-        ConexaoManager.desconectar();
     }
+
 }
