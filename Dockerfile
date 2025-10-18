@@ -1,26 +1,16 @@
-# Usando uma imagem oficial do Maven com JDK
-FROM maven:3.9.0-eclipse-temurin-17 AS build
+# Stage único usando Tomcat com JDK 17
+FROM tomcat:10.1-jdk17
 
-# Define o diretório de trabalho
-WORKDIR /app
+# Limpa a webapp padrão do Tomcat
+RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Copia os arquivos do projeto
-COPY pom.xml .
-COPY src ./src
+# Copia sua aplicação para o Tomcat
+# Ajuste o caminho se o nome da pasta target mudar
+COPY target/Zyntra-WebApp-1.0-SNAPSHOT /usr/local/tomcat/webapps/ROOT
 
-# Build do projeto
-RUN mvn clean package -DskipTests
-
-# Segunda etapa: rodar o jar
-FROM eclipse-temurin:17-jdk-alpine
-
-WORKDIR /app
-
-# Copia o jar construído
-COPY --from=build /app/target/Zyntra-WebApp-1.0-SNAPSHOT.jar app.jar
-
-# Expõe a porta (ajuste conforme seu app)
+# Expõe a porta padrão do Tomcat
 EXPOSE 8080
 
-# Comando para rodar o app
-CMD ["java", "-jar", "app.jar"]
+# Comando padrão para rodar o Tomcat
+CMD ["catalina.sh", "run"]
+
