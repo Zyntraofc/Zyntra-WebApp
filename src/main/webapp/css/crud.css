@@ -1,8 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap');
+* {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+
 body{margin: 0;
     height: 100vh;
     display: flex;
     justify-content: center;
-    background: #f0f0f0;
+    background: #ffffff;
     position: relative;
     width: 100%;
 }
@@ -14,31 +20,10 @@ body{margin: 0;
     position: absolute;
     z-index: 2;
 }
-table{
-    width: 100%;
-    border-radius: 30px;
-    box-shadow: 0 0 23.5px 0 rgba(0, 0, 0, 0.07);
-}
-thead{
-    background-color:  #E6E9FF;
-    color: #4F59E7;
-    font-weight: 400;
-}
-td{
-    padding: 20px;
-}
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-body {
-    display: flex;
-    min-height: 100vh;
-    background-color: #ffffff;
 }
 
 aside {
@@ -47,19 +32,13 @@ aside {
     left: 26px;
     width: 251px;
     height: calc(100vh - 40px);
-    background-color: #9299FF;
+    background: linear-gradient(145deg, #8f97ff, #8a87ff);
     display: flex;
     flex-direction: column;
     border-radius: 27px;
     padding: 20px 15px;
     box-sizing: border-box;
-}
-
-.sidebar-header {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(70, 75, 200, 0.08);
 }
 
 .logo-container {
@@ -67,13 +46,15 @@ aside {
     align-items: center;
     gap: 10px;
     margin-bottom: 15px;
+    cursor: pointer;
 }
 
-.sidebar-header img {
-    width: 46px;
-    height: 46px;
-    border-radius: 15px;
-    background-color: #fff;
+.logo-container img {
+    /*width: 54px;*/
+    height: 54px;
+    border-radius: 12px;
+    background: #fff;
+    padding: 8px;
 }
 
 .brand-text {
@@ -82,15 +63,15 @@ aside {
 }
 
 .sidebar-header .aion {
-    font-size: 15px;
-    font-weight: 600;
-    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
     margin: 0;
 }
 
 .sidebar-header h4 {
-    font-size: 11px;
-    color: #ffffff;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.9);
     font-weight: 400;
     margin: 0;
 }
@@ -99,10 +80,7 @@ aside {
     width: 100%;
     border: none;
     height: 3px;
-    background: linear-gradient(to right,
-    transparent,
-    rgba(255, 255, 255, 0.7),
-    transparent);
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.65), transparent);
     border-radius: 50px;
     margin: 15px 0;
 }
@@ -111,33 +89,38 @@ aside {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    gap: 8px;
+    gap: 12px;
+}
+
+.barra-lateral form {
+    width: 100%;
 }
 
 .barra-lateral .botao {
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 15px;
+    font-weight: 600;
     color: #fff;
     cursor: pointer;
-    padding: 12px 15px;
-    border-radius: 8px;
-    transition: background 0.3s, color 0.3s;
+    padding: 14px 18px;
+    border-radius: 12px;
+    transition: background 0.25s, transform 0.12s;
     display: block;
-}
-
-.barra-lateral a {
-    text-decoration: none;
-}
-
-.barra-lateral .botao:hover {
-    background: rgba(255, 255, 255, 0.2);
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    box-shadow: none;
 }
 
 .barra-lateral .botao.active {
     background: linear-gradient(145deg, #3A47FF, #9299FF);
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    border-radius: 12px;
-    font-weight: bold;
+    box-shadow: 0 8px 20px rgba(59, 66, 255, 0.18), inset 0 -6px 12px rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    transform: translateY(-2px);
+}
+
+.barra-lateral .botao:hover, .barra-lateral .sair:hover{
+    background: rgba(255, 255, 255, 0.14);
 }
 
 .sair-container {
@@ -153,150 +136,507 @@ aside {
     width: 100%;
     padding: 12px;
     background: linear-gradient(145deg, #3A47FF, #9299FF);
-    border: none;
     border-radius: 12px;
     color: #fff;
     font-size: 14px;
     font-weight: 600;
-    cursor: pointer;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    transition: 0.3s;
     text-decoration: none;
-}
-
-.barra-lateral a.sair:hover {
-    background: linear-gradient(145deg, #2A35CC, #6B74FF);
+    box-shadow: 0 8px 20px rgba(59, 66, 255, 0.12);
+    cursor: pointer;
 }
 
 .barra-lateral a.sair img {
     height: 18px;
     width: auto;
+    cursor: pointer;
 }
 
-
-
-/* ====== CONTEÚDO PRINCIPAL ====== */
 main {
-    flex: 1;                          /* Faz o main ocupar todo o espaço restante ao lado da sidebar */
-    margin-left: 300px;               /* Afasta o conteúdo da sidebar fixa */
-    padding: 40px 60px;               /* Espaçamento interno (topo/lados) para “respirar” */
+    flex: 1;
+    margin-left: 300px;
+    padding: 40px 60px;
     display: flex;
-    flex-direction: column;           /* Organiza os elementos do main em coluna */
-    background-color: #fff;           /* Fundo branco para destacar o conteúdo */
+    flex-direction: column;
+    background-color: #fff;
+    overflow: hidden;
 }
 
-/* ====== TÍTULO E SUBTÍTULO ====== */
 main h1 {
-    font-size: 28px;                  /* Tamanho grande para o título */
-    font-weight: 600;                 /* Peso mais forte para destaque */
-    color: #1a1a1a;                   /* Cor quase preta */
-    margin-bottom: 2px;               /* Pequeno espaço entre título e subtítulo */
+    font-size: 40px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 12px;
+    margin-top: 20px;
 }
 
 main p {
-    font-size: 14px;                  /* Texto menor para subtítulo (ex: “CRUD”) */
-    color: #666;                      /* Cinza médio */
-    margin-bottom: 25px;              /* Espaço abaixo do subtítulo antes da barra de busca */
+    font-size: 18px;
+    color: #777;
+    margin-bottom: 22px;
 }
 
-/* ====== TOPO: BARRA DE PESQUISA + BOTÕES ====== */
-main .top-bar {
-    display: flex;                    /* Coloca pesquisa e botões na mesma linha */
-    align-items: center;              /* Alinha verticalmente */
-    justify-content: space-between;   /* Pesquisa à esquerda, botões à direita */
-    margin-bottom: 25px;              /* Espaço abaixo da top-bar (antes da tabela) */
-    flex-wrap: wrap;                  /* Permite quebrar linha em telas pequenas */
-    gap: 10px;                        /* Espaço entre pesquisa e botões quando quebra */
-}
-
-/* ====== BARRA DE PESQUISA ====== */
-main form {
-    display: flex;                    /* Input e botão lado a lado */
+main .top-bar form{
+    display: flex;
     align-items: center;
-    background-color: #fff;           /* Fundo branco */
-    border: 1px solid #ccc;           /* Borda cinza clara */
-    border-radius: 50px;             /* Formato “pílula” */
-    padding: 5px 15px;                /* Espaço interno */
-    flex: 1;                          /* Ocupa o máximo possível de espaço disponível */
-    max-width: 600px;                 /* Limite máximo da largura */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra leve para destaque */
+    width: 100%;
+    gap: 12px;
 }
 
-main form input {
-    flex: 1;                          /* Input ocupa */
-    border: none;                     /* Remove borda padrão */
-    outline: none;                    /* Remove borda azul ao clicar */
-    font-size: 14px;
-    padding: 8px;
-    background: none;                 /* Remove fundo padrão */
+main .top-bar form input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    padding: 6px 0;
+    color: #333;
 }
 
-main form button {
-    background: none;                 /* Botão “limpo”, só com ícone */
+main .top-bar form button {
     border: none;
     cursor: pointer;
 }
-
-main form button img {
-    width: 20px;
-    height: 20px;
-}
-
-/* ====== CONTAINER DOS BOTÕES (Filtros + Adicionar) ====== */
-main .actions {
+/* --- TOPO: PESQUISA + BOTÕES --- */
+.top-bar {
+    width: 100%;
     display: flex;
     align-items: center;
-    gap: 10px;                        /* Espaço entre os dois botões */
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 22px;
+    flex-wrap: nowrap;
 }
 
-/* ====== BOTÃO DE FILTROS ====== */
-main .actions .filtros {
-    display: flex;                    /* Texto e ícone lado a lado */
+/* --- BARRA DE PESQUISA --- */
+.search-form {
+    max-width: 35%;
+    display: flex;
     align-items: center;
-    gap: 5px;                         /* Espaço entre texto e ícone */
+    border: 1.8px solid #4F59E7;
+    border-radius: 15px;
+    padding: 0 16px;
+    height: 44px;
     background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 50px;             /* Pílula */
-    padding: 8px 15px;
-    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+}
+
+.search-form:focus-within {
+    box-shadow: 0 0 8px rgba(79, 89, 231, 0.25);
+}
+
+.search-form input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 14px;
+    color: #333;
+}
+
+.search-form button {
+    background: none;
+    border: none;
     cursor: pointer;
-    transition: background 0.3s;      /* Efeito de transição suave no hover */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-main .actions .filtros:hover {
-    background: #f1f1f1;              /* Cor de fundo mais clara no hover */
-}
-
-main .actions .filtros img {
+.search-form button img {
     width: 16px;
     height: 16px;
 }
 
-/* ====== BOTÃO “ADICIONAR NOVO” ====== */
-.button-adicionar-novo {
-    background: linear-gradient(145deg, #3A47FF, #9299FF); /* Degradê azul */
-    color: #fff;
-    border: none;
-    border-radius: 50px;
-    padding: 8px 15px;
+/* --- AÇÕES --- */
+.actions {
     display: flex;
     align-items: center;
-    gap: 6px;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background 0.3s;      /* Transição suave no hover */
-    text-decoration: none;           /* Remove sublinhado (caso seja link) */
+    gap: 14px;
 }
 
-.button-adicionar-novo:hover {
-    background: linear-gradient(145deg, #2A35CC, #6B74FF); /* Azul mais escuro no hover */
+/* BOTÃO FILTROS */
+.actions .filtros {
+    max-width: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background-color: white;
+    color: #4F59E7;
+    font-weight: 600;
+    border: 1.8px solid #4F59E7;
+    border-radius: 15px;
+    height: 44px;
+    padding: 0 28px;
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+}
+
+.actions .filtros:hover {
+    background: #f4f5ff;
+    box-shadow: 0 0 10px rgba(79, 89, 231, 0.15);
+}
+
+.actions .filtros img {
+    height: 8px;
+}
+
+/* BOTÃO ADICIONAR NOVO */
+.button-adicionar-novo {
+    flex-shrink: 0;
+}
+
+.button-adicionar-novo button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: radial-gradient(100.45% 100.45% at 80.43% 14.13%, #9299FF 0%, #3A47FF 100%);
+    color: white;
+    font-weight: 600;
+    border-radius: 15px;
+    height: 44px;
+    padding: 0 32px;
+    border: none;
+    box-shadow: 0 6px 18px rgba(79, 89, 231, 0.25);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.button-adicionar-novo button:hover, .filtros:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(79, 89, 231, 0.35);
+}
+table .actions button{
+    transition: transform 0.2s ease, scale 0.2s ease;
+}
+table .actions button:hover{
+    transform: translateY(-2px);
+    scale: 1.1;
 }
 
 .button-adicionar-novo img {
-    width: 18px;
-    height: 18px;
+    width: 14px;
+    height: 14px;
 }
+
+
+.table-card {
+    width: 100%;
+    background: #fff;
+    border-radius: 18px;
+    padding: 18px;
+    box-shadow: 0 20px 50px rgba(21, 32, 80, 0.06);
+    overflow: auto;
+}
+
+
+.table-card table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.table-card thead tr th {
+    background: #EEF0FF;
+    color: #4F59E7;
+    font-weight: 600;
+    text-transform: lowercase;
+    font-size: 18px;
+    padding: 18px 20px;
+    text-align: left;
+    border-bottom: none;
+}
+
+.table-card thead tr th:first-child {
+    border-top-left-radius: 12px;
+}
+
+.table-card thead tr th:last-child {
+    border-top-right-radius: 12px;
+}
+
+.table-card tbody tr {
+    background: transparent;
+}
+
+.table-card tbody td {
+    padding: 18px 20px;
+    font-size: 15px;
+    color: #333;
+    border-bottom: 1px solid rgba(100, 100, 160, 0.06);
+    vertical-align: middle;
+}
+
+.table-card tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.table-card td.actions {
+    text-align: center;
+    width: 120px;
+}
+
+.table-card td form {
+    display: inline-block;
+    margin: 0 6px;
+}
+
+.table-card td form button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 6px;
+    color: #111;
+}
+
+.table-card td form button img {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+/*Estilização da barra de scroll*/
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #eef0ff;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: #EEF0FF;
+    border-radius: 10px;
+    transition: background 0.3s;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #EEF0FF;
+}
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #939ee7 #EEF0FF;
+}
+
+
+.popup-deletar {
+    position: absolute;
+    width: 400px;
+    height: 180px;
+    top: 42.5%;
+    left: 50%;
+    transform: translate(-50%, -42.5%);
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 32px;
+    z-index: 3;
+}
+
+.popup-deletar h1 {
+    font-size: 20px;
+    color: #2e5bff;
+    margin-bottom: 8px;
+}
+
+.opcoes-deletar {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.opcoes-deletar form {
+    background-color: #0078ff;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.opcoes-deletar form button {
+    cursor: pointer;
+    color: white;
+    width: 100%;
+    font-size: 16px;
+    border: none;
+    background-color: #0078ff;
+}
+
+.popup {
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    width: 450px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+    padding: 30px 36px;
+    display: flex;
+    flex-direction: column;
+    z-index: 3;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.popup h1 {
+    font-size: 22px;
+    color: #2e5bff;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.popup label {
+    font-weight: 600;
+    color: #2e5bff;
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.popup input,
+.popup textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1.5px solid #e0e0e0;
+    outline: none;
+    font-size: 15px;
+    resize: vertical;
+    margin-bottom: 18px;
+    transition: border-color .3s;
+}
+
+.popup input:focus,
+.popup textarea:focus {
+    border-color: #2e5bff;
+    box-shadow: 0 0 0 2px rgba(46, 91, 255, 0.15);
+}
+
+.popup input[readonly] {
+    background: #f9f9f9;
+    color: #777;
+    cursor: not-allowed;
+}
+
+.popup .botoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.popup button,
+.cancelar {
+    font-family: inherit;
+    font-size: 15px;
+    border-radius: 8px;
+    padding: 10px 22px;
+    cursor: pointer;
+    border: none;
+    transition: all .3s;
+}
+
+.popup .cancelar a {
+    text-decoration: none;
+    color: #2e5bff;
+}
+
+.popup .cancelar {
+    border: 1px solid #3A47FF;
+    background: transparent;
+}
+
+.cancelar:hover {
+    background: #f0f4ff;
+}
+
+.confirmar {
+    background: linear-gradient(90deg, #4b6bff, #2e5bff);
+    color: white;
+    border: none;
+}
+
+.confirmar:hover {
+    filter: brightness(1.1);
+}
+
+.status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #E4E6FF;
+    border-radius: 50px;
+    padding: 6px;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+    margin-bottom: 55px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: background-color .3s;
+}
+
+.status input {
+    display: none;
+}
+
+.status label {
+    flex: 1;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 40px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #3942C7;
+    cursor: pointer;
+    transition: all .25s;
+    user-select: none;
+}
+
+.status input:checked+label {
+    color: #fff;
+    background: linear-gradient(135deg, #6373FF 0%, #2B39FF 100%);
+    box-shadow: 0 3px 8px rgba(59, 66, 255, 0.3);
+    transform: scale(1.05);
+}
+
+.status label:hover {
+    background-color: rgba(59, 66, 255, 0.1);
+}
+
+#alterarSenha-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn-editar {
+    background: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.btn-editar:hover {
+    background: #e0e0e0;
+    border-color: #bbb;
+}
+
+
 .popup-deletar{
     position: absolute;
     width: 400px; /* largura média */
@@ -529,3 +869,38 @@ textarea{
 .status:not(:has(input#recusado:checked)) ~ #motivoRejeicao, .status:not(:has(input#recusado:checked)) ~ label{
     display: none;
 }
+
+
+.barra-lateral .sair {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(145deg, #3A47FF, #9299FF);
+    border-radius: 12px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(59, 66, 255, 0.12);
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-clip: padding-box;
+}
+
+.barra-lateral .sair img {
+    height: 18px;
+    width: auto;
+    cursor: pointer;
+    display: block;
+}
+
+
+.barra-lateral .sair:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 66, 255, 0.25);
+}
+

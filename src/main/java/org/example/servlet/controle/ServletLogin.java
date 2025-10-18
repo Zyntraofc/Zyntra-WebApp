@@ -31,7 +31,6 @@ public class ServletLogin extends HttpServlet {
             if (listagem.getHashSenha().equals(String.valueOf(new HashSenha(senha)))) {
                 HttpSession session = req.getSession(true);
                 session.setAttribute("usuario", listagem.getEmail());
-                session.setMaxInactiveInterval(600);
                 req.getRequestDispatcher("private/ListarEmpresas").forward(req, resp);
             } else {
                 req.setAttribute("erroLogin", "Usuário ou senha incorretos!");

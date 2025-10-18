@@ -53,7 +53,7 @@
     <div class="sair-container">
       <form action="${pageContext.request.contextPath}/Logout">
         <button type="submit" class="sair">
-          <img href="assets/Saida.png" alt="Sair">
+          <img src="${pageContext.request.contextPath}/assets/icons/icon-saida.png" alt="Sair">
           <span>Sair</span>
         </button>
       </form>
@@ -65,21 +65,22 @@
   <p>CRUD</p>
 
   <div class="top-bar">
-    <form action="">
-      <input type="text" placeholder="Buscar por id, nome, email...">
-      <button type="submit">
-        <img src="assets/Vector.png" alt="Pesquisar">
+    <form action="" class="search-form">
+      <button type="submit" >
+        <img src="${pageContext.request.contextPath}/assets/icons/icon-lupa.png" alt="Pesquisar">
       </button>
+      <input type="text" placeholder="Buscar por id, nome, email...">
+
     </form>
 
     <div class="actions">
       <button class="filtros">
         <span>Filtros</span>
-        <img src="assets/filtros.png" alt="Filtros">
+        <img src="${pageContext.request.contextPath}/assets/icons/icon-circunflexo.png" alt="Filtros">
       </button>
       <form action="${pageContext.request.contextPath}/private/InserirIndiceClassificacao" class="button-adicionar-novo">
         <button type="submit">
-          <img src="assets/add.png" alt="Adicionar">
+          <img src="${pageContext.request.contextPath}/assets/icons/icon-add.png" alt="Adicionar">
           <span>Adicionar Novo</span>
         </button>
       </form>
@@ -92,7 +93,8 @@
   <%
     }
   %>
-  <table border="1">
+  <section class="table-card">
+  <table>
     <thead>
     <tr>
       <th>ID</th>
@@ -107,7 +109,7 @@
         <td>${indiceClassificacao.id}</td>
         <td>${indiceClassificacao.preocupacao}</td>
         <td>${indiceClassificacao.porcentagemMinima} - ${indiceClassificacao.porcentagemMaxima}%</td>
-        <td>
+        <td class="actions">
           <div style="display: flex">
             <form action="${pageContext.request.contextPath}/private/AlterarIndiceClassificacao" method="post">
               <input type="hidden" name="id" value="${indiceClassificacao.id}">
@@ -125,7 +127,7 @@
     </c:forEach>
     </tbody>
   </table>
-
+  </section>
 </main>
 <% if (request.getAttribute("popup-deletar") != null) { %>
 <div class="tela-transparente"></div>

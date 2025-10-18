@@ -25,9 +25,7 @@ public class ServletAlterarStatusAprovacao extends HttpServlet {
             StatusAprovacao status = statusdao.listarStatusAprovacaoPorID(id);
             req.setAttribute("alterarStatus", status);
             req.setAttribute("popup-alterar", true);
-            List<StatusAprovacao> statuses = statusdao.listarTodosStatusAprovacao();
-            req.setAttribute("statuses", statuses);
-            req.getRequestDispatcher("/WEB-INF/view/CrudStatusAprovacao.jsp").forward(req, resp);
+            req.getRequestDispatcher("/private/ListarStatusAprovacao").forward(req, resp);
         }
         else if (action == 1) {
             String status = req.getParameter("status");
