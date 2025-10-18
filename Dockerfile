@@ -17,7 +17,7 @@ FROM eclipse-temurin:17-jdk-alpine
 WORKDIR /app
 
 # Copia o jar construído
-COPY --from=build /app/target/*.jar app.jar
+COPY --from=build /app/target/Zyntra-WebApp-1.0-SNAPSHOT.jar app.jar
 
 # Expõe a porta (ajuste conforme seu app)
 EXPOSE 8080
