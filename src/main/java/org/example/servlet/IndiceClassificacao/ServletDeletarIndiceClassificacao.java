@@ -28,6 +28,8 @@ public class ServletDeletarIndiceClassificacao extends HttpServlet{
         }else if(action == 2){
             req.getRequestDispatcher("/private/ListarIndiceClassificacao").forward(req, resp);
         }
+    }
+    public void destroy(){
         ConexaoManager.desconectar();
     }
 }

@@ -31,6 +31,8 @@ public class ServletDeletarTipoEmpresa extends HttpServlet{
         }else if(action == 2){
             req.getRequestDispatcher("/private/ListarTipoEmpresa").forward(req, resp);
         }
+    }
+    public void destroy(){
         ConexaoManager.desconectar();
     }
 }

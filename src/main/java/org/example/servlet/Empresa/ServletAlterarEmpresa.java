@@ -110,6 +110,8 @@ public class ServletAlterarEmpresa extends HttpServlet {
                 req.getRequestDispatcher("/private/ListarEmpresas").forward(req, resp);
             }
         }
+    }
+    public void destroy(){
         ConexaoManager.desconectar();
     }
 }

@@ -48,6 +48,9 @@ public class ServletAlterarSenha extends HttpServlet {
             req.setAttribute("popup-alterar", true);
             req.getRequestDispatcher("/private/ListarAdministradores").forward(req, resp);
         }
+
+    }
+    public void destroy(){
         ConexaoManager.desconectar();
     }
 }

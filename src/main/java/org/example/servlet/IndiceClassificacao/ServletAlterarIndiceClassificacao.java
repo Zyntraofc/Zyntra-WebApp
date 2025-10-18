@@ -65,6 +65,8 @@ public class ServletAlterarIndiceClassificacao extends HttpServlet{
                 req.getRequestDispatcher("/private/ListarIndiceClassificacao").forward(req, resp);
             }
         }
+    }
+    public void destroy(){
         ConexaoManager.desconectar();
     }
 }

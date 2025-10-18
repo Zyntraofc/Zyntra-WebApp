@@ -22,6 +22,8 @@ public class ServletInserirMotivoFalta extends HttpServlet{
         MotivoFaltaDAO motivodao = new MotivoFaltaDAO();
         motivodao.inserirMotivoFalta(motivoFalta);
         req.getRequestDispatcher("/private/ListarMotivosFalta").forward(req, resp);
+    }
+    public void destroy(){
         ConexaoManager.desconectar();
     }
 }

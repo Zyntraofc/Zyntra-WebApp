@@ -22,6 +22,8 @@ public class ServletListarIndiceClassificacao extends HttpServlet{
         List<IndiceClassificacao> indicesClassificacao = indiceclassificacaodao.listarIndicesClassificacao();
         req.setAttribute("indicesClassificacao", indicesClassificacao);
         req.getRequestDispatcher("/WEB-INF/view/CrudIndiceClassificacao.jsp").forward(req, resp);
+    }
+    public void destroy(){
         ConexaoManager.desconectar();
     }
 }

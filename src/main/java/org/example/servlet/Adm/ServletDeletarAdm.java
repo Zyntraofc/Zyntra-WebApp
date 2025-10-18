@@ -34,6 +34,8 @@ public class ServletDeletarAdm extends HttpServlet{
             req.setAttribute("administradores", administradores);
             req.getRequestDispatcher("/WEB-INF/view/CrudAdm.jsp").forward(req, resp);
         }
+    }
+    public void destroy(){
         ConexaoManager.desconectar();
     }
 }

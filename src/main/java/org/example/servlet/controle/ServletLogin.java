@@ -45,6 +45,8 @@ public class ServletLogin extends HttpServlet {
             req.setAttribute("senhaDigitada", senha);
             req.getRequestDispatcher("/login.jsp").forward(req, resp);
         }
+    }
+    public void destroy(){
         ConexaoManager.desconectar();
     }
 }

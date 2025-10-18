@@ -40,7 +40,6 @@ public class ServletInserirAdm extends HttpServlet{
                         req.setAttribute("erro", "Erro ao inserir adm");
                         req.getRequestDispatcher("/private/ListarAdministradores").forward(req, resp);
                     }
-                    ConexaoManager.desconectar();
                 } else {
                     req.setAttribute("erro", "Senha: mínimo 8 caracteres, com maiúscula, minúscula e símbolo especial.");
                     req.getRequestDispatcher("/private/ListarAdministradores").forward(req, resp);
@@ -54,6 +53,9 @@ public class ServletInserirAdm extends HttpServlet{
             req.setAttribute("erro", "Digite os dados corretamente ");
             req.getRequestDispatcher("/private/ListarAdministradores").forward(req, resp);
         }
+    }
+    public void destroy(){
+        ConexaoManager.desconectar();
     }
 }
 

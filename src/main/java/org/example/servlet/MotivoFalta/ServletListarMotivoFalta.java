@@ -21,6 +21,8 @@ public class ServletListarMotivoFalta extends HttpServlet{
         List<MotivoFalta> motivos = motivodao.listarMotivosFalta();
         req.setAttribute("motivos", motivos);
         req.getRequestDispatcher("/WEB-INF/view/CrudMotivoFalta.jsp").forward(req, resp);
+    }
+    public void destroy(){
         ConexaoManager.desconectar();
     }
 

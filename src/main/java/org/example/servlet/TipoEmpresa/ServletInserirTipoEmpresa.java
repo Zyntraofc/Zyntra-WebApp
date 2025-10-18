@@ -35,6 +35,8 @@ public class ServletInserirTipoEmpresa extends HttpServlet{
             req.setAttribute("erro", "Não foi possível inserir tipo empresa");
             req.getRequestDispatcher("/private/ListarTipoEmpresa").forward(req, resp);
         }
+    }
+    public void destroy(){
         ConexaoManager.desconectar();
     }
 }

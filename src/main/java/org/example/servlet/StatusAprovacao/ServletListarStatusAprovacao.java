@@ -43,6 +43,8 @@ public class ServletListarStatusAprovacao extends HttpServlet{
         req.setAttribute("nomesEmpresas", nomesEmpresas);
 
         req.getRequestDispatcher("/WEB-INF/view/CrudStatusAprovacao.jsp").forward(req, resp);
+    }
+    public void destroy(){
         ConexaoManager.desconectar();
     }
 }

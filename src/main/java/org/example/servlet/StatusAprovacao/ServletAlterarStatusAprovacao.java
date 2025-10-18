@@ -82,6 +82,8 @@ public class ServletAlterarStatusAprovacao extends HttpServlet {
         List<StatusAprovacao> statuses = statusdao.listarTodosStatusAprovacao();
         req.setAttribute("statuses", statuses);
         req.getRequestDispatcher("/WEB-INF/view/CrudStatusAprovacao.jsp").forward(req, resp);
+    }
+    public void destroy(){
         ConexaoManager.desconectar();
     }
 }

@@ -39,7 +39,6 @@ public class ServletInserirEmpresa extends HttpServlet{
             String email = req.getParameter("email");
             String telefone = req.getParameter("telefone");
 
-            // ✅ VALIDA SE OS CAMPOS OBRIGATÓRIOS EXISTEM
             if(idTipoEmpresaStr == null || idTipoEmpresaStr.isEmpty() ||
                     nome == null || nome.isEmpty() ||
                     cnpj == null || cnpj.isEmpty() ||
@@ -91,7 +90,6 @@ public class ServletInserirEmpresa extends HttpServlet{
                 return;
             }
 
-            ConexaoManager.desconectar();
             req.setAttribute("erro", "Empresa e Status inseridos com sucesso");
             req.getRequestDispatcher("/private/Listar" + caminho).forward(req, resp);
 
@@ -103,5 +101,8 @@ public class ServletInserirEmpresa extends HttpServlet{
             req.setAttribute("erro", "Erro interno do sistema");
             req.getRequestDispatcher("/private/Listar" + caminho).forward(req, resp);
         }
+    }
+    public void destroy(){
+        ConexaoManager.desconectar();
     }
 }
