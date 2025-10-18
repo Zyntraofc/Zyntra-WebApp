@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <link rel="icon" type="image/png" href="../../assets/logos/logo-quadrada.png">
+    <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/logos/logo-quadrada.png">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/crud.css">
     <script src="${pageContext.request.contextPath}/js/mascara.js" defer></script>
     <title>Crud Status Aprovação - Área restrita</title>
