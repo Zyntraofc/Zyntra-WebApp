@@ -1,0 +1,11 @@
+{
+  "name": "Zyntra-WebApp",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "mvn clean package",
+    "start": "java -jar target/*.jar"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}
