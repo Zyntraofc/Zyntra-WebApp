@@ -5,6 +5,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: #939ee7 #EEF0FF;
 }
 
 body{
@@ -407,11 +409,6 @@ table .actions button:hover{
 ::-webkit-scrollbar-thumb:hover {
     background: #EEF0FF;
 }
-* {
-    scrollbar-width: thin;
-    scrollbar-color: #939ee7 #EEF0FF;
-}
-
 
 .popup-deletar {
     position: absolute;
