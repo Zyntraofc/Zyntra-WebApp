@@ -3,6 +3,7 @@
 <html>
 <head>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/crud.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/crud-responsividade.css">
   <script src="${pageContext.request.contextPath}/js/mascara.js" defer></script>
   <title>Crud Empresa - Área restrita</title>
 </head>
@@ -70,7 +71,7 @@
       <button type="submit">
         <img src="${pageContext.request.contextPath}/assets/icons/icon-lupa.png" alt="Pesquisar">
       </button>
-      <input type="text" placeholder="Buscar por id, nome, email...">
+      <input type="text" placeholder="Buscar por id, nome...">
 
     </form>
 
@@ -111,19 +112,21 @@
     <tbody>
     <c:forEach var="empresa" items="${empresas}">
       <tr>
-        <td>${empresa.id}</td>
-        <td>${empresa.nome}</td>
-        <td class="sensivel">${empresa.email}</td>
-        <td class="sensivel">${empresa.cnpj}</td>
-        <td class="sensivel">${empresa.telefone}</td>
-        <td>${tiposEmpresa[empresa.id]}</td>
+        <td data-label="ID">${empresa.id}</td>
+        <td data-label="Nome">${empresa.nome}</td>
+        <td data-label="Email" class="sensivel">${empresa.email}</td>
+        <td data-label="CNPJ" class="sensivel">${empresa.cnpj}</td>
+        <td data-label="Telefone" class="sensivel">${empresa.telefone}</td>
+        <td data-label="Tipo de empresa">${tiposEmpresa[empresa.id]}</td>
 
-        <td class="actions">
+        <td data-label="Ações" class="actions">
           <div style="display: flex">
+            <form>
             <button style="border: none; background: none; cursor: pointer" class="toggleLinha" data-olho="${pageContext.request.contextPath}/assets/icons/icon-olho.png"
                     data-olho-fechado="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png">
               <img src="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png" />
             </button>
+            </form>
             <form action="${pageContext.request.contextPath}/private/AlterarEmpresa" method="post">
               <input type="hidden" name="id" value="${empresa.id}">
               <input type="hidden" name="action" value="0">

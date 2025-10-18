@@ -2,9 +2,13 @@
 * {
     font-family: "Poppins", sans-serif;
     font-style: normal;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{margin: 0;
+body{
+    margin: 0;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -20,41 +24,36 @@ body{margin: 0;
     position: absolute;
     z-index: 2;
 }
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 aside {
     position: fixed;
-    top: 20px;
-    left: 26px;
-    width: 251px;
-    height: calc(100vh - 40px);
+    top: 2.5vh;
+    bottom: 2.5vh;
+    left: 1.35%;
+    width: 12.2%;
+    height: 95vh;
     background: linear-gradient(145deg, #8f97ff, #8a87ff);
     display: flex;
     flex-direction: column;
-    border-radius: 27px;
-    padding: 20px 15px;
-    box-sizing: border-box;
+    border-radius: 2.5vh;
+    /* border-radius: 27px; */
+    padding: 0.95% 0.65%;
     box-shadow: 0 10px 30px rgba(70, 75, 200, 0.08);
 }
 
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 15px;
+    gap: 6%;
+    margin-bottom: 1%;
     cursor: pointer;
 }
 
 .logo-container img {
-    /*width: 54px;*/
-    height: 54px;
-    border-radius: 12px;
+    height:5vh;
+    border-radius: 1.25vh;
     background: #fff;
-    padding: 8px;
+    padding: 3.5%;
 }
 
 .brand-text {
@@ -63,14 +62,14 @@ aside {
 }
 
 .sidebar-header .aion {
-    font-size: 16px;
+    font-size: clamp(0.1rem, 0.9vw , 5rem);;
     font-weight: 700;
     color: #fff;
     margin: 0;
 }
 
 .sidebar-header h4 {
-    font-size: 12px;
+    font-size: clamp(0.1rem, 0.6vw , 5rem);
     color: rgba(255, 255, 255, 0.9);
     font-weight: 400;
     margin: 0;
@@ -79,17 +78,17 @@ aside {
 .sidebar-header hr {
     width: 100%;
     border: none;
-    height: 3px;
+    height: 3%;
     background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.65), transparent);
     border-radius: 50px;
-    margin: 15px 0;
+    margin: 8% 0px;
 }
 
 .barra-lateral {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    gap: 12px;
+    gap: 1.5%;
 }
 
 .barra-lateral form {
@@ -97,12 +96,12 @@ aside {
 }
 
 .barra-lateral .botao {
-    font-size: 15px;
+    font-size: clamp(0.1rem, 0.7vw , 5rem);
     font-weight: 600;
     color: #fff;
     cursor: pointer;
-    padding: 14px 18px;
-    border-radius: 12px;
+    padding: 7.1% 9%;
+    border-radius: 2vh;
     transition: background 0.25s, transform 0.12s;
     display: block;
     width: 100%;
@@ -115,8 +114,7 @@ aside {
 .barra-lateral .botao.active {
     background: linear-gradient(145deg, #3A47FF, #9299FF);
     box-shadow: 0 8px 20px rgba(59, 66, 255, 0.18), inset 0 -6px 12px rgba(255, 255, 255, 0.08);
-    border-radius: 18px;
-    transform: translateY(-2px);
+    transform: translateY(-5%);
 }
 
 .barra-lateral .botao:hover, .barra-lateral .sair:hover{
@@ -125,36 +123,36 @@ aside {
 
 .sair-container {
     margin-top: auto;
-    padding-top: 20px;
 }
 
-.barra-lateral a.sair {
+.barra-lateral .sair-container .sair {
+    border: none;
+    transition: box-shadow .35s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 5%;
     width: 100%;
-    padding: 12px;
+    padding: 6%;
+    font-size: clamp(0.1rem, 0.7vw , 5rem);
     background: linear-gradient(145deg, #3A47FF, #9299FF);
-    border-radius: 12px;
+    border-radius: 1.5vh;
     color: #fff;
-    font-size: 14px;
     font-weight: 600;
     text-decoration: none;
     box-shadow: 0 8px 20px rgba(59, 66, 255, 0.12);
     cursor: pointer;
 }
 
-.barra-lateral a.sair img {
-    height: 18px;
-    width: auto;
+.barra-lateral .sair img {
+    height: 2vh;
     cursor: pointer;
 }
 
 main {
     flex: 1;
-    margin-left: 300px;
-    padding: 40px 60px;
+    margin-left: 14.5%;
+    padding: 2% 3%;
     display: flex;
     flex-direction: column;
     background-color: #fff;
@@ -162,32 +160,31 @@ main {
 }
 
 main h1 {
-    font-size: 40px;
+    font-size: clamp(0.1rem, 2vw , 8rem);
     font-weight: 700;
     color: #111;
-    margin-bottom: 12px;
-    margin-top: 20px;
+    margin-top: 2vh;
 }
 
 main p {
-    font-size: 18px;
+    font-size: clamp(0.1rem, 0.9vw , 8rem);
     color: #777;
-    margin-bottom: 22px;
+    margin-bottom: 1.4vh;
 }
 
 main .top-bar form{
     display: flex;
     align-items: center;
     width: 100%;
-    gap: 12px;
+    gap: 0.7vw;
 }
 
 main .top-bar form input {
     flex: 1;
     border: none;
     outline: none;
-    font-size: 15px;
-    padding: 6px 0;
+    font-size: clamp(0.1rem, 0.75vw , 8rem);
+    padding: 0.1vh;
     color: #333;
 }
 
@@ -201,8 +198,7 @@ main .top-bar form button {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 16px;
-    margin-bottom: 22px;
+    margin-bottom: 2.2vh;
     flex-wrap: nowrap;
 }
 
@@ -211,23 +207,23 @@ main .top-bar form button {
     max-width: 35%;
     display: flex;
     align-items: center;
-    border: 1.8px solid #4F59E7;
-    border-radius: 15px;
-    padding: 0 16px;
-    height: 44px;
+    border: 0.2vh solid #4F59E7;
+    border-radius: 1.2vh;
+    padding: 0 0.8vw;
+    height: 4.4vh;
     background: #fff;
     transition: all 0.3s ease-in-out;
 }
 
 .search-form:focus-within {
-    box-shadow: 0 0 8px rgba(79, 89, 231, 0.25);
+    box-shadow: 0 0 0.8vh rgba(79, 89, 231, 0.25);
 }
 
 .search-form input {
     border: none;
     outline: none;
     flex: 1;
-    font-size: 14px;
+    font-size: clamp(0.1rem, 0.75vw , 8rem);
     color: #333;
 }
 
@@ -241,15 +237,14 @@ main .top-bar form button {
 }
 
 .search-form button img {
-    width: 16px;
-    height: 16px;
+    width: 1.8vh;
 }
 
 /* --- AÇÕES --- */
 .actions {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 1.4vh;
 }
 
 /* BOTÃO FILTROS */
@@ -258,25 +253,26 @@ main .top-bar form button {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
+    gap: 0.6vw;
     background-color: white;
     color: #4F59E7;
     font-weight: 600;
-    border: 1.8px solid #4F59E7;
-    border-radius: 15px;
-    height: 44px;
-    padding: 0 28px;
+    font-size: clamp(0.1rem, 0.75vw , 8rem);
+    border: 0.2vh solid #4F59E7;
+    border-radius: 1.2vh;
+    padding: 0 1.4vw;
+    height: 4.4vh;
     cursor: pointer;
     transition: all 0.25s ease-in-out;
 }
 
 .actions .filtros:hover {
     background: #f4f5ff;
-    box-shadow: 0 0 10px rgba(79, 89, 231, 0.15);
+    box-shadow: 0 0 0.5vw rgba(79, 89, 231, 0.15);
 }
 
 .actions .filtros img {
-    height: 8px;
+    height: 0.8vh;
 }
 
 /* BOTÃO ADICIONAR NOVO */
@@ -288,43 +284,43 @@ main .top-bar form button {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 0.6vw;
     background: radial-gradient(100.45% 100.45% at 80.43% 14.13%, #9299FF 0%, #3A47FF 100%);
     color: white;
     font-weight: 600;
-    border-radius: 15px;
-    height: 44px;
-    padding: 0 32px;
+    border-radius: 1.2vh;
+    height: 4.4vh;
+    padding: 0 1.6vw;
+    font-size: clamp(0.1rem, 0.65vw , 8rem);
     border: none;
-    box-shadow: 0 6px 18px rgba(79, 89, 231, 0.25);
+    box-shadow: 0 0.1vw 0.6vw rgba(79, 89, 231, 0.25);
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .button-adicionar-novo button:hover, .filtros:hover{
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(79, 89, 231, 0.35);
+    transform: translateY(-5%);
+    box-shadow: 0 0.1vh 2.5vh rgba(79, 89, 231, 0.35);
 }
 table .actions button{
     transition: transform 0.2s ease, scale 0.2s ease;
 }
 table .actions button:hover{
-    transform: translateY(-2px);
+    transform: translateY(-5%);
     scale: 1.1;
 }
 
 .button-adicionar-novo img {
-    width: 14px;
-    height: 14px;
+    height: 1.8vh;
 }
 
 
 .table-card {
     width: 100%;
-    background: #fff;
-    border-radius: 18px;
-    padding: 18px;
-    box-shadow: 0 20px 50px rgba(21, 32, 80, 0.06);
+    background: #ffffff;
+    border-radius: 2vh;
+    padding: 1.8vh;
+    box-shadow: 0 2vh 5vh rgba(21, 32, 80, 0.06);
     overflow: auto;
 }
 
@@ -339,19 +335,19 @@ table .actions button:hover{
     background: #EEF0FF;
     color: #4F59E7;
     font-weight: 600;
-    text-transform: lowercase;
-    font-size: 18px;
-    padding: 18px 20px;
+    text-transform: capitalize;
+    font-size: clamp(0.1rem, 0.9vw , 8rem);
+    padding: 1.8vh 2vh;
     text-align: left;
     border-bottom: none;
 }
 
 .table-card thead tr th:first-child {
-    border-top-left-radius: 12px;
+    border-top-left-radius: 1.2vh;
 }
 
 .table-card thead tr th:last-child {
-    border-top-right-radius: 12px;
+    border-top-right-radius: 1.2vh;
 }
 
 .table-card tbody tr {
@@ -359,10 +355,10 @@ table .actions button:hover{
 }
 
 .table-card tbody td {
-    padding: 18px 20px;
-    font-size: 15px;
+    padding: 1.8vh 2vh;
+    font-size: clamp(0.1rem, 0.75vw , 8rem);
     color: #333;
-    border-bottom: 1px solid rgba(100, 100, 160, 0.06);
+    border-bottom: 0.2vh  solid rgba(100, 100, 160, 0.06);
     vertical-align: middle;
 }
 
@@ -372,42 +368,40 @@ table .actions button:hover{
 
 .table-card td.actions {
     text-align: center;
-    width: 120px;
+    width: 12vh;
 }
 
 .table-card td form {
     display: inline-block;
-    margin: 0 6px;
+    margin: 0 0.6vh;
 }
 
 .table-card td form button {
     background: transparent;
     border: none;
     cursor: pointer;
-    font-size: 14px;
-    padding: 6px;
+    font-size: 1.4vh;
+    padding: 0.6vh;
     color: #111;
 }
 
 .table-card td form button img {
-    width: 20px;
-    height: 20px;
+    width: 2vh;
     display: inline-block;
     vertical-align: middle;
     cursor: pointer;
 }
-
 /*Estilização da barra de scroll*/
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 1vh;
 }
 ::-webkit-scrollbar-track {
     background: #eef0ff;
-    border-radius: 10px;
+    border-radius: 1vh;
 }
 ::-webkit-scrollbar-thumb {
     background: #EEF0FF;
-    border-radius: 10px;
+    border-radius: 1vh;
     transition: background 0.3s;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -663,23 +657,23 @@ table .actions button:hover{
     gap: 10px;
 }.opcoes-deletar form{
      background-color: #0078ff;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
      border: none;
      border-radius: 8px;
      padding: 10px 20px;
      cursor: pointer;
      transition: 0.3s;
  }.opcoes-deletar form button{
-       cursor: pointer;
-    color: white;
-       width: 100%;
-       font-size: 16px;
-       border: none;
-    background-color: #0078ff;
-   }
+      cursor: pointer;
+      color: white;
+      width: 100%;
+      font-size: 16px;
+      border: none;
+      background-color: #0078ff;
+  }
 
 .popup {
     top: 20%;
@@ -869,35 +863,6 @@ textarea{
 .status:not(:has(input#recusado:checked)) ~ #motivoRejeicao, .status:not(:has(input#recusado:checked)) ~ label{
     display: none;
 }
-
-
-.barra-lateral .sair {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    width: 100%;
-    padding: 12px;
-    background: linear-gradient(145deg, #3A47FF, #9299FF);
-    border-radius: 12px;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
-    box-shadow: 0 8px 20px rgba(59, 66, 255, 0.12);
-    cursor: pointer;
-    border: none;
-    outline: none;
-    background-clip: padding-box;
-}
-
-.barra-lateral .sair img {
-    height: 18px;
-    width: auto;
-    cursor: pointer;
-    display: block;
-}
-
 
 .barra-lateral .sair:focus {
     outline: none;
