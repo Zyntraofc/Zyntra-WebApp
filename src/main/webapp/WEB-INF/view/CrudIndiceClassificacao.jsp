@@ -131,10 +131,10 @@
 </main>
 <% if (request.getAttribute("popup-deletar") != null) { %>
 <div class="tela-transparente"></div>
-<div class="popup-deletar">
+<div class="deletar">
   <h1>Deletar</h1>
   <p>Deseja mesmo excluir? Esta ação é irreversível.</p>
-  <div class="opcoes-deletar">
+  <div class="opcoes">
     <form action="${pageContext.request.contextPath}/private/DeletarIndiceClassificacao" method="post">
       <input type="hidden" name="action" value="1">
       <input type="hidden" name="id" value="${indiceClassificacao.getId()}">

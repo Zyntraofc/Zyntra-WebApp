@@ -410,55 +410,55 @@ table .actions button:hover{
     background: #EEF0FF;
 }
 
-.popup-deletar {
+.deletar {
     position: absolute;
-    width: 400px;
-    height: 180px;
-    top: 42.5%;
-    left: 50%;
-    transform: translate(-50%, -42.5%);
+    width: 48vh;
+    height: 20vh;
+    top: 35.5%;
     background: white;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    border-radius: 1.2vh;
+    box-shadow: 0 0 2vh rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 28px 32px;
+    padding: 2.8vh 3.2vh;
     z-index: 3;
 }
-
-.popup-deletar h1 {
-    font-size: 20px;
+.deletar p{
+    font-size: clamp(0.1rem, 0.79vw , 8rem);
+}
+.deletar h1 {
+    font-size: clamp(0.1rem, 1vw , 8rem);
     color: #2e5bff;
-    margin-bottom: 8px;
+    margin-bottom: 0.8vh;
 }
 
-.opcoes-deletar {
+.opcoes {
     width: 100%;
     display: flex;
     justify-content: space-around;
-    gap: 10px;
+    gap: 1.5vh;
 }
 
-.opcoes-deletar form {
+.opcoes form {
     background-color: #0078ff;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     border: none;
-    border-radius: 8px;
-    padding: 10px 20px;
+    border-radius: 0.8vh;
+    padding: 1vh 2vh;
     cursor: pointer;
     transition: 0.3s;
 }
 
-.opcoes-deletar form button {
+.opcoes form button {
     cursor: pointer;
     color: white;
     width: 100%;
-    font-size: 16px;
+    font-size: clamp(0.1rem, 0.75vw , 8rem);
     border: none;
     background-color: #0078ff;
 }
