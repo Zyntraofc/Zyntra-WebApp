@@ -2,73 +2,56 @@ package org.example.conexao;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-
 import org.example.exceptions.FailedCommitException;
 import org.example.exceptions.FailedConnectionException;
 import org.example.exceptions.RollbackException;
 
-public class ConexaoManager{
+public class ConexaoManager {
 
-    private static final ThreadLocal<Connection> threadConexao = new ThreadLocal<>();
+    private static Connection conn;
 
-    public static Connection conectar(){
-        Connection conn = threadConexao.get();
-        Conexao conexao = new Conexao();
-        try{
-
-            if(conn == null || conn.isClosed()){
+    public static Connection conectar() {
+        try {
+            if (conn == null || conn.isClosed()) {
+                Conexao conexao = new Conexao();
                 conn = conexao.getConnection();
                 conn.setAutoCommit(false);
-                threadConexao.set(conn);
             }
-        }catch(SQLException sqle){
-           throw new FailedConnectionException("Erro ao obter a conexão: " + sqle.getMessage(), sqle);
+        } catch (SQLException sqle) {
+            throw new FailedConnectionException("Erro ao obter a conexão: " + sqle.getMessage(), sqle);
         }
         return conn;
     }
 
-
-
-    public static void commit(){
-        Connection conn = threadConexao.get();
-        if(conn != null){
-            try{
+    public static void commit() {
+        try {
+            if (conn != null && !conn.isClosed()) {
                 conn.commit();
-            }catch(SQLException sqle){
-                throw new FailedCommitException("Erro ao comitar comando no banco: " + sqle.getMessage(), sqle);
             }
+        } catch (SQLException sqle) {
+            throw new FailedCommitException("Erro ao comitar comando no banco: " + sqle.getMessage(), sqle);
         }
     }
 
-
-
-
-    public static void rollback(){
-        Connection conn = threadConexao.get();
-        if(conn != null){
-            try{
+    public static void rollback() {
+        try {
+            if (conn != null && !conn.isClosed()) {
                 conn.rollback();
-            }catch(SQLException sqle){
-                throw new RollbackException("Erro no rollback: "+sqle.getMessage(), sqle);
             }
+        } catch (SQLException sqle) {
+            throw new RollbackException("Erro no rollback: " + sqle.getMessage(), sqle);
         }
     }
 
-
-
-
-    public static void desconectar(){
-        Connection conn = threadConexao.get();
-        Conexao conexao = new Conexao();
-        try{
-            if(conn != null && !conn.isClosed()){
-                conexao.closeConnection(conn);
+    public static void desconectar() {
+        try {
+            if (conn != null && !conn.isClosed()) {
+                conn.close();
             }
-        }catch(SQLException sqle){
+        } catch (SQLException sqle) {
             sqle.printStackTrace();
-        }finally{
-            threadConexao.remove();
+        } finally {
+            conn = null;
         }
     }
-
 }
