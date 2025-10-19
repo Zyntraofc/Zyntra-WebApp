@@ -465,14 +465,12 @@ table .actions button:hover{
 
 .popup {
     top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
     position: absolute;
-    width: 450px;
+    width: 47vh;
+    border-radius: 1.2vh;
     background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
-    padding: 30px 36px;
+    box-shadow: 0 0.4vh 2.5vh rgba(0, 0, 0, 0.2);
+    padding: 3vh 3.6vh;
     display: flex;
     flex-direction: column;
     z-index: 3;
@@ -481,37 +479,38 @@ table .actions button:hover{
 }
 
 .popup h1 {
-    font-size: 22px;
+    font-size: clamp(0.1rem, 1.1vw, 8rem);
     color: #2e5bff;
-    margin-bottom: 20px;
+    margin-bottom: 2vh;
     text-align: left;
 }
 
 .popup label {
     font-weight: 600;
     color: #2e5bff;
-    font-size: 14px;
-    margin-bottom: 5px;
+    font-size: clamp(0.1rem, 0.7vw, 8rem);
+    margin-bottom: 0.5vh;
     display: block;
 }
 
 .popup input,
 .popup textarea {
     width: 100%;
-    padding: 10px 12px;
-    border-radius: 8px;
-    border: 1.5px solid #e0e0e0;
+    padding: 1vh 1.2vh;
+    border-radius: 0.8vh;
+    border: 0.2vh solid #e0e0e0;
     outline: none;
-    font-size: 15px;
+    font-size: clamp(0.1rem, 0.7vw, 8rem);
     resize: vertical;
-    margin-bottom: 18px;
+    margin-bottom: 1.9vh;
     transition: border-color .3s;
 }
+
 
 .popup input:focus,
 .popup textarea:focus {
     border-color: #2e5bff;
-    box-shadow: 0 0 0 2px rgba(46, 91, 255, 0.15);
+    box-shadow: 0 0 0 0.2vh rgba(46, 91, 255, 0.15);
 }
 
 .popup input[readonly] {
@@ -523,28 +522,23 @@ table .actions button:hover{
 .popup .botoes {
     display: flex;
     justify-content: flex-end;
-    gap: 10px;
-    margin-top: 10px;
+    gap: 1vh;
+    margin-top: 1vh;
 }
 
 .popup button,
 .cancelar {
     font-family: inherit;
-    font-size: 15px;
-    border-radius: 8px;
-    padding: 10px 22px;
+    font-size: clamp(0.1rem, 0.7vw, 8rem);;
+    border-radius: 0.8vh;
+    padding: 1vh 2.2vh;
     cursor: pointer;
     border: none;
     transition: all .3s;
 }
 
-.popup .cancelar a {
-    text-decoration: none;
-    color: #2e5bff;
-}
-
 .popup .cancelar {
-    border: 1px solid #3A47FF;
+    border: 0.1vh solid #3A47FF;
     background: transparent;
 }
 
@@ -626,104 +620,8 @@ table .actions button:hover{
     background: #e0e0e0;
     border-color: #bbb;
 }
-
-
-.popup-deletar{
-    position: absolute;
-    width: 400px; /* largura média */
-    height: 180px; /* altura pequena */
-    top: 42.5%;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 28px 32px;
-    z-index: 3;
-} .popup-deletar h1 {
-      font-size: 20px;
-      color: #2e5bff; /* Azul forte */
-      margin-bottom: 8px;
-  }
-.opcoes-deletar{
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    gap: 10px;
-}.opcoes-deletar form{
-     background-color: #0078ff;
-     width: 100%;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     border: none;
-     border-radius: 8px;
-     padding: 10px 20px;
-     cursor: pointer;
-     transition: 0.3s;
- }.opcoes-deletar form button{
-      cursor: pointer;
-      color: white;
-      width: 100%;
-      font-size: 16px;
-      border: none;
-      background-color: #0078ff;
-  }
-
-.popup {
-    top: 20%;
-    position: absolute;
-    width: 450px;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
-    padding: 30px 36px;
-    display: flex;
-    flex-direction: column;
-    z-index: 3;
-    max-height: 60vh;
-    overflow-y: auto;
-}
-
-.popup h1 {
-    font-size: 22px;
-    color: #2e5bff;
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.popup label{
-    font-weight: 600;
-    color: #2e5bff;
-    font-size: 14px;
-    margin-bottom: 5px;
-    display: block;
-}
 textarea{
     transition: height 2.5s ease-in-out;
-}
-.popup input, textarea{
-    width: 100%;
-    padding: 10px 12px;
-    border-radius: 8px;
-    border: 1.5px solid #e0e0e0;
-    outline: none;
-    font-size: 15px;
-    resize: vertical;
-    margin-bottom: 18px;
-    transition: border-color 0.3s ease;
-}
-.popup input:focus, textarea:focus {
-    border-color: #2e5bff;
-    box-shadow: 0 0 0 2px rgba(46, 91, 255, 0.15);
-}
-
-.popup input[readonly] {
-    background: #f9f9f9;
-    color: #777;
-    cursor: not-allowed;
 }
 
 .popup select {
@@ -758,57 +656,26 @@ textarea{
     text-align: center;
 }
 
-.popup .botoes {
+.popup .cancelar a{
+    text-decoration: none;
+    color: #2e5bff;
+}
+
+
+.status {
     display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-top: 10px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #E4E6FF;
+    border-radius: 50px;
+    padding: 6px;
+    width: 100%;
+    max-width: 360px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease;
 }
-
-.popup button, .cancelar {
-    font-family: inherit;
-    font-size: 15px;
-    border-radius: 8px;
-    padding: 10px 22px;
-    cursor: pointer;
-    border: none;
-    transition: all 0.3s ease;
-
-}.popup .cancelar a{
-     text-decoration: none;
-     color: #2e5bff;
- }
-
-.popup .cancelar {
-    border: 1px solid #3A47FF;
-    background: transparent;
-}
-
-.cancelar:hover {
-    background: #f0f4ff;
-}
-.confirmar {
-    background: linear-gradient(90deg, #4b6bff, #2e5bff);
-    color: white;
-    border: none;
-}
-
-.confirmar:hover {
-    filter: brightness(1.1);
-}.status {
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     background-color: #E4E6FF;
-     border-radius: 50px;
-     padding: 6px;
-     width: 100%;
-     max-width: 360px;
-     margin-top: 15px;
-     margin-bottom: 30px;
-     box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
-     transition: background-color 0.3s ease;
- }
 
 .status input {
     display: none;
