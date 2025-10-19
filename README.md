@@ -28,10 +28,10 @@ Aion nasceu dentro do projeto interdisciplinar técnico de 2025, alinhado à **O
 |------|--------|
 | Ana Clara Blefari Soares De Souza | UX & Design |
 | Beatriz Frisina Batista | UX & Design |
-| Caio Gomide Amoroso | Sistemas e Documentação |
+| Caio Gomide Amoroso | Sistemas & Documentação |
 | Davi Luz Pereira | Frontend & Segurança de Dados |
 | Eduardo Farias Domingues | Backend |
-| Erick Neves Barbosa | Backend |
+| Erick Neves Barbosa | Backend, Frontend & Banco de Dados |
 
 ---
 
