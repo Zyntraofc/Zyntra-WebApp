@@ -529,7 +529,7 @@ table .actions button:hover{
 .popup button,
 .cancelar {
     font-family: inherit;
-    font-size: clamp(0.1rem, 0.7vw, 8rem);;
+    font-size: clamp(0.1rem, 0.7vw, 8rem);
     border-radius: 0.8vh;
     padding: 1vh 2.2vh;
     cursor: pointer;
@@ -561,13 +561,13 @@ table .actions button:hover{
     justify-content: space-between;
     align-items: center;
     background-color: #E4E6FF;
-    border-radius: 50px;
-    padding: 6px;
+    border-radius: 5vh;
+    padding: 0.6vh;
+    gap: 1vh;
     width: 100%;
-    max-width: 360px;
     margin: 0 auto;
-    margin-bottom: 55px;
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+    margin-bottom: 5.5vh;
+    box-shadow: inset 0 0.2vh 0.5vh rgba(0, 0, 0, 0.05);
     transition: background-color .3s;
 }
 
@@ -578,9 +578,9 @@ table .actions button:hover{
 .status label {
     flex: 1;
     text-align: center;
-    padding: 10px 0;
-    border-radius: 40px;
-    font-size: 16px;
+    padding: 1vh 0;
+    border-radius: 4vh;
+    font-size:  clamp(0.1rem, 0.8vw, 8rem);
     font-weight: 600;
     color: #3942C7;
     cursor: pointer;
@@ -591,7 +591,7 @@ table .actions button:hover{
 .status input:checked+label {
     color: #fff;
     background: linear-gradient(135deg, #6373FF 0%, #2B39FF 100%);
-    box-shadow: 0 3px 8px rgba(59, 66, 255, 0.3);
+    box-shadow: 0 0.3vh 0.8vh rgba(59, 66, 255, 0.3);
     transform: scale(1.05);
 }
 
@@ -608,10 +608,10 @@ table .actions button:hover{
 .btn-editar {
     background: #f0f0f0;
     color: #333;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    padding: 6px 14px;
-    font-size: 14px;
+    border: 0.1vh solid #ccc;
+    border-radius: 0.6vh;
+    padding: 0.6vh 1.4vh;
+    font-size:  clamp(0.1rem, 0.7vw, 8rem);
     cursor: pointer;
     transition: all .2s;
 }
@@ -626,29 +626,25 @@ textarea{
 
 .popup select {
     width: 100%;
-    padding: 12px 15px;
-    border-radius: 12px; /* bordas mais arredondadas */
-    border: 1.5px solid #e0e0e0;
-    font-size: 15px;
+    padding: 1.2vh 1.5vh;
+    border-radius: 1.2vh;
+    border: 0.15vh solid #e0e0e0;
+    font-size: clamp(0.1rem, 0.75vw, 8rem);
     color: #333;
     background-color: #fff;
-    text-align: center; /* centraliza o texto selecionado */
-    appearance: none; /* remove a seta padrão do browser */
+    text-align: center;
+    appearance: none;
     outline: none;
     cursor: pointer;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    margin-bottom: 18px;
-    max-height: 150px; /* altura máxima da lista */
-    overflow-y: auto;  /* barra de rolagem se passar do limite */
+    margin-bottom: 1.8vh;
 }
 .popup select option{
-    border-radius: 200px;
-    font-size: 16px;
-    cursor: pointer;
+    font-size: clamp(0.1rem, 0.75vw, 8rem);
 }
 .popup select:focus {
     border-color: #2e5bff;
-    box-shadow: 0 0 0 2px rgba(46, 91, 255, 0.15);
+    box-shadow: 0 0 0 0.2vh rgba(46, 91, 255, 0.15);
 }
 /* opção “placeholder” sem seleção inicial */
 .popup select option[disabled] {
@@ -662,74 +658,8 @@ textarea{
 }
 
 
-.status {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #E4E6FF;
-    border-radius: 50px;
-    padding: 6px;
-    width: 100%;
-    max-width: 360px;
-    margin-top: 15px;
-    margin-bottom: 30px;
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
-    transition: background-color 0.3s ease;
-}
-
-.status input {
-    display: none;
-}
-
-.status label {
-    flex: 1;
-    text-align: center;
-    padding: 10px 0;
-    border-radius: 40px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #3942C7;
-    cursor: pointer;
-    transition: all 0.25s ease-in-out;
-    user-select: none;
-}
-
-.status input:checked + label {
-    color: #fff;
-    background: linear-gradient(135deg, #6373FF 0%, #2B39FF 100%);
-    box-shadow: 0 3px 8px rgba(59, 66, 255, 0.3);
-    transform: scale(1.05);
-}
-
-.status label:hover {
-    background-color: rgba(59, 66, 255, 0.1);
-}
-#alterarSenha-container{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.btn-editar {
-    background-color: #f0f0f0;
-    color: #333;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    padding: 6px 14px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.btn-editar:hover {
-    background-color: #e0e0e0;
-    border-color: #bbb;
-}
 .status:not(:has(input#recusado:checked)) ~ #motivoRejeicao, .status:not(:has(input#recusado:checked)) ~ label{
     display: none;
 }
 
-.barra-lateral .sair:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(59, 66, 255, 0.25);
-}
 
