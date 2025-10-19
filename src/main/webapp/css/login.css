@@ -1,5 +1,6 @@
 /* ===== ESTILOS GERAIS ===== */
 * {
+    -webkit-tap-highlight-color: transparent;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -349,14 +350,30 @@ input::placeholder {
         width: 25vw;
     }
 }
-
-/* Ajustes para telas muito altas em mobile */
+@media (max-width: 358px){
+    .submit-button button{
+        width: 40vw;
+    }
+}
+@media (max-width: 258px){
+    .submit-button button{
+        width: 45vw;
+    }
+}
+    /* Ajustes para telas muito altas em mobile */
 @media (min-height: 800px) and (max-width: 768px) {
     .login-wrapper {
         width: 85%;
     }
 }
-
+@media (max-height: 364px){
+    .submit-button{
+        height: 10vh;
+    }
+    .submit-button button{
+        height: 10vh;
+    }
+}
 /* Ajustes para orientação paisagem em móveis */
 @media (max-height: 500px) and (orientation: landscape) {
     .login-wrapper {
@@ -374,5 +391,9 @@ input::placeholder {
     }
     .submit-button button {
         width: 25vw;
+    }
+    .submit-button{
+        display: flex;
+        justify-content: center;
     }
 }
