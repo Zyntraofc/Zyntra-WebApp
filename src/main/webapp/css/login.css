@@ -217,89 +217,380 @@ input::placeholder {
     width: 100% !important;
     font-size: clamp(0.1rem, 0.78vw, 8rem) !important;
 }
+/* ===== MEDIA QUERIES ===== */
 
-/* ===== RESPONSIVIDADE ===== */
-/*
-@media (max-width: 900px) {
+/* Telas grandes e desktops menores */
+@media (max-width: 1200px) {
     .login-wrapper {
-        flex-direction: column;
-        max-width: 500px;
-    }
-
-    .logo-section {
-        padding: 40px 30px;
-        border-radius: 20px 20px 0 0;
-    }
-
-    .logo-image {
-        width: 120px;
-        height: 120px;
-        border-radius: 25px;
-    }
-
-    .logo-image svg {
-        width: 70px;
-        height: 70px;
-    }
-
-    .logo-text {
-        font-size: 40px;
-    }
-
-    .logo-tagline {
-        font-size: 18px;
-    }
-
-    .login-section {
-        padding: 40px 30px;
+        max-width: 95%;
+        margin: 2vh auto;
     }
 }
 
-@media (max-width: 480px) {
+/* Tablets e telas medianas */
+@media (max-width: 1024px) {
     body {
-        padding: 15px;
+        padding: 3vh 2vh;
     }
 
     .login-wrapper {
-        border-radius: 20px;
+        max-width: 90%;
+        min-height: 55vh;
+        margin: 0 auto;
     }
 
     .logo-section {
-        padding: 30px 20px;
-    }
-
-    .logo-image {
-        width: 100px;
-        height: 100px;
-        margin-bottom: 20px;
-    }
-
-    .logo-image svg {
-        width: 60px;
-        height: 60px;
-    }
-
-    .logo-text {
-        font-size: 36px;
-    }
-
-    .logo-tagline {
-        font-size: 16px;
+        padding: 3vh;
     }
 
     .login-section {
-        padding: 30px 20px;
+        padding: 4vh;
+    }
+
+    .logo-text {
+        font-size: 2.8rem;
+    }
+
+    .logo-tagline {
+        font-size: 1.1rem;
     }
 
     .login-header h1 {
-        font-size: 28px;
+        font-size: 1.8rem;
+    }
+
+    .login-header p {
+        font-size: 0.9rem;
+    }
+
+    .input-group label {
+        font-size: 0.9rem;
     }
 
     .input-group input {
-        height: 50px;
+        font-size: 0.9rem;
+        height: 5vh;
+    }
+
+    input::placeholder {
+        font-size: 0.85rem;
     }
 
     .submit-button button {
-        height: 50px;
+        font-size: 0.9rem;
+        height: 5vh;
     }
-} */
+
+    .erro-login {
+        font-size: 0.85rem !important;
+    }
+}
+
+/* Tablets pequenos */
+@media (max-width: 900px) {
+    body {
+        padding: 2vh;
+    }
+
+    .login-wrapper {
+        max-width: 85%;
+        min-height: 50vh;
+    }
+
+    .logo-section {
+        padding: 2.5vh;
+    }
+
+    .login-section {
+        padding: 3.5vh;
+    }
+
+    .logo-text {
+        font-size: 2.5rem;
+        margin-bottom: 1vh;
+    }
+
+    .logo-tagline {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+}
+
+/* Dispositivos móveis grandes */
+@media (max-width: 768px) {
+    body {
+        padding: 2vh 1.5vh;
+        align-items: flex-start;
+        min-height: 100vh;
+    }
+
+    .login-wrapper {
+        flex-direction: column;
+        max-width: 100%;
+        min-height: auto;
+        border-radius: 2vh;
+        margin: 0;
+        box-shadow: 0 1.5vh 3vh rgba(0, 0, 0, 0.15);
+    }
+
+    .logo-section {
+        padding: 4vh 3vh;
+        flex: none;
+        min-height: 30vh;
+    }
+
+    .logo-content {
+        max-width: 100%;
+    }
+
+    .logo-image {
+        width: 10vh;
+        height: 10vh;
+        margin-bottom: 2vh;
+        border-radius: 2vh;
+    }
+
+    .logo-image svg {
+        width: 5vh;
+        height: 5vh;
+    }
+
+    .logo-text {
+        font-size: 2.2rem;
+        margin-bottom: 1.5vh;
+    }
+
+    .logo-tagline {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .login-section {
+        padding: 4vh 3vh;
+        flex: none;
+        min-height: 40vh;
+    }
+
+    .login-container {
+        max-width: 100%;
+    }
+
+    .login-header {
+        margin-bottom: 3vh;
+    }
+
+    .login-header h1 {
+        font-size: 1.6rem;
+        margin-bottom: 0.5vh;
+    }
+
+    .login-header p {
+        font-size: 0.9rem;
+    }
+
+    .form-fields {
+        gap: 2.5vh;
+    }
+
+    .input-group {
+        margin-bottom: 0.5vh;
+    }
+
+    .input-group label {
+        font-size: 0.9rem;
+        margin-bottom: 0.8vh;
+    }
+
+    .input-group input {
+        height: 5vh;
+        font-size: 0.9rem;
+        border-radius: 1vh;
+        padding: 0 1.8vh;
+    }
+
+    input::placeholder {
+        font-size: 0.85rem;
+    }
+
+    .submit-button {
+        margin-top: 3vh;
+    }
+
+    .submit-button button {
+        height: 5vh;
+        font-size: 0.9rem;
+        border-radius: 1vh;
+    }
+
+    .erro-login {
+        font-size: 0.85rem !important;
+        margin: 1.5vh 0 !important;
+        padding: 1.5vh !important;
+    }
+}
+
+/* Dispositivos móveis pequenos */
+@media (max-width: 480px) {
+    body {
+        padding: 1.5vh;
+    }
+
+    .login-wrapper {
+        border-radius: 1.5vh;
+    }
+
+    .logo-section {
+        padding: 3vh 2vh;
+        min-height: 25vh;
+    }
+
+    .logo-image {
+        width: 8vh;
+        height: 8vh;
+        margin-bottom: 1.5vh;
+    }
+
+    .logo-image svg {
+        width: 4vh;
+        height: 4vh;
+    }
+
+    .logo-text {
+        font-size: 1.8rem;
+        margin-bottom: 1vh;
+    }
+
+    .logo-tagline {
+        font-size: 0.85rem;
+    }
+
+    .login-section {
+        padding: 3vh 2vh;
+        min-height: 35vh;
+    }
+
+    .login-header {
+        margin-bottom: 2.5vh;
+    }
+
+    .login-header h1 {
+        font-size: 1.4rem;
+    }
+
+    .login-header p {
+        font-size: 0.8rem;
+    }
+
+    .form-fields {
+        gap: 2vh;
+    }
+
+    .input-group label {
+        font-size: 0.85rem;
+    }
+
+    .input-group input {
+        height: 4.5vh;
+        padding: 0 1.5vh;
+        font-size: 0.85rem;
+    }
+
+    input::placeholder {
+        font-size: 0.8rem;
+    }
+
+    .submit-button {
+        margin-top: 2.5vh;
+    }
+
+    .submit-button button {
+        height: 4.5vh;
+        font-size: 0.85rem;
+    }
+
+    .erro-login {
+        font-size: 0.8rem !important;
+        margin: 1vh 0 !important;
+        padding: 1vh !important;
+    }
+}
+
+/* Ajustes para telas muito altas em mobile */
+@media (min-height: 800px) and (max-width: 768px) {
+    body {
+        align-items: center;
+        padding: 3vh;
+    }
+
+    .login-wrapper {
+        max-width: 85%;
+        margin: 0 auto;
+    }
+
+    .logo-section {
+        min-height: 25vh;
+    }
+
+    .login-section {
+        min-height: 35vh;
+    }
+}
+
+/* Ajustes para orientação paisagem em móveis */
+@media (max-height: 500px) and (orientation: landscape) {
+    body {
+        align-items: flex-start;
+        padding: 1vh;
+    }
+    .login-wrapper {
+        max-width: 100%;
+        margin: 1vh 0;
+    }
+
+    .logo-section {
+        padding: 1.5vh;
+        min-height: auto;
+    }
+
+    .login-section {
+        padding: 2vh;
+        min-height: auto;
+    }
+
+    .logo-image {
+        width: 14vh;
+        height: 14vh;
+        margin-bottom: 1vh;
+    }
+
+    .logo-image svg {
+        width: 3vh;
+        height: 3vh;
+    }
+
+    .logo-text {
+        font-size: 1.5rem;
+        margin-bottom: 0.5vh;
+    }
+
+    .logo-tagline {
+        font-size: 0.75rem;
+    }
+
+    .form-fields {
+        gap: 1vh;
+    }
+
+    .input-group input {
+        height: 4vh;
+    }
+
+    .submit-button {
+        margin-top: 1.5vh;
+    }
+
+    .submit-button button {
+        height: 4vh;
+        padding-bottom: 6vh;
+    }
+}
