@@ -1,63 +1,71 @@
-# Zyntra - WebApp – Versão Escolar
-
-Este projeto foi desenvolvido por alunos do Instituto Germinare como atividade escolar de desenvolvimento web, inspirado no sistema real da Zyntra.
-
-O objetivo era simular o funcionamento básico de um sistema com funcionalidades principais, interface simples e estrutura organizada para avaliação prática.
+# 🌀 AION  
+### *“Entenda o tempo e transforme a presença.”*  
 
 ---
 
-## ✨ Funcionalidades implementadas
+## 🚀 Sobre o Projeto  
 
-- Landing Page apresentando o sistema
-- Área restrita páginas com operações CRUD (Criar, Listar, Editar, Excluir)
-- Interface desenvolvida com HTML e CSS
-- Login e cadastro em área restrida por Servlets
-- Comunicação com banco de dados do Aion-Mobile por RPA
+O **Aion** é uma solução tecnológica desenvolvida pelo grupo **Zyntra**, com o propósito de **reduzir o absenteísmo nas grandes indústrias**.  
 
----
+Nosso aplicativo oferece uma plataforma moderna e inteligente que **otimiza o controle de presença**, **aumenta a eficiência do RH** e **melhora o bem-estar dos colaboradores**.  
 
-## 🛠️ Tecnologias utilizadas
-
-- HTML5
-- CSS3
-- JSP
-- Git + GitHub
-- API JDBC
-- Java Servlet por Apache Tomcat
-- SQL Database
+Aion nasceu dentro do projeto interdisciplinar técnico de 2025, alinhado à **ODS 9 (Indústria, Inovação e Infraestrutura)**, unindo as áreas de **Banco de Dados, Desenvolvimento, Inteligência Artificial, Lógica de Programação, Programação Orientada a Objetos, Sistemas Operacionais e UX**.  
 
 ---
 
-## 🧑‍💻 Equipe do projeto
+## 🧩 Tecnologias Utilizadas  
 
-| Integrante              | Responsável por                |
-|-------------------------|--------------------------------|
-| Ana Clara Blefari       | Desing de páginas do site      |
-| Beatriz Frisina Battista| Design de páginas do site      |
-| Caio Gomide Amoroso     | Backend do site por Java       |
-| Davi Luz Pereira        | Frontend do site por JSP e HTML| 
-| Eduardo Farias Domingues| Backend do site por Java       |
-| Erick Neves Barbosa     | Gestão do database SQL do site |
-| Lucas Caramigo Pereira  | Frontend do site por JSP e HTML|
+- **Java** – Lógica principal e backend  
+- **Python** – Inteligência artificial e automações  
+- **SQL / MongoDB** – Bancos de dados relacional e não relacional  
+- **HTML, CSS, JS** – Interface web e estilo moderno  
+
 ---
 
-## 📁 Estrutura simulada do projeto
-```bash
-src/
-├── main/                            # Arquivos do código principal do site
-│   ├── java/                        # Código Java (back-end)
-│   │   ├── org.example.controller/              # Camada de controle (Servlets e lógica de requisições)
-│   │   ├── org.example.dao/                     # Camada de acesso a dados (Data Access Object)
-│   │   ├── org.example.model/                   # Classes de modelo (entidades, JavaBeans)
-│   │   ├── org.example/             # Pacote auxiliar ou exemplos
-│   │   └── org.example.utils/                   # Lógica com expressões regulares
-│   ├── resources/                   # Arquivos de recursos usados pelo Java (configurações, etc.)
-│   └── webapp/                      # Parte visual do projeto (front-end JSP)
-│       ├── assets/                  # Recursos estáticos
-│       ├── css/                     # Estilos CSS
-│       ├── js/                      # Scripts JavaScript
-│       ├── pages/                   # Páginas JSP organizadas por módulo
-│       └── WEB-INF/                 # Configurações internas protegidas (ex: web.xml)
-├── test/                            # Diretório de testes do projeto
-```
+## 💼 Equipe Zyntra  
+
+| Nome | Função |
+|------|--------|
+| Ana Clara Blefari Soares De Souza | UX & Design |
+| Beatriz Frisina Batista | UX & Design |
+| Caio Gomide Amoroso | Sistemas & Documentação |
+| Davi Luz Pereira | Frontend & Segurança de Dados |
+| Eduardo Farias Domingues | Backend |
+| Erick Neves Barbosa | Backend, Frontend & Banco de Dados |
+
+---
+
+## ⚙️ Funcionalidades Principais  
+
+- Controle de presença automatizado  
+- Análise preditiva de absenteísmo  
+- Dashboard de métricas para RH  
+- Comunicação entre colaboradores e gestores  
+- Relatórios e insights em tempo real  
+
+---
+
+## 🌍 Conexão com a ODS 9  
+
+Aion contribui diretamente para a **ODS 9 (Indústria, Inovação e Infraestrutura)** ao propor uma ferramenta digital que **fortalece a eficiência organizacional** e **incentiva a inovação tecnológica** dentro das empresas.  
+
+Nosso foco está em **otimizar processos** e **transformar dados em decisões inteligentes**, ajudando a construir ambientes de trabalho mais sustentáveis e produtivos.  
+
+---
+
+## 🧠 Diferenciais  
+
+- Interface intuitiva e moderna  
+- IA integrada para prever padrões de ausência  
+- Relatórios automáticos e visualização de dados  
+- Solução híbrida entre tecnologia e experiência humana  
+
+---
+
+## 🧾 Licença  
+
+Projeto desenvolvido para fins educacionais no **Colégio Germinare Tech** – 2025.  
+Todos os direitos reservados à **Equipe Zyntra**.  
+
+---
 
