@@ -15,7 +15,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 2vh;
     position: relative;
 }
 
@@ -28,13 +28,13 @@ img {
 /* ===== LAYOUT EM CAMADAS ===== */
 .login-wrapper {
     width: 100%;
-    max-width: 1000px;
+    max-width: 100vh;
     display: flex;
     background: white;
-    border-radius: 30px;
+    border-radius: 3vh;
     overflow: hidden;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-    min-height: 600px;
+    box-shadow: 0 2.5vh 5vh rgba(0, 0, 0, 0.15);
+    min-height: 60vh;
 }
 
 /* ===== SEÇÃO DA LOGO ===== */
@@ -45,7 +45,7 @@ img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 40px;
+    padding: 4vh;
     position: relative;
     overflow: hidden;
 }
@@ -61,38 +61,38 @@ img {
 .logo-content {
     text-align: center;
     z-index: 2;
-    max-width: 400px;
+    max-width: 40vh;
 }
 
 .logo-image {
     cursor: pointer;
-    width: 150px;
-    height: 150px;
+    width: 15vh;
+    height: 15vh;
     background: white;
-    border-radius: 30px;
+    border-radius: 3vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-    margin: 0 auto 30px;
+    box-shadow: 0 1.5vh 3.5vh rgba(0, 0, 0, 0.15);
+    margin: 0 auto 3vh;
 }
 
 .logo-image svg {
-    width: 80px;
-    height: 80px;
+    width: 8vh;
+    height: 8vh;
 }
 
 .logo-text {
     color: white;
-    font-size: 48px;
+    font-size: clamp(0.1rem, 2.4vw, 8rem);
     font-weight: 700;
     margin-bottom: 15px;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 0.2vh 1vh rgba(0, 0, 0, 0.2);
 }
 
 .logo-tagline {
     color: rgba(255, 255, 255, 0.9);
-    font-size: 20px;
+    font-size:  clamp(0.1rem, 1vw, 8rem);
     font-weight: 500;
     line-height: 1.5;
 }
@@ -104,36 +104,36 @@ img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 50px;
+    padding: 5vh;
 }
 
 .login-container {
     width: 100%;
-    max-width: 400px;
+    max-width: 40vh;
 }
 
 .login-header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 4vh;
 }
 
 .login-header h1 {
     color: #3A47FF;
     font-weight: 700;
-    font-size: 32px;
-    margin-bottom: 10px;
+    font-size:  clamp(0.1rem, 1.58vw, 8rem);
+    margin-bottom: 1vh;
 }
 
 .login-header p {
     color: #9299FF;
-    font-size: 16px;
+    font-size:  clamp(0.1rem, 0.78vw, 8rem);
 }
 
 /* Campos do formulário */
 .form-fields {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 2.5vh;
 }
 
 .input-group {
@@ -144,9 +144,9 @@ img {
 
 .input-group label {
     color: #3A47FF;
-    margin-bottom: 10px;
+    margin-bottom: 1vh;
     font-weight: 600;
-    font-size: 14px;
+    font-size:  clamp(0.1rem, 0.7vw, 8rem);
     display: flex;
     align-items: center;
 }
@@ -154,39 +154,39 @@ img {
 .input-group label::before {
     content: "";
     display: inline-block;
-    width: 8px;
-    height: 8px;
+    width: 0.8vh;
+    height: 0.8vh;
     background: #3A47FF;
     border-radius: 50%;
-    margin-right: 10px;
+    margin-right: 1vh;
 }
 
 .input-group input {
-    border-radius: 15px;
-    padding: 0 20px;
-    height: 55px;
-    border: 2px solid #e6e9ff;
+    border-radius: 1.5vh;
+    padding: 0 2vh;
+    height: 5.5vh;
+    border: 0.2vh solid #e6e9ff;
     width: 100%;
     background: white;
-    font-size: 16px;
+    font-size:  clamp(0.1rem, 0.78vw, 8rem);
     transition: all 0.3s ease;
 }
 
 .input-group input:focus {
     outline: none;
     border-color: #3A47FF;
-    box-shadow: 0 0 0 3px rgba(58, 71, 255, 0.2);
+    box-shadow: 0 0 0 0.3vh rgba(58, 71, 255, 0.2);
 }
 
 input::placeholder {
     color: #d2d2d1;
-    font-size: 15px;
+    font-size:  clamp(0.1rem, 0.74vw, 8rem);
     font-weight: 500;
 }
 
 /* Botão de submit */
 .submit-button {
-    margin-top: 35px;
+    margin-top: 3.5vh;
     width: 100%;
 }
 
@@ -197,27 +197,29 @@ input::placeholder {
     border-radius: 15px;
     color: white;
     width: 100%;
-    height: 55px;
-    font-size: 16px;
+    height: 5.5vh;
+    font-size:  clamp(0.1rem, 0.78vw, 8rem);
     font-weight: 600;
     transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(58, 71, 255, 0.3);
+    box-shadow: 0 0.5vh 1.5vh rgba(58, 71, 255, 0.3);
 }
 
 .submit-button button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(58, 71, 255, 0.4);
+    transform: translateY(-6.5%);
+    box-shadow: 0 0.8vh 2.5vh rgba(58, 71, 255, 0.4);
 }
 .erro-login {
     color: #ff2b2b !important;
     text-align: center !important;
-    margin: 15px 0 !important;
-    padding: 10px !important;
+    margin: 1.5vh 0 !important;
+    padding: 1vh !important;
     font-weight: 600 !important;
     width: 100% !important;
+    font-size: clamp(0.1rem, 0.78vw, 8rem) !important;
 }
 
 /* ===== RESPONSIVIDADE ===== */
+/*
 @media (max-width: 900px) {
     .login-wrapper {
         flex-direction: column;
@@ -300,4 +302,4 @@ input::placeholder {
     .submit-button button {
         height: 50px;
     }
-}
+} */
