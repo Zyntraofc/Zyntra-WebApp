@@ -427,6 +427,7 @@ table .actions button:hover{
     z-index: 3;
 }
 .deletar p{
+    margin-bottom: clamp(10px, 3vh, 20px);
     font-size: clamp(0.8rem, 2.5vw, 1rem);
     text-align: center;
     margin: 0;
@@ -533,6 +534,7 @@ table .actions button:hover{
 
 .popup button,
 .cancelar {
+    text-align: center;
     font-family: inherit;
     font-size: clamp(0.8rem, 2.5vw, 1rem);
     border-radius: 0.8vh;
