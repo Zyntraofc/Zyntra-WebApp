@@ -1,0 +1,491 @@
+
+@media (max-width: 1750px) {
+    aside {
+        width: 14%;
+        left: 2%;
+        padding: 1.5% 1%;
+    }
+    .logo-container img {
+        height: 6vh;
+        min-height: 55px;
+    }
+    .brand-text .aion {
+        font-size: 1.6vw ;
+    }
+    .brand-text h4 {
+        font-size: 0.9vw;
+    }
+    .sidebar-header hr {
+        margin: 10% 0px;
+        height: 4%;
+    }
+    .barra-lateral .botao {
+        font-size: 1.1vw;
+        padding: 8% 10%;
+    }
+    .barra-lateral .sair-container .sair {
+        font-size: 1.1vw;
+        padding: 8%;
+    }
+    .barra-lateral .sair img {
+        height: 2.5vh;
+    }
+    main {
+        margin-left: 16%;
+    }
+    main h1 {
+        font-size: 2.8vw;
+    }
+    main p {
+        font-size: 1.4vw;
+    }
+    .search-form {
+        max-width: 40%;
+        height: 5.5vh;
+        padding: 0 1vw;
+    }
+    .search-form input {
+        font-size: 1.1vw !important;
+    }
+    .search-form button img {
+        width: 2.2vh;
+    }
+
+    .actions .filtros,
+    .button-adicionar-novo button {
+        height: 5.5vh;
+        font-size: 1.1vw !important;
+        padding: 0 2vw;
+    }
+    .actions .filtros img {
+        height: 1vh;
+    }
+    .button-adicionar-novo img {
+        height: 2.2vh;
+    }
+    .table-card {
+        padding: 2.5vh;
+    }
+    .table-card thead tr th {
+        font-size: 1.3vw;
+    }
+    .table-card tbody td {
+        font-size: 1.2vw;
+        padding: 2.2vh 2.5vh;
+    }
+    .table-card td.actions {
+        width: 15vh;
+    }
+    .table-card td form button img {
+        width: 2.5vh;
+    }
+    /* .popup {
+    width: 60vh;
+    max-width: 700px !important;
+    border-radius: 2vh;
+    padding: 4vh 4.5vh !important;
+}
+
+.popup h1 {
+    font-size: 2.2vw !important;
+    min-font-size: 32px !important;
+    margin-bottom: 3vh !important;
+}
+
+.popup label {
+    font-size: 1.3vw !important;
+    min-font-size: 20px !important;
+    margin-bottom: 1vh;
+}
+
+.popup input,
+.popup textarea,
+.popup select {
+    padding: 1.5vh 1.8vh !important;
+    font-size: 1.2vw !important;
+    min-font-size: 18px !important;
+    border-radius: 1vh;
+    margin-bottom: 2.5vh;
+}
+
+.popup .botoes {
+    gap: 1.5vh;
+    margin-top: 2vh;
+}
+
+.popup button,
+.cancelar {
+    font-size: 1.2vw !important;
+    min-font-size: 18px !important;
+    padding: 1.5vh 3vh !important;
+    border-radius: 1vh;
+}
+
+.deletar {
+    width: 55vh;
+    height: 25vh;
+    max-width: 600px !important;
+    border-radius: 2vh;
+    padding: 3.5vh 4vh !important;
+}
+
+.deletar h1 {
+    font-size: 2.2vw !important;
+    min-font-size: 32px !important;
+    margin-bottom: 1.5vh;
+}
+
+.deletar p {
+    font-size: 1.3vw !important;
+    min-font-size: 20px !important;
+    margin-bottom: 3.5vh;
+}
+
+.opcoes {
+    gap: 2vh;
+}
+
+.opcoes form button {
+    padding: 1.5vh 2.5vh !important;
+    font-size: 1.2vw !important;
+    min-font-size: 18px !important;
+    border-radius: 1vh;
+}
+
+.status {
+    padding: 1vh;
+    margin-bottom: 5vh;
+    border-radius: 6vh;
+}
+
+.status label {
+    font-size: 1.1vw !important;
+    min-font-size: 17px !important;
+    padding: 1.5vh 0;
+    border-radius: 5vh;
+} */
+}
+@media (max-width: 1024px) {
+    body {
+        flex-direction: column;
+        min-height: 100vh;
+        overflow-x: hidden;
+        height: auto;
+        padding: 10px 15px;
+    }
+    aside {
+        position: relative;
+        width: 100%;
+        height: auto;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        margin: 10px 0;
+        padding: 20px 25px;
+        flex-shrink: 0;
+        background: linear-gradient(145deg, #8f97ff, #8a87ff);
+    }
+    .logo-container {
+        gap: 15px;
+    }
+    .logo-container img {
+        height: 10vh;
+        width: 10vh;
+        flex-shrink: 0;
+    }
+    .brand-text .aion {
+        font-size: 26px;
+    }
+    .brand-text h4 {
+        font-size: 18px;
+    }
+    .barra-lateral {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+    .barra-lateral .botao {
+        text-align: center;
+        padding: 14px 10px;
+        font-size: 15px;
+        border-radius: 12px;
+        width: 100%;
+        height: 100%;
+        white-space: nowrap;
+    }
+    .sair-container {
+        grid-column: 1 / -1;
+        margin-top: 10px;
+    }
+    .barra-lateral .sair-container .sair {
+        font-size: 16px;
+        padding: 14px;
+        gap: 10px;
+    }
+    .barra-lateral .sair img {
+        height: 22px;
+        width: 22px;
+    }
+    main {
+        margin-left: 0;
+        padding: 20px;
+        width: 100%;
+        flex: 1;
+        min-height: 500px;
+        background: #fff;
+        margin-bottom: 15px;
+    }
+    .top-bar {
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+    .search-form {
+        max-width: 70%;
+        order: 2;
+        height: 48px;
+    }
+    .search-form input {
+        font-size: 16px !important;
+    }
+    .search-form button img {
+        width: 22px;
+    }
+    .actions {
+        width: 100%;
+        justify-content: space-between;
+        order: 1;
+        gap: 12px;
+    }
+
+    .actions .filtros,
+    .button-adicionar-novo button {
+        font-size: 15px !important;
+        height: 48px;
+        padding: 0 20px;
+        gap: 8px;
+    }
+
+    .actions .filtros img {
+        height: 8px;
+    }
+
+    .button-adicionar-novo img {
+        height: 22px;
+    }
+    main h1 {
+        font-size: 28px !important;
+    }
+    main p {
+        font-size: 18px !important;
+        text-align: left;
+        margin-bottom: 15px;
+    }
+    .table-card {
+        overflow-x: auto;
+        width: 100%;
+        min-height: 400px;
+    }
+
+    .table-card table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 800px;
+    }
+
+    .table-card thead tr th {
+        font-size: 16px !important;
+        padding: 16px 12px;
+        text-align: left;
+        color: #4F59E7;
+        white-space: nowrap;
+    }
+    .table-card thead tr th:last-child {
+        width: 140px;
+    }
+    .table-card tbody td {
+        font-size: 15px;
+        text-align: left;
+        border-bottom: 2px solid rgba(100, 100, 160, 0.06);
+        white-space: nowrap;
+    }
+    .table-card td.actions > div {
+        gap: 8px;
+        margin: 0 auto;
+        width: fit-content;
+        flex-wrap: nowrap;
+    }
+
+    .table-card td form button img {
+        width: 22px !important;
+        height: 22px !important;
+        display: block;
+    }
+    .table-card td.actions > div {
+        max-width: 130px;
+    }
+}
+@media (max-width: 900px) and (min-width: 768px) {
+    .barra-lateral {
+        grid-template-columns: repeat(2, 1fr); /* 2 COLUNAS EM TABLETS PEQUENOS */
+        gap: 8px;
+    }
+}
+@media (max-width: 767px) {
+    .logo-container {
+        gap: 10px;
+        height: 45px;
+    }
+    .logo-container img {
+        height: 45px;
+        width: 45px;
+    }
+    .brand-text h4 {
+        font-size: 15px;
+    }
+    .barra-lateral {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+    .barra-lateral .botao {
+        font-size: 13px;
+        padding: 12px 6px;
+    }
+    .sair-container {
+        margin-top: 6px;
+    }
+    .barra-lateral .sair-container .sair {
+        font-size: 14px;
+        padding: 12px;
+    }
+    .barra-lateral .sair img {
+        height: 20px;
+        width: 20px;
+    }
+    .top-bar {
+        gap: 12px;
+    }
+    .actions {
+        gap: 10px;
+    }
+    main h1 {
+        font-size: 24px !important;
+    }
+    .table-card thead tr th {
+        font-size: 15px !important;
+    }
+    .table-card tbody td {
+        font-size: 14px !important;
+    }
+    .table-card td.actions > div {
+        gap: 6px;
+        max-width: 110px;
+    }
+    .table-card td form button img {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* .popup { 
+        max-width: 95% !important;
+        padding: 25px 20px !important;
+    }
+
+    .popup h1 {
+        font-size: 22px !important;
+    }
+
+    .popup input,
+    .popup textarea,
+    .popup select {
+        padding: 14px 16px !important;
+        font-size: 16px !important;
+        min-height: 44px;
+    }
+
+    .deletar {
+        max-width: 95% !important;
+        padding: 25px 20px !important;
+    } */
+}
+@media (max-width: 479px) {
+    body {
+        padding: 5px 8px;
+    }
+    aside {
+        border-radius: 10px;
+        margin: 5px 0;
+    }
+    .brand-text .aion {
+        font-size: 20px;
+    }
+    .barra-lateral {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+    .barra-lateral .botao {
+        font-size: 14px;
+        padding: 14px 10px;
+    }
+    main {
+        padding: 12px;
+        min-height: 400px; /* ALTURA MÍNIMA ADEQUADA */
+    }
+    .search-form {
+        max-width: 100%;
+    }
+    .top-bar .actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .actions .filtros,
+    .button-adicionar-novo button {
+        width: 100%;
+        max-width: 100%;
+    }
+    .table-card {
+        padding: 10px;
+    }
+    .table-card thead tr th {
+        padding: 12px 8px;
+    }
+    .table-card thead tr th:last-child {
+        width: 100px;
+    }
+    .table-card tbody td {
+        font-size: 13px !important;
+        padding: 10px 8px;
+    }
+    .table-card td.actions {
+        width: 100px !important;
+        padding: 10px 4px !important;
+    }
+    .table-card td.actions > div {
+        gap: 4px;
+        max-width: 92px;
+    }
+    .table-card td form button img {
+        width: 18px !important;
+        height: 18px !important;
+    }
+    /*
+        .popup .botoes {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .popup button,
+        .cancelar {
+            width: 100%;
+        }
+
+        .opcoes {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .opcoes form {
+            max-width: 100%;
+        } */
+}

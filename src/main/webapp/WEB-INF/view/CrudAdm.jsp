@@ -4,6 +4,8 @@
 <head>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/crud.css">
   <title>Crud Adm - Área restrita</title>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/crud-responsividade.css">
+  <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/logos/logo-quadrada.png">
   <script src="${pageContext.request.contextPath}/js/mascara.js" defer></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pap4G5rY9O6..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -11,7 +13,7 @@
 <aside>
   <div class="sidebar-header">
     <div class="logo-container">
-      <img src="${pageContext.request.contextPath}/assets/logos/logo-azul.png" alt="logo-aion" class="logo-aion">
+      <img src="${pageContext.request.contextPath}/assets/logos/logo-quadrada.png" alt="logo-aion" class="logo-aion">
       <div class="brand-text">
         <p class="aion">aion</p>
         <h4>Adm</h4>
@@ -114,10 +116,12 @@
         <td class="sensivel">${administrador.hashSenha}</td>
         <td class="actions">
           <div style="display: flex">
+            <form>
             <button style="border: none; background: none; cursor: pointer" class="toggleLinha" data-olho="${pageContext.request.contextPath}/assets/icons/icon-olho.png"
                     data-olho-fechado="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png">
               <img src="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png" />
             </button>
+            </form>
             <form action="${pageContext.request.contextPath}/private/AlterarAdm" method="post">
               <input type="hidden" name="id" value="${administrador.id}">
               <input type="hidden" name="action" value="0">
@@ -138,10 +142,10 @@
 </main>
 <% if (request.getAttribute("popup-deletar") != null) { %>
 <div class="tela-transparente"></div>
-<div class="popup-deletar">
+<div class="deletar">
   <h1>Deletar</h1>
   <p>Deseja mesmo excluir? Esta ação é irreversível.</p>
-  <div class="opcoes-deletar">
+  <div class="opcoes">
     <form action="${pageContext.request.contextPath}/private/DeletarAdm" method="post">
       <input type="hidden" name="action" value="1">
       <input type="hidden" name="id" value="${administrador.getId()}">

@@ -3,14 +3,16 @@
 <html>
 <head>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/crud.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/crud-responsividade.css">
   <script src="${pageContext.request.contextPath}/js/mascara.js" defer></script>
   <title>Crud Empresa - Área restrita</title>
+  <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/logos/logo-quadrada.png">
 </head>
 <body>
 <aside>
   <div class="sidebar-header">
     <div class="logo-container">
-      <img src="${pageContext.request.contextPath}/assets/logos/logo-azul.png" alt="logo-aion" class="logo-aion">
+      <img src="${pageContext.request.contextPath}/assets/logos/logo-quadrada.png" alt="logo-aion" class="logo-aion">
       <div class="brand-text">
         <p class="aion">aion</p>
         <h4>Empresa</h4>
@@ -70,7 +72,7 @@
       <button type="submit">
         <img src="${pageContext.request.contextPath}/assets/icons/icon-lupa.png" alt="Pesquisar">
       </button>
-      <input type="text" placeholder="Buscar por id, nome, email...">
+      <input type="text" placeholder="Buscar por id, nome...">
 
     </form>
 
@@ -111,19 +113,21 @@
     <tbody>
     <c:forEach var="empresa" items="${empresas}">
       <tr>
-        <td>${empresa.id}</td>
-        <td>${empresa.nome}</td>
-        <td class="sensivel">${empresa.email}</td>
-        <td class="sensivel">${empresa.cnpj}</td>
-        <td class="sensivel">${empresa.telefone}</td>
-        <td>${tiposEmpresa[empresa.id]}</td>
+        <td data-label="ID">${empresa.id}</td>
+        <td data-label="Nome">${empresa.nome}</td>
+        <td data-label="Email" class="sensivel">${empresa.email}</td>
+        <td data-label="CNPJ" class="sensivel">${empresa.cnpj}</td>
+        <td data-label="Telefone" class="sensivel">${empresa.telefone}</td>
+        <td data-label="Tipo de empresa">${tiposEmpresa[empresa.id]}</td>
 
-        <td class="actions">
+        <td data-label="Ações" class="actions">
           <div style="display: flex">
+            <form>
             <button style="border: none; background: none; cursor: pointer" class="toggleLinha" data-olho="${pageContext.request.contextPath}/assets/icons/icon-olho.png"
                     data-olho-fechado="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png">
               <img src="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png" />
             </button>
+            </form>
             <form action="${pageContext.request.contextPath}/private/AlterarEmpresa" method="post">
               <input type="hidden" name="id" value="${empresa.id}">
               <input type="hidden" name="action" value="0">
@@ -145,10 +149,10 @@
 </main>
 <% if (request.getAttribute("popup-deletar") != null) { %>
 <div class="tela-transparente"></div>
-<div class="popup-deletar">
+<div class="deletar">
   <h1>Deletar</h1>
   <p>Deseja mesmo excluir? Esta ação é irreversível.</p>
-  <div class="opcoes-deletar">
+  <div class="opcoes">
     <form action="${pageContext.request.contextPath}/private/DeletarEmpresa" method="post">
       <input type="hidden" name="action" value="1">
       <input type="hidden" name="caminho" value="${caminho}">
