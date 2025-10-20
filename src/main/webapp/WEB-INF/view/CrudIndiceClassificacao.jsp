@@ -2,9 +2,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/crud.css">
   <title>Crud Indice classificação - Área restrita</title>
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/crud-responsividade.css">
   <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/logos/logo-quadrada.png">
 </head>
 <body>
@@ -71,7 +71,7 @@
       <button type="submit" >
         <img src="${pageContext.request.contextPath}/assets/icons/icon-lupa.png" alt="Pesquisar">
       </button>
-      <input type="text" placeholder="Buscar por id, nome, email...">
+      <input type="text" placeholder="Buscar %...">
 
     </form>
 
@@ -96,7 +96,8 @@
     }
   %>
   <section class="table-card">
-  <table>
+    <div class="table-container">
+    <table>
     <thead>
     <tr>
       <th>ID</th>
@@ -129,6 +130,7 @@
     </c:forEach>
     </tbody>
   </table>
+    </div>
   </section>
 </main>
 <% if (request.getAttribute("popup-deletar") != null) { %>
