@@ -754,7 +754,7 @@ textarea{
         display: none;
     }
     html{
-        overflow: hidden;
+        overflow-x: hidden;
     }
     body {
         min-height: 100vh;
@@ -868,7 +868,7 @@ textarea{
     }
 
     .actions .filtros img {
-        height: 14px;
+        height: 12px;
     }
 
     .button-adicionar-novo img {
@@ -986,12 +986,12 @@ textarea{
 @media (max-width: 767px) {
     .logo-container {
         gap: 10px;
-        height: 7vw;
-        width: 7vw;
+        height: 70px;
+        width: 70px;
     }
     .logo-container img {
-        width: 5vh;
-        height: 5vh;
+        width: 50px;
+        height: 50px;
     }
     .brand-text h4 {
         font-size: 15px;
