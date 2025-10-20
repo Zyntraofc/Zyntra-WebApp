@@ -353,8 +353,6 @@ table .actions button:hover{
 }
 
 .table-card thead tr th:last-child {
-    text-align: start !important;
-    vertical-align: middle !important;
     border-top-right-radius: 1.2vh;
 }
 
@@ -369,13 +367,6 @@ table .actions button:hover{
     border-bottom: 0.2vh  solid rgba(100, 100, 160, 0.06);
     vertical-align: middle;
 }
-
-.table-card tbody tr:last-child td {
-    border-bottom: none;
-    text-align: start !important;
-    vertical-align: middle !important;
-}
-
 .table-card td.actions {
     text-align: center;
     width: 12vh;
