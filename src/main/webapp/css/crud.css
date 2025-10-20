@@ -412,8 +412,9 @@ table .actions button:hover{
 .deletar {
     position: absolute;
     align-self: center;
-    width: 48vh;
-    height: 20vh;
+    width: min(48vh, 90vw);
+    height: auto;
+    min-height: 20vh;
     top: 35.5%;
     background: white;
     border-radius: 1.2vh;
@@ -422,18 +423,20 @@ table .actions button:hover{
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 2.8vh 3.2vh;
+    padding: clamp(2vh, 4vw, 2.8vh);
     z-index: 3;
 }
 .deletar p{
-    font-size: clamp(0.1rem, 0.79vw , 8rem);
+    font-size: clamp(0.8rem, 2.5vw, 1rem);
+    text-align: center;
+    margin: 0;
 }
 .deletar h1 {
-    font-size: clamp(0.1rem, 1vw , 8rem);
+    font-size: clamp(1rem, 3vw, 1.3rem);
     color: #2e5bff;
     margin-bottom: 0.8vh;
+    text-align: center;
 }
-
 .opcoes {
     width: 100%;
     display: flex;
@@ -449,16 +452,17 @@ table .actions button:hover{
     align-items: center;
     border: none;
     border-radius: 0.8vh;
-    padding: 1vh 2vh;
+    padding: max(1vh, 12px);
     cursor: pointer;
     transition: 0.3s;
+    min-height: 44px;
 }
 
 .opcoes form button {
     cursor: pointer;
     color: white;
     width: 100%;
-    font-size: clamp(0.1rem, 0.75vw , 8rem);
+    font-size: clamp(0.8rem, 2.5vw, 1rem);
     border: none;
     background-color: #0078ff;
 }
@@ -466,20 +470,21 @@ table .actions button:hover{
 .popup {
     top: 20%;
     position: absolute;
-    width: 47vh;
+    width: min(47vh, 85vw);
+    max-width: 50vh;
     border-radius: 1.2vh;
     background: #fff;
     box-shadow: 0 0.4vh 2.5vh rgba(0, 0, 0, 0.2);
-    padding: 3vh 3.6vh;
+    padding: clamp(2vh, 4vw, 3vh);
     display: flex;
     flex-direction: column;
     z-index: 3;
-    max-height: 60vh;
+    max-height: min(60vh, 80vh);
     overflow-y: auto;
 }
 
 .popup h1 {
-    font-size: clamp(0.1rem, 1.1vw, 8rem);
+    font-size: clamp(1.1rem, 3.5vw, 1.5rem);
     color: #2e5bff;
     margin-bottom: 2vh;
     text-align: left;
@@ -488,7 +493,7 @@ table .actions button:hover{
 .popup label {
     font-weight: 600;
     color: #2e5bff;
-    font-size: clamp(0.1rem, 0.7vw, 8rem);
+    font-size: clamp(0.8rem, 2.5vw, 1rem);
     margin-bottom: 0.5vh;
     display: block;
 }
@@ -496,11 +501,11 @@ table .actions button:hover{
 .popup input,
 .popup textarea {
     width: 100%;
-    padding: 1vh 1.2vh;
+    padding: max(1vh, 12px);
     border-radius: 0.8vh;
     border: 0.2vh solid #e0e0e0;
     outline: none;
-    font-size: clamp(0.1rem, 0.7vw, 8rem);
+    font-size: clamp(0.8rem, 2.5vw, 1rem);
     resize: vertical;
     margin-bottom: 1.9vh;
     transition: border-color .3s;
@@ -529,12 +534,13 @@ table .actions button:hover{
 .popup button,
 .cancelar {
     font-family: inherit;
-    font-size: clamp(0.1rem, 0.7vw, 8rem);
+    font-size: clamp(0.8rem, 2.5vw, 1rem);
     border-radius: 0.8vh;
-    padding: 1vh 2.2vh;
+    padding: max(1vh, 12px) max(2.2vh, 16px);
     cursor: pointer;
     border: none;
     transition: all .3s;
+    min-height: 44px;
 }
 
 .popup .cancelar {
@@ -578,9 +584,9 @@ table .actions button:hover{
 .status label {
     flex: 1;
     text-align: center;
-    padding: 1vh 0;
+    padding: clamp(1vh, 2vw, 1.5vh);
     border-radius: 4vh;
-    font-size:  clamp(0.1rem, 0.8vw, 8rem);
+    font-size: clamp(0.8rem, 2.5vw, 1rem);
     font-weight: 600;
     color: #3942C7;
     cursor: pointer;
@@ -611,7 +617,7 @@ table .actions button:hover{
     border: 0.1vh solid #ccc;
     border-radius: 0.6vh;
     padding: 0.6vh 1.4vh;
-    font-size:  clamp(0.1rem, 0.7vw, 8rem);
+    font-size: clamp(0.8rem, 2.5vw, 1rem);
     cursor: pointer;
     transition: all .2s;
 }
@@ -626,10 +632,10 @@ textarea{
 
 .popup select {
     width: 100%;
-    padding: 1.2vh 1.5vh;
+    padding: max(1vh, 12px);
     border-radius: 1.2vh;
     border: 0.15vh solid #e0e0e0;
-    font-size: clamp(0.1rem, 0.75vw, 8rem);
+    font-size: clamp(0.8rem, 2.5vw, 1rem);
     color: #333;
     background-color: #fff;
     text-align: center;
@@ -640,7 +646,7 @@ textarea{
     margin-bottom: 1.8vh;
 }
 .popup select option{
-    font-size: clamp(0.1rem, 0.75vw, 8rem);
+    font-size: clamp(0.8rem, 2.5vw, 1rem);
 }
 .popup select:focus {
     border-color: #2e5bff;
@@ -968,6 +974,13 @@ textarea{
         background: #7a85d4;
     }
 }
+@media (min-width: 769px) and (max-width: 1024px) {
+    .deletar,
+    .popup {
+        width: 60vw;
+        max-width: 45vh;
+    }
+}
 @media (max-width: 900px) {
     .barra-lateral {
         grid-template-columns: repeat(2, 1fr);
@@ -1024,6 +1037,21 @@ textarea{
     .table-card td form button img {
         width: 20px;
         height: 20px;
+    }
+
+    .deletar,
+    .popup {
+        width: 90vw;
+    }
+
+    .popup {
+        max-height: 85vh;
+        -webkit-overflow-scrolling: touch;
+    }
+    input,
+    select,
+    textarea {
+        font-size: 16px;
     }
 }
 @media (max-width: 479px) {
@@ -1087,5 +1115,27 @@ textarea{
     .table-card td form button img {
         width: 18px !important;
         height: 18px !important;
+    }
+
+    .opcoes {
+        flex-direction: column;
+    }
+
+    .status {
+        flex-direction: column;
+        gap: 0.5vh;
+    }
+
+    .status label {
+        width: 100%;
+    }
+
+    .popup .botoes {
+        flex-direction: column;
+    }
+
+    .popup button,
+    .cancelar {
+        width: 100%;
     }
 }
