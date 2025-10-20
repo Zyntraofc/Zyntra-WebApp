@@ -4,6 +4,7 @@
 <head>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/crud.css">
   <title>Crud Adm - Área restrita</title>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/crud-responsividade.css">
   <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/logos/logo-quadrada.png">
   <script src="${pageContext.request.contextPath}/js/mascara.js" defer></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pap4G5rY9O6..." crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -12,7 +13,7 @@
 <aside>
   <div class="sidebar-header">
     <div class="logo-container">
-      <img src="${pageContext.request.contextPath}/assets/logos/logo-azul.png" alt="logo-aion" class="logo-aion">
+      <img src="${pageContext.request.contextPath}/assets/logos/logo-quadrada.png" alt="logo-aion" class="logo-aion">
       <div class="brand-text">
         <p class="aion">aion</p>
         <h4>Adm</h4>

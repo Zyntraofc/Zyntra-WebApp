@@ -4,13 +4,14 @@
 <head>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/crud.css">
   <title>Crud Indice classificação - Área restrita</title>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/crud-responsividade.css">
   <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/logos/logo-quadrada.png">
 </head>
 <body>
 <aside>
   <div class="sidebar-header">
     <div class="logo-container">
-      <img src="${pageContext.request.contextPath}/assets/logos/logo-azul.png" alt="logo-aion" class="logo-aion">
+      <img src="${pageContext.request.contextPath}/assets/logos/logo-quadrada.png" alt="logo-aion" class="logo-aion">
       <div class="brand-text">
         <p class="aion">aion</p>
         <h4>Índice de Classificação</h4>

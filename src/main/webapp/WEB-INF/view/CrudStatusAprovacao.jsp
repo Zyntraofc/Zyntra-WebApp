@@ -5,13 +5,14 @@
     <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/logos/logo-quadrada.png">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/crud.css">
     <script src="${pageContext.request.contextPath}/js/mascara.js" defer></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/crud-responsividade.css">
     <title>Crud Status Aprovação - Área restrita</title>
 </head>
 <body>
 <aside>
     <div class="sidebar-header">
         <div class="logo-container">
-            <img src="${pageContext.request.contextPath}/assets/logos/logo-azul.png" alt="logo-aion" class="logo-aion">
+            <img src="${pageContext.request.contextPath}/assets/logos/logo-quadrada.png" alt="logo-aion" class="logo-aion">
             <div class="brand-text">
                 <p class="aion">aion</p>
                 <h4>Status de Aprovação</h4>
