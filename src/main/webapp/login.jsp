@@ -36,7 +36,7 @@
             <form action="${pageContext.request.contextPath}/LoginAdministrador" method="post" class="form-fields" name="loginForm">
                 <div class="input-group">
                     <label for="email">E-mail</label>
-                    <input type="email" id="email" name="email" required placeholder="Digite aqui seu e-mail" value="${not empty emailDigitado ? emailDigitado : param.email}">
+                    <input autofocus type="email" id="email" name="email" required placeholder="Digite aqui seu e-mail" value="${not empty emailDigitado ? emailDigitado : param.email}">
                 </div>
 
                 <div class="input-group">
