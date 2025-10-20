@@ -12,7 +12,7 @@
 
 body{
     margin: 0;
-    height: 100vh;
+    min-height: 100vh;
     overflow-y: auto;
     display: flex;
     justify-content: center;
@@ -21,6 +21,8 @@ body{
     width: 100%;
 }
 .tela-transparente{
+    left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
     background-color: grey;
@@ -66,7 +68,7 @@ aside {
 }
 
 .sidebar-header .aion {
-    font-size: clamp(0.1rem, 0.9vw , 5rem);;
+    font-size: clamp(0.1rem, 0.9vw , 5rem);
     font-weight: 700;
     color: #fff;
     margin: 0;
@@ -160,8 +162,7 @@ main {
     display: flex;
     flex-direction: column;
     background-color: #fff;
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: hidden
 }
 
 main h1 {
@@ -419,6 +420,7 @@ table .actions button:hover{
 
 .deletar {
     position: absolute;
+    align-self: center;
     width: 48vh;
     height: 20vh;
     top: 35.5%;
@@ -665,4 +667,434 @@ textarea{
 }
 .status:not(:has(input#recusado:checked)) ~ #motivoRejeicao, .status:not(:has(input#recusado:checked)) ~ label{
     display: none;
+}
+
+@media (max-width: 1750px) {
+    aside {
+        width: 14%;
+        left: 2%;
+        padding: 1.5% 1%;
+    }
+    .logo-container img {
+        height: 6vh;
+        min-height: 55px;
+    }
+    .brand-text .aion {
+        font-size: 1.6vw ;
+    }
+    .brand-text h4 {
+        font-size: 0.9vw;
+    }
+    .sidebar-header hr {
+        margin: 10% 0px;
+        height: 4%;
+    }
+    .barra-lateral .botao {
+        font-size: 1.1vw;
+        padding: 8% 10%;
+    }
+    .barra-lateral .sair-container .sair {
+        font-size: 1.1vw;
+        padding: 8%;
+    }
+    .barra-lateral .sair img {
+        height: 2.5vh;
+    }
+    main {
+        margin-left: 16%;
+    }
+    main h1 {
+        font-size: 2.8vw;
+    }
+    main p {
+        font-size: 1.4vw;
+    }
+    .search-form {
+        max-width: 40%;
+        height: 5.5vh;
+        padding: 0 1vw;
+    }
+    .search-form input {
+        font-size: 1.1vw !important;
+    }
+    .search-form button img {
+        width: 2.2vh;
+    }
+
+    .actions .filtros,
+    .button-adicionar-novo button {
+        height: 5.5vh;
+        font-size: 1.1vw !important;
+        padding: 0 2vw;
+    }
+    .actions .filtros img {
+        height: 1vh;
+    }
+    .button-adicionar-novo img {
+        height: 2.2vh;
+    }
+    .table-card {
+        padding: 2.5vh;
+    }
+    .table-card thead tr th {
+        font-size: 1.3vw;
+    }
+    .table-card tbody td {
+        font-size: 1.2vw;
+        padding: 2.2vh 2.5vh;
+    }
+    .table-card td.actions {
+        width: 15vh;
+    }
+    .table-card td form button img {
+        width: 2.5vh;
+    }
+}@media (max-width: 1024px) {
+    .sidebar-header hr{
+        display: none;
+    }
+    html{
+        overflow: hidden;
+    }
+    body {
+        min-height: 100vh;
+        flex-direction: column;
+        overflow-x: hidden;
+        height: auto;
+        padding: 10px 15px;
+    }
+    .popup{
+        align-self: center;
+    }
+    aside {
+        position: relative;
+        width: 100%;
+        height: auto;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        margin: 10px 0;
+        padding: 20px 25px;
+        flex-shrink: 0;
+        background: linear-gradient(145deg, #8f97ff, #8a87ff);
+    }
+    .logo-container {
+        height: 8vw;
+        width: 8vw;
+        gap: 15px;
+    }
+    .logo-container img {
+        height: 7vw;
+        width: 7vw;
+        flex-shrink: 0;
+    }
+    .brand-text .aion {
+        font-size: 26px;
+    }
+    .brand-text h4 {
+        font-size: 18px;
+    }
+    .barra-lateral {
+        margin-top: 25px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+    .barra-lateral .botao {
+        text-align: center;
+        padding: 14px 10px;
+        font-size: 15px;
+        border-radius: 12px;
+        width: 100%;
+        height: 100%;
+        white-space: nowrap;
+    }
+    .sair-container {
+        grid-column: 1 / -1;
+        margin-top: 10px;
+    }
+    .barra-lateral .sair-container .sair {
+        font-size: 16px;
+        padding: 14px;
+        gap: 10px;
+    }
+    .barra-lateral .sair img {
+        height: 22px;
+        width: 22px;
+    }
+    main {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        margin-left: 0;
+        width: 100%;
+        flex: 1;
+        min-height: 500px;
+        background: #fff;
+        margin-bottom: 15px;
+        overflow: visible;
+    }
+
+    .top-bar {
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+    .search-form {
+        max-width: 70%;
+        order: 2;
+        height: 48px;
+    }
+    .search-form input {
+        font-size: 16px !important;
+    }
+    .search-form button img {
+        width: 22px;
+    }
+    .actions {
+        width: 100%;
+        justify-content: space-between;
+        order: 1;
+        gap: 12px;
+    }
+
+    .actions .filtros,
+    .button-adicionar-novo button {
+        font-size: 15px !important;
+        height: 48px;
+        padding: 0 20px;
+        gap: 8px;
+    }
+
+    .actions .filtros img {
+        height: 14px;
+    }
+
+    .button-adicionar-novo img {
+        height: 22px;
+    }
+    main h1 {
+        font-size: 28px !important;
+    }
+    main p {
+        font-size: 18px !important;
+        text-align: left;
+        margin-bottom: 15px;
+    }
+
+    .table-card {
+        display: block;
+        width: 100%;
+        overflow: visible;
+        border-radius: 2vh;
+        padding: 1.8vh;
+        box-shadow: 0 2vh 5vh rgba(21, 32, 80, 0.06);
+        background: #fff;
+        position: relative;
+    }
+
+    .table-container {
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: visible;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .table-card table {
+        width: auto;
+        min-width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        table-layout: auto;
+    }
+
+    .table-card thead tr th {
+        font-size: 16px !important;
+        padding: 16px 12px;
+        text-align: left;
+        color: #4F59E7;
+        white-space: nowrap;
+        background: #EEF0FF;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    .table-card thead tr th:first-child {
+        border-top-left-radius: 1.2vh;
+    }
+
+    .table-card thead tr th:last-child {
+        border-top-right-radius: 1.2vh;
+    }
+
+    .table-card tbody td {
+        font-size: 15px;
+        text-align: left;
+        border-bottom: 2px solid rgba(100, 100, 160, 0.06);
+        white-space: nowrap;
+        padding: 16px 12px;
+    }
+
+    .table-card td.actions {
+        width: auto;
+        text-align: left;
+        right: 0;
+        background: #fff;
+        z-index: 1;
+    }
+
+    .table-card td.actions > div {
+        gap: 8px;
+        width: fit-content;
+        flex-wrap: nowrap;
+        display: flex;
+        justify-content: center;
+    }
+
+    .table-card td form button img {
+        width: 22px !important;
+        height: 22px !important;
+        display: block;
+    }
+
+    .table-container::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .table-container::-webkit-scrollbar-track {
+        background: #eef0ff;
+        border-radius: 4px;
+    }
+
+    .table-container::-webkit-scrollbar-thumb {
+        background: #939ee7;
+        border-radius: 4px;
+    }
+
+    .table-container::-webkit-scrollbar-thumb:hover {
+        background: #7a85d4;
+    }
+}
+@media (max-width: 900px) {
+    .barra-lateral {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+}
+@media (max-width: 767px) {
+    .logo-container {
+        gap: 10px;
+        height: 7vw;
+        width: 7vw;
+    }
+    .logo-container img {
+        width: 5vh;
+        height: 5vh;
+    }
+    .brand-text h4 {
+        font-size: 15px;
+    }
+    .barra-lateral .botao {
+        font-size: 13px;
+        padding: 12px 6px;
+    }
+    .sair-container {
+        margin-top: 6px;
+    }
+    .barra-lateral .sair-container .sair {
+        font-size: 14px;
+        padding: 12px;
+    }
+    .barra-lateral .sair img {
+        height: 20px;
+        width: 20px;
+    }
+    .top-bar {
+        gap: 12px;
+    }
+    .actions {
+        gap: 10px;
+    }
+    main h1 {
+        font-size: 24px !important;
+    }
+    .table-card thead tr th {
+        font-size: 15px !important;
+    }
+    .table-card tbody td {
+        font-size: 14px !important;
+    }
+    .table-card td.actions > div {
+        gap: 6px;
+        max-width: 110px;
+    }
+    .table-card td form button img {
+        width: 20px;
+        height: 20px;
+    }
+}
+@media (max-width: 479px) {
+    body {
+        padding: 5px 8px;
+    }
+    aside {
+        padding: 40px 20px;
+        border-radius: 10px;
+        margin: 5px 0;
+    }
+    .brand-text .aion {
+        font-size: 20px;
+    }
+    .barra-lateral {
+        margin-top: 40px;
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+    .barra-lateral .botao {
+        font-size: 14px;
+        padding: 14px 10px;
+    }
+    main {
+        padding: 12px;
+        min-height: 400px;
+    }
+    .search-form {
+        max-width: 100%;
+    }
+    .top-bar .actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .actions .filtros,
+    .button-adicionar-novo button {
+        width: 100%;
+        max-width: 100%;
+    }
+    .table-card {
+        padding: 10px;
+    }
+    .table-card thead tr th {
+        padding: 12px 8px;
+    }
+    .table-card thead tr th:last-child {
+        width: 100px;
+    }
+    .table-card tbody td {
+        font-size: 13px !important;
+        padding: 10px 8px;
+    }
+    .table-card td.actions {
+        width: 100px !important;
+        padding: 10px 4px !important;
+    }
+    .table-card td.actions > div {
+        gap: 4px;
+        max-width: 92px;
+    }
+    .table-card td form button img {
+        width: 18px !important;
+        height: 18px !important;
+    }
 }
