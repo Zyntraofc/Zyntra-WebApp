@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/crud.css">
   <script src="${pageContext.request.contextPath}/js/mascara.js" defer></script>
+  <script src="${pageContext.request.contextPath}/js/pesquisa.js"></script>
   <title>Crud Empresa - Área restrita</title>
   <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/logos/logo-quadrada.png">
 </head>
@@ -68,11 +69,9 @@
   <p>CRUD</p>
 
   <div class="top-bar">
-    <form action="" class="search-form">
-      <button type="submit">
+    <form class="search-form">
         <img src="${pageContext.request.contextPath}/assets/icons/icon-lupa.png" alt="Pesquisar">
-      </button>
-      <input type="text" placeholder="Buscar nome...">
+      <input type="text" id="searchbar" name="searchbar" onkeyup="search()" placeholder="Buscar nome...">
 
     </form>
 
@@ -113,9 +112,9 @@
     </thead>
     <tbody>
     <c:forEach var="empresa" items="${empresas}">
-      <tr>
+      <tr class="linhas">
         <td data-label="ID">${empresa.id}</td>
-        <td data-label="Nome">${empresa.nome}</td>
+        <td data-label="Pesquisar">${empresa.nome}</td>
         <td data-label="Email" class="sensivel">${empresa.email}</td>
         <td data-label="CNPJ" class="sensivel">${empresa.cnpj}</td>
         <td data-label="Telefone" class="sensivel">${empresa.telefone}</td>

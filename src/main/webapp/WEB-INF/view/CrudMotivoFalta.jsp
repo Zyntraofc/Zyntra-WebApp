@@ -4,6 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/crud.css">
+    <script src="${pageContext.request.contextPath}/js/pesquisa.js"></script>
     <title>Crud Motivo Falta - Área restrita</title>
     <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/logos/logo-quadrada.png">
 </head>
@@ -69,11 +70,9 @@
     <p>CRUD</p>
 
     <div class="top-bar">
-        <form action="" class="search-form">
-            <button type="submit">
-                <img src="${pageContext.request.contextPath}/assets/icons/icon-lupa.png" alt="Pesquisar">
-            </button>
-            <input type="text" placeholder="Buscar id...">
+        <form class="search-form">
+            <img src="${pageContext.request.contextPath}/assets/icons/icon-lupa.png" alt="Pesquisar">
+            <input id="searchbar" name="searchbar" onkeyup="search()" type="text" placeholder="Buscar id...">
 
         </form>
 
@@ -109,8 +108,8 @@
         </thead>
         <tbody>
         <c:forEach var="motivo" items="${motivos}">
-            <tr>
-                <td>${motivo.id}</td>
+            <tr class="linhas">
+                <td data-label="Pesquisar">${motivo.id}</td>
                 <td>${motivo.motivo}</td>
 
                 <td class="actions">

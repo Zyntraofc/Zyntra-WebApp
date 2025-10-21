@@ -242,7 +242,7 @@ main .top-bar form button {
     justify-content: center;
 }
 
-.search-form button img {
+.search-form img {
     width: 1.8vh;
 }
 
@@ -717,7 +717,7 @@ textarea{
     .search-form input {
         font-size: 1.1vw !important;
     }
-    .search-form button img {
+    .search-form img {
         width: 2.2vh;
     }
 
@@ -849,7 +849,7 @@ textarea{
     .search-form input {
         font-size: 16px !important;
     }
-    .search-form button img {
+    .search-form img {
         width: 22px;
     }
     .actions {

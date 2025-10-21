@@ -4,6 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/crud.css">
+    <script src="${pageContext.request.contextPath}/js/pesquisa.js"></script>
     <title>Crud Tipo Empresa - Área restrita</title>
     <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/logos/logo-quadrada.png">
 </head>
@@ -67,11 +68,9 @@
     <p>CRUD</p>
 
     <div class="top-bar">
-        <form action="" class="search-form">
-            <button type="submit">
-                <img src="${pageContext.request.contextPath}/assets/icons/icon-lupa.png" alt="Pesquisar">
-            </button>
-            <input type="text" placeholder="Buscar nome...">
+        <form class="search-form">
+            <img src="${pageContext.request.contextPath}/assets/icons/icon-lupa.png" alt="Pesquisar">
+            <input id="searchbar" name="searchbar" onkeyup="search()" type="text" placeholder="Buscar nome...">
         </form>
 
         <div class="actions">
@@ -108,9 +107,9 @@
         </thead>
         <tbody>
         <c:forEach var="tipoEmpresa" items="${tiposEmpresa}">
-            <tr>
+            <tr class="linhas">
                 <td>${tipoEmpresa.id}</td>
-                <td>${tipoEmpresa.nome}</td>
+                <td data-label="Pesquisar">${tipoEmpresa.nome}</td>
                 <td>${String.valueOf(tipoEmpresa.status).equals("i") ?"Inativo": "Ativo"}</td>
                 <td>${tipoEmpresa.ultimaAtualizacao}</td>
                 <td class="actionsgit">
