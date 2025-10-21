@@ -111,7 +111,7 @@
 
             <!-- CORREÇÃO: Botão Adicionar Novo dentro do container actions -->
             <form action="${pageContext.request.contextPath}/private/InserirEmpresa" class="button-adicionar-novo">
-                <input type="hidden" name="caminho" value="Empresas">
+                <input type="hidden" name="caminho" value="StatusAprovacao">
                 <button type="submit">
                     <img src="${pageContext.request.contextPath}/assets/icons/icon-add.png" alt="Adicionar">
                     <span>Adicionar Novo</span>
