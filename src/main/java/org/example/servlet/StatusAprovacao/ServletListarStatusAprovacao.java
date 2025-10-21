@@ -13,7 +13,7 @@ import org.example.model.Empresa;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
-
+import org.example.utils.filtros.FiltrosStatusAprovacao;
 @WebServlet("/private/ListarStatusAprovacao")
 public class ServletListarStatusAprovacao extends HttpServlet{
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -26,11 +26,22 @@ public class ServletListarStatusAprovacao extends HttpServlet{
             req.setAttribute("tipos", tipodao.listarTiposEmpresa());
         }
         StatusAprovacaoDAO statusdao = new StatusAprovacaoDAO();
-        List<StatusAprovacao> statuses = statusdao.listarTodosStatusAprovacao();
+        Character statusParaOrdenar = req.getParameter("ordenarStatus") != null && !req.getParameter("ordenarStatus").isEmpty() ? req.getParameter("ordenarStatus").charAt(0) : null;
+        boolean ordenarStatus = statusParaOrdenar != null && (statusParaOrdenar == 'a' || statusParaOrdenar == 'p' || statusParaOrdenar == 'r');
+        String atualizacoesOrdenarString = req.getParameter("ordenarAtualizacoes");
+        boolean ordenarAtualizacoes = false;
+        boolean recente = false;
+        if(atualizacoesOrdenarString != null && !atualizacoesOrdenarString.isEmpty()){
+            ordenarAtualizacoes = true;
+            recente = atualizacoesOrdenarString.equals("2");
+        }
+
+        FiltrosStatusAprovacao filtrar = new FiltrosStatusAprovacao();
+
+        List<StatusAprovacao> statuses = filtrar.ordenarStatusAprovacao(statusdao.listarTodosStatusAprovacao(), ordenarStatus, statusParaOrdenar, ordenarAtualizacoes, recente);
         req.setAttribute("statuses", statuses);
 
         EmpresaDAO empresadao = new EmpresaDAO();
-        // cria um mapa onde a chave é o id do status e o valor é o nome da empresa
         Map<Integer, String> nomesEmpresas = new HashMap<>();
         for (StatusAprovacao s : statuses) {
             Empresa empresa = empresadao.listarEmpresaPorIdStatusAprovacao(s.getId());
