@@ -4,6 +4,7 @@
 <head>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/crud.css">
   <title>Crud Adm - Área restrita</title>
+  <script src="${pageContext.request.contextPath}/js/pesquisa.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/logos/logo-quadrada.png">
   <script src="${pageContext.request.contextPath}/js/mascara.js" defer></script>
@@ -70,11 +71,9 @@
   <p>CRUD</p>
 
   <div class="top-bar">
-    <form action="" class="search-form">
-      <button type="submit">
+    <form class="search-form">
         <img src="${pageContext.request.contextPath}/assets/icons/icon-lupa.png" alt="Pesquisar">
-      </button>
-      <input type="text" placeholder="Buscar email...">
+      <input  id="searchbar" name="searchbar" onkeyup="search()" type="text" placeholder="Buscar email...">
 
     </form>
 
@@ -111,9 +110,9 @@
     </thead>
     <tbody>
     <c:forEach var="administrador" items="${administradores}">
-      <tr>
+      <tr class="linhas">
         <td>${administrador.id}</td>
-        <td>${administrador.email}</td>
+        <td data-label="Pesquisar">${administrador.email}</td>
         <td class="sensivel">${administrador.hashSenha}</td>
         <td class="actions">
           <div style="display: flex">
