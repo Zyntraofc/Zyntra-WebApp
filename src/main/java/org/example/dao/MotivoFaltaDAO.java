@@ -62,7 +62,7 @@ public class MotivoFaltaDAO {
 
     // Metodo para listar todos os motivos de falta
     public List<MotivoFalta> listarMotivosFalta(){
-        String comandoListar = "select * from motivo_falta";//Consulta geral
+        String comandoListar = "select * from motivo_falta order by 1";//Consulta geral
         Connection conn = ConexaoManager.conectar(); // CORREÇÃO: Uso direto do método estático
         List<MotivoFalta> motivosFalta = new ArrayList<>();
         try(Statement stmt = conn.createStatement()){

@@ -186,7 +186,7 @@ public class EmpresaDAO {
     public List<Empresa> listarEmpresas(){
         Connection conn = ConexaoManager.conectar();
         //Comando SQL para listar todas as empresas
-        String comandoListar = "select * from empresa";
+        String comandoListar = "select * from empresa order by 1";
         //Cria lista vazia para armazenar empresas
         List<Empresa> empresas = new ArrayList<>();
         //Cria statement para execução da consulta

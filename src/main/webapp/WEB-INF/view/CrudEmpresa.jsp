@@ -76,10 +76,39 @@
     </form>
 
     <div class="actions">
-      <button class="filtros">
+      <input type="checkbox" id="toggle-filtros" hidden>
+
+      <label for="toggle-filtros" class="filtros">
         <span>Filtros</span>
         <img src="${pageContext.request.contextPath}/assets/icons/icon-circunflexo.png" alt="Filtros">
-      </button>
+      </label>
+
+      <!-- POPUP DOS FILTROS -->
+      <div class="filtros-container">
+        <form action="${pageContext.request.contextPath}/private/ListarEmpresas">
+
+
+          <div class="filtro-item">
+            <label>
+              <input type="checkbox" name="ordenarNome">
+              <span>Ordem alfabética (Nome)</span>
+            </label>
+          </div>
+
+          <div class="filtro-item">
+            <label for="idTipoEmpresa">Tipo de Empresa:</label>
+            <select name="idTipoEmpresa" id="idTipoEmpresa">
+              <option value="">Todas</option>
+              <c:forEach var="tipo" items="${tiposFiltro}">
+                <option value="${tipo.id}">${tipo.nome}</option>
+              </c:forEach>
+            </select>
+          </div>
+
+          <button type="submit" class="botao-filtrar">Aplicar Filtros</button>
+        </form>
+      </div>
+
       <form action="${pageContext.request.contextPath}/private/InserirEmpresa" class="button-adicionar-novo">
         <input type="hidden" name="caminho" value="Empresas">
         <button type="submit">
@@ -98,53 +127,53 @@
   %>
   <section class="table-card">
     <div class="table-container">
-  <table>
-    <thead>
-    <tr>
-      <th>ID</th>
-      <th>Nome</th>
-      <th>Email</th>
-      <th>CNPJ</th>
-      <th>Telefone</th>
-      <th>Tipo de empresa</th>
-      <th>Ações</th>
-    </tr>
-    </thead>
-    <tbody>
-    <c:forEach var="empresa" items="${empresas}">
-      <tr class="linhas">
-        <td data-label="ID">${empresa.id}</td>
-        <td data-label="Pesquisar">${empresa.nome}</td>
-        <td data-label="Email" class="sensivel">${empresa.email}</td>
-        <td data-label="CNPJ" class="sensivel">${empresa.cnpj}</td>
-        <td data-label="Telefone" class="sensivel">${empresa.telefone}</td>
-        <td data-label="Tipo de empresa">${tiposEmpresa[empresa.id]}</td>
+      <table>
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>CNPJ</th>
+          <th>Telefone</th>
+          <th>Tipo de empresa</th>
+          <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach var="empresa" items="${empresas}">
+          <tr class="linhas">
+            <td data-label="ID">${empresa.id}</td>
+            <td data-label="Pesquisar">${empresa.nome}</td>
+            <td data-label="Email" class="sensivel">${empresa.email}</td>
+            <td data-label="CNPJ" class="sensivel">${empresa.cnpj}</td>
+            <td data-label="Telefone" class="sensivel">${empresa.telefone}</td>
+            <td data-label="Tipo de empresa">${tiposEmpresa[empresa.id]}</td>
 
-        <td data-label="Ações" class="actions">
-          <div style="display: flex">
-            <form>
-            <button style="border: none; background: none; cursor: pointer" class="toggleLinha" data-olho="${pageContext.request.contextPath}/assets/icons/icon-olho.png"
-                    data-olho-fechado="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png">
-              <img src="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png" />
-            </button>
-            </form>
-            <form action="${pageContext.request.contextPath}/private/AlterarEmpresa" method="post">
-              <input type="hidden" name="id" value="${empresa.id}">
-              <input type="hidden" name="action" value="0">
-              <button type="submit" style="border: none; background: none; cursor: pointer" > <img src="${pageContext.request.contextPath}/assets/icons/icon-edit.png"></button>
-            </form>
-            <form action="${pageContext.request.contextPath}/private/DeletarEmpresa" method="post">
-              <input type="hidden" name="id" value="${empresa.id}">
-              <input type="hidden" name="caminho" value="Empresas">
-              <input type="hidden" name="action" value="0">
-              <button type="submit" style="border: none; background: none; cursor: pointer" ><img src="${pageContext.request.contextPath}/assets/icons/icon-excluir.png"></button>
-            </form>
-          </div>
-        </td>
-      </tr>
-    </c:forEach>
-    </tbody>
-  </table>
+            <td data-label="Ações" class="actions">
+              <div style="display: flex">
+                <form>
+                  <button style="border: none; background: none; cursor: pointer" class="toggleLinha" data-olho="${pageContext.request.contextPath}/assets/icons/icon-olho.png"
+                          data-olho-fechado="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png">
+                    <img src="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png" />
+                  </button>
+                </form>
+                <form action="${pageContext.request.contextPath}/private/AlterarEmpresa" method="post">
+                  <input type="hidden" name="id" value="${empresa.id}">
+                  <input type="hidden" name="action" value="0">
+                  <button type="submit" style="border: none; background: none; cursor: pointer" > <img src="${pageContext.request.contextPath}/assets/icons/icon-edit.png"></button>
+                </form>
+                <form action="${pageContext.request.contextPath}/private/DeletarEmpresa" method="post">
+                  <input type="hidden" name="id" value="${empresa.id}">
+                  <input type="hidden" name="caminho" value="Empresas">
+                  <input type="hidden" name="action" value="0">
+                  <button type="submit" style="border: none; background: none; cursor: pointer" ><img src="${pageContext.request.contextPath}/assets/icons/icon-excluir.png"></button>
+                </form>
+              </div>
+            </td>
+          </tr>
+        </c:forEach>
+        </tbody>
+      </table>
     </div>
   </section>
 </main>

@@ -77,10 +77,6 @@
         </form>
 
         <div class="actions">
-            <button class="filtros">
-                <span>Filtros</span>
-                <img src="${pageContext.request.contextPath}/assets/icons/icon-circunflexo.png" alt="Filtros">
-            </button>
             <form action="${pageContext.request.contextPath}/private/InserirMotivoFalta" class="button-adicionar-novo">
                 <button type="submit">
                     <img src="${pageContext.request.contextPath}/assets/icons/icon-add.png" alt="Adicionar">

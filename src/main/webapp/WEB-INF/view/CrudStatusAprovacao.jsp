@@ -75,12 +75,43 @@
         </form>
 
         <div class="actions">
-            <button class="filtros">
+            <input type="checkbox" id="toggle-filtros" hidden>
+
+            <label for="toggle-filtros" class="filtros">
                 <span>Filtros</span>
                 <img src="${pageContext.request.contextPath}/assets/icons/icon-circunflexo.png" alt="Filtros">
-            </button>
+            </label>
+
+            <!-- POPUP DOS FILTROS -->
+            <div class="filtros-container">
+                <form action="${pageContext.request.contextPath}/private/ListarStatusAprovacao" method="post">
+
+                    <div class="filtro-item">
+                        <label for="statusesOrdenados">Status: </label>
+                        <select name="ordenarStatus" id="statusesOrdenados">
+                            <option value="">Todas</option>
+                            <option value="a" ${param.ordenarStatus == 'a' ? 'selected' : ''}>Aprovadas</option>
+                            <option value="p" ${param.ordenarStatus == 'p' ? 'selected' : ''}>Pendentes</option>
+                            <option value="r" ${param.ordenarStatus == 'r' ? 'selected' : ''}>Rejeitadas</option>
+                        </select>
+                    </div>
+
+                    <div class="filtro-item">
+                        <label for="atualizacoesOrdenadas">Atualizações: </label>
+                        <select name="ordenarAtualizacoes" id="atualizacoesOrdenadas">
+                            <option value="">Todas</option>
+                            <option value="1" ${param.ordenarAtualizacoes == '1' ? 'selected' : ''}>Recentes</option>
+                            <option value="2" ${param.ordenarAtualizacoes == '2' ? 'selected' : ''}>Antigas</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="botao-filtrar">Aplicar Filtros</button>
+                </form>
+            </div>
+
+            <!-- CORREÇÃO: Botão Adicionar Novo dentro do container actions -->
             <form action="${pageContext.request.contextPath}/private/InserirEmpresa" class="button-adicionar-novo">
-                <input type="hidden" name="caminho" value="StatusAprovacao">
+                <input type="hidden" name="caminho" value="Empresas">
                 <button type="submit">
                     <img src="${pageContext.request.contextPath}/assets/icons/icon-add.png" alt="Adicionar">
                     <span>Adicionar Novo</span>
@@ -88,6 +119,7 @@
             </form>
         </div>
     </div>
+
     <%
         if(request.getAttribute("erro") != null){
     %>
@@ -97,51 +129,53 @@
     %>
     <section class="table-card">
         <div class="table-container">
-        <table>
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nome da Empresa</th>
-            <th>Status</th>
-            <th>Data de Solicitação</th>
-            <th>Ações</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach var="status" items="${statuses}">
-            <tr class="linhas">
-                <td>${status.id}</td>
-                <td data-label="Pesquisar" class="sensivel">${nomesEmpresas[status.id]}</td>
-                <td>${String.valueOf(status.status).equals("a") ? "Aprovado" : String.valueOf(status.status).equals("r") ? "Recusado" : "Pendente"}</td>
-                <td class="sensivel">${status.dataSolicitacao}</td>
-                <td class="actions">
-                    <div style="display: flex">
-                        <form>
-                        <button style="border: none; background: none; cursor: pointer" class="toggleLinha" data-olho="${pageContext.request.contextPath}/assets/icons/icon-olho.png"
-                                data-olho-fechado="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png">
-                            <img src="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png" />
-                        </button>
-                        </form>
-                        <form action="${pageContext.request.contextPath}/private/AlterarStatusAprovacao" method="post">
-                            <input type="hidden" name="id" value="${status.id}">
-                            <input type="hidden" name="action" value="0">
-                            <button type="submit" style="border: none; background: none; cursor: pointer" > <img src="${pageContext.request.contextPath}/assets/icons/icon-edit.png"></button>
-                        </form>
-                        <form action="${pageContext.request.contextPath}/private/DeletarEmpresa" method="post">
-                            <input type="hidden" name="idStatus" value="${status.id}">
-                            <input type="hidden" name="caminho" value="StatusAprovacao">
-                            <input type="hidden" name="action" value="0">
-                            <button type="submit" style="border: none; background: none; cursor: pointer" ><img src="${pageContext.request.contextPath}/assets/icons/icon-excluir.png"></button>
-                        </form>
-                    </div>
-                </td>
-            </tr>
-        </c:forEach>
-        </tbody>
-    </table>
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome da Empresa</th>
+                    <th>Status</th>
+                    <th>Data de Solicitação</th>
+                    <th>Ações</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="status" items="${statuses}">
+                    <tr class="linhas">
+                        <td>${status.id}</td>
+                        <td data-label="Pesquisar" class="sensivel">${nomesEmpresas[status.id]}</td>
+                        <td>${String.valueOf(status.status).equals("a") ? "Aprovado" : String.valueOf(status.status).equals("r") ? "Recusado" : "Pendente"}</td>
+                        <td class="sensivel">${status.dataSolicitacao}</td>
+                        <td class="actions">
+                            <div style="display: flex">
+                                <form>
+                                    <button style="border: none; background: none; cursor: pointer" class="toggleLinha" data-olho="${pageContext.request.contextPath}/assets/icons/icon-olho.png"
+                                            data-olho-fechado="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png">
+                                        <img src="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png" />
+                                    </button>
+                                </form>
+                                <form action="${pageContext.request.contextPath}/private/AlterarStatusAprovacao" method="post">
+                                    <input type="hidden" name="id" value="${status.id}">
+                                    <input type="hidden" name="action" value="0">
+                                    <button type="submit" style="border: none; background: none; cursor: pointer" > <img src="${pageContext.request.contextPath}/assets/icons/icon-edit.png"></button>
+                                </form>
+                                <form action="${pageContext.request.contextPath}/private/DeletarEmpresa" method="post">
+                                    <input type="hidden" name="idStatus" value="${status.id}">
+                                    <input type="hidden" name="caminho" value="StatusAprovacao">
+                                    <input type="hidden" name="action" value="0">
+                                    <button type="submit" style="border: none; background: none; cursor: pointer" ><img src="${pageContext.request.contextPath}/assets/icons/icon-excluir.png"></button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
         </div>
     </section>
 </main>
+
+<!-- Restante do código permanece igual -->
 <% if (request.getAttribute("popup-deletar") != null) { %>
 <div class="tela-transparente"></div>
 <div class="deletar">

@@ -87,7 +87,7 @@ public class AdministradorDAO {
     // Metodo para listar todos os administradores
     public List<Administrador> listarAdministradores() {
         List<Administrador> administradores = new ArrayList<>();
-        String comandoListar = "SELECT * FROM Administrador";
+        String comandoListar = "SELECT * FROM Administrador order by 1";
         Connection conn = ConexaoManager.conectar();
 
         try (PreparedStatement pstmt = conn.prepareStatement(comandoListar);

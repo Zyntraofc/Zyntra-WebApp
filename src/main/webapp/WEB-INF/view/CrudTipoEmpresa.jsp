@@ -74,10 +74,40 @@
         </form>
 
         <div class="actions">
-            <button class="filtros">
+            <input type="checkbox" id="toggle-filtros" hidden>
+
+            <label for="toggle-filtros" class="filtros">
                 <span>Filtros</span>
                 <img src="${pageContext.request.contextPath}/assets/icons/icon-circunflexo.png" alt="Filtros">
-            </button>
+            </label>
+
+            <!-- POPUP DOS FILTROS -->
+            <div class="filtros-container">
+                <form action="${pageContext.request.contextPath}/private/ListarTipoEmpresa" method="post">
+
+                    <div class="filtro-item">
+                        <label for="statusesOrdenados">Status: </label>
+                        <select name="ordenarStatus" id="statusesOrdenados">
+                            <option value="">Todas</option>
+                            <option value="a" ${param.ordenarStatus == 'a' ? 'selected' : ''}>Ativas</option>
+                            <option value="p" ${param.ordenarStatus == 'i' ? 'selected' : ''}>Inativas</option>
+                        </select>
+                    </div>
+
+                    <div class="filtro-item">
+                        <label for="atualizacoesOrdenadas">Últimas atualizações: </label>
+                        <select name="ordenarAtualizacoes" id="atualizacoesOrdenadas">
+                            <option value="">Todas</option>
+                            <option value="1" ${param.ordenarAtualizacoes == '1' ? 'selected' : ''}>Recentes</option>
+                            <option value="2" ${param.ordenarAtualizacoes == '2' ? 'selected' : ''}>Antigas</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="botao-filtrar">Aplicar Filtros</button>
+                </form>
+            </div>
+
+            <!-- CORREÇÃO: Botão Adicionar Novo dentro do container actions -->
             <form action="${pageContext.request.contextPath}/private/InserirTipoEmpresa" class="button-adicionar-novo">
                 <button type="submit">
                     <img src="${pageContext.request.contextPath}/assets/icons/icon-add.png" alt="Adicionar">
