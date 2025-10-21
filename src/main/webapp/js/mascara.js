@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
         celulas.forEach(td => {
             const valorOriginal = td.textContent.trim();
             td.dataset.original = valorOriginal;
-            td.textContent = valorOriginal.replace(/./g, '*'); // começa com asteriscos
+            td.textContent = valorOriginal.replace(/./g, '•'); // começa com asteriscos
         });
     });
 
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             celulas.forEach(td => {
                 td.textContent = oculto
                     ? td.dataset.original // mostra texto
-                    : td.dataset.original.replace(/./g, '*'); // esconde
+                    : td.dataset.original.replace(/./g, '•'); // esconde
             });
 
             // troca ícone e estado
