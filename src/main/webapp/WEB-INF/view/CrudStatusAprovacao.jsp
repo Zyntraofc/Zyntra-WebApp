@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/logos/logo-quadrada.png">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/crud.css">
+    <script src="${pageContext.request.contextPath}/js/pesquisa.js"></script>
     <script src="${pageContext.request.contextPath}/js/mascara.js" defer></script>
     <title>Crud Status Aprovação - Área restrita</title>
 </head>
@@ -68,11 +69,9 @@
     <p>CRUD</p>
 
     <div class="top-bar">
-        <form action="" class="search-form">
-            <button type="submit">
+        <form class="search-form">
                 <img src="${pageContext.request.contextPath}/assets/icons/icon-lupa.png" alt="Pesquisar">
-            </button>
-            <input type="text" placeholder="Buscar nome...">
+            <input id="searchbar" name="searchbar" onkeyup="search()" type="text" placeholder="Buscar nome...">
         </form>
 
         <div class="actions">
@@ -142,9 +141,9 @@
                 </thead>
                 <tbody>
                 <c:forEach var="status" items="${statuses}">
-                    <tr>
+                    <tr class="linhas">
                         <td>${status.id}</td>
-                        <td class="sensivel">${nomesEmpresas[status.id]}</td>
+                        <td data-label="Pesquisar" class="sensivel">${nomesEmpresas[status.id]}</td>
                         <td>${String.valueOf(status.status).equals("a") ? "Aprovado" : String.valueOf(status.status).equals("r") ? "Recusado" : "Pendente"}</td>
                         <td class="sensivel">${status.dataSolicitacao}</td>
                         <td class="actions">

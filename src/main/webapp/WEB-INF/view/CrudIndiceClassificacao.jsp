@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/crud.css">
   <title>Crud Indice classificação - Área restrita</title>
+  <script src="${pageContext.request.contextPath}/js/pesquisa.js"></script>
   <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/logos/logo-quadrada.png">
 </head>
 <body>
@@ -67,11 +68,9 @@
   <p>CRUD</p>
 
   <div class="top-bar">
-    <form action="" class="search-form">
-      <button type="submit" >
+    <form class="search-form">
         <img src="${pageContext.request.contextPath}/assets/icons/icon-lupa.png" alt="Pesquisar">
-      </button>
-      <input type="text" placeholder="Buscar %...">
+      <input type="text" id="searchbar" name="searchbar" onkeyup="search()" placeholder="Buscar %...">
 
     </form>
 
@@ -104,10 +103,10 @@
     </thead>
     <tbody>
     <c:forEach var="indiceClassificacao" items="${indicesClassificacao}">
-      <tr>
+      <tr class="linhas">
         <td>${indiceClassificacao.id}</td>
         <td>${indiceClassificacao.preocupacao}</td>
-        <td>${indiceClassificacao.porcentagemMinima} - ${indiceClassificacao.porcentagemMaxima}%</td>
+        <td data-label="Pesquisar">${indiceClassificacao.porcentagemMinima} - ${indiceClassificacao.porcentagemMaxima}%</td>
         <td class="actions">
           <div style="display: flex">
             <form action="${pageContext.request.contextPath}/private/AlterarIndiceClassificacao" method="post">
