@@ -105,7 +105,7 @@ public class StatusAprovacaoDAO {
 
     //Metodo para listar todos os status de aprovacao
     public List<StatusAprovacao> listarTodosStatusAprovacao() {
-        String comandoListar = "select * from status_aprovacao";//Comando SQL para listar todos
+        String comandoListar = "select * from status_aprovacao order by 1";//Comando SQL para listar todos
         Connection conn = ConexaoManager.conectar();//Conecta ao banco de dados
         List<StatusAprovacao> statusAprovacao = new ArrayList<>();//Lista para armazenar resultados
 

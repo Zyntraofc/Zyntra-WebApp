@@ -73,7 +73,7 @@ public class TipoEmpresaDAO {
 
     // Metodo para listar todos os tipos de empresa
     public List<TipoEmpresa> listarTiposEmpresa(){
-        String comandoListar = "select * from tipo_empresa";
+        String comandoListar = "select * from tipo_empresa order by 1";
         Connection conn = ConexaoManager.conectar();
         List<TipoEmpresa> tiposEmpresa = new ArrayList<>();
         try(Statement stmt = conn.createStatement()){

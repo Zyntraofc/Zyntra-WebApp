@@ -69,37 +69,10 @@ public class IndiceClassificacaoDAO {
         }
     }
 
-    //Metodo para listar um indice de classificacao específico pelo percentual
-    public IndiceClassificacao listarIndiceClassificacaoPorPercentual(double percentual){
-        String comandoListar = "select * from indice_classificacao where ? between porcentagem_minima and porcentagem_maxima";//Comando SQL para buscar por percentual
-        Connection conn = ConexaoManager.conectar();//Conecta ao banco de dados
-        try(PreparedStatement pstmt = conn.prepareStatement(comandoListar)){//Prepara o comando SQL
-            pstmt.setDouble(1, percentual);//Atribui o percentual ao parâmetro
-
-            ResultSet rs = pstmt.executeQuery();//Executa a consulta
-            if(rs.next()){//Se encontrar resultado
-                IndiceClassificacao indice = new IndiceClassificacao(//Cria objeto com dados do banco
-                        rs.getString("recomendacao"),
-                        rs.getString("preocupacao"),
-                        rs.getDouble("porcentagem_minima"),
-                        rs.getDouble("porcentagem_maxima")
-                );
-                indice.setId(rs.getInt("id_indice_classificacao"));//Define o ID do banco
-                ConexaoManager.commit();
-                return indice;//Retorna o índice encontrado
-            }
-            ConexaoManager.commit();
-            return null;//Retorna null se não encontrado
-        }catch(SQLException sqle){
-            ConexaoManager.rollback();
-            sqle.printStackTrace();//Imprime erro
-            return null;//Retorna null em caso de erro
-        }
-    }
 
     //Metodo para listar todos os indices de classificacao
     public List<IndiceClassificacao> listarIndicesClassificacao(){
-        String comandoListar = "select * from indice_classificacao";//Comando SQL para listar todos
+        String comandoListar = "select * from indice_classificacao order by 1";//Comando SQL para listar todos
         Connection conn = ConexaoManager.conectar();//Conecta ao banco de dados
         List<IndiceClassificacao> indicesClassificacao = new ArrayList<>();//Lista para armazenar resultados
         try(Statement stmt = conn.createStatement()){//Cria statement para consulta
