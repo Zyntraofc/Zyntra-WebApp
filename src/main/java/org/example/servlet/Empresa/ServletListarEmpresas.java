@@ -33,7 +33,7 @@ public class ServletListarEmpresas extends HttpServlet{
             req.setAttribute("tipos", tipodao.listarTiposEmpresa());
         }
 
-        String idTipoParam = req.getParameter("idTipoEmpresa");
+        String idTipoParam = req.getParameter("idTipoEmpresaFiltro");
 
         boolean ordenarNome = req.getParameter("ordenarNome") != null;
         boolean ordenarTipoEmpresa = idTipoParam != null && !idTipoParam.isEmpty();

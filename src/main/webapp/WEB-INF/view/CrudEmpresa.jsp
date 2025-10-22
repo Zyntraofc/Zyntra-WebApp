@@ -103,7 +103,7 @@
 
           <div class="filtro-item">
             <label for="idTipoEmpresaFiltro">Tipo de Empresa:</label>
-            <select name="idTipoEmpresa" id="idTipoEmpresaFiltro">
+            <select name="idTipoEmpresaFiltro" id="idTipoEmpresaFiltro">
               <option value="">Todas</option>
               <c:forEach var="tipo" items="${tiposFiltro}">
                 <option value="${tipo.id}">${tipo.nome}</option>
