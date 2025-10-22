@@ -46,29 +46,17 @@ public class ServletListarEmpresas extends HttpServlet{
 
         EmpresaDAO empresadao = new EmpresaDAO();
         List<Empresa> empresas = empresadao.listarEmpresas();
-        req.setAttribute("empresas", filtrar.ordenarEmpresa(empresas, ordenarNome, ordenarTipoEmpresa, idTipoEmpresaOrdenacao));
-
-
-
-
+        List<Empresa> empresasFiltradas = filtrar.ordenarEmpresa(empresas, ordenarNome, ordenarTipoEmpresa, idTipoEmpresaOrdenacao);
+        req.setAttribute("empresas", empresasFiltradas);
+        
         Map<Integer, String> tiposEmpresa = new HashMap<>();
-        for (Empresa e : empresas) {
+        for (Empresa e : empresasFiltradas) {
             String tipoEmpresa = tipodao.listarTipoEmpresaPorId(e.getIdTipoEmpresa()).getNome();
             tiposEmpresa.put(e.getId(), tipoEmpresa);
         }
+        
         req.setAttribute("tiposEmpresa", tiposEmpresa);
-
-
         req.setAttribute("tiposFiltro", tipodao.listarTiposEmpresa());
-
-        if (req.getAttribute("popup-alterar")!=null) {
-            IndiceClassificacaoDAO indicedao = new IndiceClassificacaoDAO();
-            req.setAttribute("statuses", indicedao.listarIndicesClassificacao());
-        }
-        if (req.getAttribute("popup-alterar")!=null || req.getAttribute("popup-inserir")!=null){
-            req.setAttribute("tipos", tipodao.listarTiposEmpresa());
-        }
-
         req.getRequestDispatcher("/WEB-INF/view/CrudEmpresa.jsp").forward(req, resp);
     }
     public void destroy(){
