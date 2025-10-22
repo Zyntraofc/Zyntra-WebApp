@@ -96,17 +96,17 @@
 
           <div class="filtro-item">
             <label>
-              <input type="checkbox" name="ordenarNome">
+              <input type="checkbox" name="ordenarNome" ${ordenarNome ? 'checked' : ''}>
               <span>Ordem alfabética (Nome)</span>
             </label>
           </div>
 
           <div class="filtro-item">
             <label for="idTipoEmpresaFiltro">Tipo de Empresa:</label>
-            <select name="idTipoEmpresa" id="idTipoEmpresaFiltro">
+            <select name="idTipoEmpresaFiltro" id="idTipoEmpresaFiltro">
               <option value="">Todas</option>
               <c:forEach var="tipo" items="${tiposFiltro}">
-                <option value="${tipo.id}">${tipo.nome}</option>
+                <option ${tipo.id == idTipoEmpresaFiltro ? 'selected' : ''} value="${tipo.id}">${tipo.nome}</option>
               </c:forEach>
             </select>
           </div>
