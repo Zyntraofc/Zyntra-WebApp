@@ -34,23 +34,28 @@ public class ServletListarEmpresas extends HttpServlet{
         }
 
         String idTipoParam = req.getParameter("idTipoEmpresaFiltro");
+        boolean ordenarNome;
 
-        boolean ordenarNome = req.getParameter("ordenarNome") != null;
+        if (req.getParameter("ordenarNome") != null){
+            ordenarNome = true;
+            req.setAttribute("ordenarNome", true);
+        }else ordenarNome= false;
+
         boolean ordenarTipoEmpresa = idTipoParam != null && !idTipoParam.isEmpty();
+        Integer idTipoEmpresaOrdenacao;
+        if(idTipoParam != null && !idTipoParam.isEmpty()){
+            idTipoEmpresaOrdenacao = Integer.parseInt(idTipoParam);
+            req.setAttribute("idTipoEmpresaFiltro", idTipoEmpresaOrdenacao);
+        } else idTipoEmpresaOrdenacao = null;
 
-        Integer idTipoEmpresaOrdenacao = (idTipoParam != null && !idTipoParam.isEmpty())
-                ? Integer.parseInt(idTipoParam)
-                : null;
 
         FiltrosEmpresa filtrar = new FiltrosEmpresa();
-
         EmpresaDAO empresadao = new EmpresaDAO();
         List<Empresa> empresas = empresadao.listarEmpresas();
-        List<Empresa> empresasFiltradas = filtrar.ordenarEmpresa(empresas, ordenarNome, ordenarTipoEmpresa, idTipoEmpresaOrdenacao);
-        req.setAttribute("empresas", empresasFiltradas);
+        req.setAttribute("empresas", filtrar.ordenarEmpresa(empresas, ordenarNome, ordenarTipoEmpresa, idTipoEmpresaOrdenacao));
 
         Map<Integer, String> tiposEmpresa = new HashMap<>();
-        for (Empresa e : empresasFiltradas) {
+        for (Empresa e : empresas) {
             String tipoEmpresa = tipodao.listarTipoEmpresaPorId(e.getIdTipoEmpresa()).getNome();
             tiposEmpresa.put(e.getId(), tipoEmpresa);
         }
