@@ -76,17 +76,23 @@
     </form>
 
     <div class="actions">
-      <input type="checkbox" id="toggle-filtros" hidden>
+      <input type="checkbox" id="toggle-filtros">
 
       <label for="toggle-filtros" class="filtros">
         <span>Filtros</span>
         <img src="${pageContext.request.contextPath}/assets/icons/icon-circunflexo.png" alt="Filtros">
       </label>
 
+      <label for="toggle-filtros" class="filtros-overlay"></label>
+
+
       <!-- POPUP DOS FILTROS -->
       <div class="filtros-container">
+        <div class="filtros-header">
+          <h3 class="filtros-titulo">Filtros</h3>
+        </div>
         <form action="${pageContext.request.contextPath}/private/ListarEmpresas">
-
+          <div class="filtro-section">
 
           <div class="filtro-item">
             <label>
@@ -103,6 +109,7 @@
                 <option value="${tipo.id}">${tipo.nome}</option>
               </c:forEach>
             </select>
+          </div>
           </div>
 
           <button type="submit" class="botao-filtrar">Aplicar Filtros</button>
