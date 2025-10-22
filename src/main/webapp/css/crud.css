@@ -1160,14 +1160,14 @@ textarea{
     width: 35vh;
     box-shadow: 0 1vh 3vh rgba(0, 0, 0, 0.15);
     z-index: 3;
-    animation: fadeIn 0.3s ease;
+    animation: fadeIn 0.7s ease;
 }
 .filtros-container form{
     display: flex;
     flex-direction: column;
 }
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-1vh); }
+    from { opacity: 0; transform: translateY(-10vh); }
     to { opacity: 1; transform: translateY(0); }
 }
 
@@ -1270,15 +1270,12 @@ textarea{
 
 @media (max-width: 768px) {
     .filtros-container {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        height: 40vh;
         width: 90%;
         max-width: 40vh;
-        max-height: 80vh;
-        overflow-y: auto;
-        margin-top: 0;
     }
 
     #toggle-filtros:checked ~ .filtros-overlay {
