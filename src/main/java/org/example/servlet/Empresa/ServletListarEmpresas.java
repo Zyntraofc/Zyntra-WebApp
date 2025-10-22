@@ -48,13 +48,13 @@ public class ServletListarEmpresas extends HttpServlet{
         List<Empresa> empresas = empresadao.listarEmpresas();
         List<Empresa> empresasFiltradas = filtrar.ordenarEmpresa(empresas, ordenarNome, ordenarTipoEmpresa, idTipoEmpresaOrdenacao);
         req.setAttribute("empresas", empresasFiltradas);
-        
+
         Map<Integer, String> tiposEmpresa = new HashMap<>();
         for (Empresa e : empresasFiltradas) {
             String tipoEmpresa = tipodao.listarTipoEmpresaPorId(e.getIdTipoEmpresa()).getNome();
             tiposEmpresa.put(e.getId(), tipoEmpresa);
         }
-        
+
         req.setAttribute("tiposEmpresa", tiposEmpresa);
         req.setAttribute("tiposFiltro", tipodao.listarTiposEmpresa());
         req.getRequestDispatcher("/WEB-INF/view/CrudEmpresa.jsp").forward(req, resp);

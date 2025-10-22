@@ -81,9 +81,17 @@
                 <img src="${pageContext.request.contextPath}/assets/icons/icon-circunflexo.png" alt="Filtros">
             </label>
 
+            <label for="toggle-filtros" class="filtros-overlay"></label>
+
+
             <!-- POPUP DOS FILTROS -->
             <div class="filtros-container">
+                <div class="filtros-header">
+                    <h3 class="filtros-titulo">Filtros</h3>
+                </div>
                 <form action="${pageContext.request.contextPath}/private/ListarTipoEmpresa" method="post">
+                    <div class="filtro-section">
+
 
                     <div class="filtro-item">
                         <label for="statusesOrdenados">Status: </label>
@@ -101,6 +109,7 @@
                             <option value="1" ${param.ordenarAtualizacoes == '1' ? 'selected' : ''}>Recentes</option>
                             <option value="2" ${param.ordenarAtualizacoes == '2' ? 'selected' : ''}>Antigas</option>
                         </select>
+                    </div>
                     </div>
 
                     <button type="submit" class="botao-filtrar">Aplicar Filtros</button>
