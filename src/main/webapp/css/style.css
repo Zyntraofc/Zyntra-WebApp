@@ -523,6 +523,52 @@ main {
 }
 
 
+
+/*Benefit-card2*/
+/* Cartões de benefícios */
+.benefit-card2 {
+    transition: box-shadow 0.3s;
+    box-shadow: 0px 0px 0px 0px white;
+    cursor: pointer;
+    border-radius: 25px;
+}
+
+.benefit-card2 img {
+    margin-left: 20px;
+    margin-top: 50px;
+}
+
+.benefit-card2 h3 {
+    margin-top: 10px;
+    margin-left: 30px;
+    width: 394.82px;
+    height: 59px;
+    color: #6e77ff;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgba(0, 0, 0, 0.00);
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 30px;
+    letter-spacing: -0.32px;
+}
+
+.benefit-card2 p {
+    margin-left: 30px;
+    width: 410.865px;
+    height: 119px;
+    flex-shrink: 0;
+    color: rgb(110, 119, 255);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgba(0, 0, 0, 0.00);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 23px;
+    letter-spacing: -0.32px;
+}
+
+.benefit-card2:hover {
+    box-shadow: -1px -1px 2px rgba(112, 144, 176, 0.02), 10px 14px 28px rgba(112, 144, 176, 0.4);
+}
 /* ===== SEÇÃO DO APLICATIVO MOBILE ===== */
 /* 
  * SEÇÃO DO APLICATIVO PARA DISPOSITIVOS MÓVEIS
