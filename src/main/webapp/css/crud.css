@@ -1275,6 +1275,7 @@ textarea{
         margin: auto;
         height: 40vh;
         width: 90%;
+        max-height: 240px;
         max-width: 40vh;
     }
 
