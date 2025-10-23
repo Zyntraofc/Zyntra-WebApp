@@ -156,10 +156,6 @@
         margin-top: 400px;
     }
     
-    #rectangle {
-        margin-top: 200px;
-    }
-    
     .platform-image {
         margin-top: -50px;
     }
@@ -284,10 +280,6 @@
     
     .platform-image {
         height: auto;
-    }
-    
-    #rectangle {
-        display: none;
     }
     
     #app-presentation {

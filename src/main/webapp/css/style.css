@@ -22,6 +22,7 @@ img{
  * Configurações gerais da página
  */
 body {
+    background-color: white;
     margin: auto;
     max-width: 2030px;
     overflow-x: hidden;
@@ -422,7 +423,12 @@ main {
     color: #3A47FF;
 }
 
-#plataform > a {
+.button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.button-container .platform-button {
     width: 267px;
     height: 59px;
     margin-bottom: 105px;
@@ -431,7 +437,7 @@ main {
     border: 2px solid #3A47FF;
 }
 
-#plataform > a > p {
+.button-container .platform-button p {
     text-align: center;
     font-weight: 600;
     line-height: 60px;
@@ -470,7 +476,12 @@ main {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 114px;
 }
-
+.info .vantagens{
+    background-color: white;
+}
+#principles .info .vantagens{
+    background-color: #99A0FF;
+}
 .info {
     display: flex;
     justify-content: center;
@@ -641,14 +652,6 @@ input:checked + .option-background {
 
 #app-options:has(input#justificativa:checked) ~ #app-presentation {
     transform: translateX(-30%);
-}
-
-#rectangle {
-    background: linear-gradient(0deg, #FFF 89.86%, rgba(255, 255, 255, 0.00) 100%);
-    width: 100%;
-    position: absolute;
-    height: 400px;
-    top: 2325px;
 }
 
 /* Notificação no aplicativo */
@@ -1011,4 +1014,9 @@ footer .brand-container {
     list-style: none;
     gap: 70px;
     display: flex;
+}
+
+.no-aos {
+    transform: none !important;
+    opacity: 1 !important;
 }
