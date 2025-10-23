@@ -1015,8 +1015,3 @@ footer .brand-container {
     gap: 70px;
     display: flex;
 }
-
-.no-aos {
-    transform: none !important;
-    opacity: 1 !important;
-}

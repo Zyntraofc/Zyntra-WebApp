@@ -1311,3 +1311,12 @@ textarea{
 #toggle-filtros:checked ~ .filtros img {
     transform: rotate(180deg);
 }
+
+.validar-input:valid:not(:focus){
+    border-color: #3ccf4e;
+    box-shadow: 0 0 5px #3ccf4e50;
+}
+input:user-invalid:not(:focus):not(:placeholder-shown) {
+    border-color: #ff4d4d;
+    box-shadow: 0 0 5px #ff4d4d50;
+}
