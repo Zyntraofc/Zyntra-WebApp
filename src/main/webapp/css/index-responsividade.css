@@ -156,10 +156,6 @@
         margin-top: 400px;
     }
     
-    #rectangle {
-        margin-top: 200px;
-    }
-    
     .platform-image {
         margin-top: -50px;
     }
@@ -209,6 +205,9 @@
     /* Troca de elementos visuais */
     #visual-improvisado {
         display: none;
+    }
+    #visual-improvisado2 {
+        display: inline;
     }
     
     .app-screen .right-text {
@@ -286,10 +285,6 @@
         height: auto;
     }
     
-    #rectangle {
-        display: none;
-    }
-    
     #app-presentation {
         top: 3620px;
     }
@@ -311,12 +306,7 @@
 
 /* Tablet (1024px) */
 @media screen and (max-width: 1024px) {
-    #visual-improvisado2 {
-        display: inline;
-    }
-    #visual-improvisado{
-        display: none;
-    }
+
     #ajuda-visual {
         display: none;
     }

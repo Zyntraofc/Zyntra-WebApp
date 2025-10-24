@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.75, maximum-scale=0.75, user-scalable=no">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/index-responsividade.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="assets/logos/logo-quadrada.png">
     <script src="js/header.js" defer></script>
+
     <title>aion</title>
 </head>
 <body>
@@ -17,14 +20,14 @@
             <img src="assets/logos/logo-azul.png" alt="Logo Aion" class="brand-logo">
             <p class="brand-name">aion</p>
         </section>
-        
+
         <section class="navigation-container">
             <ol class="navigation-menu" id="navigation-menu">
                 <div>
                     <li><a href="#main" class="nav-item inicio"><p class="nav-link">Início</p></a>
                     <div class="active-indicator"></div></li>
                 </div>
-                
+
                 <div>
                     <li><a href="#plataform" class="nav-item plataforma"><p class="nav-link">Plataforma</p></a>
                     <div class="active-indicator"></div></li>
@@ -42,25 +45,25 @@
             </ol>
         </section>
 
-        
+
         <section class="auth-buttons">
             <a href=""><p class="login-button">Notícias</p></a>
-            <a href="https://ms-aion-react-v1.onrender.com/"><button class="signup-button"><p>Começe já</p></button></a>
+            <a href="https://ms-aion-react-v1.onrender.com/"><button class="signup-button"><p>Entrar</p></button></a>
         </section>
     </header>
-    
+
     <!-- Seção principal com chamada para ação -->
     <main id="main">
 
         <div class="visual-support"></div>
-        <section class="hero-content">
+        <section class="hero-content" data-aos="fade-right">
             <div class="hero-title"><h1 class="hero-highlight">Entenda o <span class="hero-accent">tempo</span> e transforme a <span class="hero-accent">presença</span></h1></div>
             <div>
             <article class="hero-description"><p>Monitore estrategicamente a presença das equipes e transforme dados em decisões que fortalecem a gestão e promovem a saúde organizacional.</p></article>
-            <a href="https://ms-aion-react-v1.onrender.com/"><button class="cta-button">
+            <a href="https://ms-aion-react-v1.onrender.com/" class="cta-button">
                 <p>Começe agora</p>
                 <img src="assets/icons/icon-entrar.png" alt="Ícone de entrar" class="cta-icon">
-            </button></a>
+            </a>
             </div>
         </section>
 
@@ -79,46 +82,50 @@
 
     <!-- Seção da plataforma -->
     <section id="plataform">
-        <div class="section-title"><h2>Transforme a Gestão de Pessoas<br>em Algo <span class="text-accent"> Simples, Visual e Estratégico</span></h2></div>
+        <div class="section-title" data-aos="fade-down" data-aos-duration="1000"><h2>Transforme a Gestão de Pessoas<br>em Algo <span class="text-accent"> Simples, Visual e Estratégico</span></h2></div>
 
-        <p>Com o Aion, o RH acompanha o desempenho de colaboradores, departamentos e da empresa, organiza justificativas de ausência e identifica padrões em dashboards inteligentes. Tudo para estar mais próximo de cada colaborador, com transparência, reconhecimento e uma gestão clara e assertiva.</p>
+        <p data-aos="fade-up" data-aos-delay="200">Com o Aion, o RH acompanha o desempenho de colaboradores, departamentos e da empresa, organiza justificativas de ausência e identifica padrões em dashboards inteligentes. Tudo para estar mais próximo de cada colaborador, com transparência, reconhecimento e uma gestão clara e assertiva.</p>
 
-        <a href=""><p>Conhecer Plataforma</p></a>
+        <div class="button-container" data-aos="fade-up" data-aos-delay="400">
+            <a href=""  class="platform-button"><p>Conhecer Plataforma</p></a>
+        </div>
 
-        <div class="platform-image"><img src="assets/plataforma.png" alt="Imagem da plataforma">
-        <div id="rectangle"></div></div>
+        <div class="platform-image" data-aos="zoom-in" data-aos-delay="600"><img src="assets/plataforma.png" alt="Imagem da plataforma"></div>
     </section>
 
     <!-- Seção de vantagens -->
     <section class="info">
         <section class="vantagens">
-            <div class="benefit-card">
-                <img src="assets/icons/icon-agil.png" alt="Ícone de agilidade">
+            <div class="benefit-card first" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                <img src="assets/icons/icon-agil.png" alt="Ícone de agilidade" class="normal-icon">
+                <img src="assets/icons/icon-agil-branco.png" alt="Ícone de agilidade" class="white-icon">
                 <h3>Agilidade nas decisões</h3>
                 <p>Acesse informações em tempo real para tomar decisões rápidas e estratégicas sobre a gestão de pessoas.</p>
             </div>
-            <div class="benefit-card">
-                <img src="assets/icons/icon-equipe.png" alt="Ícone de equipe">
+            <div class="benefit-card first" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-delay="200">
+                <img src="assets/icons/icon-equipe.png" alt="Ícone de equipe" class="normal-icon">
+                <img src="assets/icons/icon-equipe-branco.png" alt="Ícone de equipe" class="white-icon">
                 <h3>Integração com a equipe</h3>
                 <p>Facilite a comunicação entre RH, líderes e colaboradores, fortalecendo a clareza no dia a dia.</p>
             </div>
-            <div class="benefit-card">
-                <img src="assets/icons/icon-notification.png" alt="Ícone de notificação">
+            <div class="benefit-card first" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-delay="400">
+                <img src="assets/icons/icon-notification.png" alt="Ícone de notificação" class="normal-icon">
+                <img src="assets/icons/icon-notification-branco.png" alt="Ícone de notificação" class="white-icon">
                 <h3>Alertas e notificações</h3>
                 <p>Receba lembretes sobre prazos, aprovações e pendências em tempo real.</p>
             </div>
         </section>
     </section>
-    
+
     <!-- Seção do aplicativo mobile -->
     <section id="celulares">
-        <form id="app-options">
+        <form id="app-options" data-aos="fade-down">
             <input type="radio" checked id="dates" name="option">
-            <div class="option-background">            
+            <div class="option-background">
                 <label for="dates"><p>Calendário</p></label>
             </div>
 
-            <input type="radio" id="justificativa" checked name="option">
+            <input type="radio" id="justificativa" name="option">
             <div class="option-background">
                 <label for="justificativa"><p>Justificativa</p></label>
             </div>
@@ -130,7 +137,7 @@
         </form>
 
         <section id="app-presentation">
-            <div class="app-screen calendario">
+            <div class="app-screen calendario" data-aos="fade-left">
                 <article>
                     <h2><span id="visual-improvisado">Acompanhe</span> <span id="visual-improvisado2">Veja</span> a sua <span class="text-blue">jornada</span></h2>
                     <p>Visualize seu histórico de presenças e faltas com total clareza.</p>
@@ -138,7 +145,7 @@
                 <img src="assets/celulares/cell-calendario.png" alt="Calendário do aplicativo">
                 <p class="right-text">Através de um calendário intuitivo que destaca cada registro e facilita o acompanhamento da sua jornada.</p>
             </div>
-            <div class="app-screen justificativa">
+            <div class="app-screen justificativa" >
                 <div>
                     <img src="assets/celulares/cell-justificativa.png" alt="Tela de justificativas">
                     <div id="app-notification">
@@ -155,7 +162,7 @@
                 </article>
                 <p class="right-text">Para que você resolva suas pendências sem burocracia.</p>
             </div>
-            <div class="app-screen dash">
+            <div class="app-screen dash" >
                 <img src="assets/celulares/cell-dashboard.png" alt="Dashboard do aplicativo">
                 <article>
                     <h2>Monitore seu <span class="text-blue">desempenho</span></h2>
@@ -168,39 +175,39 @@
             <img src="assets/waves/wave.png" alt="Ondas decorativas" class="wave-image">
         </section>
     </section>
-    
+
     <!-- Seção final com sobre nós e princípios -->
     <section id="final">
-        <section id="about-wrapper">
+        <section id="about-wrapper"data-aos="fade-up" data-aos-duration="1200">
             <section id="about-us">
-                <h2>Conheça o time por trás do Aion</h2>
+                <h2 data-aos="fade-right">Conheça o time por trás do Aion</h2>
                 <div id="about-content">
-                    <div id="text-button-container">
-                        <div><p>Somos um grupo de desenvolvedores apaixonados por tecnologia e inovação, unidos pelo propósito de tornar o ambiente industrial cada vez mais saudável e produtivo. <span id="pt2">O Aion nasceu quando percebemos como a ausência e a má gestão dos colaboradores pode impactar o clima organizacional da empresa.</span></p></div>
+                    <div id="text-button-container"  data-aos="fade-right" data-aos-delay="200">
+                        <div><p>Somos um grupo de desenvolvedores apaixonados por tecnologia e inovação, unidos pelo propósito de tornar o ambiente industrial cada vez mais saudável e produtivo. <span id="pt2">O Aion nasceu ao percebermos como a ausência e a má gestão de colaboradores afetam o clima organizacional. Criamos uma solução que une dados, empatia e eficiência, ajudando empresas a cuidar melhor de suas equipes.
+Mais que um sistema, o Aion humaniza a tecnologia e impulsiona ambientes de trabalho mais equilibrados.</span></p></div>
                     </div>
-                    <div id="about-image">
+                    <div id="about-image" data-aos="zoom-in" data-aos-delay="400">
                         <p id="ajuda-visual">
                             O Aion surgiu para enfrentar os impactos da ausência e da má gestão de colaboradores.    </p>                </div>
-                    <div id="line-button"><div id="learn-more"><p>Saiba mais</p></div></div>
                 </div>
             </section>
         </section>
-        
+
         <section id="principles">
-            <h2>No que acreditamos</h2>
+            <h2 data-aos="fade-down">No que acreditamos</h2>
             <section class="info">
                 <section class="vantagens">
-                    <div class="benefit-card">
+                    <div class="benefit-card" data-aos="flip-left">
                         <img src="assets/icons/icon-confianca.png" alt="Ícone de confiança">
                         <h3>Transparência constrói confiança</h3>
                         <p>Acreditamos que acesso fácil e claro às informações fortalece a relação entre empresa e colaborador.</p>
                     </div>
-                    <div class="benefit-card">
+                    <div class="benefit-card" data-aos="flip-left" data-aos-delay="200">
                         <img src="assets/icons/icon-laptop.png" alt="Ícone de laptop">
                         <h3>Tecnologia a serviço das pessoas</h3>
                         <p>Usamos inovação não apenas para automatizar processos, mas para melhorar a experiência e o bem-estar de todos na empresa.</p>
                     </div>
-                    <div class="benefit-card">
+                    <div class="benefit-card" data-aos="flip-left" data-aos-delay="400">
                         <img src="assets/icons/icon-timeline.png" alt="Ícone de timeline">
                         <h3>Crescemos juntos</h3>
                         <p>O sucesso da empresa está diretamente ligado ao desenvolvimento e satisfação de cada colaborador.</p>
@@ -209,14 +216,14 @@
             </section>
         </section>
     </section>
-    
+
     <!-- Ondas decorativas -->
     <section class="waves-container">
         <img src="assets/waves/wave-tras.png" alt="Onda decorativa traseira" class="wave-svg">
         <img src="assets/waves/wave-meio.png" alt="Onda decorativa central" class="wave-svg">
         <img src="assets/waves/wave-frente.png" alt="Onda decorativa danteira" class="wave-svg">
     </section>
-    
+
     <!-- Rodapé -->
     <footer>
         <section id="footer-content">
@@ -234,25 +241,25 @@
                     <ul>
                         <li><p class="footer-title">Produto</p></li>
                         <li><p>API</p></li>
-                        
+
                         <li><p>Preços</p></li>
                         <li><p>Funcionalidades</p></li>
-                        
+
                     </ul>
                 </nav>
                 <nav>
                     <ul>
                         <li><p class="footer-title">Empresa</p></li>
                         <li><p>Nós</p></li>
-                        
+
                         <li><p>Avaliações</p></li>
                         <li><p>Trabalhe Conosco</p></li>
 
                     </ul>
                 </nav>
             </div>
-        </section>   
-        <div id="footer-bottom">  
+        </section>
+        <div id="footer-bottom">
             <div id="copyright">
                 <img src="assets/icons/icon-copyright.png" alt="Ícone de copyright">
                 <p>2025 Aion. Todos os direitos reservados.</p>
@@ -260,14 +267,23 @@
             </div>
 
                 <ol>
-                    
+
                     <li><p>Termos</p></li>
                     <li><p>Privacidade</p></li>
                     <li><p>Cookies</p></li>
                 </ol>
 
-        </div>   
+        </div>
     </footer>
     </div>
 </body>
 </html>
+<script>
+    AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false,
+        offset: 100
+    });
+</script>

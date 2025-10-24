@@ -1,29 +1,32 @@
 document.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.querySelectorAll(".nav-item");
+
+  // Pega as seções necessárias
   const sections = {
     main: document.querySelector("#main"),
     plataform: document.querySelector("#plataform"),
+    vantagens: document.querySelector(".vantagens"),
     celulares: document.querySelector("#celulares"),
-    nos: document.querySelector("#about-us"),
+    aboutWrapper: document.querySelector("#about-wrapper"),
   };
 
   function onScroll() {
-    const scrollY = window.scrollY + 200;
+    const scrollY = window.scrollY + 200; // margem de ativação
+    let current = "";
 
     const topMain = sections.main.offsetTop;
     const topPlataform = sections.plataform.offsetTop;
+    const topVantagens = sections.vantagens.offsetTop;
     const topCelulares = sections.celulares.offsetTop;
-    const topNos = sections.nos.offsetTop;
-
-    let current = "";
+    const topAbout = sections.aboutWrapper.offsetTop;
 
     if (scrollY >= topMain && scrollY < topPlataform) {
       current = "main";
-    } else if (scrollY >= topPlataform && scrollY < topCelulares) {
+    } else if (scrollY >= topPlataform && scrollY < topVantagens) {
       current = "plataform";
-    } else if (scrollY >= topCelulares && scrollY < topNos) {
-      current = "celulares";
-    } else if (scrollY >= topNos) {
+    } else if (scrollY >= topVantagens && scrollY < topAbout) {
+      current = "celulares"; // ativa “Aplicativo” entre vantagens e about-wrapper
+    } else if (scrollY >= topAbout) {
       current = "final";
     }
 
@@ -40,4 +43,3 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", onScroll);
   onScroll();
 });
-

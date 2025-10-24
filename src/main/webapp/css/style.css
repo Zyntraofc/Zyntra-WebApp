@@ -14,21 +14,23 @@
     -webkit-user-drag: none;
 }
 
-img{
+img {
     user-select: none;
 }
-/* 
+
+/*
  * CORPO PRINCIPAL
  * Configurações gerais da página
  */
 body {
+    background-color: white;
     margin: auto;
     max-width: 2030px;
     overflow-x: hidden;
     justify-content: center;
 }
 
-img, a{
+img, a {
     user-select: none;
     -webkit-user-drag: none;
 }
@@ -37,7 +39,7 @@ img, a{
  * PREVENÇÃO DE SELEÇÃO EM ELEMENTOS ESPECÍFICOS
  * Impede seleção e arrasto em elementos do header
  */
-header p, 
+header p,
 header a {
     user-select: none;
     -webkit-user-drag: none;
@@ -47,8 +49,8 @@ header a {
  * ELEMENTOS INTERATIVOS
  * Define cursor pointer para elementos clicáveis
  */
-button, 
-.brand-logo, 
+button,
+.brand-logo,
 .brand-name {
     cursor: pointer;
 }
@@ -220,14 +222,6 @@ a {
     width: 15%;
 }
 
-.signup-button {
-    color: white;
-    border: none;
-    border-radius: 99px;
-    background: linear-gradient(235deg, #9299FF 10.97%, #3A47FF 98.15%);
-    width: 121.515px;
-    height: 40px;
-}
 
 .login-button {
     background: linear-gradient(233deg, #2b36d6 22.66%, rgba(21, 34, 220, 0.71) 90.91%);
@@ -296,6 +290,11 @@ main {
 
 /* Botão de call-to-action */
 .cta-button {
+    --black-700: hsla(0 0% 12% / 1);
+    --border_radius: 40px;
+    --transtion: 0.3s ease-in-out;
+    --offset: 2px;
+    position: relative;
     gap: 15px;
     display: flex;
     align-items: center;
@@ -304,21 +303,89 @@ main {
     width: 266px;
     height: 64px;
     border-radius: 40px;
-    background: radial-gradient(100.45% 100.45% at 80.43% 14.13%, #9299FF 0%, #3A47FF 100%);
+    transform-origin: center;
+    background-color: transparent;
     border: none;
+    transform: scale(calc(1 + (var(--active, 0) * 0.1)));
+    transition: transform var(--transtion);
+    cursor: pointer;
+}
+
+/* FUNDO DO BOTÃO */
+.cta-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(100.45% 100.45% at 80.43% 14.13%, #9299FF 0%, #3A47FF 100%);
+    border-radius: var(--border_radius);
+    z-index: 1;
+    transition: all var(--transtion);
+}
+
+.cta-button::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background-color: #3A47FF;
+    background-image: radial-gradient(
+            at 51% 89%,
+            #9299FF 0px,
+            transparent 50%
+    ),
+    radial-gradient(at 100% 100%, #7A85FF 0px, transparent 50%),
+    radial-gradient(at 22% 91%, #7A85FF 0px, transparent 50%);
+    background-position: top;
+    opacity: var(--active, 0);
+    border-radius: var(--border_radius);
+    transition: opacity var(--transtion);
+    z-index: 2;
+}
+
+.cta-button:is(:hover, :focus-visible) {
+    --active: 1;
+}
+
+.cta-button:active {
+    transform: scale(1);
 }
 
 .cta-button p {
+    position: relative;
+    z-index: 3;
     color: white;
     font-size: 20px;
     font-style: normal;
     font-weight: 600;
     line-height: 60px;
+    margin: 0;
 }
 
 .cta-icon {
+    position: relative;
+    z-index: 3;
     width: 24px;
     height: 24px;
+}
+
+.cta-button:is(:hover, :focus) .cta-icon {
+    animation: pulse 1.5s linear 0.5s infinite;
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
 }
 
 /* Demonstração do dashboard */
@@ -418,20 +485,44 @@ main {
     height: 150px;
 }
 
-.text-accent{
+.text-accent {
     color: #3A47FF;
 }
 
-#plataform > a {
+.button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.button-container .platform-button, .signup-button {
     width: 267px;
     height: 59px;
     margin-bottom: 105px;
     margin-top: 40px;
     border-radius: 40px;
     border: 2px solid #3A47FF;
+    transition: all 0.15s ease;
 }
 
-#plataform > a > p {
+.button-container .platform-button:hover, .signup-button:hover {
+    background: #f4f5ff;
+    box-shadow: 0 0 0.5vw rgba(79, 89, 231, 0.15);
+    transform: translateY(-5%);
+    box-shadow: 0 0.1vh 2.5vh rgba(79, 89, 231, 0.35);
+}
+
+.signup-button {
+    display: flex;
+    align-items: center;
+    background: none;
+    justify-content: center;
+    width: 121.515px !important;
+    height: 40px !important;
+    margin: 0 !important;
+}
+
+.button-container .platform-button p, .signup-button p {
     text-align: center;
     font-weight: 600;
     line-height: 60px;
@@ -441,6 +532,10 @@ main {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.signup-button p {
+    font-size: 17px !important;
 }
 
 .platform-image {
@@ -471,6 +566,14 @@ main {
     gap: 114px;
 }
 
+.info .vantagens {
+    background-color: white;
+}
+
+#principles .info .vantagens {
+    background-color: #99A0FF;
+}
+
 .info {
     display: flex;
     justify-content: center;
@@ -479,10 +582,13 @@ main {
 
 /* Cartões de benefícios */
 .benefit-card {
-    transition: box-shadow 0.3s;
-    box-shadow: 0px 0px 0px 0px white;
+    box-shadow: -5px 6px 7px rgba(146, 153, 255, 0.15);
     cursor: pointer;
     border-radius: 25px;
+}
+
+.benefit-card.first h3, .benefit-card.first p {
+    color: #6e77ff !important;
 }
 
 .benefit-card img {
@@ -518,10 +624,25 @@ main {
     letter-spacing: -0.32px;
 }
 
-.benefit-card:hover {
-    box-shadow: -1px -1px 2px rgba(112, 144, 176, 0.02), 10px 14px 28px rgba(112, 144, 176, 0.4);
+.first:hover {
+    background-color: #6E77FF !important;
 }
 
+.first:hover p, .first:hover h3 {
+    color: white !important;
+}
+
+.white-icon {
+    display: none;
+}
+
+.first:hover .normal-icon {
+    display: none;
+}
+
+.first:hover .white-icon {
+    display: block;
+}
 
 /* ===== SEÇÃO DO APLICATIVO MOBILE ===== */
 /* 
@@ -643,14 +764,6 @@ input:checked + .option-background {
     transform: translateX(-30%);
 }
 
-#rectangle {
-    background: linear-gradient(0deg, #FFF 89.86%, rgba(255, 255, 255, 0.00) 100%);
-    width: 100%;
-    position: absolute;
-    height: 400px;
-    top: 2325px;
-}
-
 /* Notificação no aplicativo */
 #app-notification {
     padding: 12px;
@@ -694,7 +807,7 @@ input:checked + .option-background {
     letter-spacing: -0.32px;
 }
 
-#notification-line1, 
+#notification-line1,
 #notification-line2 {
     display: flex;
     gap: 16px;
@@ -763,7 +876,7 @@ input:checked + .option-background {
 
 #about-wrapper {
     width: 1704px;
-    height: 808px;
+    height: 888px;
     flex-direction: column;
     align-items: center;
     display: flex;
@@ -776,7 +889,7 @@ input:checked + .option-background {
     padding: 50px 50px;
     width: 1700px;
     flex-shrink: 0;
-    height: 804px;
+    height: 884px;
     border-radius: 40px;
     background-color: #99A0FF;
 }

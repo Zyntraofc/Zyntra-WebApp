@@ -269,7 +269,7 @@
     <input type="text" id="Novonome" name="nome">
 
     <label for="Novocnpj">CNPJ</label>
-    <input type="text" id="Novocnpj" name="cnpj">
+    <input type="text" id="Novocnpj" name="cnpj" class="validar-input" required pattern="^([0-9]{14})$">
 
     <label for="Novoemail">E-mail</label>
     <input type="email" id="Novoemail" name="email">
