@@ -158,10 +158,10 @@
     <input type="hidden" name="id" value="${indiceClassificacao.getId()}">
 
     <label for="porcentagemMinima">Porcentagem Mínima</label>
-    <input type="number" name="porcentagemMinima" id="porcentagemMinima" value="${indiceClassificacao.getPorcentagemMinima()}">
+    <input type="number" name="porcentagemMinima" id="porcentagemMinima" value="${indiceClassificacao.getPorcentagemMinima()}" min="0" required class="validar-input">
 
     <label for="porcentagemMaxima">Porcentagem máxima</label>
-    <input type="number" name="porcentagemMaxima" id="porcentagemMaxima" value="${indiceClassificacao.getPorcentagemMaxima()}">
+    <input type="number" name="porcentagemMaxima" id="porcentagemMaxima" value="${indiceClassificacao.getPorcentagemMaxima()}" max="100" required class="validar-input">
 
     <label for="preocupacao">Preocupação</label>
     <input type="text" name="preocupacao" id="preocupacao" value="${indiceClassificacao.getPreocupacao()}">
@@ -183,9 +183,9 @@
 
   <form action="${pageContext.request.contextPath}/private/InserirIndiceClassificacao" method="post">
     <label for="Novaminima">Porcentagem mínima</label>
-    <input type="number" name="porcentagemMinima"  id="Novaminima" placeholder="Digite a porcentagem mínima (%)">
+    <input type="number" name="porcentagemMinima"  id="Novaminima" placeholder="Digite a porcentagem mínima (%)" min="0" required class="validar-input">
     <label for="Novamaxima">Porcentagem máxima</label>
-    <input type="number" name="porcentagemMaxima" id="Novamaxima" placeholder="Digite a porcentagem máxima (%)">
+    <input type="number" name="porcentagemMaxima" id="Novamaxima" placeholder="Digite a porcentagem máxima (%)" max="100" required class="validar-input">
     <label for="Novapreocupacao">Preocupação</label>
     <input type="text" name="preocupacao" id="Novapreocupacao" placeholder="Digite o o nível de preocupação">
     <label for="Novarecomendacao">Recomendação</label>
