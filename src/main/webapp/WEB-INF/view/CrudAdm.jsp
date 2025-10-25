@@ -164,10 +164,10 @@
 
   <form action="${pageContext.request.contextPath}/private/InserirAdm" method="post">
     <label for="NovoEmail">Email</label>
-    <input type="email" name="email" id="NovoEmail" placeholder="Digite o email do administrador">
+    <input class="validar-input" required type="email" name="email" id="NovoEmail" placeholder="Digite o email do administrador">
 
     <label for="NovaSenha">Senha</label>
-    <input type="password" name="senha" id="NovaSenha" placeholder="Digite a senha dada ao administrador">
+    <input type="password" required  name="senha" id="NovaSenha" placeholder="Digite a senha dada ao administrador">
     <div class="botoes">
       <div class="cancelar"> <a href="${pageContext.request.contextPath}/private/ListarAdministradores">✖ Cancelar</a></div>
       <button type="submit" class="confirmar">✔ Confirmar</button>
@@ -194,7 +194,7 @@
     <input type="hidden" name="id" value="${administrador.getId()}">
 
     <label for="email">E-mail</label>
-    <input type="email" name="email" id="email" value="${administrador.getEmail()}">
+    <input required class="validar-input" type="email" name="email" id="email" value="${administrador.getEmail()}">
     <div class="botoes">
       <div class="cancelar"> <a href="${pageContext.request.contextPath}/private/ListarAdministradores">✖ Cancelar</a></div>
       <button type="submit" class="confirmar">✔ Confirmar</button>

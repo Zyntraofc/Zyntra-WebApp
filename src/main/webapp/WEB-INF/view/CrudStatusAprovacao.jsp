@@ -253,13 +253,13 @@
         <input type="text" id="Novonome" name="nome">
 
         <label for="Novocnpj">CNPJ</label>
-        <input type="text" id="Novocnpj" name="cnpj">
+        <input type="text" id="Novocnpj" name="cnpj" class="validar-input" required pattern="^([0-9]{14})$">
 
         <label for="Novoemail">E-mail</label>
-        <input type="email" id="Novoemail" name="email">
+        <input type="email" id="Novoemail" name="email"  required class="validar-input">
 
         <label for="Novotelefone">Telefone</label>
-        <input type="text" id="Novotelefone" name="telefone">
+        <input type="text" id="Novotelefone" name="telefone" pattern="\(?\d{2}\)? ?\d{5}-?\d{4}" required class="validar-input">
 
         <div class="botoes">
             <div class="cancelar"> <a href="${pageContext.request.contextPath}/private/ListarStatusAprovacao">✖ Cancelar</a></div>

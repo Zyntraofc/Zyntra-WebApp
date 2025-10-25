@@ -236,10 +236,10 @@
     <input type="text" id="cnpj" name="cnpj" value="${empresa.getCnpj()}" readonly>
 
     <label for="email">E-mail</label>
-    <input type="email" id="email" name="email" value="${empresa.getEmail()}">
+    <input class="validar-input" required type="email" id="email" name="email" value="${empresa.getEmail()}">
 
     <label for="telefone">Telefone</label>
-    <input type="text" id="telefone" name="telefone" value="${empresa.getTelefone()}">
+    <input type="text" id="telefone" class="validar-input" required pattern="\(?\d{2}\)? ?\d{5}-?\d{4}" name="telefone" value="${empresa.getTelefone()}">
 
     <div class="botoes">
       <div class="cancelar"> <a href="${pageContext.request.contextPath}/private/ListarEmpresas">✖ Cancelar</a></div>
@@ -272,10 +272,10 @@
     <input type="text" id="Novocnpj" name="cnpj" class="validar-input" required pattern="^([0-9]{14})$">
 
     <label for="Novoemail">E-mail</label>
-    <input type="email" id="Novoemail" name="email">
+    <input type="email" id="Novoemail" name="email" required class="validar-input">
 
     <label for="Novotelefone">Telefone</label>
-    <input type="text" id="Novotelefone" name="telefone">
+    <input type="text" id="Novotelefone" name="telefone" pattern="\(?\d{2}\)? ?\d{5}-?\d{4}" required class="validar-input">
 
     <div class="botoes">
       <div class="cancelar"> <a href="${pageContext.request.contextPath}/private/ListarEmpresas">✖ Cancelar</a></div>
