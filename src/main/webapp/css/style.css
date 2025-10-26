@@ -25,17 +25,17 @@ img {
 body {
     background-color: white;
     margin: auto;
-    max-width: 2030px;
+    width: 100%;
     overflow-x: hidden;
-    justify-content: center;
 }
 
-img, a {
+img,
+a {
     user-select: none;
     -webkit-user-drag: none;
 }
 
-/* 
+/*
  * PREVENÇÃO DE SELEÇÃO EM ELEMENTOS ESPECÍFICOS
  * Impede seleção e arrasto em elementos do header
  */
@@ -45,7 +45,7 @@ header a {
     -webkit-user-drag: none;
 }
 
-/* 
+/*
  * ELEMENTOS INTERATIVOS
  * Define cursor pointer para elementos clicáveis
  */
@@ -57,19 +57,18 @@ button,
 
 
 /* ===== HEADER ===== */
-/* 
+/*
  * CABEÇALHO PRINCIPAL
  * Header fixo com efeito de vidro fosco
  */
 header {
-    max-width: 2028px;
+    width: 100%;
     top: 0;
     z-index: 3;
     position: fixed;
-    width: 100%;
     background: rgba(255, 255, 255, 0.10);
-    backdrop-filter: blur(12.5px);
-    height: 81.5px;
+    backdrop-filter: blur(1.25vh);
+    height: 9vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -89,12 +88,12 @@ header {
     margin-bottom: 0.3%;
     font-style: normal;
     font-weight: 600;
-    font-size: 220%;
+    font-size: clamp(0.1rem, 1.7vw, 8rem);
     color: #3a47ff;
 }
 
 .brand-logo {
-    width: 37.5px;
+    width: 3.9vh;
 }
 
 /* Navegação principal */
@@ -114,13 +113,13 @@ header {
 }
 
 /* Efeitos de hover na navegação */
-.navigation-menu:hover > :not(:hover) {
+.navigation-menu:hover> :not(:hover) {
     height: 100%;
     opacity: 60%;
     transform: scale(0.9);
 }
 
-.navigation-menu:hover > :not(:hover) .active-indicator {
+.navigation-menu:hover> :not(:hover) .active-indicator {
     width: 0px !important;
 }
 
@@ -128,11 +127,11 @@ header {
     color: #3A47FF;
 }
 
-.navigation-menu:hover > :not(:hover) p {
+.navigation-menu:hover> :not(:hover) p {
     color: black;
 }
 
-.navigation-menu:hover > :not(:hover) ~ .active-indicator {
+.navigation-menu:hover> :not(:hover)~.active-indicator {
     width: 0px;
 }
 
@@ -150,8 +149,7 @@ a {
     font-weight: 500;
     font-style: normal;
     color: black;
-    font-size: 18px;
-    letter-spacing: -0.32px;
+    font-size: clamp(0.1rem, 0.9vw, 8rem);
 }
 
 /* Indicador de item ativo na navegação */
@@ -159,32 +157,19 @@ a {
     transition: width 0.7s linear;
     width: 0px;
     background-color: #b4b8ff;
-    height: 5px;
-    border-radius: 32px;
+    height: 0.6vh;
+    border-radius: 3.2vh;
     position: relative;
-    right: 0.5px;
-    top: 4px
+    right: 0.05vh;
 }
 
 /* Estados ativos dos links de navegação */
-.nav-item.active ~ .active-indicator {
+.nav-item.active~.active-indicator {
     background-color: #3A47FF;
 }
 
-.nav-item.plataforma.active ~ .active-indicator {
-    width: 99px;
-}
-
-.nav-item.aplicative.active ~ .active-indicator {
-    width: 87px;
-}
-
-.nav-item.sobre.active ~ .active-indicator {
-    width: 87px;
-}
-
-.nav-item.inicio.active ~ .active-indicator {
-    width: 47px;
+.nav-item.active~.active-indicator {
+    width: 99%;
 }
 
 .nav-item.active p {
@@ -192,29 +177,14 @@ a {
 }
 
 /* Efeitos hover nos itens de navegação */
-.nav-item.valor:hover ~ .active-indicator {
-    width: 84px;
-}
 
-.nav-item.sobre:hover ~ .active-indicator {
-    width: 87px;
-}
-
-.nav-item.plataforma:hover ~ .active-indicator {
-    width: 99px;
-}
-
-.nav-item.inicio:hover ~ .active-indicator {
-    width: 47px;
-}
-
-.nav-item.aplicative:hover ~ .active-indicator {
-    width: 87px;
+.nav-item:hover~.active-indicator {
+    width: 99%;
 }
 
 /* Botões de autenticação */
 .auth-buttons {
-    font-size: 17px;
+    font-size: clamp(0.1rem, 0.85vw, 8rem);
     gap: 7%;
     justify-content: center;
     align-items: center;
@@ -233,53 +203,54 @@ a {
 }
 
 .login-button:hover {
-    text-shadow: 0 0 8px rgba(59, 67, 192, 0.6);
+    text-shadow: 0 0 0.8vw rgba(59, 67, 192, 0.6);
     transform: scale(1.1);
 }
 
 
 /* ===== SEÇÃO PRINCIPAL/HERO ===== */
-/* 
+/*
  * SEÇÃO DE DESTAQUE PRINCIPAL
  * Apresenta o conteúdo principal da página
  */
 main {
-    margin-top: 83px;
+    margin-top: 8.3vh;
     display: flex;
-    height: 922px;
+    height: 92.2vh;
     width: 100%;
-    background-position: 627px -50px;
+    background-position: 62.7vh -5vh;
     background-image: url(../assets/logos/logo-plugin.png);
     background-repeat: no-repeat;
+    background-size: contain;
 }
 
 /* Elemento de apoio visual */
 .visual-support {
-    width: 318.672px;
-    height: 258px;
+    width: 31.8vh;
+    height: 25.8vh;
     transform: rotate(130.753deg);
-    border-radius: 318.672px;
+    border-radius: 31vh;
     background: rgb(255, 255, 255);
-    filter: blur(25px);
-    top: 800px;
-    left: 1067px;
+    filter: blur(2.5vh);
+    top: 75vh;
+    left: 110vh;
     position: absolute;
 }
 
 /* Conteúdo principal do hero */
 .hero-content {
-    margin-left: 122px;
-    margin-top: 162px;
-    width: 892px;
-    height: 183px;
+    margin-left: 12vh;
+    margin-top: 16.2vh;
+    width: 95vh;
+    height: 18.3vh;
 }
 
 .hero-highlight {
     color: #99A0FF;
-    font-size: 60px;
+    font-size: clamp(0.1rem, 2.9vw, 15rem);
     font-style: normal;
     font-weight: 600;
-    line-height: 58px;
+    line-height: 5.8vh;
 }
 
 .hero-accent {
@@ -289,27 +260,26 @@ main {
 .hero-description {
     color: #000;
     font-weight: 400;
-    line-height: 30px;
-    font-size: 23px;
-    margin-top: 22px;
-    letter-spacing: -0.32px;
+    line-height: 3vh;
+    font-size: clamp(0.1rem, 1.1vw, 8rem);
+    margin-top: 2.2vh;
 }
 
 /* Botão de call-to-action */
 .cta-button {
     --black-700: hsla(0 0% 12% / 1);
-    --border_radius: 40px;
+    --border_radius: 4vh;
     --transtion: 0.3s ease-in-out;
-    --offset: 2px;
+    --offset: 0.2vh;
     position: relative;
-    gap: 15px;
+    gap: 1.5vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 75px;
-    width: 266px;
-    height: 64px;
-    border-radius: 40px;
+    margin-top: 7.5vh;
+    width: 28.6vh;
+    height: 6.9vh;
+    border-radius: 4vh;
     transform-origin: center;
     background-color: transparent;
     border: none;
@@ -341,11 +311,9 @@ main {
     width: 100%;
     height: 100%;
     background-color: #3A47FF;
-    background-image: radial-gradient(
-            at 51% 89%,
-            #9299FF 0px,
-            transparent 50%
-    ),
+    background-image: radial-gradient(at 51% 89%,
+    #9299FF 0px,
+    transparent 50%),
     radial-gradient(at 100% 100%, #7A85FF 0px, transparent 50%),
     radial-gradient(at 22% 91%, #7A85FF 0px, transparent 50%);
     background-position: top;
@@ -367,18 +335,17 @@ main {
     position: relative;
     z-index: 3;
     color: white;
-    font-size: 20px;
+    font-size: clamp(0.1rem, 1vw, 8rem);
     font-style: normal;
     font-weight: 600;
-    line-height: 60px;
     margin: 0;
 }
 
 .cta-icon {
     position: relative;
     z-index: 3;
-    width: 24px;
-    height: 24px;
+    width: 2.6vh;
+    height: 2.6vh;
 }
 
 .cta-button:is(:hover, :focus) .cta-icon {
@@ -386,10 +353,12 @@ main {
 }
 
 @keyframes pulse {
+
     0%,
     100% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.2);
     }
@@ -397,18 +366,19 @@ main {
 
 /* Demonstração do dashboard */
 .dashboard-preview {
-    width: 860px;
-    border-radius: 39px 39px 0px 0;
+    width: 94vh;
+    border-radius: 3.9vh 3.9vh 0px 0;
     background-image: url(../assets/dashboard.png);
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    box-shadow: 0 0 86.6px 0 rgba(0, 0, 0, 0.25);
-    height: 551px;
+    box-shadow: 0 0 8.6vh 0 rgba(0, 0, 0, 0.25);
+    height: 59.7vh;
 }
 
 .demo-section {
-    max-width: 860px;
-    height: 790px;
+    max-width: 92vh;
+    height: 84vh;
     display: flex;
     align-items: center;
     position: absolute;
@@ -421,21 +391,21 @@ main {
     right: 79%;
     top: 71%;
     position: absolute;
-    width: 305px;
-    height: 167px;
+    width: 30.5vh;
+    height: 18vh;
     display: inline-block;
-    padding: 31px 47px 36px 29px;
+    padding: 3.1vh 4.7vh 3.6vh 2.9vh;
     justify-content: center;
     align-items: center;
-    border-radius: 20px;
-    box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.10);
-    border: 1px solid rgba(128, 128, 128, 0.35);
+    border-radius: 2vh;
+    box-shadow: 0.4vh 0.4vh 1vh 0 rgba(0, 0, 0, 0.10);
+    border: 0.1vh solid rgba(128, 128, 128, 0.35);
 }
 
 .notification-line1 {
-    gap: 60px;
+    gap: 6vh;
     color: #808080;
-    font-size: 14px;
+    font-size: clamp(0.1rem, 0.7vw, 8rem);
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -443,23 +413,27 @@ main {
 }
 
 .notification-line2 {
-    margin-top: 12px;
+    margin-top: 1.2vh;
     color: #000;
-    font-size: 24px;
+    font-size: clamp(0.1rem, 1.1vw, 8rem);
     font-weight: 600;
     line-height: normal;
 }
 
 .notification-line3 {
     color: #A3A3A3;
-    font-size: 12px;
+    font-size: clamp(0.1rem, 0.6vw, 8rem);
     font-weight: 400;
     line-height: normal;
 }
 
+.icon-small {
+    height: 1.5vh;
+}
+
 
 /* ===== SEÇÃO DA PLATAFORMA ===== */
-/* 
+/*
  * SEÇÃO DE APRESENTAÇÃO DA PLATAFORMA
  * Destaca as características principais da plataforma
  */
@@ -469,27 +443,29 @@ main {
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin-top: 75px;
+    margin-top: 7.5vh;
+    margin-bottom: -17.5vh;
+
 }
 
-#plataform > p {
-    margin-top: 20px;
-    width: 1217px;
+#plataform>p {
+    margin-top: 2vh;
+    width: 142.7vh;
     color: #000;
     text-align: center;
-    font-size: 23px;
+    font-size: clamp(0.1rem, 1.12vw, 8rem);
     font-weight: 400;
-    line-height: 30px;
+    line-height: 3vh;
 }
 
-#plataform > .section-title {
-    width: 1295px;
+#plataform>.section-title {
+    width: 142.7vh;
     color: #99A0FF;
     text-align: center;
-    font-size: 45px;
+    font-size: clamp(0.1rem, 2.2vw, 8rem);
     font-weight: 600;
-    line-height: 75px;
-    height: 150px;
+    line-height: 7.5vh;
+    height: 15vh;
 }
 
 .text-accent {
@@ -502,17 +478,19 @@ main {
     width: 100%;
 }
 
-.button-container .platform-button, .signup-button {
-    width: 267px;
-    height: 59px;
-    margin-bottom: 105px;
-    margin-top: 40px;
-    border-radius: 40px;
-    border: 2px solid #3A47FF;
+.button-container .platform-button,
+.signup-button {
+    width: 27.7vh;
+    height: 6.4vh;
+    margin-bottom: 10.5vh;
+    margin-top: 4vh;
+    border-radius: 4vh;
+    border: 0.2vh solid #3A47FF;
     transition: all 0.15s ease;
 }
 
-.button-container .platform-button:hover, .signup-button:hover {
+.button-container .platform-button:hover,
+.signup-button:hover {
     box-shadow: 0 0 0.5vw rgba(79, 89, 231, 0.15);
     transform: translateY(-5%);
     box-shadow: 0 0.1vh 2.5vh rgba(79, 89, 231, 0.35);
@@ -527,18 +505,18 @@ main {
     align-items: center;
     background: none;
     justify-content: center;
-    width: 121.515px !important;
-    height: 40px !important;
+    width: 13.1515vh !important;
+    height: 4.5vh !important;
     margin: 0 !important;
     transition: all 0.3s ease;
 }
 
-.button-container .platform-button p, .signup-button p {
+.button-container .platform-button p,
+.signup-button p {
     text-align: center;
     font-weight: 600;
-    line-height: 60px;
-    letter-spacing: -0.32px;
-    font-size: 20px;
+    line-height: 6.2vh;
+    font-size: clamp(0.1rem, 1vw, 8rem);
     background: linear-gradient(88deg, #9299FF -0.39%, #3A47FF 81.15%);
     background-clip: text;
     -webkit-background-clip: text;
@@ -546,49 +524,47 @@ main {
 }
 
 .signup-button p {
-    font-size: 17px !important;
+    font-size: clamp(0.1rem, 0.85vw, 8rem) !important;
     transition: all 0.3s ease;
 }
 
 /*ESTILO PARA QUANDO CHEGAR EM UM FUNDO AZUL, ONDE PERDE DESTAQUE*/
 .signup-button.sobre-fundo-azul {
     background: rgba(255, 255, 255, 0.1) !important;
-    border: 2px solid rgba(255, 255, 255, 0.4) !important;
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15) !important;
+    border: 0.2vh solid rgba(255, 255, 255, 0.4) !important;
+    box-shadow: 0 0.4vh 1.5vh rgba(255, 255, 255, 0.15) !important;
 }
 
 .signup-button.sobre-fundo-azul p {
     color: white !important;
     -webkit-text-fill-color: white !important;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 0.2vh 0.8vh rgba(0, 0, 0, 0.2);
 }
 
 .platform-image {
     width: 100%;
-    height: 891px;
 }
 
-.platform-image > img {
+.platform-image>img {
     width: 100%;
 }
 
 
 /* ===== SEÇÃO DE VANTAGENS ===== */
-/* 
+/*
  * SEÇÃO DE BENEFÍCIOS/PRINCÍPIOS
  * Apresenta os benefícios e princípios do produto
  */
 #principles .vantagens {
-    margin-top: 100px;
+    margin-top: 10vh;
 }
 
 .vantagens {
     z-index: 2;
-    height: 315px;
-    width: 1600px;
+    min-height: 34.6vh;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 114px;
+    gap: 12.4vh;
 }
 
 .info .vantagens {
@@ -609,47 +585,51 @@ main {
 .benefit-card {
     box-shadow: -5px 6px 7px rgba(146, 153, 255, 0.15);
     cursor: pointer;
-    border-radius: 25px;
+    border-radius: 2.5vh;
+    padding-right: 2vh;
     background-color: white;
 }
 
-.benefit-card.first h3, .benefit-card.first p {
+.benefit-card.first h3,
+.benefit-card.first p {
     color: #6e77ff !important;
 }
 
 .benefit-card img {
-    margin-left: 20px;
-    margin-top: 50px;
+    margin-left: 2vh;
+    margin-top: 5vh;
     transition: filter 0.7s ease;
+    width: 3vh;
+}
+.first:first-of-type img{
+    width: 1.9vh;
 }
 
 .benefit-card h3 {
-    margin-top: 10px;
-    margin-left: 30px;
-    width: 394.82px;
-    height: 59px;
+    margin-top: 1vh;
+    margin-left: 2vh;
+    width: 39.482vh;
+    height: 5.9vh;
     color: #000;
-    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-width: 0.1vh;
     -webkit-text-stroke-color: rgba(0, 0, 0, 0.00);
-    font-size: 25px;
+    font-size: clamp(0.1rem, 1.2vw, 8rem);
     font-weight: 600;
-    line-height: 30px;
-    letter-spacing: -0.32px;
+    line-height: 3vh;
     transition: color 0.7s ease;
 }
 
 .benefit-card p {
-    margin-left: 30px;
-    width: 410.865px;
-    height: 119px;
+    margin-top: 1.8vh;
+    margin-left: 2vh;
+    width: 50vh;
     flex-shrink: 0;
     color: rgba(27, 35, 134, 0.60);
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: rgba(0, 0, 0, 0.00);
-    font-size: 20px;
+    font-size: clamp(0.1rem, 1vw, 8rem);
     font-weight: 400;
-    line-height: 23px;
-    letter-spacing: -0.32px;
+    line-height: 2.3vh;
     transition: color 0.7s ease;
 }
 
@@ -658,7 +638,8 @@ main {
     transition: background-color 0.7s ease !important;
 }
 
-.first:hover p, .first:hover h3 {
+.first:hover p,
+.first:hover h3 {
     color: white !important;
 }
 
@@ -667,7 +648,7 @@ main {
 }
 
 /* ===== SEÇÃO DO APLICATIVO MOBILE ===== */
-/* 
+/*
  * SEÇÃO DO APLICATIVO PARA DISPOSITIVOS MÓVEIS
  * Apresenta as funcionalidades do aplicativo mobile
  */
@@ -675,21 +656,21 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 160px;
+    margin-top: 22vh;
 }
 
 /* Opções de seleção do aplicativo */
 #app-options {
     z-index: 2;
-    margin-bottom: 400px;
-    width: 494px;
-    height: 51px;
+    margin-bottom: 40vh;
+    width: 53.4vh;
+    height: 5.5vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 59px;
+    border-radius: 5.9vh;
     background-color: #BEC3FF;
-    padding: 10px;
+    padding: 1vh;
 }
 
 input[type="radio"] {
@@ -698,13 +679,12 @@ input[type="radio"] {
 
 label p {
     user-select: none;
-    height: 19px;
+    height: 1.9vh;
     color: #FFF;
     text-align: center;
-    font-size: 20px;
+    font-size: clamp(0.1rem, 0.9vw, 8rem);
     font-weight: 500;
-    line-height: 24px;
-    letter-spacing: -0.32px;
+    line-height: 2.4vh;
 }
 
 label {
@@ -713,29 +693,29 @@ label {
 
 .option-background {
     display: flex;
-    width: 168px;
-    padding: 7px 27px 12px 27px;
+    width: 17.8vh;
+    padding: 0.9vh 2.7vh 1.4vh 2.7vh;
     justify-content: center;
     align-items: center;
-    border-radius: 78px;
+    border-radius: 7.8vh;
 }
 
-input:checked + .option-background {
+input:checked+.option-background {
     background-image: radial-gradient(113.02% 172.85% at 112.2% -31.48%, #9299FF 0%, #3A47FF 100%);
 }
 
 /* Apresentação dos recursos mobile */
 #app-presentation {
     transition: transform 1.5s;
-    top: 2975px;
+    top: 317.5%;
     gap: 25%;
     position: absolute;
     display: flex;
 }
 
 .app-screen {
-    margin-top: 47px;
-    gap: 124px;
+    margin-top: 4.7vh;
+    gap: 12.4vh;
     justify-content: center;
     display: flex;
     width: 100%;
@@ -746,22 +726,21 @@ input:checked + .option-background {
 }
 
 .app-screen article {
-    margin-top: 122px;
+    margin-top: 12.2vh;
 }
 
 .app-screen h2 {
-    width: 466px;
+    width: 49.6vh;
     color: #000;
     font-size: 64px;
     font-weight: 500;
-    line-height: 65px;
-    letter-spacing: -0.32px;
-    margin-bottom: 20px;
+    line-height: 6.5vh;
+    margin-bottom: 2vh;
 }
 
 .app-screen p {
-    width: 511px;
-    font-size: 24px;
+    width: 56.1vh;
+    font-size: clamp(0.1rem, 1.1vw, 8rem);
 }
 
 .app-screen .right-text {
@@ -774,15 +753,15 @@ input:checked + .option-background {
 }
 
 /* Transições entre as telas do aplicativo */
-#app-options:has(input#dates:checked) ~ #app-presentation {
+#app-options:has(input#dates:checked)~#app-presentation {
     transform: translateX(28.15%);
 }
 
-#app-options:has(input#dashbord:checked) ~ #app-presentation {
+#app-options:has(input#dashbord:checked)~#app-presentation {
     transform: translateX(-84%);
 }
 
-#app-options:has(input#justificativa:checked) ~ #app-presentation {
+#app-options:has(input#justificativa:checked)~#app-presentation {
     transform: translateX(-30%);
 }
 
@@ -888,7 +867,7 @@ input:checked + .option-background {
 
 
 /* ===== SEÇÃO FINAL ===== */
-/* 
+/*
  * SEÇÃO FINAL E RODAPÉ
  * Contém informações finais e rodapé
  */
@@ -1035,7 +1014,7 @@ input:checked + .option-background {
 
 
 /* ===== RODAPÉ ===== */
-/* 
+/*
  * RODAPÉ
  * Contém links, informações de contato e direitos autorais
  */
@@ -1146,7 +1125,7 @@ footer .brand-container {
     justify-content: center;
 }
 
-#footer-bottom > ol {
+#footer-bottom>ol {
     list-style: none;
     gap: 70px;
     display: flex;
