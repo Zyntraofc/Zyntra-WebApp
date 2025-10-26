@@ -583,7 +583,7 @@ main {
 
 /* Cartões de benefícios */
 .benefit-card {
-    box-shadow: -5px 6px 7px rgba(146, 153, 255, 0.15);
+    box-shadow: -0.5vh 0.6vh 0.7vh rgba(146, 153, 255, 0.15);
     cursor: pointer;
     border-radius: 2.5vh;
     padding-right: 2vh;
@@ -625,7 +625,7 @@ main {
     width: 50vh;
     flex-shrink: 0;
     color: rgba(27, 35, 134, 0.60);
-    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-width: 0.1vh;
     -webkit-text-stroke-color: rgba(0, 0, 0, 0.00);
     font-size: clamp(0.1rem, 1vw, 8rem);
     font-weight: 400;
@@ -732,7 +732,7 @@ input:checked+.option-background {
 .app-screen h2 {
     width: 49.6vh;
     color: #000;
-    font-size: 64px;
+    font-size: clamp(0.1rem, 3vw, 8rem);
     font-weight: 500;
     line-height: 6.5vh;
     margin-bottom: 2vh;
@@ -744,8 +744,8 @@ input:checked+.option-background {
 }
 
 .app-screen .right-text {
-    margin-top: 400px;
-    width: 459px;
+    margin-top: 40vh;
+    width: 46.9vh;
 }
 
 .text-blue {
@@ -754,7 +754,7 @@ input:checked+.option-background {
 
 /* Transições entre as telas do aplicativo */
 #app-options:has(input#dates:checked)~#app-presentation {
-    transform: translateX(28.15%);
+    transform: translateX(26.85%);
 }
 
 #app-options:has(input#dashbord:checked)~#app-presentation {
@@ -767,87 +767,88 @@ input:checked+.option-background {
 
 /* Notificação no aplicativo */
 #app-notification {
-    padding: 12px;
+    padding: 1.2vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: absolute;
     top: 18.875%;
     right: 20.725%;
-    width: 170px;
-    height: 125px;
-    border-radius: 10px;
+    width: 18vh;
+    height: 13.5vh;
+    border-radius: 1vh;
     background: #FFF;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.10);
-    filter: drop-shadow(-45px 38px 4px rgba(0, 0, 0, 0.15)) drop-shadow(-6px 6px 4px rgba(0, 0, 0, 0.15));
+    box-shadow: 0 0 2vh 0 rgba(0, 0, 0, 0.10);
+    filter: drop-shadow(-4.5vh 3.8vh 0.4vh rgba(0, 0, 0, 0.15)) drop-shadow(-0.6vh 0.6vh 0.4vh rgba(0, 0, 0, 0.15));
 }
 
 #notification-count {
     color: #000;
-    font-size: 36px;
+    font-size: clamp(0.1rem, 1.7vw, 8rem);
     font-weight: 500;
-    line-height: 21px;
-    letter-spacing: -0.32px;
+    line-height: 2.1vh;
 }
 
 #notification-line1 p {
     color: #404040;
-    font-size: 16px;
+    font-size: clamp(0.1rem, 0.8vw, 8rem);
     font-weight: 400;
-    line-height: 16px;
-    letter-spacing: -0.32px;
+    line-height: 1.6vh;
 }
 
 #notification-line2 p {
-    margin-top: 4px;
-    margin-bottom: 2px;
+    margin-top: 0.4vh;
+    margin-bottom: 0.2vh;
     color: #4C4C4C;
-    font-size: 24px;
+    font-size: clamp(0.1rem, 1.1vw, 8rem);
     font-weight: 400;
-    line-height: 16px;
-    letter-spacing: -0.32px;
+    line-height: 1.6vh;
 }
 
 #notification-line1,
 #notification-line2 {
     display: flex;
-    gap: 16px;
+    gap: 1.6vh;
 }
 
 #notification-line1 {
-    margin-top: 10px;
+    margin-top: 1vh;
     align-items: end;
 }
 
 #notification-line2 {
-    gap: 41px;
+    gap: 4.1vh;
     align-items: end;
 }
 
-/* Ajustes específicos para telas do aplicativo */
-.app-screen.calendario article {
-    margin-top: 100px;
+.tela:first-of-type{
+    height: 80vh;
 }
-
+.tela{
+    height: 31.5vh;
+}
+.tela:last-of-type{
+    height: 80.3vh;
+}
+/* Ajustes específicos para telas do aplicativo */
 .app-screen.dash article {
-    margin-top: 80px;
-    margin-left: -240px;
+    margin-left: -24vh;
 }
 
 .app-screen.dash .right-paragraph {
-    margin-left: -420px;
-    width: 418px;
-    margin-top: 245px;
+    margin-left: -44vh;
+    width: 40.8vh;
+    margin-top: 26.5vh;
 }
 
 .app-screen.dash .right-text {
-    margin-left: -540px;
-    margin-top: 370px;
+    margin-left: -53.4vh;
+    margin-top: 40vh;
 }
 
 .app-screen.justificativa .right-text {
-    margin-left: -635px;
-    width: 472px;
+    margin-left: -68.5vh;
+    width: 49.2vh;
 }
 
 #visual-improvisado2 {
@@ -857,7 +858,7 @@ input:checked+.option-background {
 /* Seção de ondas decorativas */
 #app-waves {
     width: 100%;
-    height: 520.5px;
+    height: 52.05vh;
     background-color: #99A0FF;
 }
 
@@ -876,36 +877,35 @@ input:checked+.option-background {
     background-color: #99A0FF;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 125px;
+    padding-bottom: 12.5vh;
 }
 
 #about-wrapper {
-    width: 1704px;
-    height: 888px;
+    width: 84%;
+    height: 96vh;
     flex-direction: column;
     align-items: center;
     display: flex;
     justify-content: center;
     background: linear-gradient(90deg, #B0B5FF, #4C58FF);
-    border-radius: 40px;
+    border-radius: 4vh;
 }
 
 #about-us {
-    padding: 50px 50px;
-    width: 1700px;
+    padding: 5vh 5vh;
     flex-shrink: 0;
-    height: 884px;
-    border-radius: 40px;
+    height: 99.5%;
+    width: 99.75%;
+    border-radius: 4vh;
     background-color: #99A0FF;
 }
 
 #about-us h2 {
-    width: 814px;
+    width: 81.4vh;
     color: #FFF;
-    font-size: 60px;
+    font-size: clamp(0.1rem, 2.92vw, 8rem);
     font-weight: 600;
-    line-height: 58px;
-    letter-spacing: -0.32px;
+    line-height: 5.8vh;
 }
 
 #about-content {
@@ -921,9 +921,8 @@ input:checked+.option-background {
 #ajuda-visual {
     display: none;
     color: #FFF;
-    font-size: 30px;
+    font-size: clamp(0.1rem, 1.46vw, 8rem);
     font-weight: 400;
-    letter-spacing: -0.32px;
 }
 
 #text-button-container {
@@ -931,32 +930,10 @@ input:checked+.option-background {
     flex-direction: column;
     justify-content: space-between;
     color: #FFF;
-    font-size: 30px;
+    font-size: clamp(0.1rem, 1.46vw, 8rem);
     font-weight: 400;
-    line-height: 55px;
-    letter-spacing: -0.32px;
+    line-height: 6vh;
     height: 100%;
-}
-
-#learn-more {
-    cursor: pointer;
-    -webkit-user-select: none;
-    background-color: white;
-    border-radius: 40px;
-    width: 266px;
-    height: 64px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#learn-more p {
-    background: linear-gradient(88deg, #9299FF 13.3%, #3A47FF 83.1%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 20px;
-    font-weight: 600;
-    letter-spacing: -0.32px;
 }
 
 #about-image {
@@ -967,16 +944,15 @@ input:checked+.option-background {
 
 /* Seção de princípios */
 #principles {
-    margin-top: 190px;
+    margin-top: 19vh;
 }
 
 #principles h2 {
-    margin-left: -25px;
+    margin-left: -2.5vh;
     color: #FFF;
-    font-size: 60px;
+    font-size: clamp(0.1rem, 2.925vw, 8rem);
     font-weight: 600;
-    line-height: 58px;
-    letter-spacing: -0.32px;
+    line-height: 5.8vh;
 }
 
 #principles .benefit-card {
@@ -984,7 +960,7 @@ input:checked+.option-background {
 }
 
 #principles .benefit-card:hover {
-    box-shadow: -2px -2px 2px rgba(112, 144, 176, 0.01), 10px 8px 12px rgba(50, 70, 100, 0.6);
+    box-shadow: -0.2vh -0.2vh 0.2vh rgba(112, 144, 176, 0.01), 10px 8px 12px rgba(50, 70, 100, 0.6);
 }
 
 /* Ondas decorativas */
@@ -992,7 +968,7 @@ input:checked+.option-background {
     background-color: #99A0FF;
     position: relative;
     width: 100%;
-    height: 293px;
+    height: 29.3vh;
     overflow: hidden;
 }
 
@@ -1021,13 +997,12 @@ input:checked+.option-background {
 footer {
     width: 100%;
     background-color: #5E69FF;
-    padding: 37px 75px;
-    padding-bottom: 75px;
+    padding: 3.7vh 7.5vh;
+    padding-bottom: 7.5vh;
     color: #FFF;
-    font-size: 22px;
+    font-size: clamp(0.1rem, 1.1vw, 8rem);
     font-weight: 400;
-    line-height: 28px;
-    letter-spacing: -0.32px;
+    line-height: 2.8vh;
 }
 
 footer .brand-container p {
@@ -1036,30 +1011,28 @@ footer .brand-container p {
 
 footer a {
     color: #FFF;
-    font-size: 22px;
     font-weight: 400;
-    line-height: 28px;
-    letter-spacing: -0.32px;
+    line-height: 2.8vh;
     text-decoration: underline;
 }
 
 footer .brand-container div {
     background-image: url(../assets/logos/logo-roxo.png);
     background-color: white;
-    background-size: 31px 41px;
+    background-size: 3.1vh 4.1vh;
     background-repeat: no-repeat;
     background-position: center;
-    border-radius: 13px;
-    width: 55px;
-    height: 55px;
+    border-radius: 1.3vh;
+    width: 5.5vh;
+    height: 5.5vh;
     cursor: pointer;
 }
 
 .footer-description {
-    width: 739px;
-    height: 90px;
-    margin-top: 52px;
-    margin-bottom: 35px;
+    width: 73.9vh;
+    height: 9vh;
+    margin-top: 5.2vh;
+    margin-bottom: 3.5vh;
 }
 
 #footer-content {
@@ -1072,16 +1045,16 @@ footer .brand-container div {
 }
 
 #footer-secondary {
-    gap: 255px;
+    gap: 25.5vh;
     display: flex;
 }
 
 #footer-secondary nav ul li {
-    margin-top: 28px;
+    margin-top: 2.8vh;
 }
 
 #footer-secondary nav ul li .footer-title {
-    margin-bottom: 44px;
+    margin-bottom: 4.4vh;
 }
 
 .footer-title {
@@ -1093,29 +1066,30 @@ footer ul {
 }
 
 .contact-line {
-    margin-top: 23px;
+    margin-top: 2.3vh;
     display: flex;
     align-items: center;
     justify-content: start;
-    gap: 14px;
+    gap: 1.4vh;
 }
 
 footer .brand-container {
-    width: 172.5px;
+    width: 15vh;
+    gap: 1vh
 }
 
 #footer-bottom {
-    margin-top: 212px;
+    margin-top: 21.2vh;
     display: flex;
     justify-content: space-between;
-    padding-right: 100px;
+    padding-right: 10vh;
     align-items: center;
 }
 
 #copyright {
     justify-content: center;
     display: flex;
-    gap: 10px;
+    gap: 1vh;
     align-items: center;
 }
 
@@ -1127,6 +1101,6 @@ footer .brand-container {
 
 #footer-bottom>ol {
     list-style: none;
-    gap: 70px;
+    gap: 7vh;
     display: flex;
 }
