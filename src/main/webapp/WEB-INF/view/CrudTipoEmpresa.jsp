@@ -98,7 +98,7 @@
                         <select name="ordenarStatus" id="statusesOrdenados">
                             <option value="">Todas</option>
                             <option value="a" ${param.ordenarStatus == 'a' ? 'selected' : ''}>Ativas</option>
-                            <option value="p" ${param.ordenarStatus == 'i' ? 'selected' : ''}>Inativas</option>
+                            <option value="i" ${param.ordenarStatus == 'i' ? 'selected' : ''}>Inativas</option>
                         </select>
                     </div>
 
