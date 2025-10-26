@@ -101,6 +101,16 @@
             </label>
           </div>
 
+            <div class="filtro-item">
+              <label for="statusesOrdenados">Status: </label>
+              <select name="ordenarStatus" id="statusesOrdenados">
+                <option value="">Todas</option>
+                <option value="a" ${param.ordenarStatus == 'a' ? 'selected' : ''}>Aprovadas</option>
+                <option value="p" ${param.ordenarStatus == 'p' ? 'selected' : ''}>Pendentes</option>
+                <option value="r" ${param.ordenarStatus == 'r' ? 'selected' : ''}>Rejeitadas</option>
+              </select>
+            </div>
+
           <div class="filtro-item">
             <label for="idTipoEmpresaFiltro">Tipo de Empresa:</label>
             <select name="idTipoEmpresaFiltro" id="idTipoEmpresaFiltro">
@@ -110,6 +120,16 @@
               </c:forEach>
             </select>
           </div>
+
+            <div class="filtro-item">
+              <label for="idIndiceClassificacao">Índice de Classificação</label>
+              <select name="idIndiceClassificacaoFiltro" id="idIndiceClassificacao">
+                <option value="">Todas</option>
+                <c:forEach var="indice" items="${indices}">
+                  <option value="${indice.id}" ${empresa.idIndiceClassificacao == indice.id ? "selected" : ""}>${String.format("%.1f", indice.porcentagemMinima)}% - ${String.format("%.1f", indice.porcentagemMaxima)}%</option>
+                </c:forEach>
+              </select>
+            </div>
           </div>
 
           <button type="submit" class="botao-filtrar">Aplicar Filtros</button>
@@ -224,8 +244,8 @@
 
     <label for="IndiceClassificacao">Índice de Classificação</label>
     <select name="idIndiceClassificacao" id="IndiceClassificacao" required>
-      <c:forEach var="status" items="${statuses}">
-        <option value="${status.id}" ${empresa.idIndiceClassificacao == status.id ? "selected" : ""}>${String.format("%.1f", status.porcentagemMinima)}% - ${String.format("%.1f", status.porcentagemMaxima)}%</option>
+      <c:forEach var="indice" items="${indices}">
+        <option value="${indice.id}" ${empresa.idIndiceClassificacao == indice.id ? "selected" : ""}>${String.format("%.1f", indice.porcentagemMinima)}% - ${String.format("%.1f", indice.porcentagemMaxima)}%</option>
       </c:forEach>
     </select>
 
