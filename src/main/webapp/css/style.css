@@ -512,7 +512,6 @@ main {
 }
 
 .button-container .platform-button:hover, .signup-button:hover {
-    background: #f4f5ff;
     box-shadow: 0 0 0.5vw rgba(79, 89, 231, 0.15);
     transform: translateY(-5%);
     box-shadow: 0 0.1vh 2.5vh rgba(79, 89, 231, 0.35);

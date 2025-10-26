@@ -110,16 +110,17 @@
                 <option value="r" ${param.ordenarStatus == 'r' ? 'selected' : ''}>Rejeitadas</option>
               </select>
             </div>
-
-          <div class="filtro-item">
-            <label for="idTipoEmpresaFiltro">Tipo de Empresa:</label>
-            <select name="idTipoEmpresaFiltro" id="idTipoEmpresaFiltro">
-              <option value="">Todas</option>
-              <c:forEach var="tipo" items="${tiposFiltro}">
-                <option ${tipo.id == idTipoEmpresaFiltro ? 'selected' : ''} value="${tipo.id}">${tipo.nome}</option>
-              </c:forEach>
-            </select>
           </div>
+          <div class="filtro-section">
+            <div class="filtro-item">
+              <label for="idTipoEmpresaFiltro">Tipo de Empresa:</label>
+              <select name="idTipoEmpresaFiltro" id="idTipoEmpresaFiltro">
+                <option value="">Todas</option>
+                <c:forEach var="tipo" items="${tiposFiltro}">
+                  <option ${tipo.id == idTipoEmpresaFiltro ? 'selected' : ''} value="${tipo.id}">${tipo.nome}</option>
+                </c:forEach>
+              </select>
+            </div>
 
             <div class="filtro-item">
               <label for="idIndiceClassificacao">Índice de Classificação</label>
