@@ -228,6 +228,12 @@ a {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    transition: all 0.4s ease;
+    text-shadow: none;
+}
+.login-button:hover{
+    text-shadow: 0 0 8px rgba(59, 67, 192, 0.6);
+    transform: scale(1.1);
 }
 
 
@@ -585,6 +591,7 @@ main {
     box-shadow: -5px 6px 7px rgba(146, 153, 255, 0.15);
     cursor: pointer;
     border-radius: 25px;
+    background-color: white;
 }
 
 .benefit-card.first h3, .benefit-card.first p {
@@ -594,6 +601,7 @@ main {
 .benefit-card img {
     margin-left: 20px;
     margin-top: 50px;
+    transition: filter 0.7s ease;
 }
 
 .benefit-card h3 {
@@ -608,6 +616,7 @@ main {
     font-weight: 600;
     line-height: 30px;
     letter-spacing: -0.32px;
+    transition: color 0.7s ease;
 }
 
 .benefit-card p {
@@ -622,26 +631,20 @@ main {
     font-weight: 400;
     line-height: 23px;
     letter-spacing: -0.32px;
+    transition: color 0.7s ease;
 }
 
 .first:hover {
     background-color: #6E77FF !important;
+    transition: background-color 0.7s ease !important;
 }
 
 .first:hover p, .first:hover h3 {
     color: white !important;
 }
 
-.white-icon {
-    display: none;
-}
-
-.first:hover .normal-icon {
-    display: none;
-}
-
-.first:hover .white-icon {
-    display: block;
+.first:hover img {
+    filter: brightness(0) invert(1);
 }
 
 /* ===== SEÇÃO DO APLICATIVO MOBILE ===== */
