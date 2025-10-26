@@ -781,6 +781,10 @@ input:checked+.option-background {
     box-shadow: 0 0 2vh 0 rgba(0, 0, 0, 0.10);
     filter: drop-shadow(-4.5vh 3.8vh 0.4vh rgba(0, 0, 0, 0.15)) drop-shadow(-0.6vh 0.6vh 0.4vh rgba(0, 0, 0, 0.15));
 }
+#app-notification img{
+    height: 6.3vh;
+    width: 6.3vh !important;
+}
 
 #notification-count {
     color: #000;
@@ -960,7 +964,7 @@ input:checked+.option-background {
 }
 
 #principles .benefit-card:hover {
-    box-shadow: -0.2vh -0.2vh 0.2vh rgba(112, 144, 176, 0.01), 10px 8px 12px rgba(50, 70, 100, 0.6);
+    box-shadow: -0.2vh -0.2vh 0.2vh rgba(112, 144, 176, 0.01), 1vh 0.8vh 1.2vh rgba(50, 70, 100, 0.6);
 }
 
 /* Ondas decorativas */
@@ -1103,4 +1107,10 @@ footer .brand-container {
     list-style: none;
     gap: 7vh;
     display: flex;
+}
+.footer-bottom-icon{
+    width: 2.7vh;
+}
+.footer-icon{
+    width: 3.2vh;
 }
