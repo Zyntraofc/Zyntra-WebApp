@@ -231,7 +231,8 @@ a {
     transition: all 0.4s ease;
     text-shadow: none;
 }
-.login-button:hover{
+
+.login-button:hover {
     text-shadow: 0 0 8px rgba(59, 67, 192, 0.6);
     transform: scale(1.1);
 }
@@ -517,6 +518,10 @@ main {
     box-shadow: 0 0.1vh 2.5vh rgba(79, 89, 231, 0.35);
 }
 
+.button-container .platform-button:hover {
+    background: #f4f5ff;
+}
+
 .signup-button {
     display: flex;
     align-items: center;
@@ -525,6 +530,7 @@ main {
     width: 121.515px !important;
     height: 40px !important;
     margin: 0 !important;
+    transition: all 0.3s ease;
 }
 
 .button-container .platform-button p, .signup-button p {
@@ -541,6 +547,20 @@ main {
 
 .signup-button p {
     font-size: 17px !important;
+    transition: all 0.3s ease;
+}
+
+/*ESTILO PARA QUANDO CHEGAR EM UM FUNDO AZUL, ONDE PERDE DESTAQUE*/
+.signup-button.sobre-fundo-azul {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 2px solid rgba(255, 255, 255, 0.4) !important;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15) !important;
+}
+
+.signup-button.sobre-fundo-azul p {
+    color: white !important;
+    -webkit-text-fill-color: white !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .platform-image {
@@ -826,6 +846,10 @@ input:checked + .option-background {
 }
 
 /* Ajustes específicos para telas do aplicativo */
+.app-screen.calendario article {
+    margin-top: 100px;
+}
+
 .app-screen.dash article {
     margin-top: 80px;
     margin-left: -240px;

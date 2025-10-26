@@ -11,10 +11,10 @@ import org.example.model.StatusAprovacao;
 public class FiltrosEmpresa {
 
     public void ordenarNomeEmpresa(List<Empresa> empresas) {
-        // Corrigido: limite do laço interno estava errado (+1 causava IndexOutOfBounds)
+
         for (int i = 0; i < empresas.size(); i++) {
             for (int j = i + 1; j < empresas.size(); j++) {
-                // Troca se o nome da empresa i vier depois do nome da empresa j
+
                 if (empresas.get(i).getNome().compareToIgnoreCase(empresas.get(j).getNome()) > 0) {
                     Empresa apoio = empresas.get(i);
                     empresas.set(i, empresas.get(j));
@@ -78,10 +78,6 @@ public class FiltrosEmpresa {
             throw new InvalidParameterException("IdTipoEmpresa recebido sem autorização de ordenar o tipoEmpresa");
         }
 
-        // Ordenar por nome, se solicitado
-        if (ordenarNome) {
-            ordenarNomeEmpresa(empresasOrdenadas);
-        }
 
         // Filtrar por tipo, se solicitado
         if (ordenarTipoEmpresa && idTipoEmpresa != null) {
@@ -94,6 +90,11 @@ public class FiltrosEmpresa {
 
         if(ordenarStatus && status != null){
             empresasOrdenadas = ordenarEmpresaPorStatusAprovacao(empresasOrdenadas, status);
+        }
+
+        // Ordenar por nome, se solicitado
+        if (ordenarNome) {
+            ordenarNomeEmpresa(empresasOrdenadas);
         }
 
         return empresasOrdenadas;
