@@ -10,6 +10,7 @@
     scroll-behavior: smooth;
     font-family: "Poppins", sans-serif;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
     -webkit-user-drag: none;
 }
@@ -670,7 +671,6 @@ main {
 /* Opções de seleção do aplicativo */
 #app-options {
     z-index: 2;
-    margin-bottom: 40vh;
     width: 53.4vh;
     height: 5.5vh;
     display: flex;
@@ -715,9 +715,8 @@ input:checked+.option-background {
 /* Apresentação dos recursos mobile */
 #app-presentation {
     transition: transform 1.5s;
-    top: 317.5%;
     gap: 25%;
-    position: absolute;
+    margin-bottom: -45vh;
     display: flex;
 }
 
