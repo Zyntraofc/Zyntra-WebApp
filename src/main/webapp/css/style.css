@@ -14,6 +14,11 @@
     -webkit-user-drag: none;
 }
 
+html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
 img {
     user-select: none;
 }
