@@ -56,6 +56,10 @@
         display: flex;
     }
 
+    .signup-button p, .platform-button p {
+        font-size: 16px !important;
+    }
+
     .demo-section {
         position: static;
         width: 100%;
@@ -75,6 +79,13 @@
     .notification-card {
         top: 115vh;
         left: 25%;
+    }
+
+    .login-button{
+        font-size: 15px;
+    }
+    .cta-button p{
+        font-size: 16px;
     }
 
     .hero-content {
@@ -97,6 +108,23 @@
 
     .platform-image {
         margin-top: -50px;
+    }
+
+    footer{
+        font-size: 19px;
+    }
+
+    .app-screen .right-text,
+    .app-screen .right-paragraph {
+        font-size: 20px !important;
+    }
+
+    .app-screen article p {
+        font-size: 20px !important;
+    }
+
+    #app-options p{
+        font-size: 16px;
     }
 }
 
@@ -242,24 +270,42 @@
     #app-presentation {
         margin-top: -50px;
     }
+
+    #principles h2 {
+        margin-left: 0px;
+        text-align: center;
+    }
 }
 
 /* Tablet grande (1220px) */
 @media screen and (max-width: 1220px) {
     #app-presentation {
-        margin-top: -105px;
+        margin-top: -30px;
     }
+    #about-us p{
+        font-size: 22.5px;
+    }
+
+    header .nav-item p{
+        font-size: 16px;
+    }
+    .benefit-card p{
+        font-size: 18px;
+    }.benefit-card h3{
+         font-size: 20px;
+     }
+
 }
 
 /* Tablet grande (1120px) */
 @media screen and (max-width: 1120px) {
     #app-presentation {
-        margin-top: -105px;
+        margin-top: -65px;
     }
 }
 @media screen and (max-width: 1080px) {
     #app-presentation {
-        margin-top: -160px;
+        margin-top: -60px;
     }
 }
 
@@ -359,9 +405,6 @@
     #principles .info {
         margin-top: -40px;
     }
-    #principles h2 {
-        text-align: center;
-    }
 
     #principles {
         margin-top: 25px;
@@ -397,7 +440,7 @@
 
     #app-presentation {
         margin-left: 150px;
-        margin-top: -480px;
+        margin-top: -585px;
     }
 
     .app-screen.dash article {
@@ -492,6 +535,10 @@
         justify-content: start;
     }
 
+    .first{
+        width: 80% !important;
+    }
+
     #footer-bottom {
         padding-right: 0px;
         margin-top: 60px;
@@ -512,7 +559,7 @@
 /* Tablet médio (917px) */
 @media screen and (max-width: 940px) {
     #app-presentation {
-        margin-top: -500px;
+        margin-top: -620px;
     }
 }
 
@@ -520,13 +567,13 @@
 /* Tablet médio (870px) */
 @media screen and (max-width: 870px) {
     #app-presentation {
-        margin-top: -535px;
+        margin-top: -685px;
     }
 }
 
 @media screen and (max-width: 820px) {
     #app-presentation {
-        margin-top: -545px;
+        margin-top: -735px;
     }
 }
 
@@ -637,7 +684,7 @@
     }
 
     #app-presentation {
-        margin-top: -700px;
+        margin-top: -880px;
     }
 
     /* Seção sobre nós */
@@ -703,10 +750,59 @@
 /* Mobile pequeno (667px) */
 @media screen and (max-width: 667px) {
     #app-presentation {
-        margin-top: -680px;
+        margin-top: -830px;
+    }
+    #plataform{
+        margin-bottom: -50px;
+    }
+    .tela{
+        max-height: 50vh;
+    }
+    .tela:first-of-type{
+        height: 50vh;
+    }
+
+    #app-options:has(input#dates:checked) ~ #app-presentation {
+        transform: translateX(25.65%);
+    }
+
+    #app-options:has(input#dashbord:checked) ~ #app-presentation {
+        transform: translateX(-82%);
+    }
+
+    #app-options:has(input#justificativa:checked) ~ #app-presentation {
+        transform: translateX(-24%);
+    }
+
+    .app-screen.dash .right-paragraph {
+        margin-left: -575px;
+        width: 500px;
+        margin-top: 120px;
+        padding-right: 200px;
+    }
+    .app-screen.dash article {
+        margin-top: 50px;
+    }
+    .app-screen.justificativa article p{
+        width: 180px;
+    }
+    .app-screen.calendario article p{
+        width: 180px;
+        margin-left: 120px;
+    }
+    .app-screen.calendario h2{
+        font-size: 23px;
+    }
+
+    #final{
+        margin-top: -100px;
     }
 }
-
+@media  screen and (max-width: 600px) {
+    #app-presentation {
+        margin-top: -870px;
+    }
+}
 /* Mobile muito pequeno (380px) */
 @media screen and (max-width: 380px) {
     .hero-highlight {
