@@ -9,7 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="decc699d-6ffe-4dc6-b655-05fda1145ad2" name="Changes" comment="" />
+    <list default="true" id="decc699d-6ffe-4dc6-b655-05fda1145ad2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -184,7 +187,7 @@
       <workItem from="1761399625409" duration="5000" />
       <workItem from="1761439332825" duration="27835000" />
       <workItem from="1761527387445" duration="1088000" />
-      <workItem from="1761565081859" duration="5346000" />
+      <workItem from="1761565081859" duration="6712000" />
     </task>
     <task id="LOCAL-00001" summary="Alterando responsividade">
       <created>1761574097340</created>
