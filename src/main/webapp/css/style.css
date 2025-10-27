@@ -1417,3 +1417,101 @@ footer .brand-container {
 .footer-icon{
     width: 3.2vh;
 }
+
+/* ===== HOVERS CONVERTIDOS PARA ACTIVE ===== */
+
+/* Header - Navegação */
+.navigation-menu:hover > :not(:hover) {
+    height: 100%;
+    opacity: 60%;
+    transform: scale(0.9);
+}
+
+.nav-item:active {
+    opacity: 60%;
+    transform: scale(0.9);
+}
+
+.navigation-menu:hover p {
+    color: #3A47FF;
+}
+
+.nav-item:active p {
+    color: #3A47FF;
+}
+
+.navigation-menu:hover > :not(:hover) p {
+    color: black;
+}
+
+/* Botão Login */
+.login-button:hover {
+    text-shadow: 0 0 0.8vw rgba(59, 67, 192, 0.6);
+    transform: scale(1.1);
+}
+
+.login-button:active {
+    text-shadow: 0 0 0.8vw rgba(59, 67, 192, 0.6);
+    transform: scale(1.1);
+}
+
+/* Botões da Plataforma */
+.button-container .platform-button:hover,
+.signup-button:hover {
+    box-shadow: 0 0 0.5vw rgba(79, 89, 231, 0.15);
+    transform: translateY(-5%);
+    box-shadow: 0 0.1vh 2.5vh rgba(79, 89, 231, 0.35);
+}
+
+.button-container .platform-button:active,
+.signup-button:active {
+    box-shadow: 0 0 0.5vw rgba(79, 89, 231, 0.15);
+    transform: translateY(-5%);
+    box-shadow: 0 0.1vh 2.5vh rgba(79, 89, 231, 0.35);
+}
+
+.button-container .platform-button:hover {
+    background: #f4f5ff;
+}
+
+.button-container .platform-button:active {
+    background: #f4f5ff;
+}
+
+/* Cards de Benefícios */
+.first:hover {
+    background-color: #6E77FF !important;
+    transition: background-color 0.7s ease !important;
+}
+
+.first:active {
+    background-color: #6E77FF !important;
+    transition: background-color 0.7s ease !important;
+}
+
+.first:hover p,
+.first:hover h3 {
+    color: white !important;
+}
+
+.first:active p,
+.first:active h3 {
+    color: white !important;
+}
+
+.first:hover img {
+    filter: brightness(0) invert(1);
+}
+
+.first:active img {
+    filter: brightness(0) invert(1);
+}
+
+/* Princípios - Cards */
+#principles .benefit-card:hover {
+    box-shadow: -0.2vh -0.2vh 0.2vh rgba(112, 144, 176, 0.01), 1vh 0.8vh 1.2vh rgba(50, 70, 100, 0.6);
+}
+
+#principles .benefit-card:active {
+    box-shadow: -0.2vh -0.2vh 0.2vh rgba(112, 144, 176, 0.01), 1vh 0.8vh 1.2vh rgba(50, 70, 100, 0.6);
+}
