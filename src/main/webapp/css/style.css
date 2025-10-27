@@ -1,8 +1,15 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 /* ===== IMPORTAÇÕES E CONFIGURAÇÕES GERAIS ===== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap');
 
-/* 
- * RESET E CONFIGURAÇÕES BÁSICAS 
+/*
+ * RESET E CONFIGURAÇÕES BÁSICAS
  * Define estilos base para todos os elementos e configurações globais
  */
 * {
@@ -11,6 +18,7 @@
     font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 0;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     -webkit-user-drag: none;
 }
@@ -21,6 +29,9 @@ html, body {
 }
 
 img {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
 }
 
@@ -37,6 +48,9 @@ body {
 
 img,
 a {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
     -webkit-user-drag: none;
 }
@@ -47,6 +61,9 @@ a {
  */
 header p,
 header a {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
     -webkit-user-drag: none;
 }
@@ -73,19 +90,32 @@ header {
     z-index: 3;
     position: fixed;
     background: rgba(255, 255, 255, 0.10);
+    -webkit-backdrop-filter: blur(1.25vh);
     backdrop-filter: blur(1.25vh);
     height: 9vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
 /* Container da marca/logo */
 .brand-container {
     -webkit-user-select: none;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     width: 12.5%;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     gap: 4.5%;
 }
@@ -104,17 +134,27 @@ header {
 
 /* Navegação principal */
 .navigation-container {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     width: 72.5%;
 }
 
 .navigation-menu {
     height: 100%;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     gap: 2.75%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     list-style: none;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
@@ -122,6 +162,8 @@ header {
 .navigation-menu:hover> :not(:hover) {
     height: 100%;
     opacity: 60%;
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
     transform: scale(0.9);
 }
 
@@ -147,10 +189,14 @@ a {
 }
 
 .navigation-menu div {
+    -webkit-transition: .5s;
+    -o-transition: .5s;
     transition: .5s;
 }
 
 .nav-link {
+    -webkit-transition: color .5s;
+    -o-transition: color .5s;
     transition: color .5s;
     font-weight: 500;
     font-style: normal;
@@ -160,6 +206,8 @@ a {
 
 /* Indicador de item ativo na navegação */
 .active-indicator {
+    -webkit-transition: width 0.7s linear;
+    -o-transition: width 0.7s linear;
     transition: width 0.7s linear;
     width: 0px;
     background-color: #b4b8ff;
@@ -192,24 +240,35 @@ a {
 .auth-buttons {
     font-size: clamp(0.1rem, 0.85vw, 8rem);
     gap: 7%;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     width: 15%;
 }
 
 
 .login-button {
+    background: -o-linear-gradient(217deg, #2b36d6 22.66%, rgba(21, 34, 220, 0.71) 90.91%);
     background: linear-gradient(233deg, #2b36d6 22.66%, rgba(21, 34, 220, 0.71) 90.91%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
     transition: all 0.4s ease;
     text-shadow: none;
 }
 
 .login-button:hover {
     text-shadow: 0 0 0.8vw rgba(59, 67, 192, 0.6);
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
     transform: scale(1.1);
 }
 
@@ -221,6 +280,8 @@ a {
  */
 main {
     margin-top: 8.3vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     height: 92.2vh;
     width: 100%;
@@ -234,9 +295,12 @@ main {
 .visual-support {
     width: 31.8vh;
     height: 25.8vh;
+    -webkit-transform: rotate(130.753deg);
+    -ms-transform: rotate(130.753deg);
     transform: rotate(130.753deg);
     border-radius: 31vh;
     background: rgb(255, 255, 255);
+    -webkit-filter: blur(2.5vh);
     filter: blur(2.5vh);
     top: 75vh;
     left: 110vh;
@@ -279,18 +343,32 @@ main {
     --offset: 0.2vh;
     position: relative;
     gap: 1.5vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     margin-top: 7.5vh;
     width: 28.6vh;
     height: 6.9vh;
     border-radius: 4vh;
+    -webkit-transform-origin: center;
+    -ms-transform-origin: center;
     transform-origin: center;
     background-color: transparent;
     border: none;
+    -webkit-transform: scale(calc(1 + (var(--active, 0) * 0.1)));
+    -ms-transform: scale(calc(1 + (var(--active, 0) * 0.1)));
     transform: scale(calc(1 + (var(--active, 0) * 0.1)));
+    -webkit-transition: -webkit-transform var(--transtion);
+    transition: -webkit-transform var(--transtion);
+    -o-transition: transform var(--transtion);
     transition: transform var(--transtion);
+    transition: transform var(--transtion), -webkit-transform var(--transtion);
     cursor: pointer;
 }
 
@@ -302,9 +380,12 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
+    background: -o-radial-gradient(80.43% 14.13%, 100.45% 100.45%, #9299FF 0%, #3A47FF 100%);
     background: radial-gradient(100.45% 100.45% at 80.43% 14.13%, #9299FF 0%, #3A47FF 100%);
     border-radius: var(--border_radius);
     z-index: 1;
+    -webkit-transition: all var(--transtion);
+    -o-transition: all var(--transtion);
     transition: all var(--transtion);
 }
 
@@ -313,10 +394,17 @@ main {
     position: absolute;
     top: 50%;
     left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
     background-color: #3A47FF;
+    background-image: -o-radial-gradient(at 51% 89%,
+    #9299FF 0px,
+    transparent 50%),
+    -o-radial-gradient(at 100% 100%, #7A85FF 0px, transparent 50%),
+    -o-radial-gradient(at 22% 91%, #7A85FF 0px, transparent 50%);
     background-image: radial-gradient(at 51% 89%,
     #9299FF 0px,
     transparent 50%),
@@ -325,6 +413,8 @@ main {
     background-position: top;
     opacity: var(--active, 0);
     border-radius: var(--border_radius);
+    -webkit-transition: opacity var(--transtion);
+    -o-transition: opacity var(--transtion);
     transition: opacity var(--transtion);
     z-index: 2;
 }
@@ -334,6 +424,8 @@ main {
 }
 
 .cta-button:active {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
     transform: scale(1);
 }
 
@@ -355,17 +447,34 @@ main {
 }
 
 .cta-button:is(:hover, :focus) .cta-icon {
+    -webkit-animation: pulse 1.5s linear 0.5s infinite;
     animation: pulse 1.5s linear 0.5s infinite;
+}
+
+@-webkit-keyframes pulse {
+
+    0%,
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    50% {
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+    }
 }
 
 @keyframes pulse {
 
     0%,
     100% {
+        -webkit-transform: scale(1);
         transform: scale(1);
     }
 
     50% {
+        -webkit-transform: scale(1.2);
         transform: scale(1.2);
     }
 }
@@ -378,6 +487,7 @@ main {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    -webkit-box-shadow: 0 0 8.6vh 0 rgba(0, 0, 0, 0.25);
     box-shadow: 0 0 8.6vh 0 rgba(0, 0, 0, 0.25);
     height: 59.7vh;
 }
@@ -385,7 +495,11 @@ main {
 .demo-section {
     max-width: 92vh;
     height: 84vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     position: absolute;
     right: 0;
@@ -401,9 +515,14 @@ main {
     height: 18vh;
     display: inline-block;
     padding: 3.1vh 4.7vh 3.6vh 2.9vh;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     border-radius: 2vh;
+    -webkit-box-shadow: 0.4vh 0.4vh 1vh 0 rgba(0, 0, 0, 0.10);
     box-shadow: 0.4vh 0.4vh 1vh 0 rgba(0, 0, 0, 0.10);
     border: 0.1vh solid rgba(128, 128, 128, 0.35);
 }
@@ -415,6 +534,8 @@ main {
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 
@@ -444,9 +565,18 @@ main {
  * Destaca as características principais da plataforma
  */
 #plataform {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     width: 100%;
     margin-top: 7.5vh;
@@ -479,7 +609,11 @@ main {
 }
 
 .button-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     width: 100%;
 }
@@ -492,13 +626,19 @@ main {
     margin-top: 4vh;
     border-radius: 4vh;
     border: 0.2vh solid #3A47FF;
+    -webkit-transition: all 0.15s ease;
+    -o-transition: all 0.15s ease;
     transition: all 0.15s ease;
 }
 
 .button-container .platform-button:hover,
 .signup-button:hover {
+    -webkit-box-shadow: 0 0 0.5vw rgba(79, 89, 231, 0.15);
     box-shadow: 0 0 0.5vw rgba(79, 89, 231, 0.15);
+    -webkit-transform: translateY(-5%);
+    -ms-transform: translateY(-5%);
     transform: translateY(-5%);
+    -webkit-box-shadow: 0 0.1vh 2.5vh rgba(79, 89, 231, 0.35);
     box-shadow: 0 0.1vh 2.5vh rgba(79, 89, 231, 0.35);
 }
 
@@ -507,13 +647,21 @@ main {
 }
 
 .signup-button {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     background: none;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     width: 13.1515vh !important;
     height: 4.5vh !important;
     margin: 0 !important;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
 
@@ -523,6 +671,7 @@ main {
     font-weight: 600;
     line-height: 6.2vh;
     font-size: clamp(0.1rem, 1vw, 8rem);
+    background: -o-linear-gradient(2deg, #9299FF -0.39%, #3A47FF 81.15%);
     background: linear-gradient(88deg, #9299FF -0.39%, #3A47FF 81.15%);
     background-clip: text;
     -webkit-background-clip: text;
@@ -531,6 +680,8 @@ main {
 
 .signup-button p {
     font-size: clamp(0.1rem, 0.85vw, 8rem) !important;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
 
@@ -538,6 +689,7 @@ main {
 .signup-button.sobre-fundo-azul {
     background: rgba(255, 255, 255, 0.1) !important;
     border: 0.2vh solid rgba(255, 255, 255, 0.4) !important;
+    -webkit-box-shadow: 0 0.4vh 1.5vh rgba(255, 255, 255, 0.15) !important;
     box-shadow: 0 0.4vh 1.5vh rgba(255, 255, 255, 0.15) !important;
 }
 
@@ -568,7 +720,9 @@ main {
 .vantagens {
     z-index: 2;
     min-height: 34.6vh;
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 1fr 12.4vh 1fr 12.4vh 1fr;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 12.4vh;
 }
@@ -582,13 +736,20 @@ main {
 }
 
 .info {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
 /* Cartões de benefícios */
 .benefit-card {
+    -webkit-box-shadow: -0.5vh 0.6vh 0.7vh rgba(146, 153, 255, 0.15);
     box-shadow: -0.5vh 0.6vh 0.7vh rgba(146, 153, 255, 0.15);
     cursor: pointer;
     border-radius: 2.5vh;
@@ -604,7 +765,11 @@ main {
 .benefit-card img {
     margin-left: 2vh;
     margin-top: 5vh;
+    -webkit-transition: -webkit-filter 0.7s ease;
+    transition: -webkit-filter 0.7s ease;
+    -o-transition: filter 0.7s ease;
     transition: filter 0.7s ease;
+    transition: filter 0.7s ease, -webkit-filter 0.7s ease;
     width: 3vh;
 }
 .first:first-of-type img{
@@ -622,6 +787,8 @@ main {
     font-size: clamp(0.1rem, 1.2vw, 8rem);
     font-weight: 600;
     line-height: 3vh;
+    -webkit-transition: color 0.7s ease;
+    -o-transition: color 0.7s ease;
     transition: color 0.7s ease;
 }
 
@@ -629,6 +796,7 @@ main {
     margin-top: 1.8vh;
     margin-left: 2vh;
     width: 50vh;
+    -ms-flex-negative: 0;
     flex-shrink: 0;
     color: rgba(27, 35, 134, 0.60);
     -webkit-text-stroke-width: 0.1vh;
@@ -636,11 +804,15 @@ main {
     font-size: clamp(0.1rem, 1vw, 8rem);
     font-weight: 400;
     line-height: 2.3vh;
+    -webkit-transition: color 0.7s ease;
+    -o-transition: color 0.7s ease;
     transition: color 0.7s ease;
 }
 
 .first:hover {
     background-color: #6E77FF !important;
+    -webkit-transition: background-color 0.7s ease !important;
+    -o-transition: background-color 0.7s ease !important;
     transition: background-color 0.7s ease !important;
 }
 
@@ -650,6 +822,7 @@ main {
 }
 
 .first:hover img {
+    -webkit-filter: brightness(0) invert(1);
     filter: brightness(0) invert(1);
 }
 
@@ -659,8 +832,15 @@ main {
  * Apresenta as funcionalidades do aplicativo mobile
  */
 #celulares {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     margin-top: 22vh;
 }
@@ -670,8 +850,14 @@ main {
     z-index: 2;
     width: 53.4vh;
     height: 5.5vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     border-radius: 5.9vh;
     background-color: #BEC3FF;
@@ -683,6 +869,9 @@ input[type="radio"] {
 }
 
 label p {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
     height: 1.9vh;
     color: #FFF;
@@ -697,30 +886,47 @@ label {
 }
 
 .option-background {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     width: 17.8vh;
     padding: 0.9vh 2.7vh 1.4vh 2.7vh;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     border-radius: 7.8vh;
 }
 
 input:checked+.option-background {
+    background-image: -o-radial-gradient(112.2% -31.48%, 113.02% 172.85%, #9299FF 0%, #3A47FF 100%);
     background-image: radial-gradient(113.02% 172.85% at 112.2% -31.48%, #9299FF 0%, #3A47FF 100%);
 }
 
 /* Apresentação dos recursos mobile */
 #app-presentation {
+    -webkit-transition: -webkit-transform 1.5s;
+    transition: -webkit-transform 1.5s;
+    -o-transition: transform 1.5s;
     transition: transform 1.5s;
+    transition: transform 1.5s, -webkit-transform 1.5s;
     gap: 25%;
     margin-bottom: -45vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 
 .app-screen {
     margin-top: 4.7vh;
     gap: 12.4vh;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     width: 100%;
 }
@@ -758,22 +964,35 @@ input:checked+.option-background {
 
 /* Transições entre as telas do aplicativo */
 #app-options:has(input#dates:checked)~#app-presentation {
+    -webkit-transform: translateX(26.85%);
+    -ms-transform: translateX(26.85%);
     transform: translateX(26.85%);
 }
 
 #app-options:has(input#dashbord:checked)~#app-presentation {
+    -webkit-transform: translateX(-84%);
+    -ms-transform: translateX(-84%);
     transform: translateX(-84%);
 }
 
 #app-options:has(input#justificativa:checked)~#app-presentation {
+    -webkit-transform: translateX(-30%);
+    -ms-transform: translateX(-30%);
     transform: translateX(-30%);
 }
 
 /* Notificação no aplicativo */
 #app-notification {
     padding: 1.2vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     position: absolute;
     top: 18.875%;
@@ -782,7 +1001,9 @@ input:checked+.option-background {
     height: 13.5vh;
     border-radius: 1vh;
     background: #FFF;
+    -webkit-box-shadow: 0 0 2vh 0 rgba(0, 0, 0, 0.10);
     box-shadow: 0 0 2vh 0 rgba(0, 0, 0, 0.10);
+    -webkit-filter: drop-shadow(-4.5vh 3.8vh 0.4vh rgba(0, 0, 0, 0.15)) drop-shadow(-0.6vh 0.6vh 0.4vh rgba(0, 0, 0, 0.15));
     filter: drop-shadow(-4.5vh 3.8vh 0.4vh rgba(0, 0, 0, 0.15)) drop-shadow(-0.6vh 0.6vh 0.4vh rgba(0, 0, 0, 0.15));
 }
 #app-notification img{
@@ -815,17 +1036,23 @@ input:checked+.option-background {
 
 #notification-line1,
 #notification-line2 {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     gap: 1.6vh;
 }
 
 #notification-line1 {
     margin-top: 1vh;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
     align-items: end;
 }
 
 #notification-line2 {
     gap: 4.1vh;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
     align-items: end;
 }
 
@@ -881,9 +1108,16 @@ input:checked+.option-background {
  * Contém informações finais e rodapé
  */
 #final {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     background-color: #99A0FF;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     padding-bottom: 12.5vh;
 }
@@ -891,16 +1125,28 @@ input:checked+.option-background {
 #about-wrapper {
     width: 84%;
     height: 96vh;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    background: -webkit-gradient(linear, left top, right top, from(#B0B5FF), to(#4C58FF));
+    background: -o-linear-gradient(left, #B0B5FF, #4C58FF);
     background: linear-gradient(90deg, #B0B5FF, #4C58FF);
     border-radius: 4vh;
 }
 
 #about-us {
     padding: 5vh 5vh;
+    -ms-flex-negative: 0;
     flex-shrink: 0;
     height: 99.5%;
     width: 99.75%;
@@ -919,11 +1165,26 @@ input:checked+.option-background {
 #about-content {
     height: 100%;
     width: 100%;
+    display: -ms-grid;
     display: grid;
+    -ms-grid-rows: 70%;
     grid-template-rows: 70%;
+    -ms-grid-columns: 45% 5% 50%;
     grid-template-columns: 45% 50%;
+    -webkit-column-gap: 5%;
+    -moz-column-gap: 5%;
     column-gap: 5%;
     margin-top: 2.5%;
+}
+
+#about-content > *:nth-child(1) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+}
+
+#about-content > *:nth-child(2) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
 }
 
 #ajuda-visual {
@@ -934,8 +1195,15 @@ input:checked+.option-background {
 }
 
 #text-button-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     color: #FFF;
     font-size: clamp(0.1rem, 1.46vw, 8rem);
@@ -968,6 +1236,7 @@ input:checked+.option-background {
 }
 
 #principles .benefit-card:hover {
+    -webkit-box-shadow: -0.2vh -0.2vh 0.2vh rgba(112, 144, 176, 0.01), 1vh 0.8vh 1.2vh rgba(50, 70, 100, 0.6);
     box-shadow: -0.2vh -0.2vh 0.2vh rgba(112, 144, 176, 0.01), 1vh 0.8vh 1.2vh rgba(50, 70, 100, 0.6);
 }
 
@@ -1044,7 +1313,9 @@ footer .brand-container div {
 }
 
 #footer-content {
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 52.5% 47.5%;
     grid-template-columns: 52.5% 47.5%;
 }
 
@@ -1054,6 +1325,8 @@ footer .brand-container div {
 
 #footer-secondary {
     gap: 25.5vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 
@@ -1075,8 +1348,14 @@ footer ul {
 
 .contact-line {
     margin-top: 2.3vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
     justify-content: start;
     gap: 1.4vh;
 }
@@ -1088,28 +1367,48 @@ footer .brand-container {
 
 #footer-bottom {
     margin-top: 21.2vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     padding-right: 10vh;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
 #copyright {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     gap: 1vh;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
 #copyright a {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
 
 #footer-bottom>ol {
     list-style: none;
     gap: 7vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 .footer-bottom-icon{
