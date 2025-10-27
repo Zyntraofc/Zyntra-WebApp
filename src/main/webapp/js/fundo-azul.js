@@ -7,7 +7,7 @@ window.addEventListener('scroll', function() {
     const rect = secaoAzul.getBoundingClientRect();
 
     // Quando o botão estiver sobre a seção azul
-    if (rect.top <= -112) {
+    if (rect.top <= -75) {
         signupButton.classList.add('sobre-fundo-azul');
     } else {
         signupButton.classList.remove('sobre-fundo-azul');

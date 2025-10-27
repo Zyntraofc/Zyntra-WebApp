@@ -10,10 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="decc699d-6ffe-4dc6-b655-05fda1145ad2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/fundo-azul.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/index-responsividade.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/index-responsividade.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/fundo-azul.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/fundo-azul.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +187,8 @@
       <workItem from="1761299432281" duration="11029000" />
       <workItem from="1761349431284" duration="3625000" />
       <workItem from="1761399625409" duration="5000" />
-      <workItem from="1761439332825" duration="10023000" />
+      <workItem from="1761439332825" duration="27835000" />
+      <workItem from="1761527387445" duration="707000" />
     </task>
     <servers />
   </component>
