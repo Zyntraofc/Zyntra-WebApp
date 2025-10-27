@@ -34,7 +34,10 @@ img {
     -ms-user-select: none;
     user-select: none;
 }
-
+html{
+    width: 100vw;
+    overflow-x: hidden;
+}
 /*
  * CORPO PRINCIPAL
  * Configurações gerais da página
