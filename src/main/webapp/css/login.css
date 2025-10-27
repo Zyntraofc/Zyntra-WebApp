@@ -1,8 +1,16 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 /* ===== ESTILOS GERAIS ===== */
 * {
     -webkit-tap-highlight-color: transparent;
     margin: 0;
     padding: 0;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
@@ -11,10 +19,20 @@ body {
     min-height: 100vh;
     overflow-y: auto;
     -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
+    background: -o-linear-gradient(315deg, #3A47FF 0%, #9299FF 100%);
     background: linear-gradient(135deg, #3A47FF 0%, #9299FF 100%);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     padding: 2vh;
     position: relative;
@@ -23,6 +41,9 @@ body {
 img {
     width: 70%;
     -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
 }
 
@@ -30,21 +51,36 @@ img {
 .login-wrapper {
     width: 100%;
     max-width: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     background: white;
     border-radius: 3vh;
     overflow: hidden;
+    -webkit-box-shadow: 0 2.5vh 5vh rgba(0, 0, 0, 0.15);
     box-shadow: 0 2.5vh 5vh rgba(0, 0, 0, 0.15);
     min-height: 60vh;
 }
 
 /* ===== SEÇÃO DA LOGO ===== */
 .logo-section {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
     flex: 1;
+    background: -o-linear-gradient(315deg, #3A47FF 0%, #9299FF 100%);
     background: linear-gradient(135deg, #3A47FF 0%, #9299FF 100%);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     padding: 4vh;
     position: relative;
@@ -71,9 +107,16 @@ img {
     height: 15vh;
     background: white;
     border-radius: 3vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-shadow: 0 1.5vh 3.5vh rgba(0, 0, 0, 0.15);
     box-shadow: 0 1.5vh 3.5vh rgba(0, 0, 0, 0.15);
     margin: 0 auto 3vh;
 }
@@ -100,10 +143,21 @@ img {
 
 /* ===== SEÇÃO DO LOGIN ===== */
 .login-section {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
     flex: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     padding: 5vh;
 }
@@ -132,13 +186,23 @@ img {
 
 /* Campos do formulário */
 .form-fields {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     gap: 2.5vh;
 }
 
 .input-group {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     width: 100%;
 }
@@ -148,7 +212,11 @@ img {
     margin-bottom: 1vh;
     font-weight: 600;
     font-size:  clamp(0.1rem, 0.7vw, 8rem);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
@@ -170,13 +238,40 @@ img {
     width: 100%;
     background: white;
     font-size:  clamp(0.1rem, 0.78vw, 8rem);
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
 
 .input-group input:focus {
     outline: none;
     border-color: #3A47FF;
+    -webkit-box-shadow: 0 0 0 0.3vh rgba(58, 71, 255, 0.2);
     box-shadow: 0 0 0 0.3vh rgba(58, 71, 255, 0.2);
+}
+
+input::-webkit-input-placeholder {
+    color: #d2d2d1;
+    font-size:  clamp(0.1rem, 0.74vw, 8rem);
+    font-weight: 500;
+}
+
+input::-moz-placeholder {
+    color: #d2d2d1;
+    font-size:  clamp(0.1rem, 0.74vw, 8rem);
+    font-weight: 500;
+}
+
+input:-ms-input-placeholder {
+    color: #d2d2d1;
+    font-size:  clamp(0.1rem, 0.74vw, 8rem);
+    font-weight: 500;
+}
+
+input::-ms-input-placeholder {
+    color: #d2d2d1;
+    font-size:  clamp(0.1rem, 0.74vw, 8rem);
+    font-weight: 500;
 }
 
 input::placeholder {
@@ -194,6 +289,7 @@ input::placeholder {
 .submit-button button {
     cursor: pointer;
     border: none;
+    background: -o-linear-gradient(315deg, #3A47FF 0%, #9299FF 100%);
     background: linear-gradient(135deg, #3A47FF 0%, #9299FF 100%);
     border-radius: 15px;
     color: white;
@@ -201,12 +297,18 @@ input::placeholder {
     height: 5.5vh;
     font-size:  clamp(0.1rem, 0.78vw, 8rem);
     font-weight: 600;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
+    -webkit-box-shadow: 0 0.5vh 1.5vh rgba(58, 71, 255, 0.3);
     box-shadow: 0 0.5vh 1.5vh rgba(58, 71, 255, 0.3);
 }
 
 .submit-button button:hover {
+    -webkit-transform: translateY(-6.5%);
+    -ms-transform: translateY(-6.5%);
     transform: translateY(-6.5%);
+    -webkit-box-shadow: 0 0.8vh 2.5vh rgba(58, 71, 255, 0.4);
     box-shadow: 0 0.8vh 2.5vh rgba(58, 71, 255, 0.4);
 }
 .erro-login {
@@ -241,6 +343,22 @@ input::placeholder {
         font-size: 0.75rem;
     }
 
+    input::-webkit-input-placeholder{
+        font-size: 0.7rem;
+    }
+
+    input::-moz-placeholder{
+        font-size: 0.7rem;
+    }
+
+    input:-ms-input-placeholder{
+        font-size: 0.7rem;
+    }
+
+    input::-ms-input-placeholder{
+        font-size: 0.7rem;
+    }
+
     .input-group input, input::placeholder{
         font-size: 0.7rem;
     }
@@ -269,6 +387,9 @@ input::placeholder {
 /* Dispositivos móveis grandes */
 @media (max-width: 768px) {
     .login-wrapper {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
         width: 90%;
     }
@@ -299,12 +420,32 @@ input::placeholder {
         padding: 3vh 2vh;
     }
 
+    input::-webkit-input-placeholder {
+        font-size: 0.8rem;
+    }
+
+    input::-moz-placeholder {
+        font-size: 0.8rem;
+    }
+
+    input:-ms-input-placeholder {
+        font-size: 0.8rem;
+    }
+
+    input::-ms-input-placeholder {
+        font-size: 0.8rem;
+    }
+
     input::placeholder {
         font-size: 0.8rem;
     }
 
     .submit-button {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
     }
 
@@ -360,7 +501,7 @@ input::placeholder {
         width: 45vw;
     }
 }
-    /* Ajustes para telas muito altas em mobile */
+/* Ajustes para telas muito altas em mobile */
 @media (min-height: 800px) and (max-width: 768px) {
     .login-wrapper {
         width: 85%;
@@ -393,7 +534,11 @@ input::placeholder {
         width: 25vw;
     }
     .submit-button{
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
     }
 }
