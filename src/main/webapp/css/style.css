@@ -17,7 +17,7 @@
 img {
     user-select: none;
 }
-
+html{overflow-x: hidden}
 /*
  * CORPO PRINCIPAL
  * Configurações gerais da página
