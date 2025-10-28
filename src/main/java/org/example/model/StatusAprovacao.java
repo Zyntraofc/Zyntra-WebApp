@@ -1,28 +1,32 @@
 package org.example.model;
 
-//Importação do LocalDate para atribuir datas
+/// Classe criada com objetivo de representar entidade da tabela StatusAprovação do banco de dados
+
+//Importações
 import java.time.LocalDate;
 
-public class StatusAprovacao extends BaseModel{//abertura da classe
+//Abertura da classe
+public class StatusAprovacao extends BaseModel{
 
     //Declaração de atributos
     private String motivoRejeicao = null;
     private char status;
     private LocalDate dataSolicitacao;
-    private LocalDate dataAprovacao;
+    private LocalDate dataAprovacao = null;
 
     //Métodos construtores
-    public StatusAprovacao(String motivoRejeicao, char status, LocalDate dataSolicitacao, LocalDate dataAprovacao) {//Metodo caso houver rejeição
-        this.motivoRejeicao = motivoRejeicao;
-        this.status = status;
-        this.dataSolicitacao = dataSolicitacao;
-        this.dataAprovacao = dataAprovacao;
-    }
     public StatusAprovacao(LocalDate dataSolicitacao) {//Metodo para inserir padrão (pendente)
         this.motivoRejeicao = null;
         this.status = 'p';
         this.dataSolicitacao = dataSolicitacao;
         this.dataAprovacao = null;
+    }
+    //Metodo construtor para retorno de listagens
+    public StatusAprovacao(String motivoRejeicao, char status, LocalDate dataSolicitacao, LocalDate dataAprovacao) {//Metodo caso houver rejeição
+        this.motivoRejeicao = motivoRejeicao;
+        this.status = status;
+        this.dataSolicitacao = dataSolicitacao;
+        this.dataAprovacao = dataAprovacao;
     }
 
     //Métodos getters e setters
@@ -42,6 +46,8 @@ public class StatusAprovacao extends BaseModel{//abertura da classe
         return this.dataAprovacao;
     }
 
+
+
     //Métodos setters
     public void setMotivoRejeicao(String motivoRejeicao) {
         this.motivoRejeicao = motivoRejeicao;
@@ -55,9 +61,11 @@ public class StatusAprovacao extends BaseModel{//abertura da classe
         this.dataAprovacao = dataAprovacao;
     }
 
-    //Metodo toString
+    //Metodo toString para representação do objeto
     public String toString(){
-        return (this.motivoRejeicao != null? "Motivo de rejeição: "+this.motivoRejeicao: "") +
+        //dataAprovacao e motivoRejeicao podem ser nulas
+        return
+                (this.motivoRejeicao != null? "Motivo de rejeição: "+this.motivoRejeicao: "") +
                 "\nStatus: "+this.status +
                 "\nData de solicitação: "+this.dataSolicitacao+
                 (this.dataAprovacao != null ? "\nData de aprovacao: "+this.dataAprovacao : "");

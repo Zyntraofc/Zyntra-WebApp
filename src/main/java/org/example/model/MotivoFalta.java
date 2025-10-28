@@ -1,6 +1,9 @@
 package org.example.model;
 
-public class MotivoFalta extends BaseModel{//Abertura da classe
+/// Classe criada com objetivo de representar a entidade da tabela MotivoFalta do banco de dados
+
+//Abertura da classe
+public class MotivoFalta extends BaseModel{
 
     //Declaração de atributos
     private String motivo;
@@ -10,17 +13,17 @@ public class MotivoFalta extends BaseModel{//Abertura da classe
         this.motivo = motivo;
     }
 
-    //Métodos getters
+    //Metodo getter
     public String getMotivo() {
         return this.motivo;
     }
 
-    //Métodos setters
+    //Metodo setter
     public void setMotivo(String motivo) {
         this.motivo = motivo;
     }
 
-    //Metodo toString
+    //Metodo toString para representação do objeto
     public String toString(){
         return "Motivo: "+this.motivo;
     }

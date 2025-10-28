@@ -1,9 +1,12 @@
 package org.example.model;
 
-public abstract class BaseModel {//Abertura de classe abstrata que servirá de base para todas as models
+/// Classe criada com objetivo de obrigar todas as classes Model a declararem parametros que tem em comum e método toString
 
-    //Declaração de atributos
-    protected int id;//Gerado automáticamente pelo database
+//Abertura da classe abstrata
+public abstract class BaseModel {
+
+    //Declaração de atributo ID (todas as tabelas do banco de dados tem)
+    protected int id;
 
     //Métodos getters
     public int getId(){

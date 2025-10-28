@@ -1,9 +1,12 @@
 package org.example.model;
 
-//Importação do LocalDate para atribuir datas
+///  Classe criada com objetivo de representar entidade da tabela TipoEmpresa do banco de dados
+
+//Importações
 import java.time.LocalDate;
 
-public class TipoEmpresa extends BaseModel{//Abertura da classe
+//Abertura da classe
+public class TipoEmpresa extends BaseModel{
 
     //Declaração de atributos
     private String nome;
@@ -11,23 +14,19 @@ public class TipoEmpresa extends BaseModel{//Abertura da classe
     private LocalDate ultimaAtualizacao;
     private String descricao;
 
-    //Métodos construtores
-    public TipoEmpresa(String nome, char status, LocalDate ultimaAtualizacao) {//Metodo caso a descrição não seja inicialmente definida
-        this.nome = nome;
-        this.status = status;
-        this.ultimaAtualizacao = ultimaAtualizacao;
-    }
-
-    public TipoEmpresa(String nome, String descricao) {//Metodo padrão
+    //Metodo construtor padrão com recebimento de nome e descrição
+    public TipoEmpresa(String nome, String descricao) {
         this.nome = nome;
         this.descricao = descricao;
     }
 
-    public TipoEmpresa(String nome) {//Metodo padrão, porém sem descrição
+    //Metodo construtor que recebe somente nome, caso descrção não seja atribuida já que é default
+    public TipoEmpresa(String nome) {
         this.nome = nome;
     }
 
-    public TipoEmpresa(String nome, char status, LocalDate ultimaAtualizacao, String descricao) {//Metodo caso a descrição seja devidamente definida
+    //Metodo construtor caso todos os atributos sejam devidamente inseridos
+    public TipoEmpresa(String nome, char status, LocalDate ultimaAtualizacao, String descricao) {
         this.nome = nome;
         this.status = status;
         this.ultimaAtualizacao = ultimaAtualizacao;
@@ -47,8 +46,7 @@ public class TipoEmpresa extends BaseModel{//Abertura da classe
         return this.ultimaAtualizacao;
     }
 
-    public String getDescricao() {
-        return this.descricao;}
+    public String getDescricao() {return this.descricao;}
 
     //Métodos setters
     public void setStatus(char status) {
@@ -63,8 +61,9 @@ public class TipoEmpresa extends BaseModel{//Abertura da classe
         this.descricao = descricao;
     }
 
-    //Metodo toString
+    //Metodo toString para representação do objeto
     public String toString(){
+        //Descrição pode ser nula
         return "Nome: "+this.nome +
                 "\nStatus: " + this.status+
                 "\nUltima atualização: "+this.ultimaAtualizacao+
