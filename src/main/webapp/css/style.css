@@ -220,7 +220,7 @@ a {
     width: 0px;
     background-color: #b4b8ff;
     height: 4px;
-    border-radius: 3.2vh;
+    border-radius: 20px;
     position: relative;
     right: 0.024vw;
 }
@@ -307,9 +307,9 @@ main {
     -webkit-transform: rotate(130.753deg);
     -ms-transform: rotate(130.753deg);
     transform: rotate(130.753deg);
-    border-radius: 31vh;
+    border-radius: 400px;
     background: rgb(255, 255, 255);
-    -webkit-filter: blur(25px);
+-webkit-filtrgb(255, 255, 255)x);
     filter: blur(25px);
     top: 500px;
     left: 50vw;
@@ -347,7 +347,7 @@ main {
 /* Botão de call-to-action */
 .cta-button {
     --black-700: hsla(0 0% 12% / 1);
-    --border_radius: 4vh;
+    --border_radius: 40px;
     --transtion: 0.3s ease-in-out;
     --offset: 0.2vh;
     position: relative;
@@ -365,7 +365,7 @@ main {
     width: 28.6vh;
     width: 13.6vw;
     height: 49px;
-    border-radius: 4vh;
+    border-radius: 40px;
     -webkit-transform-origin: center;
     -ms-transform-origin: center;
     transform-origin: center;
@@ -491,7 +491,7 @@ main {
 /* Demonstração do dashboard */
 .dashboard-preview {
     width: 640px;
-    border-radius: 3.9vh 3.9vh 0px 0;
+    border-radius: 26px 26px 0px 0;
     background-image: url(../assets/dashboard.png);
     background-size: cover;
     background-repeat: no-repeat;
@@ -529,7 +529,7 @@ main {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    border-radius: 2vh;
+    border-radius: 15px;
     -webkit-box-shadow: 0.4vh 0.4vh 1vh 0 rgba(0, 0, 0, 0.10);
     box-shadow: 0.4vh 0.4vh 1vh 0 rgba(0, 0, 0, 0.10);
     border: 0.1vh solid rgba(128, 128, 128, 0.35);
@@ -630,7 +630,7 @@ main {
     height: 44px;
     margin-bottom: 45px;
     margin-top: 25px;
-    border-radius: 4vh;
+    border-radius: 25px;
     border: 0.2vh solid #3A47FF;
     -webkit-transition: all 0.15s ease;
     -o-transition: all 0.15s ease;
@@ -758,7 +758,7 @@ main {
     -webkit-box-shadow: -0.5vh 0.6vh 0.7vh rgba(146, 153, 255, 0.15);
     box-shadow: -0.5vh 0.6vh 0.7vh rgba(146, 153, 255, 0.15);
     cursor: pointer;
-    border-radius: 2.5vh;
+    border-radius: 15px;
     padding-right: 0.75vw;
     background-color: white;
 }
@@ -871,7 +871,7 @@ main {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    border-radius: 5.9vh;
+    border-radius: 25px;
     background-color: #BEC3FF;
     padding: 0.4vw;
 }
@@ -909,7 +909,7 @@ label {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    border-radius: 7.8vh;
+    border-radius: 25px;
 }
 
 input:checked+.option-background {
@@ -1013,7 +1013,7 @@ input:checked+.option-background {
     right: 20.725%;
     width: 125px;
     height: 95px;
-    border-radius: 1vh;
+    border-radius: 8px;
     background: #FFF;
     -webkit-box-shadow: 0 0 2vh 0 rgba(0, 0, 0, 0.10);
     box-shadow: 0 0 2vh 0 rgba(0, 0, 0, 0.10);
@@ -1153,14 +1153,14 @@ input:checked+.option-background {
     background: -webkit-gradient(linear, left top, right top, from(#B0B5FF), to(#4C58FF));
     background: -o-linear-gradient(left, #B0B5FF, #4C58FF);
     background: linear-gradient(90deg, #B0B5FF, #4C58FF);
-    border-radius: 4vh;
+    border-radius: 35px;
 }
 
 #about-us {
     padding: 30px;
     -ms-flex-negative: 0;
     flex-shrink: 0;
-    border-radius: 4vh;
+    border-radius: 35px;
     background-color: #99A0FF;
 }
 
@@ -1308,7 +1308,7 @@ footer .brand-container div {
     background-size: 22.32px 29.52px;
     background-repeat: no-repeat;
     background-position: center;
-    border-radius: 1.3vh;
+    border-radius: 9px;
     width: 2.5vw;
     height: 40px;
     cursor: pointer;
