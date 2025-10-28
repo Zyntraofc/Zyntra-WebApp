@@ -496,8 +496,8 @@ main {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    -webkit-box-shadow: 0 0 8.6vh 0 rgba(0, 0, 0, 0.25);
-    box-shadow: 0 0 8.6vh 0 rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: 0 0 86.6px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 86.6px 0 rgba(0, 0, 0, 0.25);
     height: 420px;
 }
 
@@ -530,8 +530,8 @@ main {
     -ms-flex-align: center;
     align-items: center;
     border-radius: 15px;
-    -webkit-box-shadow: 0.4vh 0.4vh 1vh 0 rgba(0, 0, 0, 0.10);
-    box-shadow: 0.4vh 0.4vh 1vh 0 rgba(0, 0, 0, 0.10);
+    -webkit-box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.10);
+    box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.10);
     border: 0.1vh solid rgba(128, 128, 128, 0.35);
 }
 
@@ -755,8 +755,8 @@ main {
 
 /* Cartões de benefícios */
 .benefit-card {
-    -webkit-box-shadow: -0.5vh 0.6vh 0.7vh rgba(146, 153, 255, 0.15);
-    box-shadow: -0.5vh 0.6vh 0.7vh rgba(146, 153, 255, 0.15);
+    -webkit-box-shadow: -5px 6px 7px rgba(146, 153, 255, 0.15);
+    box-shadow: -5px 6px 7px rgba(146, 153, 255, 0.15);
     cursor: pointer;
     border-radius: 15px;
     padding-right: 0.75vw;
@@ -1015,8 +1015,8 @@ input:checked+.option-background {
     height: 95px;
     border-radius: 8px;
     background: #FFF;
-    -webkit-box-shadow: 0 0 2vh 0 rgba(0, 0, 0, 0.10);
-    box-shadow: 0 0 2vh 0 rgba(0, 0, 0, 0.10);
+    -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.10);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.10);
     -webkit-filter: drop-shadow(-4.5vh 3.8vh 0.4vh rgba(0, 0, 0, 0.15)) drop-shadow(-0.6vh 0.6vh 0.4vh rgba(0, 0, 0, 0.15));
     filter: drop-shadow(-4.5vh 3.8vh 0.4vh rgba(0, 0, 0, 0.15)) drop-shadow(-0.6vh 0.6vh 0.4vh rgba(0, 0, 0, 0.15));
 }
@@ -1246,8 +1246,8 @@ input:checked+.option-background {
 }
 
 #principles .benefit-card:hover {
-    -webkit-box-shadow: -0.2vh -0.2vh 0.2vh rgba(112, 144, 176, 0.01), 1vh 0.8vh 1.2vh rgba(50, 70, 100, 0.6);
-    box-shadow: -0.2vh -0.2vh 0.2vh rgba(112, 144, 176, 0.01), 1vh 0.8vh 1.2vh rgba(50, 70, 100, 0.6);
+    -webkit-box-shadow: -2px -2px 2px rgba(112, 144, 176, 0.01), 10px 8px 12px rgba(50, 70, 100, 0.6);
+    box-shadow: -2px -2px 2px rgba(112, 144, 176, 0.01), 10px 8px 12px rgba(50, 70, 100, 0.6);
 }
 
 /* Ondas decorativas */
@@ -1519,9 +1519,9 @@ footer .brand-container {
 
 /* Princípios - Cards */
 #principles .benefit-card:hover {
-    box-shadow: -0.2vh -0.2vh 0.2vh rgba(112, 144, 176, 0.01), 1vh 0.8vh 1.2vh rgba(50, 70, 100, 0.6);
+    box-shadow: -2px -2px 2px rgba(112, 144, 176, 0.01), 10px 8px 12px rgba(50, 70, 100, 0.6);
 }
 
 #principles .benefit-card:active {
-    box-shadow: -0.2vh -0.2vh 0.2vh rgba(112, 144, 176, 0.01), 1vh 0.8vh 1.2vh rgba(50, 70, 100, 0.6);
+    box-shadow: -2px -2px 2px rgba(112, 144, 176, 0.01), 10px 8px 12px rgba(50, 70, 100, 0.6);
 }
