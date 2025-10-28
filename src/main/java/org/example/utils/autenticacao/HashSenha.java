@@ -1,6 +1,7 @@
 package org.example.utils.autenticacao;
 
 //Importações
+
 import java.security.NoSuchAlgorithmException;
 import java.security.MessageDigest;
 import java.nio.charset.StandardCharsets;

@@ -6,12 +6,12 @@ public abstract class BaseModel {//Abertura de classe abstrata que servirá de b
     protected int id;//Gerado automáticamente pelo database
 
     //Métodos getters
-    public int getId(){
+    public int getId() {
         return this.id;
     }
 
     //Métodos setters
-    public void setId(int id){
+    public void setId(int id) {
         this.id = id;
     }
 

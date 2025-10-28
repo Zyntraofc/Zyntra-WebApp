@@ -59,7 +59,8 @@ public class ServletAlterarEmpresa extends HttpServlet {
                     List<Empresa> empresasAntigoTipo = empresadao.listarEmpresaPorIdTipoEmpresa(idTipoEmpresaAntigo);
                     if (!empresasAntigoTipo.isEmpty()) {
                         for (Empresa e : empresasAntigoTipo) {
-                            if (statusdao.listarStatusAprovacaoPorID(e.getIdStatusAprovacao()).getStatus() == 'a') tipoAntigoInativo = false;
+                            if (statusdao.listarStatusAprovacaoPorID(e.getIdStatusAprovacao()).getStatus() == 'a')
+                                tipoAntigoInativo = false;
                         }
                     }
                     if (tipoAntigoInativo) {
@@ -71,7 +72,8 @@ public class ServletAlterarEmpresa extends HttpServlet {
                     List<Empresa> empresasNovoTipo = empresadao.listarEmpresaPorIdTipoEmpresa(idTipoEmpresa);
                     if (!empresasNovoTipo.isEmpty()) {
                         for (Empresa e : empresasNovoTipo) {
-                            if (statusdao.listarStatusAprovacaoPorID(e.getIdStatusAprovacao()).getStatus() == 'a') qntdEmpresas += 1;
+                            if (statusdao.listarStatusAprovacaoPorID(e.getIdStatusAprovacao()).getStatus() == 'a')
+                                qntdEmpresas += 1;
                         }
                     }
                     if (qntdEmpresas == 1) {
@@ -105,13 +107,14 @@ public class ServletAlterarEmpresa extends HttpServlet {
                     resposta++;
                 }
             }
-            if(resposta ==0){
+            if (resposta == 0) {
                 req.setAttribute("erro", "Empresa atualizada com sucesso");
                 req.getRequestDispatcher("/private/ListarEmpresas").forward(req, resp);
             }
         }
     }
-    public void destroy(){
+
+    public void destroy() {
         ConexaoManager.desconectar();
     }
 }

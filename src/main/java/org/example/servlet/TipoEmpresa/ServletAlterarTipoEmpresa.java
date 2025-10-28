@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -44,7 +45,8 @@ public class ServletAlterarTipoEmpresa extends HttpServlet {
             req.getRequestDispatcher("/private/ListarTipoEmpresa").forward(req, resp);
         }
     }
-    public void destroy(){
+
+    public void destroy() {
         ConexaoManager.desconectar();
     }
 }

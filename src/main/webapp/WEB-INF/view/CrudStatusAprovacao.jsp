@@ -13,7 +13,8 @@
 <aside>
     <div class="sidebar-header">
         <div class="logo-container">
-            <img src="${pageContext.request.contextPath}/assets/logos/logo-quadrada.png" alt="logo-aion" class="logo-aion">
+            <img src="${pageContext.request.contextPath}/assets/logos/logo-quadrada.png" alt="logo-aion"
+                 class="logo-aion">
             <div class="brand-text">
                 <p class="aion">aion</p>
                 <h4>Status de Aprovação</h4>
@@ -70,7 +71,7 @@
 
     <div class="top-bar">
         <form class="search-form">
-                <img src="${pageContext.request.contextPath}/assets/icons/icon-lupa.png" alt="Pesquisar">
+            <img src="${pageContext.request.contextPath}/assets/icons/icon-lupa.png" alt="Pesquisar">
             <input id="searchbar" name="searchbar" onkeyup="search()" type="text" placeholder="Buscar nome...">
         </form>
 
@@ -92,24 +93,25 @@
                 </div>
                 <form action="${pageContext.request.contextPath}/private/ListarStatusAprovacao" method="post">
                     <div class="filtro-section">
-                    <div class="filtro-item">
-                        <label for="statusesOrdenados">Status: </label>
-                        <select name="ordenarStatus" id="statusesOrdenados">
-                            <option value="">Todas</option>
-                            <option value="a" ${param.ordenarStatus == 'a' ? 'selected' : ''}>Aprovadas</option>
-                            <option value="p" ${param.ordenarStatus == 'p' ? 'selected' : ''}>Pendentes</option>
-                            <option value="r" ${param.ordenarStatus == 'r' ? 'selected' : ''}>Rejeitadas</option>
-                        </select>
-                    </div>
+                        <div class="filtro-item">
+                            <label for="statusesOrdenados">Status: </label>
+                            <select name="ordenarStatus" id="statusesOrdenados">
+                                <option value="">Todas</option>
+                                <option value="a" ${param.ordenarStatus == 'a' ? 'selected' : ''}>Aprovadas</option>
+                                <option value="p" ${param.ordenarStatus == 'p' ? 'selected' : ''}>Pendentes</option>
+                                <option value="r" ${param.ordenarStatus == 'r' ? 'selected' : ''}>Rejeitadas</option>
+                            </select>
+                        </div>
 
-                    <div class="filtro-item">
-                        <label for="atualizacoesOrdenadas">Atualizações: </label>
-                        <select name="ordenarAtualizacoes" id="atualizacoesOrdenadas">
-                            <option value="">Todas</option>
-                            <option value="1" ${param.ordenarAtualizacoes == '1' ? 'selected' : ''}>Recentes</option>
-                            <option value="2" ${param.ordenarAtualizacoes == '2' ? 'selected' : ''}>Antigas</option>
-                        </select>
-                    </div>
+                        <div class="filtro-item">
+                            <label for="atualizacoesOrdenadas">Atualizações: </label>
+                            <select name="ordenarAtualizacoes" id="atualizacoesOrdenadas">
+                                <option value="">Todas</option>
+                                <option value="1" ${param.ordenarAtualizacoes == '1' ? 'selected' : ''}>Recentes
+                                </option>
+                                <option value="2" ${param.ordenarAtualizacoes == '2' ? 'selected' : ''}>Antigas</option>
+                            </select>
+                        </div>
                     </div>
                     <button type="submit" class="botao-filtrar">Aplicar Filtros</button>
                 </form>
@@ -127,9 +129,10 @@
     </div>
 
     <%
-        if(request.getAttribute("erro") != null){
+        if (request.getAttribute("erro") != null) {
     %>
-    <p><%=request.getAttribute("erro")%></p>
+    <p><%=request.getAttribute("erro")%>
+    </p>
     <%
         }
     %>
@@ -155,21 +158,27 @@
                         <td class="actions">
                             <div style="display: flex">
                                 <form>
-                                    <button style="border: none; background: none; cursor: pointer" class="toggleLinha" data-olho="${pageContext.request.contextPath}/assets/icons/icon-olho.png"
+                                    <button style="border: none; background: none; cursor: pointer" class="toggleLinha"
+                                            data-olho="${pageContext.request.contextPath}/assets/icons/icon-olho.png"
                                             data-olho-fechado="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png">
-                                        <img src="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png" />
+                                        <img src="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png"/>
                                     </button>
                                 </form>
-                                <form action="${pageContext.request.contextPath}/private/AlterarStatusAprovacao" method="post">
+                                <form action="${pageContext.request.contextPath}/private/AlterarStatusAprovacao"
+                                      method="post">
                                     <input type="hidden" name="id" value="${status.id}">
                                     <input type="hidden" name="action" value="0">
-                                    <button type="submit" style="border: none; background: none; cursor: pointer" > <img src="${pageContext.request.contextPath}/assets/icons/icon-edit.png"></button>
+                                    <button type="submit" style="border: none; background: none; cursor: pointer"><img
+                                            src="${pageContext.request.contextPath}/assets/icons/icon-edit.png">
+                                    </button>
                                 </form>
                                 <form action="${pageContext.request.contextPath}/private/DeletarEmpresa" method="post">
                                     <input type="hidden" name="idStatus" value="${status.id}">
                                     <input type="hidden" name="caminho" value="StatusAprovacao">
                                     <input type="hidden" name="action" value="0">
-                                    <button type="submit" style="border: none; background: none; cursor: pointer" ><img src="${pageContext.request.contextPath}/assets/icons/icon-excluir.png"></button>
+                                    <button type="submit" style="border: none; background: none; cursor: pointer"><img
+                                            src="${pageContext.request.contextPath}/assets/icons/icon-excluir.png">
+                                    </button>
                                 </form>
                             </div>
                         </td>
@@ -214,11 +223,14 @@
         <input type="hidden" name="id" value="${alterarStatus.getId()}">
 
         <div class="status">
-            <input type="radio" name="status" value="a" id="ativo" ${String.valueOf(alterarStatus.status).equals("a") ? 'checked' : ''}>
+            <input type="radio" name="status" value="a"
+                   id="ativo" ${String.valueOf(alterarStatus.status).equals("a") ? 'checked' : ''}>
             <label for="ativo">Ativo</label>
-            <input type="radio" name="status" value="p" id="pendente" ${String.valueOf(alterarStatus.status).equals("p") ? 'checked' : ''}>
+            <input type="radio" name="status" value="p"
+                   id="pendente" ${String.valueOf(alterarStatus.status).equals("p") ? 'checked' : ''}>
             <label for="pendente">Pendente</label>
-            <input type="radio" name="status" value="r" id="recusado" ${String.valueOf(alterarStatus.status).equals("r") ? 'checked' : ''}>
+            <input type="radio" name="status" value="r"
+                   id="recusado" ${String.valueOf(alterarStatus.status).equals("r") ? 'checked' : ''}>
             <label for="recusado">Recusado</label>
         </div>
 
@@ -226,7 +238,8 @@
         <textarea name="motivoRejeicao" id="motivoRejeicao" rows="4">${alterarStatus.getMotivoRejeicao()}</textarea>
 
         <div class="botoes">
-            <div class="cancelar"> <a href="${pageContext.request.contextPath}/private/ListarStatusAprovacao">✖ Cancelar</a></div>
+            <div class="cancelar"><a href="${pageContext.request.contextPath}/private/ListarStatusAprovacao">✖
+                Cancelar</a></div>
             <button type="submit" class="confirmar">✔ Confirmar</button>
         </div>
     </form>
@@ -256,13 +269,15 @@
         <input type="text" id="Novocnpj" name="cnpj" class="validar-input" required pattern="^([0-9]{14})$">
 
         <label for="Novoemail">E-mail</label>
-        <input type="email" id="Novoemail" name="email"  required class="validar-input">
+        <input type="email" id="Novoemail" name="email" required class="validar-input">
 
         <label for="Novotelefone">Telefone</label>
-        <input type="text" id="Novotelefone" name="telefone" pattern="\(?\d{2}\)? ?\d{5}-?\d{4}" required class="validar-input">
+        <input type="text" id="Novotelefone" name="telefone" pattern="\(?\d{2}\)? ?\d{5}-?\d{4}" required
+               class="validar-input">
 
         <div class="botoes">
-            <div class="cancelar"> <a href="${pageContext.request.contextPath}/private/ListarStatusAprovacao">✖ Cancelar</a></div>
+            <div class="cancelar"><a href="${pageContext.request.contextPath}/private/ListarStatusAprovacao">✖
+                Cancelar</a></div>
             <button type="submit" class="confirmar">✔ Confirmar</button>
         </div>
     </form>

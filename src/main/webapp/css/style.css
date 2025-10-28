@@ -167,7 +167,7 @@ header {
 }
 
 /* Efeitos de hover na navegação */
-.navigation-menu:hover> :not(:hover) {
+.navigation-menu:hover > :not(:hover) {
     height: 100%;
     opacity: 60%;
     -webkit-transform: scale(0.9);
@@ -175,7 +175,7 @@ header {
     transform: scale(0.9);
 }
 
-.navigation-menu:hover> :not(:hover) .active-indicator {
+.navigation-menu:hover > :not(:hover) .active-indicator {
     width: 0px !important;
 }
 
@@ -183,11 +183,11 @@ header {
     color: #3A47FF;
 }
 
-.navigation-menu:hover> :not(:hover) p {
+.navigation-menu:hover > :not(:hover) p {
     color: black;
 }
 
-.navigation-menu:hover> :not(:hover)~.active-indicator {
+.navigation-menu:hover > :not(:hover) ~ .active-indicator {
     width: 0px;
 }
 
@@ -226,11 +226,11 @@ a {
 }
 
 /* Estados ativos dos links de navegação */
-.nav-item.active~.active-indicator {
+.nav-item.active ~ .active-indicator {
     background-color: #3A47FF;
 }
 
-.nav-item.active~.active-indicator {
+.nav-item.active ~ .active-indicator {
     width: 99%;
 }
 
@@ -240,7 +240,7 @@ a {
 
 /* Efeitos hover nos itens de navegação */
 
-.nav-item:hover~.active-indicator {
+.nav-item:hover ~ .active-indicator {
     width: 99%;
 }
 
@@ -309,7 +309,7 @@ main {
     transform: rotate(130.753deg);
     border-radius: 400px;
     background: rgb(255, 255, 255);
--webkit-filtrgb(255, 255, 255)x);
+-webkit-filtrgb(255, 255, 255) x);
     filter: blur(25px);
     top: 500px;
     left: 50vw;
@@ -591,7 +591,7 @@ main {
     margin-bottom: -200px;
 }
 
-#plataform>p {
+#plataform > p {
     margin-top: 15px;
     width: 62vw;
     color: #000;
@@ -601,7 +601,7 @@ main {
     line-height: 20px;
 }
 
-#plataform>.section-title {
+#plataform > .section-title {
     width: 65vw;
     color: #99A0FF;
     text-align: center;
@@ -709,7 +709,7 @@ main {
     width: 100%;
 }
 
-.platform-image>img {
+.platform-image > img {
     width: 100%;
 }
 
@@ -912,7 +912,7 @@ label {
     border-radius: 25px;
 }
 
-input:checked+.option-background {
+input:checked + .option-background {
     background-image: -o-radial-gradient(112.2% -31.48%, 113.02% 172.85%, #9299FF 0%, #3A47FF 100%);
     background-image: radial-gradient(113.02% 172.85% at 112.2% -31.48%, #9299FF 0%, #3A47FF 100%);
 }
@@ -976,19 +976,19 @@ input:checked+.option-background {
 }
 
 /* Transições entre as telas do aplicativo */
-#app-options:has(input#dates:checked)~#app-presentation {
+#app-options:has(input#dates:checked) ~ #app-presentation {
     -webkit-transform: translateX(26.85%);
     -ms-transform: translateX(26.85%);
     transform: translateX(26.85%);
 }
 
-#app-options:has(input#dashbord:checked)~#app-presentation {
+#app-options:has(input#dashbord:checked) ~ #app-presentation {
     -webkit-transform: translateX(-84%);
     -ms-transform: translateX(-84%);
     transform: translateX(-84%);
 }
 
-#app-options:has(input#justificativa:checked)~#app-presentation {
+#app-options:has(input#justificativa:checked) ~ #app-presentation {
     -webkit-transform: translateX(-30%);
     -ms-transform: translateX(-30%);
     transform: translateX(-30%);
@@ -1187,12 +1187,12 @@ input:checked+.option-background {
     margin-top: 2.5%;
 }
 
-#about-content>*:nth-child(1) {
+#about-content > *:nth-child(1) {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
 }
 
-#about-content>*:nth-child(2) {
+#about-content > *:nth-child(2) {
     -ms-grid-row: 1;
     -ms-grid-column: 3;
 }
@@ -1412,7 +1412,7 @@ footer .brand-container {
     justify-content: center;
 }
 
-#footer-bottom>ol {
+#footer-bottom > ol {
     list-style: none;
     gap: 50px;
     display: -webkit-box;
@@ -1431,7 +1431,7 @@ footer .brand-container {
 /* ===== HOVERS CONVERTIDOS PARA ACTIVE ===== */
 
 /* Header - Navegação */
-.navigation-menu:hover> :not(:hover) {
+.navigation-menu:hover > :not(:hover) {
     height: 100%;
     opacity: 60%;
     transform: scale(0.9);
@@ -1450,7 +1450,7 @@ footer .brand-container {
     color: #3A47FF;
 }
 
-.navigation-menu:hover> :not(:hover) p {
+.navigation-menu:hover > :not(:hover) p {
     color: black;
 }
 

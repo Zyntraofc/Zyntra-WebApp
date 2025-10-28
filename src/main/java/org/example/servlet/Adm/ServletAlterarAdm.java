@@ -1,5 +1,7 @@
 package org.example.servlet.Adm;
+
 import java.io.IOException;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -16,13 +18,12 @@ public class ServletAlterarAdm extends HttpServlet {
         int resposta = 0;
         AdministradorDAO admdao = new AdministradorDAO();
         ValidacaoEmail valemail = new ValidacaoEmail();
-        if (action == 0){
+        if (action == 0) {
             Administrador adm = admdao.listarAdministradorPorId(id);
             req.setAttribute("administrador", adm);
             req.setAttribute("popup-alterar", true);
             req.getRequestDispatcher("/private/ListarAdministradores").forward(req, resp);
-        }
-        else if (action == 1) {
+        } else if (action == 1) {
             String email = req.getParameter("email");
             Administrador adm = admdao.listarAdministradorPorId(id);
 
@@ -38,7 +39,7 @@ public class ServletAlterarAdm extends HttpServlet {
 
             Administrador admAtualizado = admdao.listarAdministradorPorId(id);
             req.setAttribute("administrador", admAtualizado);
-            if(resposta ==0){
+            if (resposta == 0) {
                 req.setAttribute("erro", "Adm atualizado com sucesso");
             }
             java.util.List<Administrador> administradores = admdao.listarAdministradores();
@@ -47,7 +48,7 @@ public class ServletAlterarAdm extends HttpServlet {
         }
     }
 
-    public void destroy(){
+    public void destroy() {
         ConexaoManager.desconectar();
     }
 }

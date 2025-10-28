@@ -1,9 +1,10 @@
 package org.example.model;
 
 //Importação do LocalDate para atribuir datas
+
 import java.time.LocalDate;
 
-public class StatusAprovacao extends BaseModel{//abertura da classe
+public class StatusAprovacao extends BaseModel {//abertura da classe
 
     //Declaração de atributos
     private String motivoRejeicao = null;
@@ -18,6 +19,7 @@ public class StatusAprovacao extends BaseModel{//abertura da classe
         this.dataSolicitacao = dataSolicitacao;
         this.dataAprovacao = dataAprovacao;
     }
+
     public StatusAprovacao(LocalDate dataSolicitacao) {//Metodo para inserir padrão (pendente)
         this.motivoRejeicao = null;
         this.status = 'p';
@@ -56,11 +58,11 @@ public class StatusAprovacao extends BaseModel{//abertura da classe
     }
 
     //Metodo toString
-    public String toString(){
-        return (this.motivoRejeicao != null? "Motivo de rejeição: "+this.motivoRejeicao: "") +
-                "\nStatus: "+this.status +
-                "\nData de solicitação: "+this.dataSolicitacao+
-                (this.dataAprovacao != null ? "\nData de aprovacao: "+this.dataAprovacao : "");
+    public String toString() {
+        return (this.motivoRejeicao != null ? "Motivo de rejeição: " + this.motivoRejeicao : "") +
+                "\nStatus: " + this.status +
+                "\nData de solicitação: " + this.dataSolicitacao +
+                (this.dataAprovacao != null ? "\nData de aprovacao: " + this.dataAprovacao : "");
     }
 
 }

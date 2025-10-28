@@ -1,6 +1,7 @@
 package org.example.servlet.controle;
 
 import java.io.IOException;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -45,7 +46,8 @@ public class ServletLogin extends HttpServlet {
             req.getRequestDispatcher("/login.jsp").forward(req, resp);
         }
     }
-    public void destroy(){
+
+    public void destroy() {
         ConexaoManager.desconectar();
     }
 }

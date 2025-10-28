@@ -1,5 +1,7 @@
 package org.example.servlet.MotivoFalta;
+
 import java.io.IOException;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -13,24 +15,24 @@ public class ServletAlterarMotivoFalta extends HttpServlet {
         int action = Integer.parseInt(req.getParameter("action"));
         int id = Integer.parseInt(req.getParameter("id"));
         MotivoFaltaDAO motivodao = new MotivoFaltaDAO();
-        if (action == 0){
+        if (action == 0) {
             MotivoFalta motivo = motivodao.listarMotivoFaltaPorID(id);
             req.setAttribute("motivo", motivo);
             req.setAttribute("popup-alterar", true);
             req.getRequestDispatcher("/private/ListarMotivosFalta").forward(req, resp);
-        }
-        else if (action == 1) {
+        } else if (action == 1) {
             String motivo = req.getParameter("motivo");
 
 
-            if(motivodao.alterarMotivoMotivoFalta(id, motivo)) req.setAttribute("erro", "Adm atualizado com sucesso");
+            if (motivodao.alterarMotivoMotivoFalta(id, motivo)) req.setAttribute("erro", "Adm atualizado com sucesso");
             else req.setAttribute("erro", "Erro!");
             java.util.List<MotivoFalta> motivos = motivodao.listarMotivosFalta();
             req.setAttribute("motivos", motivos);
             req.getRequestDispatcher("/WEB-INF/view/CrudMotivoFalta.jsp").forward(req, resp);
         }
     }
-    public void destroy(){
+
+    public void destroy() {
         ConexaoManager.desconectar();
     }
 }

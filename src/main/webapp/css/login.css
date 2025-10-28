@@ -136,7 +136,7 @@ img {
 
 .logo-tagline {
     color: rgba(255, 255, 255, 0.9);
-    font-size:  clamp(0.1rem, 1vw, 8rem);
+    font-size: clamp(0.1rem, 1vw, 8rem);
     font-weight: 500;
     line-height: 1.5;
 }
@@ -175,13 +175,13 @@ img {
 .login-header h1 {
     color: #3A47FF;
     font-weight: 700;
-    font-size:  clamp(0.1rem, 1.58vw, 8rem);
+    font-size: clamp(0.1rem, 1.58vw, 8rem);
     margin-bottom: 1vh;
 }
 
 .login-header p {
     color: #9299FF;
-    font-size:  clamp(0.1rem, 0.78vw, 8rem);
+    font-size: clamp(0.1rem, 0.78vw, 8rem);
 }
 
 /* Campos do formulário */
@@ -211,7 +211,7 @@ img {
     color: #3A47FF;
     margin-bottom: 1vh;
     font-weight: 600;
-    font-size:  clamp(0.1rem, 0.7vw, 8rem);
+    font-size: clamp(0.1rem, 0.7vw, 8rem);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -237,7 +237,7 @@ img {
     border: 0.2vh solid #e6e9ff;
     width: 100%;
     background: white;
-    font-size:  clamp(0.1rem, 0.78vw, 8rem);
+    font-size: clamp(0.1rem, 0.78vw, 8rem);
     -webkit-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
@@ -252,31 +252,31 @@ img {
 
 input::-webkit-input-placeholder {
     color: #d2d2d1;
-    font-size:  clamp(0.1rem, 0.74vw, 8rem);
+    font-size: clamp(0.1rem, 0.74vw, 8rem);
     font-weight: 500;
 }
 
 input::-moz-placeholder {
     color: #d2d2d1;
-    font-size:  clamp(0.1rem, 0.74vw, 8rem);
+    font-size: clamp(0.1rem, 0.74vw, 8rem);
     font-weight: 500;
 }
 
 input:-ms-input-placeholder {
     color: #d2d2d1;
-    font-size:  clamp(0.1rem, 0.74vw, 8rem);
+    font-size: clamp(0.1rem, 0.74vw, 8rem);
     font-weight: 500;
 }
 
 input::-ms-input-placeholder {
     color: #d2d2d1;
-    font-size:  clamp(0.1rem, 0.74vw, 8rem);
+    font-size: clamp(0.1rem, 0.74vw, 8rem);
     font-weight: 500;
 }
 
 input::placeholder {
     color: #d2d2d1;
-    font-size:  clamp(0.1rem, 0.74vw, 8rem);
+    font-size: clamp(0.1rem, 0.74vw, 8rem);
     font-weight: 500;
 }
 
@@ -295,7 +295,7 @@ input::placeholder {
     color: white;
     width: 100%;
     height: 5.5vh;
-    font-size:  clamp(0.1rem, 0.78vw, 8rem);
+    font-size: clamp(0.1rem, 0.78vw, 8rem);
     font-weight: 600;
     -webkit-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
@@ -311,6 +311,7 @@ input::placeholder {
     -webkit-box-shadow: 0 0.8vh 2.5vh rgba(58, 71, 255, 0.4);
     box-shadow: 0 0.8vh 2.5vh rgba(58, 71, 255, 0.4);
 }
+
 .erro-login {
     color: #ff2b2b !important;
     text-align: center !important;
@@ -320,6 +321,7 @@ input::placeholder {
     width: 100% !important;
     font-size: clamp(0.1rem, 0.78vw, 8rem) !important;
 }
+
 /* ===== MEDIA QUERIES ===== */
 /* Tablets e telas medianas */
 @media (max-width: 1024px) {
@@ -343,23 +345,23 @@ input::placeholder {
         font-size: 0.75rem;
     }
 
-    input::-webkit-input-placeholder{
+    input::-webkit-input-placeholder {
         font-size: 0.7rem;
     }
 
-    input::-moz-placeholder{
+    input::-moz-placeholder {
         font-size: 0.7rem;
     }
 
-    input:-ms-input-placeholder{
+    input:-ms-input-placeholder {
         font-size: 0.7rem;
     }
 
-    input::-ms-input-placeholder{
+    input::-ms-input-placeholder {
         font-size: 0.7rem;
     }
 
-    .input-group input, input::placeholder{
+    .input-group input, input::placeholder {
         font-size: 0.7rem;
     }
 
@@ -372,6 +374,7 @@ input::placeholder {
         font-size: 0.7rem !important;
     }
 }
+
 @media (max-width: 900px) {
     .logo-text {
         font-size: 2.5rem;
@@ -381,7 +384,8 @@ input::placeholder {
     .logo-tagline {
         font-size: 1rem;
         line-height: 1.4;
-    }}
+    }
+}
 
 
 /* Dispositivos móveis grandes */
@@ -474,9 +478,11 @@ input::placeholder {
     .input-group input {
         padding: 0.5vh 1vh;
     }
+
     .login-container {
         max-width: 90%;
     }
+
     .logo-text {
         font-size: 1.8rem;
         margin-bottom: 1vh;
@@ -491,30 +497,36 @@ input::placeholder {
         width: 25vw;
     }
 }
-@media (max-width: 358px){
-    .submit-button button{
+
+@media (max-width: 358px) {
+    .submit-button button {
         width: 40vw;
     }
 }
-@media (max-width: 258px){
-    .submit-button button{
+
+@media (max-width: 258px) {
+    .submit-button button {
         width: 45vw;
     }
 }
+
 /* Ajustes para telas muito altas em mobile */
 @media (min-height: 800px) and (max-width: 768px) {
     .login-wrapper {
         width: 85%;
     }
 }
-@media (max-height: 364px){
-    .submit-button{
+
+@media (max-height: 364px) {
+    .submit-button {
         height: 10vh;
     }
-    .submit-button button{
+
+    .submit-button button {
         height: 10vh;
     }
 }
+
 /* Ajustes para orientação paisagem em móveis */
 @media (max-height: 500px) and (orientation: landscape) {
     .login-wrapper {
@@ -530,10 +542,12 @@ input::placeholder {
     .logo-tagline {
         font-size: 0.75rem;
     }
+
     .submit-button button {
         width: 25vw;
     }
-    .submit-button{
+
+    .submit-button {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;

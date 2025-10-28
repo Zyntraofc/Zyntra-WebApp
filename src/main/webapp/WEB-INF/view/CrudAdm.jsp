@@ -2,225 +2,239 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/crud.css">
-  <title>Crud Adm - Área restrita</title>
-  <script src="${pageContext.request.contextPath}/js/pesquisa.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/logos/logo-quadrada.png">
-  <script src="${pageContext.request.contextPath}/js/mascara.js" defer></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pap4G5rY9O6..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/crud.css">
+    <title>Crud Adm - Área restrita</title>
+    <script src="${pageContext.request.contextPath}/js/pesquisa.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/logos/logo-quadrada.png">
+    <script src="${pageContext.request.contextPath}/js/mascara.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-pap4G5rY9O6..." crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
 <body>
 <aside>
-  <div class="sidebar-header">
-    <div class="logo-container">
-      <img src="${pageContext.request.contextPath}/assets/logos/logo-quadrada.png" alt="logo-aion" class="logo-aion">
-      <div class="brand-text">
-        <p class="aion">aion</p>
-        <h4>Adm</h4>
-      </div>
+    <div class="sidebar-header">
+        <div class="logo-container">
+            <img src="${pageContext.request.contextPath}/assets/logos/logo-quadrada.png" alt="logo-aion"
+                 class="logo-aion">
+            <div class="brand-text">
+                <p class="aion">aion</p>
+                <h4>Adm</h4>
+            </div>
+        </div>
+        <hr>
     </div>
-    <hr>
-  </div>
 
-  <div class="barra-lateral">
-    <form action="${pageContext.request.contextPath}/Autenticar" method="post">
-      <button type="submit" class="botao">Empresa</button>
-      <input type="hidden" name="endpointInput" value="/private/ListarEmpresas">
-      <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
-    </form>
-    <form action="${pageContext.request.contextPath}/Autenticar" method="post">
-      <button type="submit" class="botao active">Adm</button>
-      <input type="hidden" name="endpointInput" value="/private/ListarAdministradores">
-      <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
-    </form>
-    <form action="${pageContext.request.contextPath}/Autenticar" method="post">
-      <button type="submit" class="botao">Status Aprovação</button>
-      <input type="hidden" name="endpointInput" value="/private/ListarStatusAprovacao">
-      <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
-    </form>
-    <form action="${pageContext.request.contextPath}/Autenticar" method="post">
-      <button type="submit" class="botao">Indices Classificação</button>
-      <input type="hidden" name="endpointInput" value="/private/ListarIndiceClassificacao">
-      <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
-    </form>
-    <form action="${pageContext.request.contextPath}/Autenticar" method="post">
-      <button type="submit" class="botao">Tipo Empresa</button>
-      <input type="hidden" name="endpointInput" value="/private/ListarTipoEmpresa">
-      <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
-    </form>
-    <form action="${pageContext.request.contextPath}/Autenticar" method="post">
-      <button type="submit" class="botao">Motivo Falta</button>
-      <input type="hidden" name="endpointInput" value="/private/ListarMotivosFalta">
-      <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
-    </form>
+    <div class="barra-lateral">
+        <form action="${pageContext.request.contextPath}/Autenticar" method="post">
+            <button type="submit" class="botao">Empresa</button>
+            <input type="hidden" name="endpointInput" value="/private/ListarEmpresas">
+            <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
+        </form>
+        <form action="${pageContext.request.contextPath}/Autenticar" method="post">
+            <button type="submit" class="botao active">Adm</button>
+            <input type="hidden" name="endpointInput" value="/private/ListarAdministradores">
+            <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
+        </form>
+        <form action="${pageContext.request.contextPath}/Autenticar" method="post">
+            <button type="submit" class="botao">Status Aprovação</button>
+            <input type="hidden" name="endpointInput" value="/private/ListarStatusAprovacao">
+            <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
+        </form>
+        <form action="${pageContext.request.contextPath}/Autenticar" method="post">
+            <button type="submit" class="botao">Indices Classificação</button>
+            <input type="hidden" name="endpointInput" value="/private/ListarIndiceClassificacao">
+            <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
+        </form>
+        <form action="${pageContext.request.contextPath}/Autenticar" method="post">
+            <button type="submit" class="botao">Tipo Empresa</button>
+            <input type="hidden" name="endpointInput" value="/private/ListarTipoEmpresa">
+            <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
+        </form>
+        <form action="${pageContext.request.contextPath}/Autenticar" method="post">
+            <button type="submit" class="botao">Motivo Falta</button>
+            <input type="hidden" name="endpointInput" value="/private/ListarMotivosFalta">
+            <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
+        </form>
 
-    <div class="sair-container">
-      <form action="${pageContext.request.contextPath}/Logout">
-        <button type="submit" class="sair">
-          <img src="${pageContext.request.contextPath}/assets/icons/icon-saida.png" alt="Sair">
-          <span>Sair</span>
-        </button>
-      </form>
+        <div class="sair-container">
+            <form action="${pageContext.request.contextPath}/Logout">
+                <button type="submit" class="sair">
+                    <img src="${pageContext.request.contextPath}/assets/icons/icon-saida.png" alt="Sair">
+                    <span>Sair</span>
+                </button>
+            </form>
+        </div>
     </div>
-  </div>
 </aside>
 
 <main>
-  <h1>Área Restrita</h1>
-  <p>CRUD</p>
+    <h1>Área Restrita</h1>
+    <p>CRUD</p>
 
-  <div class="top-bar">
-    <form class="search-form">
-        <img src="${pageContext.request.contextPath}/assets/icons/icon-lupa.png" alt="Pesquisar">
-      <input  id="searchbar" name="searchbar" onkeyup="search()" type="text" placeholder="Buscar email...">
+    <div class="top-bar">
+        <form class="search-form">
+            <img src="${pageContext.request.contextPath}/assets/icons/icon-lupa.png" alt="Pesquisar">
+            <input id="searchbar" name="searchbar" onkeyup="search()" type="text" placeholder="Buscar email...">
 
-    </form>
+        </form>
 
-    <div class="actions">
-      <form action="${pageContext.request.contextPath}/private/InserirAdm" class="button-adicionar-novo">
-        <button type="submit">
-          <img src="${pageContext.request.contextPath}/assets/icons/icon-add.png" alt="Adicionar">
-          <span>Adicionar Novo</span>
-        </button>
-      </form>
+        <div class="actions">
+            <form action="${pageContext.request.contextPath}/private/InserirAdm" class="button-adicionar-novo">
+                <button type="submit">
+                    <img src="${pageContext.request.contextPath}/assets/icons/icon-add.png" alt="Adicionar">
+                    <span>Adicionar Novo</span>
+                </button>
+            </form>
+        </div>
     </div>
-  </div>
-  <%
-    if(request.getAttribute("erro") != null){
-  %>
-  <p><%=request.getAttribute("erro")%></p>
-  <%
-    }
-  %>
-  <section class="table-card">
-    <div class="table-container">
-    <table>
-    <thead>
-    <tr>
-      <th>ID</th>
-      <th>Email</th>
-      <th>Senha</th>
-      <th>Ações</th>
-    </tr>
-    </thead>
-    <tbody>
-    <c:forEach var="administrador" items="${administradores}">
-      <tr class="linhas">
-        <td>${administrador.id}</td>
-        <td data-label="Pesquisar">${administrador.email}</td>
-        <td class="sensivel">${administrador.hashSenha}</td>
-        <td class="actions">
-          <div style="display: flex">
-            <form>
-            <button style="border: none; background: none; cursor: pointer" class="toggleLinha" data-olho="${pageContext.request.contextPath}/assets/icons/icon-olho.png"
-                    data-olho-fechado="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png">
-              <img src="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png" />
-            </button>
-            </form>
-            <form action="${pageContext.request.contextPath}/private/AlterarAdm" method="post">
-              <input type="hidden" name="id" value="${administrador.id}">
-              <input type="hidden" name="action" value="0">
-              <button type="submit" style="border: none; background: none; cursor: pointer" > <img src="${pageContext.request.contextPath}/assets/icons/icon-edit.png"></button>
-            </form>
-            <form action="${pageContext.request.contextPath}/private/DeletarAdm" method="post">
-              <input type="hidden" name="id" value="${administrador.id}">
-              <input type="hidden" name="action" value="0">
-              <button type="submit" style="border: none; background: none; cursor: pointer" ><img src="${pageContext.request.contextPath}/assets/icons/icon-excluir.png"></button>
-            </form>
-          </div>
-        </td>
-      </tr>
-    </c:forEach>
-    </tbody>
-  </table>
-    </div>
-  </section>
+    <%
+        if (request.getAttribute("erro") != null) {
+    %>
+    <p><%=request.getAttribute("erro")%>
+    </p>
+    <%
+        }
+    %>
+    <section class="table-card">
+        <div class="table-container">
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>Senha</th>
+                    <th>Ações</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="administrador" items="${administradores}">
+                    <tr class="linhas">
+                        <td>${administrador.id}</td>
+                        <td data-label="Pesquisar">${administrador.email}</td>
+                        <td class="sensivel">${administrador.hashSenha}</td>
+                        <td class="actions">
+                            <div style="display: flex">
+                                <form>
+                                    <button style="border: none; background: none; cursor: pointer" class="toggleLinha"
+                                            data-olho="${pageContext.request.contextPath}/assets/icons/icon-olho.png"
+                                            data-olho-fechado="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png">
+                                        <img src="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png"/>
+                                    </button>
+                                </form>
+                                <form action="${pageContext.request.contextPath}/private/AlterarAdm" method="post">
+                                    <input type="hidden" name="id" value="${administrador.id}">
+                                    <input type="hidden" name="action" value="0">
+                                    <button type="submit" style="border: none; background: none; cursor: pointer"><img
+                                            src="${pageContext.request.contextPath}/assets/icons/icon-edit.png">
+                                    </button>
+                                </form>
+                                <form action="${pageContext.request.contextPath}/private/DeletarAdm" method="post">
+                                    <input type="hidden" name="id" value="${administrador.id}">
+                                    <input type="hidden" name="action" value="0">
+                                    <button type="submit" style="border: none; background: none; cursor: pointer"><img
+                                            src="${pageContext.request.contextPath}/assets/icons/icon-excluir.png">
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </div>
+    </section>
 </main>
 <% if (request.getAttribute("popup-deletar") != null) { %>
 <div class="tela-transparente"></div>
 <div class="deletar">
-  <h1>Deletar</h1>
-  <p>Deseja mesmo excluir? Esta ação é irreversível.</p>
-  <div class="opcoes">
-    <form action="${pageContext.request.contextPath}/private/DeletarAdm" method="post">
-      <input type="hidden" name="action" value="1">
-      <input type="hidden" name="id" value="${administrador.getId()}">
-      <button type="submit">✔ Confirmar</button>
-    </form>
-    <form action="${pageContext.request.contextPath}/private/DeletarAdm" method="post">
-      <input type="hidden" name="id" value="${administrador.getId()}">
-      <input type="hidden" name="action" value="2">
-      <button type="submit">✖ Cancelar</button>
-    </form>
-  </div>
+    <h1>Deletar</h1>
+    <p>Deseja mesmo excluir? Esta ação é irreversível.</p>
+    <div class="opcoes">
+        <form action="${pageContext.request.contextPath}/private/DeletarAdm" method="post">
+            <input type="hidden" name="action" value="1">
+            <input type="hidden" name="id" value="${administrador.getId()}">
+            <button type="submit">✔ Confirmar</button>
+        </form>
+        <form action="${pageContext.request.contextPath}/private/DeletarAdm" method="post">
+            <input type="hidden" name="id" value="${administrador.getId()}">
+            <input type="hidden" name="action" value="2">
+            <button type="submit">✖ Cancelar</button>
+        </form>
+    </div>
 </div>
 <% } %>
 
 <% if (request.getAttribute("popup-inserir") != null) { %>
 <div class="tela-transparente"></div>
 <div class="popup">
-  <h1>Inserir Administrador</h1>
+    <h1>Inserir Administrador</h1>
 
-  <form action="${pageContext.request.contextPath}/private/InserirAdm" method="post">
-    <label for="NovoEmail">Email</label>
-    <input class="validar-input" required type="email" name="email" id="NovoEmail" placeholder="Digite o email do administrador">
+    <form action="${pageContext.request.contextPath}/private/InserirAdm" method="post">
+        <label for="NovoEmail">Email</label>
+        <input class="validar-input" required type="email" name="email" id="NovoEmail"
+               placeholder="Digite o email do administrador">
 
-    <label for="NovaSenha">Senha</label>
-    <input type="password" required  name="senha" id="NovaSenha" placeholder="Digite a senha dada ao administrador">
-    <div class="botoes">
-      <div class="cancelar"> <a href="${pageContext.request.contextPath}/private/ListarAdministradores">✖ Cancelar</a></div>
-      <button type="submit" class="confirmar">✔ Confirmar</button>
-    </div>
-  </form>
+        <label for="NovaSenha">Senha</label>
+        <input type="password" required name="senha" id="NovaSenha" placeholder="Digite a senha dada ao administrador">
+        <div class="botoes">
+            <div class="cancelar"><a href="${pageContext.request.contextPath}/private/ListarAdministradores">✖
+                Cancelar</a></div>
+            <button type="submit" class="confirmar">✔ Confirmar</button>
+        </div>
+    </form>
 </div>
 <% } %>
 
 <% if (request.getAttribute("popup-alterar") != null) { %>
 <div class="tela-transparente"></div>
 <div class="popup">
-  <div id="alterarSenha-container">
-    <h1>Editar Adm</h1>
-    <form action="${pageContext.request.contextPath}/private/AlterarSenha" method="post">
-      <input type="hidden" name="action" value="0">
-      <input type="hidden" name="id" value="${administrador.getId()}">
-      <button type="submit" class="btn-editar">
-        <i class="fa fa-pencil" aria-hidden="true"></i> Editar Senha</button>
-    </form>
-  </div>
-
-  <form action="${pageContext.request.contextPath}/private/AlterarAdm" method="post">
-    <input type="hidden" name="action" value="1">
-    <input type="hidden" name="id" value="${administrador.getId()}">
-
-    <label for="email">E-mail</label>
-    <input required class="validar-input" type="email" name="email" id="email" value="${administrador.getEmail()}">
-    <div class="botoes">
-      <div class="cancelar"> <a href="${pageContext.request.contextPath}/private/ListarAdministradores">✖ Cancelar</a></div>
-      <button type="submit" class="confirmar">✔ Confirmar</button>
+    <div id="alterarSenha-container">
+        <h1>Editar Adm</h1>
+        <form action="${pageContext.request.contextPath}/private/AlterarSenha" method="post">
+            <input type="hidden" name="action" value="0">
+            <input type="hidden" name="id" value="${administrador.getId()}">
+            <button type="submit" class="btn-editar">
+                <i class="fa fa-pencil" aria-hidden="true"></i> Editar Senha
+            </button>
+        </form>
     </div>
-  </form>
+
+    <form action="${pageContext.request.contextPath}/private/AlterarAdm" method="post">
+        <input type="hidden" name="action" value="1">
+        <input type="hidden" name="id" value="${administrador.getId()}">
+
+        <label for="email">E-mail</label>
+        <input required class="validar-input" type="email" name="email" id="email" value="${administrador.getEmail()}">
+        <div class="botoes">
+            <div class="cancelar"><a href="${pageContext.request.contextPath}/private/ListarAdministradores">✖
+                Cancelar</a></div>
+            <button type="submit" class="confirmar">✔ Confirmar</button>
+        </div>
+    </form>
 </div>
 <% } %>
 
-<% if (request.getAttribute("popup-senha") != null){ %>
+<% if (request.getAttribute("popup-senha") != null) { %>
 <div class="tela-transparente"></div>
 <div class="popup">
-  <h1>Trocar Senha</h1>
-  <form action="${pageContext.request.contextPath}/private/AlterarSenha" method="post">
-    <input type="hidden" name="action" value="1">
-    <input type="hidden" name="id" value="${administrador.getId()}">
+    <h1>Trocar Senha</h1>
+    <form action="${pageContext.request.contextPath}/private/AlterarSenha" method="post">
+        <input type="hidden" name="action" value="1">
+        <input type="hidden" name="id" value="${administrador.getId()}">
 
-    <label for="passwordAtual">Senha Atual</label>
-    <input type="password" id="passwordAtual" name="senhaAtual" required placeholder="Confirme aqui a senha atual">
+        <label for="passwordAtual">Senha Atual</label>
+        <input type="password" id="passwordAtual" name="senhaAtual" required placeholder="Confirme aqui a senha atual">
 
-    <label for="passwordNova">Nova Senha</label>
-    <input type="password" id="passwordNova" name="senhaNova" required placeholder="Digite a nova senha">
-    <div class="botoes">
-      <div class="cancelar"> <a href="${pageContext.request.contextPath}/private/ListarAdministradores?popup-alterar=true&id=${administrador.getId()}">✖ Cancelar</a></div>
-      <button type="submit" class="confirmar">✔ Confirmar</button>
-    </div>
-  </form>
+        <label for="passwordNova">Nova Senha</label>
+        <input type="password" id="passwordNova" name="senhaNova" required placeholder="Digite a nova senha">
+        <div class="botoes">
+            <div class="cancelar"><a
+                    href="${pageContext.request.contextPath}/private/ListarAdministradores?popup-alterar=true&id=${administrador.getId()}">✖
+                Cancelar</a></div>
+            <button type="submit" class="confirmar">✔ Confirmar</button>
+        </div>
+    </form>
 </div>
 <% } %>
 </body>

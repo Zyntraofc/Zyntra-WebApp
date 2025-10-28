@@ -2,6 +2,7 @@ package org.example.conexao;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+
 import org.example.exceptions.FailedCommitException;
 import org.example.exceptions.FailedConnectionException;
 import org.example.exceptions.RollbackException;

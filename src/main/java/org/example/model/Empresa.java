@@ -1,6 +1,6 @@
 package org.example.model;
 
-public class Empresa extends BaseModel{//Abertura da classe
+public class Empresa extends BaseModel {//Abertura da classe
 
     //Declaração de atributos
     private int idTipoEmpresa;
@@ -74,13 +74,13 @@ public class Empresa extends BaseModel{//Abertura da classe
 
     //Metodo toString
     public String toString() {
-        return "ID Tipo da empresa: "+this.idTipoEmpresa +
-                "\nID índice de classificação: "+this.idIndiceClassificacao+
-                "\nID status de aprovação: "+ this.idStatusAprovacao+
-                "\nNome da empresa: "+ this.nome +
-                "\nCNPJ: "+this.cnpj +
-                "\nE-mail: "+this.email +
-                "\nTelefone: "+this.telefone;
+        return "ID Tipo da empresa: " + this.idTipoEmpresa +
+                "\nID índice de classificação: " + this.idIndiceClassificacao +
+                "\nID status de aprovação: " + this.idStatusAprovacao +
+                "\nNome da empresa: " + this.nome +
+                "\nCNPJ: " + this.cnpj +
+                "\nE-mail: " + this.email +
+                "\nTelefone: " + this.telefone;
     }
 
 

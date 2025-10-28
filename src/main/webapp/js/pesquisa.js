@@ -1,8 +1,8 @@
-function search(){
+function search() {
     let input = document.getElementById("searchbar").value.toLowerCase().trim();
     let x = document.getElementsByClassName("linhas");
 
-    for(i = 0; i < x.length; i++){
+    for (i = 0; i < x.length; i++) {
         let valorInput = x[i].querySelector('td[data-label="Pesquisar"]');
 
         let valor = '';
@@ -28,11 +28,10 @@ function search(){
                     if (inputNumber > minPercent && inputNumber <= maxPercent) {
                         x[i].style.display = "table-row";
                         continue;
-                    } else if(inputNumber===0 && minPercent===0){
+                    } else if (inputNumber === 0 && minPercent === 0) {
                         x[i].style.display = "table-row";
                         continue;
-                    }
-                    else {
+                    } else {
                         x[i].style.display = "none";
                         continue;
                     }
@@ -41,9 +40,9 @@ function search(){
         }
 
         // Se não for porcentagem faz a busca normal
-        if(!valor.toLowerCase().includes(input)){
+        if (!valor.toLowerCase().includes(input)) {
             x[i].style.display = "none";
-        } else{
+        } else {
             x[i].style.display = "table-row";
         }
     }

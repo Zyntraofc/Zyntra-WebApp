@@ -1,6 +1,6 @@
 package org.example.model;
 
-public class IndiceClassificacao extends BaseModel{//Abertura da classe
+public class IndiceClassificacao extends BaseModel {//Abertura da classe
 
     //Declaração de atributos
     private String recomendacao;
@@ -52,9 +52,9 @@ public class IndiceClassificacao extends BaseModel{//Abertura da classe
 
     //Metodo toString
     public String toString() {
-        return "Recomendação: "+this.recomendacao+
-                "\nPreocupação: "+this.preocupacao+
-                "\nPorcentagem mínima de absenteísmo: "+this.porcentagemMinima+
-                "\nPorcentagem máxima de absenteísmo: "+this.porcentagemMaxima;
+        return "Recomendação: " + this.recomendacao +
+                "\nPreocupação: " + this.preocupacao +
+                "\nPorcentagem mínima de absenteísmo: " + this.porcentagemMinima +
+                "\nPorcentagem máxima de absenteísmo: " + this.porcentagemMaxima;
     }
 }

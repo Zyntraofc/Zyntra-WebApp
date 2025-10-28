@@ -1,6 +1,7 @@
 package org.example.conexao;
 
 import java.sql.*;
+
 import io.github.cdimascio.dotenv.Dotenv;
 
 public class Conexao {
@@ -23,7 +24,7 @@ public class Conexao {
         } catch (SQLException sqle) {
             sqle.printStackTrace();
             return null;
-        }catch (ClassNotFoundException cnfe){
+        } catch (ClassNotFoundException cnfe) {
             cnfe.printStackTrace();
             return null;
         }

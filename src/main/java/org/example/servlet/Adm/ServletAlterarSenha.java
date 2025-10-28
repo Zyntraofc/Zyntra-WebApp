@@ -1,5 +1,7 @@
 package org.example.servlet.Adm;
+
 import java.io.IOException;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -16,13 +18,12 @@ public class ServletAlterarSenha extends HttpServlet {
         int id = Integer.parseInt(req.getParameter("id"));
         int resposta = 0;
         AdministradorDAO admdao = new AdministradorDAO();
-        if (action == 0){
+        if (action == 0) {
             Administrador adm = admdao.listarAdministradorPorId(id);
             req.setAttribute("administrador", adm);
             req.setAttribute("popup-senha", true);
             req.getRequestDispatcher("/private/ListarAdministradores").forward(req, resp);
-        }
-        else if (action == 1) {
+        } else if (action == 1) {
             String senhaAtual = req.getParameter("senhaAtual");
             String senhaNova = req.getParameter("senhaNova");
             Administrador adm = admdao.listarAdministradorPorId(id);
@@ -30,8 +31,8 @@ public class ServletAlterarSenha extends HttpServlet {
             // atualizações
             //
             HashSenha hashAtual = new HashSenha(senhaAtual);
-            if (adm.getHashSenha().equals(hashAtual.getHashSenha())){
-                if (ValidacaoSenha.validarSenha(senhaNova)){
+            if (adm.getHashSenha().equals(hashAtual.getHashSenha())) {
+                if (ValidacaoSenha.validarSenha(senhaNova)) {
                     HashSenha hs = new HashSenha(senhaNova);
                     admdao.alterarSenhaAdministrador(id, hs.getHashSenha());
                 } else {
@@ -40,7 +41,7 @@ public class ServletAlterarSenha extends HttpServlet {
                 }
             }
 
-            if(resposta ==0){
+            if (resposta == 0) {
                 req.setAttribute("erroSenha", "Senha atualizada com sucesso");
             }
             Administrador administrador = admdao.listarAdministradorPorId(id);
@@ -50,7 +51,8 @@ public class ServletAlterarSenha extends HttpServlet {
         }
 
     }
-    public void destroy(){
+
+    public void destroy() {
         ConexaoManager.desconectar();
     }
 }

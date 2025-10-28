@@ -5,6 +5,7 @@ import org.example.model.Empresa;
 import java.security.InvalidParameterException;
 import java.util.List;
 import java.util.ArrayList;
+
 import org.example.dao.StatusAprovacaoDAO;
 import org.example.model.StatusAprovacao;
 
@@ -39,10 +40,10 @@ public class FiltrosEmpresa {
         return empresasOrdenadas;
     }
 
-    public List<Empresa> ordenarEmpresaPorIndiceClassificacao(List<Empresa> empresas, Integer idIndiceClassificacao){
+    public List<Empresa> ordenarEmpresaPorIndiceClassificacao(List<Empresa> empresas, Integer idIndiceClassificacao) {
         List<Empresa> empresasOrdenadas = new ArrayList<>();
-        for(int i = 0; i < empresas.size(); i++){
-            if(empresas.get(i).getIdIndiceClassificacao() == idIndiceClassificacao){
+        for (int i = 0; i < empresas.size(); i++) {
+            if (empresas.get(i).getIdIndiceClassificacao() == idIndiceClassificacao) {
                 empresasOrdenadas.add(empresas.get(i));
             }
         }
@@ -84,11 +85,11 @@ public class FiltrosEmpresa {
             empresasOrdenadas = ordenarEmpresaPorTipoEmpresa(empresasOrdenadas, idTipoEmpresa);
         }
 
-        if(ordenarIndiceClassificacao && idIndiceClassificacao != null){
+        if (ordenarIndiceClassificacao && idIndiceClassificacao != null) {
             empresasOrdenadas = ordenarEmpresaPorIndiceClassificacao(empresasOrdenadas, idIndiceClassificacao);
         }
 
-        if(ordenarStatus && status != null){
+        if (ordenarStatus && status != null) {
             empresasOrdenadas = ordenarEmpresaPorStatusAprovacao(empresasOrdenadas, status);
         }
 

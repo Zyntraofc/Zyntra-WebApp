@@ -6,6 +6,7 @@
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap');
+
 * {
     -webkit-tap-highlight-color: transparent;
     font-family: "Poppins", sans-serif;
@@ -18,7 +19,7 @@
     scrollbar-color: #939ee7 #EEF0FF;
 }
 
-body{
+body {
     margin: 0;
     min-height: 100vh;
     overflow-y: auto;
@@ -32,7 +33,8 @@ body{
     position: relative;
     width: 100%;
 }
-.tela-transparente{
+
+.tela-transparente {
     left: 0;
     top: 0;
     width: 100vw;
@@ -79,7 +81,7 @@ aside {
 }
 
 .logo-container img {
-    height:5vh;
+    height: 5vh;
     border-radius: 1.25vh;
     background: #fff;
     padding: 3.5%;
@@ -96,14 +98,14 @@ aside {
 }
 
 .sidebar-header .aion {
-    font-size: clamp(0.1rem, 0.9vw , 5rem);
+    font-size: clamp(0.1rem, 0.9vw, 5rem);
     font-weight: 700;
     color: #fff;
     margin: 0;
 }
 
 .sidebar-header h4 {
-    font-size: clamp(0.1rem, 0.6vw , 5rem);
+    font-size: clamp(0.1rem, 0.6vw, 5rem);
     color: rgba(255, 255, 255, 0.9);
     font-weight: 400;
     margin: 0;
@@ -139,7 +141,7 @@ aside {
 }
 
 .barra-lateral .botao {
-    font-size: clamp(0.1rem, 0.7vw , 5rem);
+    font-size: clamp(0.1rem, 0.7vw, 5rem);
     font-weight: 600;
     color: #fff;
     cursor: pointer;
@@ -169,7 +171,7 @@ aside {
     transform: translateY(-5%);
 }
 
-.barra-lateral .botao:hover, .barra-lateral .sair:hover{
+.barra-lateral .botao:hover, .barra-lateral .sair:hover {
     background: rgba(255, 255, 255, 0.14);
 }
 
@@ -196,7 +198,7 @@ aside {
     gap: 5%;
     width: 100%;
     padding: 6%;
-    font-size: clamp(0.1rem, 0.7vw , 5rem);
+    font-size: clamp(0.1rem, 0.7vw, 5rem);
     background: -o-linear-gradient(305deg, #3A47FF, #9299FF);
     background: linear-gradient(145deg, #3A47FF, #9299FF);
     border-radius: 1.5vh;
@@ -231,19 +233,19 @@ main {
 }
 
 main h1 {
-    font-size: clamp(0.1rem, 2vw , 8rem);
+    font-size: clamp(0.1rem, 2vw, 8rem);
     font-weight: 700;
     color: #111;
     margin-top: 2vh;
 }
 
 main p {
-    font-size: clamp(0.1rem, 0.9vw , 8rem);
+    font-size: clamp(0.1rem, 0.9vw, 8rem);
     color: #777;
     margin-bottom: 1.4vh;
 }
 
-main .top-bar form{
+main .top-bar form {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -260,7 +262,7 @@ main .top-bar form input {
     flex: 1;
     border: none;
     outline: none;
-    font-size: clamp(0.1rem, 0.75vw , 8rem);
+    font-size: clamp(0.1rem, 0.75vw, 8rem);
     padding: 0.1vh;
     color: #333;
 }
@@ -269,6 +271,7 @@ main .top-bar form button {
     border: none;
     cursor: pointer;
 }
+
 /* --- TOPO: PESQUISA + BOTÕES --- */
 .top-bar {
     width: 100%;
@@ -316,7 +319,7 @@ main .top-bar form button {
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    font-size: clamp(0.1rem, 0.75vw , 8rem);
+    font-size: clamp(0.1rem, 0.75vw, 8rem);
     color: #333;
 }
 
@@ -367,7 +370,7 @@ main .top-bar form button {
     background-color: white;
     color: #4F59E7;
     font-weight: 600;
-    font-size: clamp(0.1rem, 0.75vw , 8rem);
+    font-size: clamp(0.1rem, 0.75vw, 8rem);
     border: 0.2vh solid #4F59E7;
     border-radius: 1.2vh;
     padding: 0 1.4vw;
@@ -412,7 +415,7 @@ main .top-bar form button {
     border-radius: 1.2vh;
     height: 4.4vh;
     padding: 0 1.6vw;
-    font-size: clamp(0.1rem, 0.65vw , 8rem);
+    font-size: clamp(0.1rem, 0.65vw, 8rem);
     border: none;
     -webkit-box-shadow: 0 0.1vw 0.6vw rgba(79, 89, 231, 0.25);
     box-shadow: 0 0.1vw 0.6vw rgba(79, 89, 231, 0.25);
@@ -424,21 +427,23 @@ main .top-bar form button {
     transition: transform 0.2s ease, box-shadow 0.3s ease, -webkit-transform 0.2s ease, -webkit-box-shadow 0.3s ease;
 }
 
-.button-adicionar-novo button:hover, .filtros:hover{
+.button-adicionar-novo button:hover, .filtros:hover {
     -webkit-transform: translateY(-5%);
     -ms-transform: translateY(-5%);
     transform: translateY(-5%);
     -webkit-box-shadow: 0 0.1vh 2.5vh rgba(79, 89, 231, 0.35);
     box-shadow: 0 0.1vh 2.5vh rgba(79, 89, 231, 0.35);
 }
-table .actions button{
+
+table .actions button {
     -webkit-transition: scale 0.2s ease, -webkit-transform 0.2s ease;
     transition: scale 0.2s ease, -webkit-transform 0.2s ease;
     -o-transition: transform 0.2s ease, scale 0.2s ease;
     transition: transform 0.2s ease, scale 0.2s ease;
     transition: transform 0.2s ease, scale 0.2s ease, -webkit-transform 0.2s ease;
 }
-table .actions button:hover{
+
+table .actions button:hover {
     -webkit-transform: translateY(-5%);
     -ms-transform: translateY(-5%);
     transform: translateY(-5%);
@@ -472,7 +477,7 @@ table .actions button:hover{
     color: #4F59E7;
     font-weight: 600;
     text-transform: capitalize;
-    font-size: clamp(0.1rem, 0.9vw , 8rem);
+    font-size: clamp(0.1rem, 0.9vw, 8rem);
     padding: 1.8vh 2vh;
     text-align: left;
     border-bottom: none;
@@ -492,11 +497,12 @@ table .actions button:hover{
 
 .table-card tbody td {
     padding: 1.8vh 2vh;
-    font-size: clamp(0.1rem, 0.75vw , 8rem);
+    font-size: clamp(0.1rem, 0.75vw, 8rem);
     color: #333;
-    border-bottom: 0.2vh  solid rgba(100, 100, 160, 0.06);
+    border-bottom: 0.2vh solid rgba(100, 100, 160, 0.06);
     vertical-align: middle;
 }
+
 .table-card td.actions {
     text-align: center;
     width: 12vh;
@@ -522,20 +528,24 @@ table .actions button:hover{
     vertical-align: middle;
     cursor: pointer;
 }
+
 /*Estilização da barra de scroll*/
 ::-webkit-scrollbar {
     width: 1vh;
 }
+
 ::-webkit-scrollbar-track {
     background: #eef0ff;
     border-radius: 1vh;
 }
+
 ::-webkit-scrollbar-thumb {
     background: #EEF0FF;
     border-radius: 1vh;
     -webkit-transition: background 0.3s;
     transition: background 0.3s;
 }
+
 ::-webkit-scrollbar-thumb:hover {
     background: #EEF0FF;
 }
@@ -569,19 +579,22 @@ table .actions button:hover{
     padding: clamp(2vh, 4vw, 2.8vh);
     z-index: 3;
 }
-.deletar p{
+
+.deletar p {
     margin: 0;
     margin-bottom: clamp(10px, 3vh, 20px);
     font-size: clamp(0.8rem, 2.5vw, 1rem);
     text-align: center;
 
 }
+
 .deletar h1 {
     font-size: clamp(1rem, 3vw, 1.3rem);
     color: #2e5bff;
     margin-bottom: 0.8vh;
     text-align: center;
 }
+
 .opcoes {
     width: 100%;
     display: -webkit-box;
@@ -785,7 +798,7 @@ table .actions button:hover{
     user-select: none;
 }
 
-.status input:checked+label {
+.status input:checked + label {
     color: #fff;
     background: -o-linear-gradient(315deg, #6373FF 0%, #2B39FF 100%);
     background: linear-gradient(135deg, #6373FF 0%, #2B39FF 100%);
@@ -829,7 +842,8 @@ table .actions button:hover{
     background: #e0e0e0;
     border-color: #bbb;
 }
-textarea{
+
+textarea {
     -webkit-transition: height 2.5s ease-in-out;
     -o-transition: height 2.5s ease-in-out;
     transition: height 2.5s ease-in-out;
@@ -856,25 +870,29 @@ textarea{
     transition: border-color 0.3s ease, box-shadow 0.3s ease, -webkit-box-shadow 0.3s ease;
     margin-bottom: 1.8vh;
 }
-.popup select option{
+
+.popup select option {
     font-size: clamp(0.8rem, 2.5vw, 1rem);
 }
+
 .popup select:focus {
     border-color: #2e5bff;
     -webkit-box-shadow: 0 0 0 0.2vh rgba(46, 91, 255, 0.15);
     box-shadow: 0 0 0 0.2vh rgba(46, 91, 255, 0.15);
 }
+
 /* opção “placeholder” sem seleção inicial */
 .popup select option[disabled] {
     color: #999;
     text-align: center;
 }
 
-.popup .cancelar a{
+.popup .cancelar a {
     text-decoration: none;
     color: #2e5bff;
 }
-.status:not(:has(input#recusado:checked)) ~ #motivoRejeicao, .status:not(:has(input#recusado:checked)) ~ label{
+
+.status:not(:has(input#recusado:checked)) ~ #motivoRejeicao, .status:not(:has(input#recusado:checked)) ~ label {
     display: none;
 }
 
@@ -884,48 +902,61 @@ textarea{
         left: 2%;
         padding: 1.5% 1%;
     }
+
     .logo-container img {
         height: 6vh;
         min-height: 55px;
     }
+
     .brand-text .aion {
-        font-size: 1.6vw ;
+        font-size: 1.6vw;
     }
+
     .brand-text h4 {
         font-size: 0.9vw;
     }
+
     .sidebar-header hr {
         margin: 10% 0px;
         height: 4%;
     }
+
     .barra-lateral .botao {
         font-size: 1.1vw;
         padding: 8% 10%;
     }
+
     .barra-lateral .sair-container .sair {
         font-size: 1.1vw;
         padding: 8%;
     }
+
     .barra-lateral .sair img {
         height: 2.5vh;
     }
+
     main {
         margin-left: 16%;
     }
+
     main h1 {
         font-size: 2.8vw;
     }
+
     main p {
         font-size: 1.4vw;
     }
+
     .search-form {
         max-width: 40%;
         height: 5.5vh;
         padding: 0 1vw;
     }
+
     .search-form input {
         font-size: 1.1vw !important;
     }
+
     .search-form img {
         width: 2.2vh;
     }
@@ -936,35 +967,46 @@ textarea{
         font-size: 1.1vw !important;
         padding: 0 2vw;
     }
+
     .actions .filtros img {
         height: 1vh;
     }
+
     .button-adicionar-novo img {
         height: 2.2vh;
     }
+
     .table-card {
         padding: 2.5vh;
     }
+
     .table-card thead tr th {
         font-size: 1.3vw;
     }
+
     .table-card tbody td {
         font-size: 1.2vw;
         padding: 2.2vh 2.5vh;
     }
+
     .table-card td.actions {
         width: 15vh;
     }
+
     .table-card td form button img {
         width: 2.5vh;
     }
-}@media (max-width: 1024px) {
-    .sidebar-header hr{
+}
+
+@media (max-width: 1024px) {
+    .sidebar-header hr {
         display: none;
     }
-    html{
+
+    html {
         overflow-x: hidden;
     }
+
     body {
         min-height: 100vh;
         -webkit-box-orient: vertical;
@@ -975,11 +1017,13 @@ textarea{
         height: auto;
         padding: 10px 15px;
     }
-    .popup{
+
+    .popup {
         -ms-flex-item-align: center;
         -ms-grid-row-align: center;
         align-self: center;
     }
+
     aside {
         position: relative;
         width: 100%;
@@ -994,23 +1038,28 @@ textarea{
         background: -o-linear-gradient(305deg, #8f97ff, #8a87ff);
         background: linear-gradient(145deg, #8f97ff, #8a87ff);
     }
+
     .logo-container {
         height: 8vw;
         width: 8vw;
         gap: 15px;
     }
+
     .logo-container img {
         height: 7vw;
         width: 7vw;
         -ms-flex-negative: 0;
         flex-shrink: 0;
     }
+
     .brand-text .aion {
         font-size: 26px;
     }
+
     .brand-text h4 {
         font-size: 18px;
     }
+
     .barra-lateral {
         margin-top: 25px;
         display: -ms-grid;
@@ -1020,6 +1069,7 @@ textarea{
         gap: 10px;
         margin-bottom: 15px;
     }
+
     .barra-lateral .botao {
         text-align: center;
         padding: 14px 10px;
@@ -1029,19 +1079,23 @@ textarea{
         height: 100%;
         white-space: nowrap;
     }
+
     .sair-container {
         grid-column: 1 / -1;
         margin-top: 10px;
     }
+
     .barra-lateral .sair-container .sair {
         font-size: 16px;
         padding: 14px;
         gap: 10px;
     }
+
     .barra-lateral .sair img {
         height: 22px;
         width: 22px;
     }
+
     main {
         display: -webkit-box;
         display: -ms-flexbox;
@@ -1070,6 +1124,7 @@ textarea{
         gap: 15px;
         margin-bottom: 20px;
     }
+
     .search-form {
         max-width: 70%;
         -webkit-box-ordinal-group: 3;
@@ -1077,12 +1132,15 @@ textarea{
         order: 2;
         height: 48px;
     }
+
     .search-form input {
         font-size: 16px !important;
     }
+
     .search-form img {
         width: 22px;
     }
+
     .actions {
         width: 100%;
         -webkit-box-pack: justify;
@@ -1109,9 +1167,11 @@ textarea{
     .button-adicionar-novo img {
         height: 22px;
     }
+
     main h1 {
         font-size: 28px !important;
     }
+
     main p {
         font-size: 18px !important;
         text-align: left;
@@ -1220,6 +1280,7 @@ textarea{
         background: #7a85d4;
     }
 }
+
 @media (min-width: 769px) and (max-width: 1024px) {
     .deletar,
     .popup {
@@ -1227,6 +1288,7 @@ textarea{
         max-width: 45vh;
     }
 }
+
 @media (max-width: 900px) {
     .barra-lateral {
         -ms-grid-columns: 1fr 8px 1fr;
@@ -1234,53 +1296,67 @@ textarea{
         gap: 8px;
     }
 }
+
 @media (max-width: 767px) {
     .logo-container {
         gap: 10px;
         height: 70px;
         width: 70px;
     }
+
     .logo-container img {
         width: 50px;
         height: 50px;
     }
+
     .brand-text h4 {
         font-size: 15px;
     }
+
     .barra-lateral .botao {
         font-size: 13px;
         padding: 12px 6px;
     }
+
     .sair-container {
         margin-top: 6px;
     }
+
     .barra-lateral .sair-container .sair {
         font-size: 14px;
         padding: 12px;
     }
+
     .barra-lateral .sair img {
         height: 20px;
         width: 20px;
     }
+
     .top-bar {
         gap: 12px;
     }
+
     .actions {
         gap: 10px;
     }
+
     main h1 {
         font-size: 24px !important;
     }
+
     .table-card thead tr th {
         font-size: 15px !important;
     }
+
     .table-card tbody td {
         font-size: 14px !important;
     }
+
     .table-card td.actions > div {
         gap: 6px;
         max-width: 110px;
     }
+
     .table-card td form button img {
         width: 20px;
         height: 20px;
@@ -1295,41 +1371,50 @@ textarea{
         max-height: 85vh;
         -webkit-overflow-scrolling: touch;
     }
+
     input,
     select,
     textarea {
         font-size: 16px;
     }
 }
+
 @media (max-width: 479px) {
     body {
         padding: 5px 8px;
     }
+
     aside {
         padding: 40px 20px;
         border-radius: 10px;
         margin: 5px 0;
     }
+
     .brand-text .aion {
         font-size: 20px;
     }
+
     .barra-lateral {
         margin-top: 40px;
         -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
         gap: 6px;
     }
+
     .barra-lateral .botao {
         font-size: 14px;
         padding: 14px 10px;
     }
+
     main {
         padding: 12px;
         min-height: 400px;
     }
+
     .search-form {
         max-width: 100%;
     }
+
     .top-bar .actions {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
@@ -1337,32 +1422,40 @@ textarea{
         flex-direction: column;
         gap: 8px;
     }
+
     .actions .filtros,
     .button-adicionar-novo button {
         width: 100%;
         max-width: 100%;
     }
+
     .table-card {
         padding: 10px;
     }
+
     .table-card thead tr th {
         padding: 12px 8px;
     }
+
     .table-card thead tr th:last-child {
         width: 100px;
     }
+
     .table-card tbody td {
         font-size: 13px !important;
         padding: 10px 8px;
     }
+
     .table-card td.actions {
         width: 100px !important;
         padding: 10px 4px !important;
     }
+
     .table-card td.actions > div {
         gap: 4px;
         max-width: 92px;
     }
+
     .table-card td form button img {
         width: 18px !important;
         height: 18px !important;
@@ -1420,7 +1513,8 @@ textarea{
     -webkit-animation: fadeIn 0.7s ease;
     animation: fadeIn 0.7s ease;
 }
-.filtros-container form{
+
+.filtros-container form {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1429,13 +1523,31 @@ textarea{
     -ms-flex-direction: column;
     flex-direction: column;
 }
+
 @-webkit-keyframes fadeIn {
-    from { opacity: 0; -webkit-transform: translateY(-10vh); transform: translateY(-10vh); }
-    to { opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); }
+    from {
+        opacity: 0;
+        -webkit-transform: translateY(-10vh);
+        transform: translateY(-10vh);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
 }
+
 @keyframes fadeIn {
-    from { opacity: 0; -webkit-transform: translateY(-10vh); transform: translateY(-10vh); }
-    to { opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); }
+    from {
+        opacity: 0;
+        -webkit-transform: translateY(-10vh);
+        transform: translateY(-10vh);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
 }
 
 #toggle-filtros:checked ~ .filtros-container {
@@ -1466,7 +1578,8 @@ textarea{
     padding-bottom: 1.5vh;
     border-bottom: 0.15vh solid #f0f0f0;
 }
-.filtro-section{
+
+.filtro-section {
     width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1479,6 +1592,7 @@ textarea{
     -ms-flex-pack: justify;
     justify-content: space-between;
 }
+
 .filtros-titulo {
     font-size: clamp(1rem, 1.4vw, 1.4rem);
     font-weight: 700;
@@ -1586,6 +1700,7 @@ textarea{
         -webkit-animation: aparecerSuave 0.3s ease forwards;
         animation: aparecerSuave 0.3s ease forwards;
     }
+
     @-webkit-keyframes aparecerSuave {
         from {
             opacity: 0;
@@ -1637,6 +1752,7 @@ textarea{
     background: rgba(0, 0, 0, 0.5);
     z-index: 2;
 }
+
 .filtros img {
     -webkit-transition: -webkit-transform 0.3s ease;
     transition: -webkit-transform 0.3s ease;
@@ -1644,25 +1760,29 @@ textarea{
     transition: transform 0.3s ease;
     transition: transform 0.3s ease, -webkit-transform 0.3s ease;
 }
+
 #toggle-filtros:checked ~ .filtros img {
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg);
 }
 
-.validar-input:valid:not(:focus){
+.validar-input:valid:not(:focus) {
     border-color: #3ccf4e;
     -webkit-box-shadow: 0 0 5px #3ccf4e50;
     box-shadow: 0 0 5px #3ccf4e50;
 }
+
 input:user-invalid:not(:focus):not(:-moz-placeholder-shown) {
     border-color: #ff4d4d;
     box-shadow: 0 0 5px #ff4d4d50;
 }
+
 input:user-invalid:not(:focus):not(:-ms-input-placeholder) {
     border-color: #ff4d4d;
     box-shadow: 0 0 5px #ff4d4d50;
 }
+
 input:user-invalid:not(:focus):not(:placeholder-shown) {
     border-color: #ff4d4d;
     -webkit-box-shadow: 0 0 5px #ff4d4d50;

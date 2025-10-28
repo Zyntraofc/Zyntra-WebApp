@@ -1,4 +1,4 @@
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     const signupButton = document.querySelector('.signup-button');
     const secaoAzul = document.querySelector('#app-waves');
 

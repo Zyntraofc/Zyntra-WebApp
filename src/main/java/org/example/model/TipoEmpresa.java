@@ -1,9 +1,10 @@
 package org.example.model;
 
 //Importação do LocalDate para atribuir datas
+
 import java.time.LocalDate;
 
-public class TipoEmpresa extends BaseModel{//Abertura da classe
+public class TipoEmpresa extends BaseModel {//Abertura da classe
 
     //Declaração de atributos
     private String nome;
@@ -48,7 +49,8 @@ public class TipoEmpresa extends BaseModel{//Abertura da classe
     }
 
     public String getDescricao() {
-        return this.descricao;}
+        return this.descricao;
+    }
 
     //Métodos setters
     public void setStatus(char status) {
@@ -64,13 +66,12 @@ public class TipoEmpresa extends BaseModel{//Abertura da classe
     }
 
     //Metodo toString
-    public String toString(){
-        return "Nome: "+this.nome +
-                "\nStatus: " + this.status+
-                "\nUltima atualização: "+this.ultimaAtualizacao+
-                "\nDescricao: "+(this.descricao != null? this.descricao : "Sem descrição");
+    public String toString() {
+        return "Nome: " + this.nome +
+                "\nStatus: " + this.status +
+                "\nUltima atualização: " + this.ultimaAtualizacao +
+                "\nDescricao: " + (this.descricao != null ? this.descricao : "Sem descrição");
     }
-
 
 
 }
