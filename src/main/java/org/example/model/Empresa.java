@@ -1,6 +1,9 @@
 package org.example.model;
 
-public class Empresa extends BaseModel{//Abertura da classe
+/// Classe criada com objetivo de representar a entidade da tabela Empresa do banco de dados
+
+//Abertura da classe
+public class Empresa extends BaseModel{
 
     //Declaração de atributos
     private int idTipoEmpresa;
@@ -51,6 +54,8 @@ public class Empresa extends BaseModel{//Abertura da classe
         return this.telefone;
     }
 
+
+
     //Métodos setters
     public void setIdIndiceClassificacao(int idIndiceClassificacao) {
         this.idIndiceClassificacao = idIndiceClassificacao;
@@ -72,7 +77,7 @@ public class Empresa extends BaseModel{//Abertura da classe
         this.telefone = telefone;
     }
 
-    //Metodo toString
+    //Metodo toString e representação do objeto
     public String toString() {
         return "ID Tipo da empresa: "+this.idTipoEmpresa +
                 "\nID índice de classificação: "+this.idIndiceClassificacao+

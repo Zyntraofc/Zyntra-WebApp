@@ -1,6 +1,8 @@
 package org.example.model;
 
-public class IndiceClassificacao extends BaseModel{//Abertura da classe
+/// Classe criada com objetivo de representar entidade da tabela IndiceClassificacao do banco de dados
+
+public class IndiceClassificacao extends BaseModel{
 
     //Declaração de atributos
     private String recomendacao;
@@ -33,6 +35,7 @@ public class IndiceClassificacao extends BaseModel{//Abertura da classe
         return this.porcentagemMaxima;
     }
 
+
     //Métodos setters
     public void setRecomendacao(String recomendacao) {
         this.recomendacao = recomendacao;
@@ -50,7 +53,7 @@ public class IndiceClassificacao extends BaseModel{//Abertura da classe
         this.porcentagemMaxima = porcentagemMaxima;
     }
 
-    //Metodo toString
+    //Metodo toString para representação do objeto
     public String toString() {
         return "Recomendação: "+this.recomendacao+
                 "\nPreocupação: "+this.preocupacao+
