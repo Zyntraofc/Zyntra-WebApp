@@ -74,7 +74,7 @@ Revisões periódicas de código e versionamento contínuo no Git
 
 UX/UI Designer: beatrizbattista | anablefari
 
-Desenvolvedores: ErickNeves07 | DaviLuzPereira | eduardofariasdom
+Desenvolvedores: ErickNeves07 | eduardofariasdom
 
 ----
 
