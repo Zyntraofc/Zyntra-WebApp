@@ -823,7 +823,7 @@ footer {
     }
 
     #about-us p {
-        font-size: 22.5px;
+        font-size: 22.5px !important;
     }
 
     header .nav-item p {
