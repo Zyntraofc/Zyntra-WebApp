@@ -91,8 +91,8 @@ button,
  * Header fixo com efeito de vidro fosco
  */
 header {
-    padding-left: 2vw;
-    padding-right: 2vw;
+    padding-left: 0.4vw;
+    padding-right: 0.4vw;
     width: 100%;
     top: 0;
     z-index: 3;
