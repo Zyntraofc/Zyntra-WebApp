@@ -4,6 +4,7 @@ package org.example.dao;
 
 //Importações
 import org.example.conexao.ConexaoManager;
+import org.example.exceptions.InvalidForeignKeyException;
 import org.example.model.Empresa;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -65,6 +66,14 @@ public class EmpresaDAO {
         } 
         //Em casos de erro no banco de dados desfaz a ação
         catch (SQLException sqle) {
+
+            //Obtém código da causa do erro
+            String sqleState = sqle.getSQLState();
+
+            //Se for erro de foreignkey inváida, lança exceção de foreign key invalido
+            if(sqleState.startsWith("23")){
+                throw new InvalidForeignKeyException("Valores inseridos inexistentes na tabela tipoEmpresa");
+            }
 
             //Lista os erros
             sqle.printStackTrace();
