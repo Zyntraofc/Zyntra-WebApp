@@ -1,71 +1,84 @@
-# 🌀 AION  
-### *“Entenda o tempo e transforme a presença.”*  
+🌀  Zyntra WebApp
 
----
+Aplicação web do Zyntra, plataforma da Zyntra para gestão inteligente de absenteísmo e bem-estar corporativo.
+Este repositório contempla a versão web utilizada por gestores, líderes e profissionais de RH para acompanhamento de indicadores, análise de presença, gestão de justificativas e comunicação com colaboradores.
 
-## 🚀 Sobre o Projeto  
+------
 
-O **Aion** é uma solução tecnológica desenvolvida pelo grupo **Zyntra**, com o propósito de **reduzir o absenteísmo nas grandes indústrias**.  
+🧭 Visão Geral
 
-Nosso aplicativo oferece uma plataforma moderna e inteligente que **otimiza o controle de presença**, **aumenta a eficiência do RH** e **melhora o bem-estar dos colaboradores**.  
+O Zyntra WebApp integra o ecossistema modular da Zyntra, proporcionando uma visão completa e estratégica sobre engajamento e produtividade.
+Construído com foco em usabilidade, performance e escalabilidade, o sistema oferece relatórios visuais, dashboards dinâmicos e controle centralizado de equipes.
 
-Aion nasceu dentro do projeto interdisciplinar técnico de 2025, alinhado à **ODS 9 (Indústria, Inovação e Infraestrutura)**, unindo as áreas de **Banco de Dados, Desenvolvimento, Inteligência Artificial, Lógica de Programação, Programação Orientada a Objetos, Sistemas Operacionais e UX**.  
+----
 
----
+⚙️ Tecnologias Utilizadas
 
-## 🧩 Tecnologias Utilizadas  
+IDE: IntelliJ IDEA
 
-- **Java** – Lógica principal e backend  
-- **Python** – Inteligência artificial e automações  
-- **SQL / MongoDB** – Bancos de dados relacional e não relacional  
-- **HTML, CSS, JS** – Interface web e estilo moderno  
+Linguagem: Java
 
----
+Banco de Dados: PostgreSQL (gerenciado via pgAdmin)
 
-## 💼 Equipe Zyntra  
+Frontend: HTML5 e CSS3
 
-| Nome | Função |
-|------|--------|
-| Ana Clara Blefari Soares De Souza | UX & Design |
-| Beatriz Frisina Batista | UX & Design |
-| Caio Gomide Amoroso | Sistemas & Documentação |
-| Davi Luz Pereira | Frontend & Segurança de Dados |
-| Eduardo Farias Domingues | Backend |
-| Erick Neves Barbosa | Backend, Frontend & Banco de Dados |
+Linguagem de Script: JavaScript (uso complementar)
 
----
+Controle de Versão: Git e GitHub
 
-## ⚙️ Funcionalidades Principais  
+----
 
-- Controle de presença automatizado  
-- Análise preditiva de absenteísmo  
-- Dashboard de métricas para RH  
-- Comunicação entre colaboradores e gestores  
-- Relatórios e insights em tempo real  
+📁 Estrutura do projeto
 
----
+```bash
+Zyntra-WebApp/
+├── src/
+│   └── main/
+│       ├── java/
+│       │   └── org/
+│       │       └── example/
+│       │           ├── conexao/
+│       │           ├── dao/
+│       │           ├── exceptions/
+│       │           ├── model/
+│       │           ├── servlet/
+│       │           └── utils/
+│       └── webapp/
+│           ├── WEB-INF/
+│           ├── assets/
+│           ├── css/
+│           ├── js/
+│           ├── index.html
+│           └── login.jsp
+```
 
-## 🌍 Conexão com a ODS 9  
+----
 
-Aion contribui diretamente para a **ODS 9 (Indústria, Inovação e Infraestrutura)** ao propor uma ferramenta digital que **fortalece a eficiência organizacional** e **incentiva a inovação tecnológica** dentro das empresas.  
+✅ Boas Práticas
 
-Nosso foco está em **otimizar processos** e **transformar dados em decisões inteligentes**, ajudando a construir ambientes de trabalho mais sustentáveis e produtivos.  
+Commits semânticos e organizados
 
----
+style: indica alterações relacionadas à aparência, layout ou formatação do código
 
-## 🧠 Diferenciais  
+Pull Requests com descrição clara e checklist de revisão
 
-- Interface intuitiva e moderna  
-- IA integrada para prever padrões de ausência  
-- Relatórios automáticos e visualização de dados  
-- Solução híbrida entre tecnologia e experiência humana  
+Código padronizado e indentado conforme boas práticas da equipe
 
----
+Utilização de branches para novas features e correções
 
-## 🧾 Licença  
+Revisões periódicas de código e versionamento contínuo no Git
 
-Projeto desenvolvido para fins educacionais no **Colégio Germinare Tech** – 2025.  
-Todos os direitos reservados à **Equipe Zyntra**.  
+----
 
----
+👥 Contribuidores
 
+UX/UI Designer: beatrizbattista | anablefari
+
+Desenvolvedores: ErickNeves07 | eduardofariasdom
+
+----
+
+🛡️ Licença
+
+Projeto proprietário da Zyntra Tecnologia Ltda.
+Todos os direitos reservados.

@@ -1,25 +1,29 @@
 package org.example.model;
 
-//Importação da classe hashSenha para criptografia da senha do administrador
+/// Classe criada com o objetivo de representar entidade da tabela Administrador do banco de dados
 
+//Importações
 import org.example.utils.autenticacao.HashSenha;
 
-public class Administrador extends BaseModel {//Abertura da classe model Administrador
+//Abertura da classe
+public class Administrador extends BaseModel{
 
     //Declaração de atributos
     private String email;
     private String hashSenha;
 
-    //Metodo construtor
-    public Administrador(String email, HashSenha hashSenha) {//Único metodo construtor da classe
+    //Metodo construtor (caso receba objeto HashSenha para criptografia)
+    public Administrador(String email, HashSenha hashSenha){
         this.email = email;
         this.hashSenha = String.valueOf(hashSenha);
     }
 
-    public Administrador(String email, String hashSenha) {//Único metodo construtor da classe
+    //Metodo construtor (Caso receba objeto hashSenha com a senha já criptografada)
+    public Administrador(String email, String hashSenha){
         this.email = email;
         this.hashSenha = hashSenha;
     }
+
 
     //Métodos getters
     public String getEmail() {
@@ -39,8 +43,8 @@ public class Administrador extends BaseModel {//Abertura da classe model Adminis
         this.hashSenha = String.valueOf(hashSenha);
     }
 
-    //Metodo toString
-    public String toString() {
+    //Metodo toString de representação do objeto
+    public String toString(){
         return
                 "\nEmail: " + this.email +
                         "\nSenha: " + this.hashSenha;
