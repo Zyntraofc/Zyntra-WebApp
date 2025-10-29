@@ -9,10 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="decc699d-6ffe-4dc6-b655-05fda1145ad2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/equipe-zyntra.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/equipe-zyntra.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/index-responsividade.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/index-responsividade.css" afterDir="false" />
-    </list>
+    <list default="true" id="decc699d-6ffe-4dc6-b655-05fda1145ad2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
