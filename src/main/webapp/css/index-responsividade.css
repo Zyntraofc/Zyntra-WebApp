@@ -727,32 +727,36 @@
 
 /* Mobile pequeno (667px) */
 @media screen and (max-width: 667px) {
+    header{
+        padding-left: 50px !important;
+        padding-right: 50px !important;
+    }
     #plataform {
         margin-bottom: -50px;
     }
 
     .tela {
-        max-height: 330px;
+        max-height: 300px;
     }
 
     .tela:first-of-type {
-        height: 330px;
+        height: 300px;
     }
 
     #app-options:has(input#dates:checked) ~ #app-presentation {
-        transform: translateX(33%);
+        transform: translateX(32%);
     }
 
     #app-options:has(input#dashbord:checked) ~ #app-presentation {
-        transform: translateX(-74.5%);
+        transform: translateX(-74.4%);
     }
 
     #app-options:has(input#justificativa:checked) ~ #app-presentation {
-        transform: translateX(-17.75%);
+        transform: translateX(-16.8%);
     }
 
     .app-screen.dash .right-paragraph {
-        font-size: 17px !important;
+        font-size: 16px !important;
         margin-left: -200px;
         width: 350px;
         margin-top: 120px;
@@ -760,11 +764,11 @@
     }
 
     .app-screen article p {
-        font-size: 17px !important;
+        font-size: 16px !important;
     }
 
     .app-screen h2 {
-        font-size: 28px !important;
+        font-size: 22px !important;
         width: 200px;
     }
 
