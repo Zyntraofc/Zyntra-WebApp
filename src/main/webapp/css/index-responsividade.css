@@ -1,4 +1,22 @@
 /* ===== MEDIA QUERIES PARA RESPONSIVIDADE ===== */
+/* Desktop grande (1537px) */
+@media screen and (min-width: 1537px) {
+    main {
+        background-position: center;
+        background-image: url(assets/logos/logo-plugin2.png);
+    }
+    .platform-button{
+        width: 250px !important;
+    }
+    .notification-card{
+        height: 140px;
+        width: 220px;
+    }
+
+    .demo-container{
+        width: 2000px;
+    }
+}
 
 /* Desktop médio (1510px) */
 @media screen and (max-width: 1510px) {
@@ -11,8 +29,8 @@
     }
 }
 
-/* Desktop médio (1530px) */
-@media screen and (max-width: 1530px) {
+/* Desktop médio (1410px) */
+@media screen and (max-width: 1410px) {
     .nav-link {
         font-size: 16px;
     }
