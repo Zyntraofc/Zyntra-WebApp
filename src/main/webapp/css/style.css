@@ -1328,12 +1328,13 @@ footer .brand-container div {
 #footer-content {
     display: -ms-grid;
     display: grid;
+    gap: 2vw;
     -ms-grid-columns: 52.5% 47.5%;
     grid-template-columns: 52.5% 47.5%;
 }
 
 #footer-primary {
-    width: 100%;
+    width: 80%;
 }
 
 #footer-secondary {
