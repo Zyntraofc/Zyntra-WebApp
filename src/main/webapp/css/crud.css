@@ -896,7 +896,7 @@ textarea {
     display: none;
 }
 
-@media (max-width: 1750px) {
+@media (max-width: 1250px) {
     aside {
         width: 14%;
         left: 2%;
