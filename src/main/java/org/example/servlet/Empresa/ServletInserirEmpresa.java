@@ -1,6 +1,7 @@
 package org.example.servlet.Empresa;
 
 import java.io.IOException;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -11,17 +12,19 @@ import org.example.dao.StatusAprovacaoDAO;
 import org.example.dao.TipoEmpresaDAO;
 import org.example.model.StatusAprovacao;
 import org.example.model.Empresa;
+
 import java.time.LocalDate;
 import java.util.InputMismatchException;
+
 import org.example.utils.regex.*;
 
 import org.example.utils.regex.ValidacaoEmail;
 import org.example.utils.regex.ValidacaoTelefone;
 
 @WebServlet("/private/InserirEmpresa")
-public class ServletInserirEmpresa extends HttpServlet{
+public class ServletInserirEmpresa extends HttpServlet {
     @Override
-    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException{
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         String caminho = req.getParameter("caminho");
         req.setAttribute("caminho", caminho);
         req.setAttribute("popup-inserir", true);
@@ -29,17 +32,17 @@ public class ServletInserirEmpresa extends HttpServlet{
     }
 
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException{
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         String caminho = req.getParameter("caminho");
 
-        try{
+        try {
             String idTipoEmpresaStr = req.getParameter("idTipoEmpresa");
             String nome = req.getParameter("nome");
             String cnpj = req.getParameter("cnpj");
             String email = req.getParameter("email");
             String telefone = req.getParameter("telefone");
 
-            if(idTipoEmpresaStr == null || idTipoEmpresaStr.isEmpty() ||
+            if (idTipoEmpresaStr == null || idTipoEmpresaStr.isEmpty() ||
                     nome == null || nome.isEmpty() ||
                     cnpj == null || cnpj.isEmpty() ||
                     email == null || email.isEmpty() ||
@@ -56,17 +59,17 @@ public class ServletInserirEmpresa extends HttpServlet{
             ValidacaoTelefone valefone = new ValidacaoTelefone();
             ValidacaoCnpj valecnpj = new ValidacaoCnpj();
 
-            if(!valemail.validarEmail(email)){
+            if (!valemail.validarEmail(email)) {
                 req.setAttribute("erro", "Digite o email corretamente");
                 req.getRequestDispatcher("/private/Listar" + caminho).forward(req, resp);
                 return;
             }
-            if(!valefone.validarTelefone(telefone)){
+            if (!valefone.validarTelefone(telefone)) {
                 req.setAttribute("erro", "Digite o telefone corretamente");
                 req.getRequestDispatcher("/private/Listar" + caminho).forward(req, resp);
                 return;
             }
-            if(!valecnpj.isCNPJValido(cnpj)){
+            if (!valecnpj.isCNPJValido(cnpj)) {
                 req.setAttribute("erro", "O CNPJ digitado não existe");
                 req.getRequestDispatcher("/private/Listar" + caminho).forward(req, resp);
                 return;
@@ -84,7 +87,7 @@ public class ServletInserirEmpresa extends HttpServlet{
 
             Empresa empresaNova = new Empresa(idTipoEmpresa, idIndiceClassificacao, idStatusAprovacao, nome, cnpj, email, telefone);
             EmpresaDAO dao = new EmpresaDAO();
-            if(!dao.inserirEmpresa(empresaNova)){
+            if (!dao.inserirEmpresa(empresaNova)) {
                 req.setAttribute("erro", "Falha ao inserir a empresa.");
                 req.getRequestDispatcher("/private/Listar" + caminho).forward(req, resp);
                 return;
@@ -93,16 +96,17 @@ public class ServletInserirEmpresa extends HttpServlet{
             req.setAttribute("erro", "Empresa e Status inseridos com sucesso");
             req.getRequestDispatcher("/private/Listar" + caminho).forward(req, resp);
 
-        }catch(InputMismatchException ime){
+        } catch (InputMismatchException ime) {
             req.setAttribute("erro", "Digite os dados corretamente");
             req.getRequestDispatcher("/private/Listar" + caminho).forward(req, resp);
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             req.setAttribute("erro", "Erro interno do sistema");
             req.getRequestDispatcher("/private/Listar" + caminho).forward(req, resp);
         }
     }
-    public void destroy(){
+
+    public void destroy() {
         ConexaoManager.desconectar();
     }
 }

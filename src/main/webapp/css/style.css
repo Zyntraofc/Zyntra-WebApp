@@ -23,7 +23,8 @@
     -webkit-user-drag: none;
 }
 
-html, body {
+html,
+body {
     max-width: 100vw;
     overflow-x: hidden;
 }
@@ -34,10 +35,12 @@ img {
     -ms-user-select: none;
     user-select: none;
 }
-html{
+
+html {
     width: 100vw;
     overflow-x: hidden;
 }
+
 /*
  * CORPO PRINCIPAL
  * Configurações gerais da página
@@ -88,14 +91,16 @@ button,
  * Header fixo com efeito de vidro fosco
  */
 header {
+    padding-left: 0.4vw;
+    padding-right: 0.4vw;
     width: 100%;
     top: 0;
     z-index: 3;
     position: fixed;
     background: rgba(255, 255, 255, 0.10);
-    -webkit-backdrop-filter: blur(1.25vh);
-    backdrop-filter: blur(1.25vh);
-    height: 9vh;
+    -webkit-backdrop-filter: blur(12.5px);
+    backdrop-filter: blur(12.5px);
+    height: 64px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -132,7 +137,7 @@ header {
 }
 
 .brand-logo {
-    width: 3.9vh;
+    width: 26px;
 }
 
 /* Navegação principal */
@@ -162,7 +167,7 @@ header {
 }
 
 /* Efeitos de hover na navegação */
-.navigation-menu:hover> :not(:hover) {
+.navigation-menu:hover > :not(:hover) {
     height: 100%;
     opacity: 60%;
     -webkit-transform: scale(0.9);
@@ -170,7 +175,7 @@ header {
     transform: scale(0.9);
 }
 
-.navigation-menu:hover> :not(:hover) .active-indicator {
+.navigation-menu:hover > :not(:hover) .active-indicator {
     width: 0px !important;
 }
 
@@ -178,11 +183,11 @@ header {
     color: #3A47FF;
 }
 
-.navigation-menu:hover> :not(:hover) p {
+.navigation-menu:hover > :not(:hover) p {
     color: black;
 }
 
-.navigation-menu:hover> :not(:hover)~.active-indicator {
+.navigation-menu:hover > :not(:hover) ~ .active-indicator {
     width: 0px;
 }
 
@@ -214,18 +219,18 @@ a {
     transition: width 0.7s linear;
     width: 0px;
     background-color: #b4b8ff;
-    height: 0.6vh;
-    border-radius: 3.2vh;
+    height: 4px;
+    border-radius: 20px;
     position: relative;
-    right: 0.05vh;
+    right: 0.024vw;
 }
 
 /* Estados ativos dos links de navegação */
-.nav-item.active~.active-indicator {
+.nav-item.active ~ .active-indicator {
     background-color: #3A47FF;
 }
 
-.nav-item.active~.active-indicator {
+.nav-item.active ~ .active-indicator {
     width: 99%;
 }
 
@@ -235,7 +240,7 @@ a {
 
 /* Efeitos hover nos itens de navegação */
 
-.nav-item:hover~.active-indicator {
+.nav-item:hover ~ .active-indicator {
     width: 99%;
 }
 
@@ -282,13 +287,14 @@ a {
  * Apresenta o conteúdo principal da página
  */
 main {
-    margin-top: 8.3vh;
+    margin-top: 30px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    height: 92.2vh;
+    height: 650px;
     width: 100%;
-    background-position: 62.7vh -5vh;
+    background-position: 62.7vh -15px;
+    background-position: 29vw -15px;
     background-image: url(../assets/logos/logo-plugin.png);
     background-repeat: no-repeat;
     background-size: contain;
@@ -296,26 +302,26 @@ main {
 
 /* Elemento de apoio visual */
 .visual-support {
-    width: 31.8vh;
-    height: 25.8vh;
+    width: 15vw;
+    height: 180px;
     -webkit-transform: rotate(130.753deg);
     -ms-transform: rotate(130.753deg);
     transform: rotate(130.753deg);
-    border-radius: 31vh;
+    border-radius: 400px;
     background: rgb(255, 255, 255);
-    -webkit-filter: blur(2.5vh);
-    filter: blur(2.5vh);
-    top: 75vh;
-    left: 110vh;
+-webkit-filtrgb(255, 255, 255) x);
+    filter: blur(25px);
+    top: 500px;
+    left: 50vw;
     position: absolute;
 }
 
 /* Conteúdo principal do hero */
 .hero-content {
-    margin-left: 12vh;
-    margin-top: 16.2vh;
-    width: 95vh;
-    height: 18.3vh;
+    margin-left: 5vw;
+    margin-top: 110px;
+    width: 45vw;
+    height: 180px;
 }
 
 .hero-highlight {
@@ -323,7 +329,7 @@ main {
     font-size: clamp(0.1rem, 2.9vw, 15rem);
     font-style: normal;
     font-weight: 600;
-    line-height: 5.8vh;
+    line-height: 40px;
 }
 
 .hero-accent {
@@ -333,19 +339,19 @@ main {
 .hero-description {
     color: #000;
     font-weight: 400;
-    line-height: 3vh;
+    line-height: 22px;
     font-size: clamp(0.1rem, 1.1vw, 8rem);
-    margin-top: 2.2vh;
+    margin-top: 15px;
 }
 
 /* Botão de call-to-action */
 .cta-button {
     --black-700: hsla(0 0% 12% / 1);
-    --border_radius: 4vh;
+    --border_radius: 40px;
     --transtion: 0.3s ease-in-out;
     --offset: 0.2vh;
     position: relative;
-    gap: 1.5vh;
+    gap: 0.7vw;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -355,10 +361,10 @@ main {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
-    margin-top: 7.5vh;
-    width: 28.6vh;
-    height: 6.9vh;
-    border-radius: 4vh;
+    margin-top: 55px;
+    width: 210px;
+    height: 49px;
+    border-radius: 40px;
     -webkit-transform-origin: center;
     -ms-transform-origin: center;
     transform-origin: center;
@@ -445,8 +451,7 @@ main {
 .cta-icon {
     position: relative;
     z-index: 3;
-    width: 2.6vh;
-    height: 2.6vh;
+    height: 20px;
 }
 
 .cta-button:is(:hover, :focus) .cta-icon {
@@ -484,20 +489,19 @@ main {
 
 /* Demonstração do dashboard */
 .dashboard-preview {
-    width: 94vh;
-    border-radius: 3.9vh 3.9vh 0px 0;
+    width: 640px;
+    border-radius: 26px 26px 0px 0;
     background-image: url(../assets/dashboard.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    -webkit-box-shadow: 0 0 8.6vh 0 rgba(0, 0, 0, 0.25);
-    box-shadow: 0 0 8.6vh 0 rgba(0, 0, 0, 0.25);
-    height: 59.7vh;
+    -webkit-box-shadow: 0 0 86.6px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 86.6px 0 rgba(0, 0, 0, 0.25);
+    height: 420px;
 }
 
 .demo-section {
-    max-width: 92vh;
-    height: 84vh;
+    height: 600px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -512,26 +516,26 @@ main {
 .notification-card {
     background-color: white;
     right: 79%;
-    top: 71%;
+    top: 430px;
     position: absolute;
-    width: 30.5vh;
-    height: 18vh;
+    width: 200px;
+    height: 120px;
     display: inline-block;
-    padding: 3.1vh 4.7vh 3.6vh 2.9vh;
+    padding: 3.1vh 2.3vw 3.6vh 1.4vw;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    border-radius: 2vh;
-    -webkit-box-shadow: 0.4vh 0.4vh 1vh 0 rgba(0, 0, 0, 0.10);
-    box-shadow: 0.4vh 0.4vh 1vh 0 rgba(0, 0, 0, 0.10);
+    border-radius: 15px;
+    -webkit-box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.10);
+    box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.10);
     border: 0.1vh solid rgba(128, 128, 128, 0.35);
 }
 
 .notification-line1 {
-    gap: 6vh;
+    gap: 2.5vw;
     color: #808080;
     font-size: clamp(0.1rem, 0.7vw, 8rem);
     font-style: normal;
@@ -543,7 +547,7 @@ main {
 }
 
 .notification-line2 {
-    margin-top: 1.2vh;
+    margin-top: 14px;
     color: #000;
     font-size: clamp(0.1rem, 1.1vw, 8rem);
     font-weight: 600;
@@ -558,7 +562,7 @@ main {
 }
 
 .icon-small {
-    height: 1.5vh;
+    height: 12px;
 }
 
 
@@ -582,29 +586,27 @@ main {
     -ms-flex-pack: center;
     justify-content: center;
     width: 100%;
-    margin-top: 7.5vh;
-    margin-bottom: -17.5vh;
-
+    margin-top: 10px;
+    margin-bottom: -200px;
 }
 
-#plataform>p {
-    margin-top: 2vh;
-    width: 142.7vh;
+#plataform > p {
+    margin-top: 15px;
+    width: 62vw;
     color: #000;
     text-align: center;
     font-size: clamp(0.1rem, 1.12vw, 8rem);
     font-weight: 400;
-    line-height: 3vh;
+    line-height: 20px;
 }
 
-#plataform>.section-title {
-    width: 142.7vh;
+#plataform > .section-title {
+    width: 65vw;
     color: #99A0FF;
     text-align: center;
     font-size: clamp(0.1rem, 2.2vw, 8rem);
     font-weight: 600;
-    line-height: 7.5vh;
-    height: 15vh;
+    line-height: 52px;
 }
 
 .text-accent {
@@ -623,11 +625,11 @@ main {
 
 .button-container .platform-button,
 .signup-button {
-    width: 27.7vh;
-    height: 6.4vh;
-    margin-bottom: 10.5vh;
-    margin-top: 4vh;
-    border-radius: 4vh;
+    width: 190px;
+    height: 44px;
+    margin-bottom: 45px;
+    margin-top: 25px;
+    border-radius: 25px;
     border: 0.2vh solid #3A47FF;
     -webkit-transition: all 0.15s ease;
     -o-transition: all 0.15s ease;
@@ -660,8 +662,8 @@ main {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
-    width: 13.1515vh !important;
-    height: 4.5vh !important;
+    width: 90px !important;
+    height: 30px !important;
     margin: 0 !important;
     -webkit-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
@@ -672,7 +674,7 @@ main {
 .signup-button p {
     text-align: center;
     font-weight: 600;
-    line-height: 6.2vh;
+    line-height: 42.5px;
     font-size: clamp(0.1rem, 1vw, 8rem);
     background: -o-linear-gradient(2deg, #9299FF -0.39%, #3A47FF 81.15%);
     background: linear-gradient(88deg, #9299FF -0.39%, #3A47FF 81.15%);
@@ -706,7 +708,7 @@ main {
     width: 100%;
 }
 
-.platform-image>img {
+.platform-image > img {
     width: 100%;
 }
 
@@ -717,17 +719,17 @@ main {
  * Apresenta os benefícios e princípios do produto
  */
 #principles .vantagens {
-    margin-top: 10vh;
+    margin-top: 60px;
 }
 
 .vantagens {
     z-index: 2;
-    min-height: 34.6vh;
+    min-height: 240px;
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 1fr 12.4vh 1fr 12.4vh 1fr;
+    -ms-grid-columns: 1fr 5.45vw 1fr 5.45vw 1fr;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 12.4vh;
+    gap: 5.45vw;
 }
 
 .info .vantagens {
@@ -752,11 +754,11 @@ main {
 
 /* Cartões de benefícios */
 .benefit-card {
-    -webkit-box-shadow: -0.5vh 0.6vh 0.7vh rgba(146, 153, 255, 0.15);
-    box-shadow: -0.5vh 0.6vh 0.7vh rgba(146, 153, 255, 0.15);
+    -webkit-box-shadow: -5px 6px 7px rgba(146, 153, 255, 0.15);
+    box-shadow: -5px 6px 7px rgba(146, 153, 255, 0.15);
     cursor: pointer;
-    border-radius: 2.5vh;
-    padding-right: 2vh;
+    border-radius: 15px;
+    padding-right: 0.75vw;
     background-color: white;
 }
 
@@ -766,39 +768,45 @@ main {
 }
 
 .benefit-card img {
-    margin-left: 2vh;
-    margin-top: 5vh;
+    margin-left: 0.8vw;
+    margin-top: 20px;
     -webkit-transition: -webkit-filter 0.7s ease;
     transition: -webkit-filter 0.7s ease;
     -o-transition: filter 0.7s ease;
     transition: filter 0.7s ease;
+    height: 20px;
     transition: filter 0.7s ease, -webkit-filter 0.7s ease;
-    width: 3vh;
 }
-.first:first-of-type img{
-    width: 1.9vh;
+
+
+.benefit-card img.medio {
+    height: 15px;
+}
+
+.first:first-of-type img {
+    height: 18px;
 }
 
 .benefit-card h3 {
-    margin-top: 1vh;
-    margin-left: 2vh;
-    width: 39.482vh;
-    height: 5.9vh;
+    margin-top: 10px;
+    margin-top: 0.5vw;
+    margin-left: 0.8vw;
+    width: 18.482vw;
     color: #000;
-    -webkit-text-stroke-width: 0.1vh;
+    -webkit-text-stroke-width: 0.05vw;
     -webkit-text-stroke-color: rgba(0, 0, 0, 0.00);
     font-size: clamp(0.1rem, 1.2vw, 8rem);
     font-weight: 600;
-    line-height: 3vh;
+    line-height: 20px;
     -webkit-transition: color 0.7s ease;
     -o-transition: color 0.7s ease;
     transition: color 0.7s ease;
 }
 
 .benefit-card p {
-    margin-top: 1.8vh;
-    margin-left: 2vh;
-    width: 50vh;
+    margin-top: 12px;
+    margin-left: 0.8vw;
+    width: 22vw;
     -ms-flex-negative: 0;
     flex-shrink: 0;
     color: rgba(27, 35, 134, 0.60);
@@ -806,7 +814,7 @@ main {
     -webkit-text-stroke-color: rgba(0, 0, 0, 0.00);
     font-size: clamp(0.1rem, 1vw, 8rem);
     font-weight: 400;
-    line-height: 2.3vh;
+    line-height: 16px;
     -webkit-transition: color 0.7s ease;
     -o-transition: color 0.7s ease;
     transition: color 0.7s ease;
@@ -845,14 +853,14 @@ main {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    margin-top: 22vh;
+    margin-top: 130px;
 }
 
 /* Opções de seleção do aplicativo */
 #app-options {
     z-index: 2;
-    width: 53.4vh;
-    height: 5.5vh;
+    width: 380px;
+    height: 40px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -862,9 +870,9 @@ main {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    border-radius: 5.9vh;
+    border-radius: 25px;
     background-color: #BEC3FF;
-    padding: 1vh;
+    padding: 0.4vw;
 }
 
 input[type="radio"] {
@@ -876,12 +884,12 @@ label p {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    height: 1.9vh;
+    height: 12px;
     color: #FFF;
     text-align: center;
     font-size: clamp(0.1rem, 0.9vw, 8rem);
     font-weight: 500;
-    line-height: 2.4vh;
+    line-height: 15px;
 }
 
 label {
@@ -892,18 +900,18 @@ label {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    width: 17.8vh;
-    padding: 0.9vh 2.7vh 1.4vh 2.7vh;
+    width: 120px;
+    padding: 9px 1.3vw 9px 1.3vw;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    border-radius: 7.8vh;
+    border-radius: 25px;
 }
 
-input:checked+.option-background {
+input:checked + .option-background {
     background-image: -o-radial-gradient(112.2% -31.48%, 113.02% 172.85%, #9299FF 0%, #3A47FF 100%);
     background-image: radial-gradient(113.02% 172.85% at 112.2% -31.48%, #9299FF 0%, #3A47FF 100%);
 }
@@ -916,15 +924,15 @@ input:checked+.option-background {
     transition: transform 1.5s;
     transition: transform 1.5s, -webkit-transform 1.5s;
     gap: 25%;
-    margin-bottom: -45vh;
+    margin-bottom: -300px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
 }
 
 .app-screen {
-    margin-top: 4.7vh;
-    gap: 12.4vh;
+    margin-top: 30px;
+    gap: 90px;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
@@ -939,26 +947,27 @@ input:checked+.option-background {
 }
 
 .app-screen article {
-    margin-top: 12.2vh;
+    margin-top: 82px;
 }
 
 .app-screen h2 {
-    width: 49.6vh;
+    width: 24vw;
     color: #000;
     font-size: clamp(0.1rem, 3vw, 8rem);
     font-weight: 500;
     line-height: 6.5vh;
-    margin-bottom: 2vh;
+    line-height: 45px;
+    margin-bottom: 20px;
 }
 
 .app-screen p {
-    width: 56.1vh;
+    width: 24.1vw;
     font-size: clamp(0.1rem, 1.1vw, 8rem);
 }
 
 .app-screen .right-text {
-    margin-top: 40vh;
-    width: 46.9vh;
+    margin-top: 300px;
+    width: 21.4vw;
 }
 
 .text-blue {
@@ -966,19 +975,19 @@ input:checked+.option-background {
 }
 
 /* Transições entre as telas do aplicativo */
-#app-options:has(input#dates:checked)~#app-presentation {
+#app-options:has(input#dates:checked) ~ #app-presentation {
     -webkit-transform: translateX(26.85%);
     -ms-transform: translateX(26.85%);
     transform: translateX(26.85%);
 }
 
-#app-options:has(input#dashbord:checked)~#app-presentation {
+#app-options:has(input#dashbord:checked) ~ #app-presentation {
     -webkit-transform: translateX(-84%);
     -ms-transform: translateX(-84%);
     transform: translateX(-84%);
 }
 
-#app-options:has(input#justificativa:checked)~#app-presentation {
+#app-options:has(input#justificativa:checked) ~ #app-presentation {
     -webkit-transform: translateX(-30%);
     -ms-transform: translateX(-30%);
     transform: translateX(-30%);
@@ -986,7 +995,7 @@ input:checked+.option-background {
 
 /* Notificação no aplicativo */
 #app-notification {
-    padding: 1.2vh;
+    padding: 0.5vw;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -999,42 +1008,42 @@ input:checked+.option-background {
     justify-content: space-between;
     position: absolute;
     top: 18.875%;
+    top: 18.875%;
     right: 20.725%;
-    width: 18vh;
-    height: 13.5vh;
-    border-radius: 1vh;
+    width: 125px;
+    height: 95px;
+    border-radius: 8px;
     background: #FFF;
-    -webkit-box-shadow: 0 0 2vh 0 rgba(0, 0, 0, 0.10);
-    box-shadow: 0 0 2vh 0 rgba(0, 0, 0, 0.10);
-    -webkit-filter: drop-shadow(-4.5vh 3.8vh 0.4vh rgba(0, 0, 0, 0.15)) drop-shadow(-0.6vh 0.6vh 0.4vh rgba(0, 0, 0, 0.15));
-    filter: drop-shadow(-4.5vh 3.8vh 0.4vh rgba(0, 0, 0, 0.15)) drop-shadow(-0.6vh 0.6vh 0.4vh rgba(0, 0, 0, 0.15));
+    -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.10);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.10);
+    -webkit-filter: drop-shadow(-45px 38px 4px rgba(0, 0, 0, 0.10, 0, 0, 0.15)) drop-shadow(-0.6vh 0.6vh 0.4vh rgba(0, 0, 0, 0.15));
+    filter: drop-shadow(-45px 38px 4px rgba(0, 0, 0, 0.15)) drop-shadow(-6px 6px 4px rgba(0, 0, 0, 0.15));
 }
-#app-notification img{
-    height: 6.3vh;
-    width: 6.3vh !important;
+
+#app-notification img {
+    height: 40px;
 }
 
 #notification-count {
     color: #000;
     font-size: clamp(0.1rem, 1.7vw, 8rem);
     font-weight: 500;
-    line-height: 2.1vh;
+    line-height: 15px;
 }
 
 #notification-line1 p {
     color: #404040;
     font-size: clamp(0.1rem, 0.8vw, 8rem);
     font-weight: 400;
-    line-height: 1.6vh;
+    line-height: 10px;
 }
 
 #notification-line2 p {
-    margin-top: 0.4vh;
-    margin-bottom: 0.2vh;
+    margin-bottom: 2px;
     color: #4C4C4C;
     font-size: clamp(0.1rem, 1.1vw, 8rem);
     font-weight: 400;
-    line-height: 1.6vh;
+    line-height: 10px;
 }
 
 #notification-line1,
@@ -1042,51 +1051,50 @@ input:checked+.option-background {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    gap: 1.6vh;
+    gap: 0.7vw;
 }
 
 #notification-line1 {
-    margin-top: 1vh;
+    margin-top: 0.5vw;
     -webkit-box-align: end;
     -ms-flex-align: end;
     align-items: end;
 }
 
 #notification-line2 {
-    gap: 4.1vh;
+    gap: 2vw;
     -webkit-box-align: end;
     -ms-flex-align: end;
     align-items: end;
 }
 
-.tela:first-of-type{
-    height: 80vh;
+.tela:first-of-type {
+    height: 800px;
 }
-.tela{
-    height: 31.5vh;
+
+.tela:last-of-type {
+    height: 580px;
 }
-.tela:last-of-type{
-    height: 80.3vh;
-}
+
 /* Ajustes específicos para telas do aplicativo */
 .app-screen.dash article {
-    margin-left: -24vh;
+    margin-left: -12vw;
 }
 
 .app-screen.dash .right-paragraph {
-    margin-left: -44vh;
-    width: 40.8vh;
-    margin-top: 26.5vh;
+    margin-left: -21vw;
+    width: 18.4vw;
+    margin-top: 180px;
 }
 
 .app-screen.dash .right-text {
-    margin-left: -53.4vh;
-    margin-top: 40vh;
+    margin-left: -24.15vw;
+    margin-top: 270px;
 }
 
 .app-screen.justificativa .right-text {
-    margin-left: -68.5vh;
-    width: 49.2vh;
+    margin-left: -30vw;
+    width: 23.5vw;
 }
 
 #visual-improvisado2 {
@@ -1096,7 +1104,7 @@ input:checked+.option-background {
 /* Seção de ondas decorativas */
 #app-waves {
     width: 100%;
-    height: 52.05vh;
+    height: 350px;
     background-color: #99A0FF;
 }
 
@@ -1122,12 +1130,12 @@ input:checked+.option-background {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    padding-bottom: 12.5vh;
+    padding-bottom: 80px;
 }
 
 #about-wrapper {
+    padding: 2px;
     width: 84%;
-    height: 96vh;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
@@ -1144,25 +1152,23 @@ input:checked+.option-background {
     background: -webkit-gradient(linear, left top, right top, from(#B0B5FF), to(#4C58FF));
     background: -o-linear-gradient(left, #B0B5FF, #4C58FF);
     background: linear-gradient(90deg, #B0B5FF, #4C58FF);
-    border-radius: 4vh;
+    border-radius: 35px;
 }
 
 #about-us {
-    padding: 5vh 5vh;
+    padding: 30px;
     -ms-flex-negative: 0;
     flex-shrink: 0;
-    height: 99.5%;
-    width: 99.75%;
-    border-radius: 4vh;
+    border-radius: 35px;
     background-color: #99A0FF;
 }
 
 #about-us h2 {
-    width: 81.4vh;
+    width: 40vw;
     color: #FFF;
     font-size: clamp(0.1rem, 2.92vw, 8rem);
     font-weight: 600;
-    line-height: 5.8vh;
+    line-height: 40px;
 }
 
 #about-content {
@@ -1211,7 +1217,7 @@ input:checked+.option-background {
     color: #FFF;
     font-size: clamp(0.1rem, 1.46vw, 8rem);
     font-weight: 400;
-    line-height: 6vh;
+    line-height: 40px;
     height: 100%;
 }
 
@@ -1223,15 +1229,15 @@ input:checked+.option-background {
 
 /* Seção de princípios */
 #principles {
-    margin-top: 19vh;
+    margin-top: 130px;
 }
 
 #principles h2 {
-    margin-left: -2.5vh;
+    margin-left: -1.2vw;
     color: #FFF;
     font-size: clamp(0.1rem, 2.925vw, 8rem);
     font-weight: 600;
-    line-height: 5.8vh;
+    line-height: 30px;
 }
 
 #principles .benefit-card {
@@ -1239,8 +1245,8 @@ input:checked+.option-background {
 }
 
 #principles .benefit-card:hover {
-    -webkit-box-shadow: -0.2vh -0.2vh 0.2vh rgba(112, 144, 176, 0.01), 1vh 0.8vh 1.2vh rgba(50, 70, 100, 0.6);
-    box-shadow: -0.2vh -0.2vh 0.2vh rgba(112, 144, 176, 0.01), 1vh 0.8vh 1.2vh rgba(50, 70, 100, 0.6);
+    -webkit-box-shadow: -2px -2px 2px rgba(112, 144, 176, 0.01), 10px 8px 12px rgba(50, 70, 100, 0.6);
+    box-shadow: -2px -2px 2px rgba(112, 144, 176, 0.01), 10px 8px 12px rgba(50, 70, 100, 0.6);
 }
 
 /* Ondas decorativas */
@@ -1248,7 +1254,7 @@ input:checked+.option-background {
     background-color: #99A0FF;
     position: relative;
     width: 100%;
-    height: 29.3vh;
+    height: 200px;
     overflow: hidden;
 }
 
@@ -1277,12 +1283,12 @@ input:checked+.option-background {
 footer {
     width: 100%;
     background-color: #5E69FF;
-    padding: 3.7vh 7.5vh;
-    padding-bottom: 7.5vh;
+    padding: 30px 3.4vw;
+    padding-bottom: 60px;
     color: #FFF;
     font-size: clamp(0.1rem, 1.1vw, 8rem);
     font-weight: 400;
-    line-height: 2.8vh;
+    line-height: 20px;
 }
 
 footer .brand-container p {
@@ -1292,27 +1298,25 @@ footer .brand-container p {
 footer a {
     color: #FFF;
     font-weight: 400;
-    line-height: 2.8vh;
     text-decoration: underline;
 }
 
 footer .brand-container div {
     background-image: url(../assets/logos/logo-roxo.png);
     background-color: white;
-    background-size: 3.1vh 4.1vh;
+    background-size: 22.32px 29.52px;
     background-repeat: no-repeat;
     background-position: center;
-    border-radius: 1.3vh;
-    width: 5.5vh;
-    height: 5.5vh;
+    border-radius: 9px;
+    width: 40%;
+    height: 40px;
     cursor: pointer;
 }
 
 .footer-description {
-    width: 73.9vh;
-    height: 9vh;
-    margin-top: 5.2vh;
-    margin-bottom: 3.5vh;
+    height: 40px;
+    margin-top: 40px;
+    margin-bottom: 20px;
 }
 
 #footer-content {
@@ -1327,18 +1331,18 @@ footer .brand-container div {
 }
 
 #footer-secondary {
-    gap: 25.5vh;
+    gap: 11vw;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
 }
 
 #footer-secondary nav ul li {
-    margin-top: 2.8vh;
+    margin-top: 20px;
 }
 
 #footer-secondary nav ul li .footer-title {
-    margin-bottom: 4.4vh;
+    margin-bottom: 35px;
 }
 
 .footer-title {
@@ -1350,7 +1354,7 @@ footer ul {
 }
 
 .contact-line {
-    margin-top: 2.3vh;
+    margin-top: 15px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1360,16 +1364,16 @@ footer ul {
     -webkit-box-pack: start;
     -ms-flex-pack: start;
     justify-content: start;
-    gap: 1.4vh;
+    gap: 10px;
 }
 
 footer .brand-container {
-    width: 15vh;
-    gap: 1vh
+    width: 105px;
+    gap: 10px;
 }
 
 #footer-bottom {
-    margin-top: 21.2vh;
+    margin-top: 140px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1389,7 +1393,7 @@ footer .brand-container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    gap: 1vh;
+    gap: 10px;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
@@ -1407,18 +1411,20 @@ footer .brand-container {
     justify-content: center;
 }
 
-#footer-bottom>ol {
+#footer-bottom > ol {
     list-style: none;
-    gap: 7vh;
+    gap: 50px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
 }
-.footer-bottom-icon{
-    width: 2.7vh;
+
+.footer-bottom-icon {
+    height: 17px;
 }
-.footer-icon{
-    width: 3.2vh;
+
+.footer-icon {
+    height: 20px;
 }
 
 /* ===== HOVERS CONVERTIDOS PARA ACTIVE ===== */
@@ -1512,9 +1518,9 @@ footer .brand-container {
 
 /* Princípios - Cards */
 #principles .benefit-card:hover {
-    box-shadow: -0.2vh -0.2vh 0.2vh rgba(112, 144, 176, 0.01), 1vh 0.8vh 1.2vh rgba(50, 70, 100, 0.6);
+    box-shadow: -2px -2px 2px rgba(112, 144, 176, 0.01), 10px 8px 12px rgba(50, 70, 100, 0.6);
 }
 
 #principles .benefit-card:active {
-    box-shadow: -0.2vh -0.2vh 0.2vh rgba(112, 144, 176, 0.01), 1vh 0.8vh 1.2vh rgba(50, 70, 100, 0.6);
+    box-shadow: -2px -2px 2px rgba(112, 144, 176, 0.01), 10px 8px 12px rgba(50, 70, 100, 0.6);
 }

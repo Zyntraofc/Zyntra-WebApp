@@ -32,20 +32,23 @@
             </div>
 
 
-
-            <form action="${pageContext.request.contextPath}/LoginAdministrador" method="post" class="form-fields" name="loginForm">
+            <form action="${pageContext.request.contextPath}/LoginAdministrador" method="post" class="form-fields"
+                  name="loginForm">
                 <div class="input-group">
                     <label for="email">E-mail</label>
-                    <input autofocus type="email" id="email" name="email" required placeholder="Digite aqui seu e-mail" value="${not empty emailDigitado ? emailDigitado : param.email}">
+                    <input autofocus type="email" id="email" name="email" required placeholder="Digite aqui seu e-mail"
+                           value="${not empty emailDigitado ? emailDigitado : param.email}">
                 </div>
 
                 <div class="input-group">
                     <label for="password">Senha</label>
-                    <input type="password" id="password" name="senha" required placeholder="Digite aqui sua senha" value="${not empty senhaDigitada ? senhaDigitada : param.senha}">
+                    <input type="password" id="password" name="senha" required placeholder="Digite aqui sua senha"
+                           value="${not empty senhaDigitada ? senhaDigitada : param.senha}">
                 </div>
 
                 <% if (request.getAttribute("erroLogin") != null) { %>
-                <p class="erro-login"><%= request.getAttribute("erroLogin") %></p>
+                <p class="erro-login"><%= request.getAttribute("erroLogin") %>
+                </p>
                 <% } %>
 
 

@@ -9,7 +9,7 @@ public class MotivoFalta extends BaseModel{
     private String motivo;
 
     //Metodo construtor
-    public MotivoFalta(String motivo){
+    public MotivoFalta(String motivo) {
         this.motivo = motivo;
     }
 

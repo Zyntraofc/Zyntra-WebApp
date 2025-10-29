@@ -11,14 +11,15 @@ import org.example.dao.IndiceClassificacaoDAO;
 import org.example.model.IndiceClassificacao;
 
 @WebServlet("/private/InserirIndiceClassificacao")
-public class ServletInserirIndiceClassificacao extends HttpServlet{
+public class ServletInserirIndiceClassificacao extends HttpServlet {
     @Override
-    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("popup-inserir", true);
         req.getRequestDispatcher("/private/ListarIndiceClassificacao").forward(req, resp);
     }
+
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String preocupacao = req.getParameter("preocupacao");
         double porcentagemMinima = Double.parseDouble(req.getParameter("porcentagemMinima"));
         double porcentagemMaxima = Double.parseDouble(req.getParameter("porcentagemMaxima"));
@@ -44,13 +45,15 @@ public class ServletInserirIndiceClassificacao extends HttpServlet{
             req.getRequestDispatcher("/private/ListarIndiceClassificacao").forward(req, resp);
         } else {
             IndiceClassificacao novo = new IndiceClassificacao(recomendacao, preocupacao, porcentagemMinima, porcentagemMaxima);
-            if (indicesdao.inserirIndiceClassificacao(novo))req.setAttribute("erro", "Índice de classificação inserido com sucesso!");
+            if (indicesdao.inserirIndiceClassificacao(novo))
+                req.setAttribute("erro", "Índice de classificação inserido com sucesso!");
             else req.setAttribute("erro", "Erro ao inserir índice");
 
             req.getRequestDispatcher("/private/ListarIndiceClassificacao").forward(req, resp);
         }
     }
-    public void destroy(){
+
+    public void destroy() {
         ConexaoManager.desconectar();
     }
 }

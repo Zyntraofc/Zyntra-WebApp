@@ -4,6 +4,7 @@ package org.example.utils.filtros;
 
 //Importações
 import org.example.model.TipoEmpresa;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;

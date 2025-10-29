@@ -71,5 +71,4 @@ public class TipoEmpresa extends BaseModel{
     }
 
 
-
 }

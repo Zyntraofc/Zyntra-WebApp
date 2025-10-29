@@ -12,7 +12,8 @@
 <aside>
     <div class="sidebar-header">
         <div class="logo-container">
-            <img src="${pageContext.request.contextPath}/assets/logos/logo-quadrada.png" alt="logo-aion" class="logo-aion">
+            <img src="${pageContext.request.contextPath}/assets/logos/logo-quadrada.png" alt="logo-aion"
+                 class="logo-aion">
             <div class="brand-text">
                 <p class="aion">aion</p>
                 <h4>Tipo de empresa</h4>
@@ -93,23 +94,24 @@
                     <div class="filtro-section">
 
 
-                    <div class="filtro-item">
-                        <label for="statusesOrdenados">Status: </label>
-                        <select name="ordenarStatus" id="statusesOrdenados">
-                            <option value="">Todas</option>
-                            <option value="a" ${param.ordenarStatus == 'a' ? 'selected' : ''}>Ativas</option>
-                            <option value="i" ${param.ordenarStatus == 'i' ? 'selected' : ''}>Inativas</option>
-                        </select>
-                    </div>
+                        <div class="filtro-item">
+                            <label for="statusesOrdenados">Status: </label>
+                            <select name="ordenarStatus" id="statusesOrdenados">
+                                <option value="">Todas</option>
+                                <option value="a" ${param.ordenarStatus == 'a' ? 'selected' : ''}>Ativas</option>
+                                <option value="i" ${param.ordenarStatus == 'i' ? 'selected' : ''}>Inativas</option>
+                            </select>
+                        </div>
 
-                    <div class="filtro-item">
-                        <label for="atualizacoesOrdenadas">Últimas atualizações: </label>
-                        <select name="ordenarAtualizacoes" id="atualizacoesOrdenadas">
-                            <option value="">Todas</option>
-                            <option value="1" ${param.ordenarAtualizacoes == '1' ? 'selected' : ''}>Recentes</option>
-                            <option value="2" ${param.ordenarAtualizacoes == '2' ? 'selected' : ''}>Antigas</option>
-                        </select>
-                    </div>
+                        <div class="filtro-item">
+                            <label for="atualizacoesOrdenadas">Últimas atualizações: </label>
+                            <select name="ordenarAtualizacoes" id="atualizacoesOrdenadas">
+                                <option value="">Todas</option>
+                                <option value="1" ${param.ordenarAtualizacoes == '1' ? 'selected' : ''}>Recentes
+                                </option>
+                                <option value="2" ${param.ordenarAtualizacoes == '2' ? 'selected' : ''}>Antigas</option>
+                            </select>
+                        </div>
                     </div>
 
                     <button type="submit" class="botao-filtrar">Aplicar Filtros</button>
@@ -126,49 +128,56 @@
         </div>
     </div>
     <%
-        if(request.getAttribute("erro") != null){
+        if (request.getAttribute("erro") != null) {
     %>
-    <p><%=request.getAttribute("erro")%></p>
+    <p><%=request.getAttribute("erro")%>
+    </p>
     <%
         }
     %>
     <section class="table-card">
         <div class="table-container">
-        <table>
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Status</th>
-            <th>Última atualização</th>
-            <th>Ações</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach var="tipoEmpresa" items="${tiposEmpresa}">
-            <tr class="linhas">
-                <td>${tipoEmpresa.id}</td>
-                <td data-label="Pesquisar">${tipoEmpresa.nome}</td>
-                <td>${String.valueOf(tipoEmpresa.status).equals("i") ?"Inativo": "Ativo"}</td>
-                <td>${tipoEmpresa.ultimaAtualizacao}</td>
-                <td class="actionsgit">
-                    <div style="display: flex">
-                        <form action="${pageContext.request.contextPath}/private/AlterarTipoEmpresa" method="post">
-                            <input type="hidden" name="id" value="${tipoEmpresa.id}">
-                            <input type="hidden" name="action" value="0">
-                            <button type="submit" style="border: none; background: none; cursor: pointer" > <img src="${pageContext.request.contextPath}/assets/icons/icon-edit.png"></button>
-                        </form>
-                        <form action="${pageContext.request.contextPath}/private/DeletarTipoEmpresa" method="post">
-                            <input type="hidden" name="id" value="${tipoEmpresa.id}">
-                            <input type="hidden" name="action" value="0">
-                            <button type="submit" style="border: none; background: none; cursor: pointer" ><img src="${pageContext.request.contextPath}/assets/icons/icon-excluir.png"></button>
-                        </form>
-                    </div>
-                </td>
-            </tr>
-        </c:forEach>
-        </tbody>
-    </table>
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Status</th>
+                    <th>Última atualização</th>
+                    <th>Ações</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="tipoEmpresa" items="${tiposEmpresa}">
+                    <tr class="linhas">
+                        <td>${tipoEmpresa.id}</td>
+                        <td data-label="Pesquisar">${tipoEmpresa.nome}</td>
+                        <td>${String.valueOf(tipoEmpresa.status).equals("i") ?"Inativo": "Ativo"}</td>
+                        <td>${tipoEmpresa.ultimaAtualizacao}</td>
+                        <td class="actionsgit">
+                            <div style="display: flex">
+                                <form action="${pageContext.request.contextPath}/private/AlterarTipoEmpresa"
+                                      method="post">
+                                    <input type="hidden" name="id" value="${tipoEmpresa.id}">
+                                    <input type="hidden" name="action" value="0">
+                                    <button type="submit" style="border: none; background: none; cursor: pointer"><img
+                                            src="${pageContext.request.contextPath}/assets/icons/icon-edit.png">
+                                    </button>
+                                </form>
+                                <form action="${pageContext.request.contextPath}/private/DeletarTipoEmpresa"
+                                      method="post">
+                                    <input type="hidden" name="id" value="${tipoEmpresa.id}">
+                                    <input type="hidden" name="action" value="0">
+                                    <button type="submit" style="border: none; background: none; cursor: pointer"><img
+                                            src="${pageContext.request.contextPath}/assets/icons/icon-excluir.png">
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
         </div>
     </section>
 </main>
@@ -206,10 +215,11 @@
         <input type="text" name="nome" id="nome" value="${tipoEmpresa.getNome()}">
 
         <label for="descricao">Descrição</label>
-        <textarea name="descricao" id="descricao" rows="2" >${tipoEmpresa.getDescricao()}</textarea>
+        <textarea name="descricao" id="descricao" rows="2">${tipoEmpresa.getDescricao()}</textarea>
 
         <div class="botoes">
-            <div class="cancelar"> <a href="${pageContext.request.contextPath}/private/ListarTipoEmpresa">✖ Cancelar</a></div>
+            <div class="cancelar"><a href="${pageContext.request.contextPath}/private/ListarTipoEmpresa">✖ Cancelar</a>
+            </div>
             <button type="submit" class="confirmar">✔ Confirmar</button>
         </div>
     </form>
@@ -225,10 +235,12 @@
         <input type="text" name="nome" id="Novonome" placeholder="Digite o tipo de empresa">
 
         <label for="Novadescricao">Descrição</label>
-        <textarea name="descricao" id="Novadescricao" rows="2" placeholder="Digite a descrição dessa empresa (opcional)"></textarea>
+        <textarea name="descricao" id="Novadescricao" rows="2"
+                  placeholder="Digite a descrição dessa empresa (opcional)"></textarea>
 
         <div class="botoes">
-            <div class="cancelar"> <a href="${pageContext.request.contextPath}/private/ListarTipoEmpresa">✖ Cancelar</a></div>
+            <div class="cancelar"><a href="${pageContext.request.contextPath}/private/ListarTipoEmpresa">✖ Cancelar</a>
+            </div>
             <button type="submit" class="confirmar">✔ Confirmar</button>
         </div>
     </form>

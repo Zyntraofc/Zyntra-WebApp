@@ -29,6 +29,7 @@ public class Administrador extends BaseModel{
     public String getEmail() {
         return this.email;
     }
+
     public String getHashSenha() {
         return this.hashSenha;
     }
@@ -37,6 +38,7 @@ public class Administrador extends BaseModel{
     public void setEmail(String email) {
         this.email = email;
     }
+
     public void setHashSenha(HashSenha hashSenha) {
         this.hashSenha = String.valueOf(hashSenha);
     }
@@ -45,7 +47,7 @@ public class Administrador extends BaseModel{
     public String toString(){
         return
                 "\nEmail: " + this.email +
-                "\nSenha: " + this.hashSenha;
+                        "\nSenha: " + this.hashSenha;
     }
 
 

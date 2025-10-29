@@ -79,13 +79,13 @@ public class Empresa extends BaseModel{
 
     //Metodo toString e representação do objeto
     public String toString() {
-        return "ID Tipo da empresa: "+this.idTipoEmpresa +
-                "\nID índice de classificação: "+this.idIndiceClassificacao+
-                "\nID status de aprovação: "+ this.idStatusAprovacao+
-                "\nNome da empresa: "+ this.nome +
-                "\nCNPJ: "+this.cnpj +
-                "\nE-mail: "+this.email +
-                "\nTelefone: "+this.telefone;
+        return "ID Tipo da empresa: " + this.idTipoEmpresa +
+                "\nID índice de classificação: " + this.idIndiceClassificacao +
+                "\nID status de aprovação: " + this.idStatusAprovacao +
+                "\nNome da empresa: " + this.nome +
+                "\nCNPJ: " + this.cnpj +
+                "\nE-mail: " + this.email +
+                "\nTelefone: " + this.telefone;
     }
 
 

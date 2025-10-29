@@ -1,6 +1,7 @@
 package org.example.servlet.Empresa;
 
 import java.io.IOException;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -17,17 +18,18 @@ import java.util.List;
 import java.util.Map;
 
 @WebServlet("/private/ListarEmpresas")
-public class ServletListarEmpresas extends HttpServlet{
+public class ServletListarEmpresas extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req, resp);
     }
+
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException{
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
         TipoEmpresaDAO tipodao = new TipoEmpresaDAO();
         IndiceClassificacaoDAO indicedao = new IndiceClassificacaoDAO();
         req.setAttribute("indices", indicedao.listarIndicesClassificacao());
-        if (req.getAttribute("popup-alterar")!=null || req.getAttribute("popup-inserir")!=null){
+        if (req.getAttribute("popup-alterar") != null || req.getAttribute("popup-inserir") != null) {
             req.setAttribute("tipos", tipodao.listarTiposEmpresa());
         }
 
@@ -36,11 +38,11 @@ public class ServletListarEmpresas extends HttpServlet{
         String statusParam = req.getParameter("ordenarStatus");
         boolean ordenarNome;
 
-        if (req.getParameter("ordenarNome") != null){
+        if (req.getParameter("ordenarNome") != null) {
             ordenarNome = true;
             req.setAttribute("ordenarNome", true);
-        }else {
-            ordenarNome= false;
+        } else {
+            ordenarNome = false;
         }
         boolean ordenarIndiceClassificacao = idIndiceParam != null && !idIndiceParam.isEmpty();
         boolean ordenarTipoEmpresa = idTipoParam != null && !idTipoParam.isEmpty();
@@ -48,26 +50,26 @@ public class ServletListarEmpresas extends HttpServlet{
         Integer idTipoEmpresaOrdenacao;
         Integer idIndiceClassificacaoOrdenacao;
         Character statusFiltro;
-        if(idTipoParam != null && !idTipoParam.isEmpty()){
+        if (idTipoParam != null && !idTipoParam.isEmpty()) {
             idTipoEmpresaOrdenacao = Integer.parseInt(idTipoParam);
             req.setAttribute("idTipoEmpresaFiltro", idTipoEmpresaOrdenacao);
-        } else{
+        } else {
             idTipoEmpresaOrdenacao = null;
         }
 
 
-        if(idIndiceParam != null && !idIndiceParam.isEmpty()){
+        if (idIndiceParam != null && !idIndiceParam.isEmpty()) {
             idIndiceClassificacaoOrdenacao = Integer.parseInt(idIndiceParam);
             req.setAttribute("idIndiceClassificacaoFiltro", idIndiceClassificacaoOrdenacao);
-        }else{
+        } else {
             idIndiceClassificacaoOrdenacao = null;
         }
 
 
-        if(statusParam != null && !statusParam.isEmpty()){
+        if (statusParam != null && !statusParam.isEmpty()) {
             statusFiltro = statusParam.charAt(0);
             req.setAttribute("ordenarStatus", statusFiltro);
-        }else{
+        } else {
             statusFiltro = null;
         }
 
@@ -87,7 +89,8 @@ public class ServletListarEmpresas extends HttpServlet{
         req.setAttribute("tiposFiltro", tipodao.listarTiposEmpresa());
         req.getRequestDispatcher("/WEB-INF/view/CrudEmpresa.jsp").forward(req, resp);
     }
-    public void destroy(){
+
+    public void destroy() {
         ConexaoManager.desconectar();
     }
 }

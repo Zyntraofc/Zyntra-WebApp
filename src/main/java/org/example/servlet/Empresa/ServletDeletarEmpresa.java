@@ -14,24 +14,25 @@ import org.example.dao.TipoEmpresaDAO;
 import org.example.model.Empresa;
 
 @WebServlet("/private/DeletarEmpresa")
-public class ServletDeletarEmpresa extends HttpServlet{
+public class ServletDeletarEmpresa extends HttpServlet {
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException{
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         int action = Integer.parseInt(req.getParameter("action"));
         EmpresaDAO empresadao = new EmpresaDAO();
         String caminho = req.getParameter("caminho");
-        if(action == 0){
+        if (action == 0) {
             req.setAttribute("caminho", caminho);
             Empresa empresa = null;
-            if (req.getParameter("idStatus") != null && !req.getParameter("idStatus").isEmpty()) {empresa = empresadao.listarEmpresaPorIdStatusAprovacao(Integer.parseInt(req.getParameter("idStatus")));}
-            else{
+            if (req.getParameter("idStatus") != null && !req.getParameter("idStatus").isEmpty()) {
+                empresa = empresadao.listarEmpresaPorIdStatusAprovacao(Integer.parseInt(req.getParameter("idStatus")));
+            } else {
                 int id = Integer.parseInt(req.getParameter("id"));
                 empresa = empresadao.listarEmpresaPorId(id);
             }
             req.setAttribute("empresa", empresa);
             req.setAttribute("popup-deletar", true);
-            req.getRequestDispatcher("Listar"+caminho).forward(req, resp);
-        }else if(action == 1){
+            req.getRequestDispatcher("Listar" + caminho).forward(req, resp);
+        } else if (action == 1) {
             int id = Integer.parseInt(req.getParameter("id"));
             int idStatus = Integer.parseInt(req.getParameter("idStatus"));
             int idTipoEmpresa = empresadao.listarEmpresaPorId(id).getIdTipoEmpresa();
@@ -39,22 +40,23 @@ public class ServletDeletarEmpresa extends HttpServlet{
             empresadao.deletarEmpresa(id);
             statusdao.deletarStatusAprovacao(idStatus);
             boolean inativo = true;
-            for(Empresa e : empresadao.listarEmpresaPorIdTipoEmpresa(idTipoEmpresa)){
-                if(statusdao.listarStatusAprovacaoPorID(e.getIdStatusAprovacao()).getStatus()=='a') inativo = false;
+            for (Empresa e : empresadao.listarEmpresaPorIdTipoEmpresa(idTipoEmpresa)) {
+                if (statusdao.listarStatusAprovacaoPorID(e.getIdStatusAprovacao()).getStatus() == 'a') inativo = false;
             }
-            if (inativo){
+            if (inativo) {
                 TipoEmpresaDAO tipoempresadao = new TipoEmpresaDAO();
                 tipoempresadao.alterarStatusTipoEmpresa(idTipoEmpresa, 'i');
                 tipoempresadao.alterarUltimaAtualizacaoTipoEmpresa(idTipoEmpresa, LocalDate.now());
             }
 
             req.setAttribute("erro", "Empresa e Status deletados com sucesso");
-            req.getRequestDispatcher("Listar"+caminho).forward(req, resp);
-        }else if(action == 2){
-            req.getRequestDispatcher("Listar"+caminho).forward(req, resp);
+            req.getRequestDispatcher("Listar" + caminho).forward(req, resp);
+        } else if (action == 2) {
+            req.getRequestDispatcher("Listar" + caminho).forward(req, resp);
         }
     }
-    public void destroy(){
+
+    public void destroy() {
         ConexaoManager.desconectar();
     }
 

@@ -1,6 +1,7 @@
 package org.example.servlet.StatusAprovacao;
 
 import java.io.IOException;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -10,18 +11,22 @@ import org.example.dao.StatusAprovacaoDAO;
 import org.example.dao.TipoEmpresaDAO;
 import org.example.model.StatusAprovacao;
 import org.example.model.Empresa;
+
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
+
 import org.example.utils.filtros.FiltrosStatusAprovacao;
+
 @WebServlet("/private/ListarStatusAprovacao")
-public class ServletListarStatusAprovacao extends HttpServlet{
+public class ServletListarStatusAprovacao extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req, resp);
     }
+
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException{
-        if (req.getAttribute("popup-inserir")!=null){
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+        if (req.getAttribute("popup-inserir") != null) {
             TipoEmpresaDAO tipodao = new TipoEmpresaDAO();
             req.setAttribute("tipos", tipodao.listarTiposEmpresa());
         }
@@ -31,7 +36,7 @@ public class ServletListarStatusAprovacao extends HttpServlet{
         String atualizacoesOrdenarString = req.getParameter("ordenarAtualizacoes");
         boolean ordenarAtualizacoes = false;
         boolean recente = false;
-        if(atualizacoesOrdenarString != null && !atualizacoesOrdenarString.isEmpty()){
+        if (atualizacoesOrdenarString != null && !atualizacoesOrdenarString.isEmpty()) {
             ordenarAtualizacoes = true;
             recente = atualizacoesOrdenarString.equals("2");
         }
@@ -55,7 +60,8 @@ public class ServletListarStatusAprovacao extends HttpServlet{
 
         req.getRequestDispatcher("/WEB-INF/view/CrudStatusAprovacao.jsp").forward(req, resp);
     }
-    public void destroy(){
+
+    public void destroy() {
         ConexaoManager.desconectar();
     }
 }

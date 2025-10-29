@@ -1,9 +1,11 @@
 package org.example.dao;
 
 //Importações
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.example.utils.autenticacao.HashSenha;
 import org.example.conexao.ConexaoManager;
 import org.example.model.Administrador;

@@ -4,6 +4,7 @@ package org.example.utils.autenticacao;
 /// O objeto gerado por ela é uma String de 64 digitos sempre
 
 //Importações
+
 import java.security.NoSuchAlgorithmException;
 import java.security.MessageDigest;
 import java.nio.charset.StandardCharsets;

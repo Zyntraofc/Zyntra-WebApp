@@ -99,12 +99,12 @@ public class FiltrosStatusAprovacao {
         List<StatusAprovacao> statusesAprovacaoOrdenados = new LinkedList<>(statusesAprovacao);
 
         // Aplicar filtro de status independentemente de outros filtros
-        if(ordenarStatus && status != null){
+        if (ordenarStatus && status != null) {
             statusesAprovacaoOrdenados = ordenarStatusAprovacaoPorStatus(statusesAprovacaoOrdenados, status);
         }
 
         // Aplicar filtro de atualizações independentemente de outros filtros
-        if(ordenarAtualizacoes && recente != null){
+        if (ordenarAtualizacoes && recente != null) {
             statusesAprovacaoOrdenados = ordenarAtualizacoesStatusAprovacao(statusesAprovacaoOrdenados, recente);
         }
 

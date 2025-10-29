@@ -13,7 +13,8 @@
 <aside>
     <div class="sidebar-header">
         <div class="logo-container">
-            <img src="${pageContext.request.contextPath}/assets/logos/logo-quadrada.png" alt="logo-aion" class="logo-aion">
+            <img src="${pageContext.request.contextPath}/assets/logos/logo-quadrada.png" alt="logo-aion"
+                 class="logo-aion">
             <div class="brand-text">
                 <p class="aion">aion</p>
                 <h4>Motivo de Falta</h4>
@@ -86,46 +87,53 @@
         </div>
     </div>
     <%
-        if(request.getAttribute("erro") != null){
+        if (request.getAttribute("erro") != null) {
     %>
-    <p><%=request.getAttribute("erro")%></p>
+    <p><%=request.getAttribute("erro")%>
+    </p>
     <%
         }
     %>
     <section class="table-card">
         <div class="table-container">
-        <table>
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Motivo</th>
-            <th>Ações</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach var="motivo" items="${motivos}">
-            <tr class="linhas">
-                <td data-label="Pesquisar">${motivo.id}</td>
-                <td>${motivo.motivo}</td>
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Motivo</th>
+                    <th>Ações</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="motivo" items="${motivos}">
+                    <tr class="linhas">
+                        <td data-label="Pesquisar">${motivo.id}</td>
+                        <td>${motivo.motivo}</td>
 
-                <td class="actions">
-                    <div style="display: flex">
-                        <form action="${pageContext.request.contextPath}/private/AlterarMotivoFalta" method="post">
-                            <input type="hidden" name="id" value="${motivo.id}">
-                            <input type="hidden" name="action" value="0">
-                            <button type="submit" style="border: none; background: none; cursor: pointer" > <img src="${pageContext.request.contextPath}/assets/icons/icon-edit.png"></button>
-                        </form>
-                        <form action="${pageContext.request.contextPath}/private/DeletarMotivoFalta" method="post">
-                            <input type="hidden" name="id" value="${motivo.id}">
-                            <input type="hidden" name="action" value="0">
-                            <button type="submit" style="border: none; background: none; cursor: pointer" ><img src="${pageContext.request.contextPath}/assets/icons/icon-excluir.png"></button>
-                        </form>
-                    </div>
-                </td>
-            </tr>
-        </c:forEach>
-        </tbody>
-    </table>
+                        <td class="actions">
+                            <div style="display: flex">
+                                <form action="${pageContext.request.contextPath}/private/AlterarMotivoFalta"
+                                      method="post">
+                                    <input type="hidden" name="id" value="${motivo.id}">
+                                    <input type="hidden" name="action" value="0">
+                                    <button type="submit" style="border: none; background: none; cursor: pointer"><img
+                                            src="${pageContext.request.contextPath}/assets/icons/icon-edit.png">
+                                    </button>
+                                </form>
+                                <form action="${pageContext.request.contextPath}/private/DeletarMotivoFalta"
+                                      method="post">
+                                    <input type="hidden" name="id" value="${motivo.id}">
+                                    <input type="hidden" name="action" value="0">
+                                    <button type="submit" style="border: none; background: none; cursor: pointer"><img
+                                            src="${pageContext.request.contextPath}/assets/icons/icon-excluir.png">
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
         </div>
     </section>
 </main>
@@ -162,7 +170,8 @@
         <input type="text" id="motivo" name="motivo" value="${motivo.getMotivo()}">
 
         <div class="botoes">
-            <div class="cancelar"> <a href="${pageContext.request.contextPath}/private/ListarMotivosFalta">✖ Cancelar</a></div>
+            <div class="cancelar"><a href="${pageContext.request.contextPath}/private/ListarMotivosFalta">✖ Cancelar</a>
+            </div>
             <button type="submit" class="confirmar">✔ Confirmar</button>
         </div>
     </form>
@@ -177,7 +186,8 @@
         <label for="NovoMotivoFalta">Motivo</label>
         <input type="text" name="motivo" id="NovoMotivoFalta">
         <div class="botoes">
-            <div class="cancelar"> <a href="${pageContext.request.contextPath}/private/ListarMotivosFalta">✖ Cancelar</a></div>
+            <div class="cancelar"><a href="${pageContext.request.contextPath}/private/ListarMotivosFalta">✖ Cancelar</a>
+            </div>
             <button type="submit" class="confirmar">✔ Confirmar</button>
         </div>
     </form>

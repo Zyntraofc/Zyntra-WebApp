@@ -55,9 +55,9 @@ public class IndiceClassificacao extends BaseModel{
 
     //Metodo toString para representação do objeto
     public String toString() {
-        return "Recomendação: "+this.recomendacao+
-                "\nPreocupação: "+this.preocupacao+
-                "\nPorcentagem mínima de absenteísmo: "+this.porcentagemMinima+
-                "\nPorcentagem máxima de absenteísmo: "+this.porcentagemMaxima;
+        return "Recomendação: " + this.recomendacao +
+                "\nPreocupação: " + this.preocupacao +
+                "\nPorcentagem mínima de absenteísmo: " + this.porcentagemMinima +
+                "\nPorcentagem máxima de absenteísmo: " + this.porcentagemMaxima;
     }
 }

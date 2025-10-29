@@ -9,12 +9,12 @@ public abstract class BaseModel {
     protected int id;
 
     //Métodos getters
-    public int getId(){
+    public int getId() {
         return this.id;
     }
 
     //Métodos setters
-    public void setId(int id){
+    public void setId(int id) {
         this.id = id;
     }
 

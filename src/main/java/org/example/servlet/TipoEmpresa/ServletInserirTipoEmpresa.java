@@ -10,9 +10,9 @@ import org.example.dao.TipoEmpresaDAO;
 import org.example.model.TipoEmpresa;
 
 @WebServlet("/private/InserirTipoEmpresa")
-public class ServletInserirTipoEmpresa extends HttpServlet{
+public class ServletInserirTipoEmpresa extends HttpServlet {
     @Override
-    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException{
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         req.setAttribute("popup-inserir", true);
         req.getRequestDispatcher("/private/ListarTipoEmpresa").forward(req, resp);
     }
@@ -36,7 +36,8 @@ public class ServletInserirTipoEmpresa extends HttpServlet{
             req.getRequestDispatcher("/private/ListarTipoEmpresa").forward(req, resp);
         }
     }
-    public void destroy(){
+
+    public void destroy() {
         ConexaoManager.desconectar();
     }
 }
