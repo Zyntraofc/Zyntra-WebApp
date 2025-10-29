@@ -1188,6 +1188,7 @@ input:checked + .option-background {
     margin-top: 2.5%;
 }
 #about-content p{
+    font-size: clamp(0.1rem, 1.26vw, 8rem) !important;
     font-weight: 400 !important;
 }
 #about-content > *:nth-child(1) {
@@ -1203,7 +1204,7 @@ input:checked + .option-background {
 #ajuda-visual {
     display: none;
     color: #FFF;
-    font-size: clamp(0.1rem, 1.46vw, 8rem);
+    font-size: clamp(0.1rem, 1.26vw, 8rem) !important;
     font-weight: 400;
 }
 
