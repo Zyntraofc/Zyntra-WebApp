@@ -1,513 +1,521 @@
-/* ===== MEDIA QUERIES PARA RESPONSIVIDADE ===== */
-/*AJUSTE PARA QUANDO DIMINUIR O ZOOM NÃO QUEBRAR E TELAS GRANDES*/
-@media screen and (min-width: 1707px) {
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+@media screen and (min-width: 1707px){
     /* ===== HEADER ===== */
-    header {
-        backdrop-filter: blur(0.5vw) !important;
-        height: 3.6vw !important;
-    }
-
-    .brand-logo {
-        width: 1.56vw !important;
-    }
-
-    .active-indicator {
-        height: 0.24vw !important;
-        border-radius: 1.28vw !important;
-        right: 0.02vw !important;
-        top: 0.4vw !important;
-    }
-
-    /* ===== SEÇÃO PRINCIPAL/HERO ===== */
-    main {
-        margin-top: 3.32vw !important;
-        height: 36.88vw !important;
-        background-position: 25.08vw -2vw !important;
-    }
-
-    .visual-support {
-        width: 12.72vw !important;
-        height: 10.32vw !important;
-        border-radius: 12.4vw !important;
-        filter: blur(1vw) !important;
-        top: 30vw !important;
-        left: 44vw !important;
-    }
-
-    .hero-content {
-        margin-left: 4.8vw !important;
-        margin-top: 6.48vw !important;
-        width: 38vw !important;
-        height: 7.32vw !important;
-    }
-
-    .cta-button {
-        --border_radius: 1.6vw !important;
-        --offset: 0.08vw !important;
-        gap: 0.6vw !important;
-        margin-top: 3vw !important;
-        width: 11.44vw !important;
-        height: 2.76vw !important;
-        border-radius: 1.6vw !important;
-    }
-
-    .cta-icon {
-        width: 1.04vw !important;
-        height: 1.04vw !important;
-    }
-
-    .dashboard-preview {
-        width: 37.6vw !important;
-        border-radius: 1.56vw 1.56vw 0px 0 !important;
-        box-shadow: 0 0 3.44vw 0 rgba(0, 0, 0, 0.25) !important;
-        height: 23.88vw !important;
-    }
-
-    .demo-section {
-        max-width: 36.8vw !important;
-        height: 33.6vw !important;
-    }
-
-    .notification-card {
-        right: 79% !important;
-        top: 71% !important;
-        width: 12.2vw !important;
-        height: 7.2vw !important;
-        padding: 1.24vw 1.88vw 1.44vw 1.16vw !important;
-        border-radius: 0.8vw !important;
-        box-shadow: 0.16vw 0.16vw 0.4vw 0 rgba(0, 0, 0, 0.10) !important;
-        border: 0.04vw solid rgba(128, 128, 128, 0.35) !important;
-    }
-
-    .notification-line1 {
-        gap: 2.4vw !important;
-    }
-
-    .notification-line2 {
-        margin-top: 0.48vw !important;
-    }
-
-    .icon-small {
-        height: 0.6vw !important;
-    }
-
-    /* ===== SEÇÃO DA PLATAFORMA ===== */
-    #plataform {
-        margin-top: 3vw !important;
-        margin-bottom: -7vw !important;
-    }
-
-    #plataform > p {
-        margin-top: 2.5vw !important;
-        width: 57.08vw !important;
-    }
-
-    #plataform > .section-title {
-        width: 65.08vw !important;
-        height: 6vw !important;
-    }
-
-    .button-container .platform-button,
-    .signup-button {
-        width: 12.08vw !important;
-        height: 2.56vw !important;
-        margin-bottom: 4.2vw !important;
-        margin-top: 1.6vw !important;
-        border-radius: 1.6vw !important;
-        border: 0.08vw solid #3A47FF !important;
-    }
-
-    .signup-button {
-        margin-top: 4vw !important;
-        width: 5.26vw !important;
-        height: 1.8vw !important;
-    }
-
-    /* ===== SEÇÃO DE VANTAGENS ===== */
-    #principles .vantagens {
-        margin-top: 4vw !important;
-    }
-
-    .vantagens {
-        min-height: 13.84vw !important;
-        gap: 4.96vw !important;
-    }
-
-    .benefit-card {
-        box-shadow: -0.2vw 0.24vw 0.28vw rgba(146, 153, 255, 0.15) !important;
-        border-radius: 1vw !important;
-        padding-right: 0.8vw !important;
-    }
-
-    .benefit-card img {
-        height: auto !important;
-        margin-left: 0.8vw !important;
-        margin-top: 2vw !important;
-        width: 1.2vw !important;
-    }
-
-    .first:first-of-type img {
-        height: auto !important;
-        width: 0.76vw !important;
-    }
-
-    .benefit-card h3 {
-        margin-top: 0.4vw !important;
-        margin-left: 0.8vw !important;
-        width: 15.7928vw !important;
-        height: 2.36vw !important;
-        -webkit-text-stroke-width: 0.04vw !important;
-    }
-
-    .benefit-card p {
-        margin-top: 0.72vw !important;
-        margin-left: 0.8vw !important;
-        width: 20vw !important;
-        -webkit-text-stroke-width: 0.04vw !important;
-    }
-
-    /* ===== SEÇÃO DO APLICATIVO MOBILE ===== */
-    #celulares {
-        margin-top: 8.8vw !important;
-    }
-
-    #app-options {
-        width: 21.36vw !important;
-        height: 2.2vw !important;
-        border-radius: 2.36vw !important;
-        padding: 0.4vw !important;
-    }
-
-    label p {
-        height: 0.76vw !important;
-    }
-
-    .option-background {
-        width: 7.12vw !important;
-        padding: 0.36vw 1.08vw 0.56vw 1.08vw !important;
-        border-radius: 3.12vw !important;
-    }
-
-    .app-screen {
-        margin-top: 1.88vw !important;
-        gap: 4.96vw !important;
-    }
-
-    .app-screen article {
-        margin-top: 4.88vw !important;
-    }
-
-    .app-screen h2 {
-        width: 19.84vw !important;
-        margin-bottom: 0.8vw !important;
-    }
-
-    .app-screen p {
-        width: 22.44vw !important;
-    }
-
-    .app-screen .right-text {
-        margin-top: 16vw !important;
-        width: 18.76vw !important;
-    }
-
-    .dash h2 {
-        margin-top: -2vw;
-    }
-
-    #app-notification {
-        padding: 0.48vw !important;
-        width: 7.2vw !important;
-        height: 5.4vw !important;
-        border-radius: 0.4vw !important;
-        box-shadow: 0 0 0.8vw 0 rgba(0, 0, 0, 0.10) !important;
-        filter: drop-shadow(-1.8vw 1.52vw 0.16vw rgba(0, 0, 0, 0.15)) drop-shadow(-0.24vw 0.24vw 0.16vw rgba(0, 0, 0, 0.15)) !important;
-    }
-
-    #app-notification img {
-        height: 2.52vw !important;
-        width: 2.52vw !important;
-    }
-
-    #notification-line1,
-    #notification-line2 {
-        gap: 0.64vw !important;
-    }
-
-    #notification-line1 {
-        margin-top: 0.4vw !important;
-    }
-
-    #notification-line2 {
-        gap: 1.64vw !important;
-    }
-
-    .tela:first-of-type {
-        height: 32vw !important;
-    }
-
-    .tela {
-        height: 12.6vw !important;
-    }
-
-    .tela:last-of-type {
-        height: 32.12vw !important;
-    }
-
-    .app-screen.dash article {
-        margin-left: -9.6vw !important;
-    }
-
-    .app-screen.dash .right-paragraph {
-        margin-left: -17.6vw !important;
-        width: 16.32vw !important;
-        margin-top: 10.6vw !important;
-    }
-
-    .app-screen.dash .right-text {
-        margin-left: -21.36vw !important;
-        margin-top: 16vw !important;
-    }
-
-    .app-screen.justificativa .right-text {
-        margin-top: 22vw !important;
-        margin-left: -27.4vw !important;
-        width: 19.68vw !important;
-    }
-
-    #app-waves {
-        margin-top: -5vw !important;
-        height: 20.82vw !important;
-    }
-
-    /* ===== SEÇÃO FINAL ===== */
-    #final {
-        padding-bottom: 5vw !important;
-    }
-
-    #about-wrapper {
-        width: 84% !important;
-        height: 38.4vw !important;
-        border-radius: 1.6vw !important;
-    }
-
-    #about-us {
-        padding: 2vw 2vw !important;
-        height: 99.5% !important;
-        width: 99.75% !important;
-        border-radius: 1.6vw !important;
-    }
-
-    #about-us h2 {
-        width: 32.56vw !important;
-    }
-
-    #about-content {
-        column-gap: 2% !important;
-        margin-top: 1% !important;
-    }
-
-    #principles {
-        margin-top: 7.6vw !important;
-    }
-
-    #principles h2 {
-        margin-left: -1vw !important;
-    }
-
-    #principles .benefit-card:hover {
-        box-shadow: -0.08vw -0.08vw 0.08vw rgba(112, 144, 176, 0.01), 0.4vw 0.32vw 0.48vw rgba(50, 70, 100, 0.6) !important;
-    }
-
-    .waves-container {
-        height: 11.72vw !important;
-    }
-
-    /* ===== RODAPÉ ===== */
-    footer {
-        padding: 1.48vw 3vw !important;
-        padding-bottom: 3vw !important;
-    }
-
-    footer .brand-container div {
-        background-size: 1.24vw 1.64vw !important;
-        border-radius: 0.52vw !important;
-    }
-
-    .footer-description {
-        width: 29.56vw !important;
-        height: 3.6vw !important;
-        margin-top: 2.08vw !important;
-        margin-bottom: 1.4vw !important;
-    }
-
-    #footer-secondary {
-        gap: 10.2vw !important;
-    }
-
-    #footer-secondary nav ul li {
-        margin-top: 1.12vw !important;
-    }
-
-    #footer-secondary nav ul li .footer-title {
-        margin-bottom: 1.76vw !important;
-    }
-
-    .contact-line {
-        margin-top: 0.92vw !important;
-        gap: 0.56vw !important;
-    }
-
-    footer .brand-container {
-        width: 7.5vw !important;
-        gap: 0.4vw !important;
-        height: 7.5vw !important;
-    }
-
-    footer .brand-container div {
-        width: 100% !important;
-        height: 30% !important;
-    }
-
-    #footer-bottom {
-        margin-top: 8.48vw !important;
-        padding-right: 4vw !important;
-    }
-
-    #copyright {
-        gap: 0.4vw !important;
-    }
-
-    #footer-bottom > ol {
-        gap: 2.8vw !important;
-    }
-
-    .footer-bottom-icon {
-        width: 1.08vw !important;
-        height: auto !important;
-    }
-
-    .footer-icon {
-        height: auto !important;
-        width: 1.28vw !important;
-    }
-
-    /* ===== CLAMP PARA LINE-HEIGHT ===== */
-    .hero-highlight {
-        line-height: clamp(20px, 4vw, 180px) !important;
-    }
-
-    .hero-description {
-        line-height: clamp(18px, 1.6vw, 75px) !important;
-    }
-
-    .nav-link {
-        line-height: clamp(16px, 1.2vw, 24px) !important;
-    }
-
-    .auth-buttons {
-        line-height: clamp(16px, 1.1vw, 60px) !important;
-    }
-
-    .cta-button p {
-        line-height: clamp(18px, 1.3vw, 26px) !important;
-    }
-
-    #plataform > p {
-        line-height: clamp(18px, 1.4vw, 86px) !important;
-    }
-
-    #plataform > .section-title {
-        line-height: clamp(40px, 3.5vw, 160px) !important;
-    }
-
-    .button-container .platform-button p,
-    .signup-button p {
-        line-height: clamp(35px, 3vw, 150px) !important;
-    }
-
-    .benefit-card h3 {
-        line-height: clamp(18px, 1.4vw, 96px) !important;
-    }
-
-    .benefit-card p {
-        line-height: clamp(14px, 1.2vw, 80px) !important;
-    }
-
-    label p {
-        line-height: clamp(12px, 1vw, 80px) !important;
-    }
-
-    .app-screen h2 {
-        line-height: clamp(35px, 4vw, 120px) !important;
-    }
-
-    .app-screen p {
-        line-height: clamp(18px, 1.4vw, 100px) !important;
-    }
-
-    #notification-count {
-        line-height: clamp(12px, 1.1vw, 20px) !important;
-    }
-
-    #notification-line1 p {
-        line-height: clamp(8px, 0.8vw, 16px) !important;
-    }
-
-    #notification-line2 p {
-        line-height: clamp(8px, 0.9vw, 16px) !important;
-    }
-
-    #about-us h2 {
-        line-height: clamp(30px, 3vw, 100px) !important;
-    }
-
-    #about-us p {
-        line-height: clamp(20px, 2.4vw, 150px) !important;
-    }
-
-    #text-button-container {
-        line-height: clamp(30px, 2.5vw, 150px) !important;
-    }
-
-    #principles h2 {
-        line-height: clamp(25px, 2.2vw, 40px) !important;
-    }
-
-    footer {
-        line-height: clamp(16px, 1.3vw, 120px) !important;
-    }
-
-    .footer-title {
-        line-height: clamp(18px, 1.4vw, 150px) !important;
-    }
-
-    .contact-line {
-        line-height: clamp(16px, 1.2vw, 22px) !important;
-    }
-
-    #copyright {
-        line-height: clamp(14px, 1.1vw, 20px) !important;
-    }
+header {
+    -webkit-backdrop-filter: blur(0.5vw) !important;
+            backdrop-filter: blur(0.5vw) !important;
+    height: 3.6vw !important;
+}
+
+.brand-logo {
+    width: 1.56vw !important;
+}
+
+.active-indicator {
+    height: 0.24vw !important;
+    border-radius: 1.28vw !important;
+    right: 0.02vw !important;
+    top:  0.4vw !important;
+}
+
+/* ===== SEÇÃO PRINCIPAL/HERO ===== */
+main {
+    margin-top: 3.32vw !important;
+    height: 36.88vw !important;
+    background-position: 25.08vw -2vw !important;
+}
+
+.visual-support {
+    width: 12.72vw !important;
+    height: 10.32vw !important;
+    border-radius: 12.4vw !important;
+    -webkit-filter: blur(1vw) !important;
+            filter: blur(1vw) !important;
+    top: 30vw !important;
+    left: 44vw !important;
+}
+
+.hero-content {
+    margin-left: 4.8vw !important;
+    margin-top: 6.48vw !important;
+    width: 38vw !important;
+    height: 7.32vw !important;
+}
+
+.cta-button {
+    --border_radius: 1.6vw !important;
+    --offset: 0.08vw !important;
+    gap: 0.6vw !important;
+    margin-top: 3vw !important;
+    width: 11.44vw !important;
+    height: 2.76vw !important;
+    border-radius: 1.6vw !important;
+}
+
+.cta-icon {
+    width: 1.04vw !important;
+    height: 1.04vw !important;
+}
+
+.dashboard-preview {
+    width: 37.6vw !important;
+    border-radius: 1.56vw 1.56vw 0px 0 !important;
+    -webkit-box-shadow: 0 0 3.44vw 0 rgba(0, 0, 0, 0.25) !important;
+            box-shadow: 0 0 3.44vw 0 rgba(0, 0, 0, 0.25) !important;
+    height: 23.88vw !important;
+}
+
+.demo-section {
+    max-width: 36.8vw !important;
+    height: 33.6vw !important;
+}
+
+.notification-card {
+    right: 79% !important;
+    top: 71% !important;
+    width: 12.2vw !important;
+    height: 7.2vw !important;
+    padding: 1.24vw 1.88vw 1.44vw 1.16vw !important;
+    border-radius: 0.8vw !important;
+    -webkit-box-shadow: 0.16vw 0.16vw 0.4vw 0 rgba(0, 0, 0, 0.10) !important;
+            box-shadow: 0.16vw 0.16vw 0.4vw 0 rgba(0, 0, 0, 0.10) !important;
+    border: 0.04vw solid rgba(128, 128, 128, 0.35) !important;
+}
+
+.notification-line1 {
+    gap: 2.4vw !important;
+}
+
+.notification-line2 {
+    margin-top: 0.48vw !important;
+}
+
+.icon-small {
+    height: 0.6vw !important;
+}
+
+/* ===== SEÇÃO DA PLATAFORMA ===== */
+#plataform {
+    margin-top: 3vw !important;
+    margin-bottom: -7vw !important;
+}
+
+#plataform>p {
+    margin-top: 2.5vw !important;
+    width: 57.08vw !important;
+}
+
+#plataform>.section-title {
+    width: 65.08vw !important;
+    height: 6vw !important;
+}
+
+.button-container .platform-button,
+.signup-button {
+    width: 12.08vw !important;
+    height: 2.56vw !important;
+    margin-bottom: 4.2vw !important;
+    margin-top: 1.6vw !important;
+    border-radius: 1.6vw !important;
+    border: 0.08vw solid #3A47FF !important;
+}
+
+.signup-button {
+    margin-top: 4vw !important;
+    width: 5.26vw !important;
+    height: 1.8vw !important;
+}
+
+/* ===== SEÇÃO DE VANTAGENS ===== */
+#principles .vantagens {
+    margin-top: 4vw !important;
+}
+
+.vantagens {
+    min-height: 13.84vw !important;
+    gap: 4.96vw !important;
+}
+
+.benefit-card {
+    -webkit-box-shadow: -0.2vw 0.24vw 0.28vw rgba(146, 153, 255, 0.15) !important;
+            box-shadow: -0.2vw 0.24vw 0.28vw rgba(146, 153, 255, 0.15) !important;
+    border-radius: 1vw !important;
+    padding-right: 0.8vw !important;
+}
+
+.benefit-card img {
+    height: auto !important;
+    margin-left: 0.8vw !important;
+    margin-top: 2vw !important;
+    width: 1.2vw !important;
+}
+
+.first:first-of-type img {
+    height: auto !important;
+    width: 0.76vw !important;
+}
+
+.benefit-card h3 {
+    margin-top: 0.4vw !important;
+    margin-left: 0.8vw !important;
+    width: 15.7928vw !important;
+    height: 2.36vw !important;
+    -webkit-text-stroke-width: 0.04vw !important;
+}
+
+.benefit-card p {
+    margin-top: 0.72vw !important;
+    margin-left: 0.8vw !important;
+    width: 20vw !important;
+    -webkit-text-stroke-width: 0.04vw !important;
+}
+
+/* ===== SEÇÃO DO APLICATIVO MOBILE ===== */
+#celulares {
+    margin-top: 8.8vw !important;
+}
+
+#app-options {
+    width: 21.36vw !important;
+    height: 2.2vw !important;
+    border-radius: 2.36vw !important;
+    padding: 0.4vw !important;
+}
+
+label p {
+    height: 0.76vw !important;
+}
+
+.option-background {
+    width: 7.12vw !important;
+    padding: 0.36vw 1.08vw 0.56vw 1.08vw !important;
+    border-radius: 3.12vw !important;
+}
+
+.app-screen {
+    margin-top: 1.88vw !important;
+    gap: 4.96vw !important;
+}
+
+.app-screen article {
+    margin-top: 4.88vw !important;
+}
+
+.app-screen h2 {
+    width: 19.84vw !important;
+    margin-bottom: 0.8vw !important;
+}
+
+.app-screen p {
+    width: 22.44vw !important;
+}
+
+.app-screen .right-text {
+    margin-top: 16vw !important;
+    width: 18.76vw !important;
+}
+.dash h2{
+    margin-top: -2vw;
+}
+#app-notification {
+    padding: 0.48vw !important;
+    width: 7.2vw !important;
+    height: 5.4vw !important;
+    border-radius: 0.4vw !important;
+    -webkit-box-shadow: 0 0 0.8vw 0 rgba(0, 0, 0, 0.10) !important;
+            box-shadow: 0 0 0.8vw 0 rgba(0, 0, 0, 0.10) !important;
+    -webkit-filter: drop-shadow(-1.8vw 1.52vw 0.16vw rgba(0, 0, 0, 0.15)) drop-shadow(-0.24vw 0.24vw 0.16vw rgba(0, 0, 0, 0.15)) !important;
+            filter: drop-shadow(-1.8vw 1.52vw 0.16vw rgba(0, 0, 0, 0.15)) drop-shadow(-0.24vw 0.24vw 0.16vw rgba(0, 0, 0, 0.15)) !important;
+}
+
+#app-notification img {
+    height: 2.52vw !important;
+    width: 2.52vw !important;
+}
+
+#notification-line1,
+#notification-line2 {
+    gap: 0.64vw !important;
+}
+
+#notification-line1 {
+    margin-top: 0.4vw !important;
+}
+
+#notification-line2 {
+    gap: 1.64vw !important;
+}
+
+.tela:first-of-type {
+    height: 32vw !important;
+}
+
+.tela {
+    height: 12.6vw !important;
+}
+
+.tela:last-of-type {
+    height: 32.12vw !important;
+}
+
+.app-screen.dash article {
+    margin-left: -9.6vw !important;
+}
+
+.app-screen.dash .right-paragraph {
+    margin-left: -17.6vw !important;
+    width: 16.32vw !important;
+    margin-top: 10.6vw !important;
+}
+
+.app-screen.dash .right-text {
+    margin-left: -21.36vw !important;
+    margin-top: 16vw !important;
+}
+
+.app-screen.justificativa .right-text {
+    margin-top: 22vw !important;
+    margin-left: -27.4vw !important;
+    width: 19.68vw !important;
+}
+
+#app-waves {
+    margin-top: -5vw !important;
+    height: 20.82vw !important;
+}
+
+/* ===== SEÇÃO FINAL ===== */
+#final {
+    padding-bottom: 5vw !important;
+}
+
+#about-wrapper {
+    width: 84% !important;
+    height: 38.4vw !important;
+    border-radius: 1.6vw !important;
+}
+
+#about-us {
+    padding: 2vw 2vw !important;
+    height: 99.5% !important;
+    width: 99.75% !important;
+    border-radius: 1.6vw !important;
+}
+
+#about-us h2 {
+    width: 32.56vw !important;
+}
+
+#about-content {
+    -webkit-column-gap: 2% !important;
+       -moz-column-gap: 2% !important;
+            column-gap: 2% !important;
+    margin-top: 1% !important;
+}
+
+#principles {
+    margin-top: 7.6vw !important;
+}
+
+#principles h2 {
+    margin-left: -1vw !important;
+}
+
+#principles .benefit-card:hover {
+    -webkit-box-shadow: -0.08vw -0.08vw 0.08vw rgba(112, 144, 176, 0.01), 0.4vw 0.32vw 0.48vw rgba(50, 70, 100, 0.6) !important;
+            box-shadow: -0.08vw -0.08vw 0.08vw rgba(112, 144, 176, 0.01), 0.4vw 0.32vw 0.48vw rgba(50, 70, 100, 0.6) !important;
+}
+
+.waves-container {
+    height: 11.72vw !important;
+}
+
+/* ===== RODAPÉ ===== */
+footer {
+    padding: 1.48vw 3vw !important;
+    padding-bottom: 3vw !important;
+}
+
+footer .brand-container div {
+    background-size: 1.24vw 1.64vw !important;
+    border-radius: 0.52vw !important;
+}
+
+.footer-description {
+    width: 29.56vw !important;
+    height: 3.6vw !important;
+    margin-top: 2.08vw !important;
+    margin-bottom: 1.4vw !important;
+}
+
+#footer-secondary {
+    gap: 10.2vw !important;
+}
+
+#footer-secondary nav ul li {
+    margin-top: 1.12vw !important;
+}
+
+#footer-secondary nav ul li .footer-title {
+    margin-bottom: 1.76vw !important;
+}
+
+.contact-line {
+    margin-top: 0.92vw !important;
+    gap: 0.56vw !important;
+}
+
+footer .brand-container {
+    width: 7.5vw !important;
+    gap: 0.4vw !important;
+    height: 7.5vw !important;
+}
+footer .brand-container div{
+    width: 100% !important;
+    height: 30% !important;
+}
+#footer-bottom {
+    margin-top: 8.48vw !important;
+    padding-right: 4vw !important;
+}
+
+#copyright {
+    gap: 0.4vw !important;
+}
+
+#footer-bottom>ol {
+    gap: 2.8vw !important;
+}
+
+.footer-bottom-icon {
+    width: 1.08vw !important;
+    height: auto !important;
+}
+
+.footer-icon {
+    height: auto !important;
+    width: 1.28vw !important;
+}
+
+/* ===== CLAMP PARA LINE-HEIGHT ===== */
+.hero-highlight {
+    line-height: clamp(20px, 4vw, 180px) !important;
+}
+
+.hero-description {
+    line-height: clamp(18px, 1.6vw, 75px) !important;
+}
+
+.nav-link {
+    line-height: clamp(16px, 1.2vw, 24px) !important;
+}
+
+.auth-buttons {
+    line-height: clamp(16px, 1.1vw, 60px) !important;
+}
+
+.cta-button p {
+    line-height: clamp(18px, 1.3vw, 26px) !important;
+}
+
+#plataform > p {
+    line-height: clamp(18px, 1.4vw, 86px) !important;
+}
+
+#plataform > .section-title {
+    line-height: clamp(40px, 3.5vw, 160px) !important;
+}
+
+.button-container .platform-button p,
+.signup-button p {
+    line-height: clamp(35px, 3vw, 150px) !important;
+}
+
+.benefit-card h3 {
+    line-height: clamp(18px, 1.4vw, 96px) !important;
+}
+
+.benefit-card p {
+    line-height: clamp(14px, 1.2vw, 80px) !important;
+}
+
+label p {
+    line-height: clamp(12px, 1vw, 80px) !important;
+}
+
+.app-screen h2 {
+    line-height: clamp(35px, 4vw, 120px) !important;
+}
+
+.app-screen p {
+    line-height: clamp(18px, 1.4vw, 100px) !important;
+}
+
+#notification-count {
+    line-height: clamp(12px, 1.1vw, 20px) !important;
+}
+
+#notification-line1 p {
+    line-height: clamp(8px, 0.8vw, 16px) !important;
+}
+
+#notification-line2 p {
+    line-height: clamp(8px, 0.9vw, 16px) !important;
+}
+
+#about-us h2 {
+    line-height: clamp(30px, 3vw, 100px) !important;
+}
+#about-us p {
+    line-height: clamp(20px, 2.4vw, 150px) !important;
+}
+
+#text-button-container {
+    line-height: clamp(30px, 2.5vw, 150px) !important;
+}
+
+#principles h2 {
+    line-height: clamp(25px, 2.2vw, 40px) !important;
+}
+
+footer {
+    line-height: clamp(16px, 1.3vw, 120px) !important;
+}
+
+.footer-title {
+    line-height: clamp(18px, 1.4vw, 150px) !important;
+}
+
+.contact-line {
+    line-height: clamp(16px, 1.2vw, 22px) !important;
+}
+
+#copyright {
+    line-height: clamp(14px, 1.1vw, 20px) !important;
+}
 }
 
 /* Desktop grande (1537px) */
 @media screen and (min-width: 1537px) {
     main {
         background-position: center;
-        background-image: url(../assets/logos/logo-plugin2.png);
+        background-image: url(assets/logos/logo-plugin2.png);
     }
-
-    .platform-button {
+    .platform-button{
         width: 250px !important;
     }
-
-    .notification-card {
+    .notification-card{
         height: 140px;
         width: 220px;
     }
 
-    .demo-container {
+    .demo-container{
         width: 2000px;
     }
 }
@@ -546,14 +554,23 @@
     /* Reorganização do layout principal */
     main {
         background-position: center;
-        flex-direction: column;
-        align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
     }
 
     .demo-container {
         margin-top: 100px;
         width: 650px;
-        justify-content: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
     }
 
@@ -569,7 +586,9 @@
     .demo-section {
         position: static;
         width: 100%;
-        justify-content: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
     }
 
     .visual-support {
@@ -603,10 +622,19 @@
 
     .hero-content div {
         width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
     }
 
     #plataform {
@@ -647,6 +675,7 @@
 
     .vantagens {
         width: 100%;
+        -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
         gap: 40px;
         height: auto;
@@ -680,14 +709,13 @@
 @media screen and (max-width: 1315px) {
 
     /* Ajustes na seção da plataforma */
-    #plataform > .section-title {
+    #plataform>.section-title {
         width: 100%;
-        font-size: 35px;
         height: auto;
         padding: 0 20px;
     }
 
-    #plataform > p {
+    #plataform>p {
         width: 100%;
         padding: 0 20px;
         font-size: 18px;
@@ -716,6 +744,7 @@
     .app-screen.calendario article h2 {
         width: 300px;
     }
+
 
 
     /* Troca de elementos visuais */
@@ -764,12 +793,16 @@
     }
 
     /* Ajustes de posicionamento baseado na seleção */
-    #app-options:has(input#dates:checked) ~ #app-presentation {
-        transform: translateX(27.15%);
+    #app-options:has(input#dates:checked)~#app-presentation {
+        -webkit-transform: translateX(27.15%);
+            -ms-transform: translateX(27.15%);
+                transform: translateX(27.15%);
     }
 
-    #app-options:has(input#justificativa:checked) ~ #app-presentation {
-        transform: translateX(-28%);
+    #app-options:has(input#justificativa:checked)~#app-presentation {
+        -webkit-transform: translateX(-28%);
+            -ms-transform: translateX(-28%);
+                transform: translateX(-28%);
     }
 
 
@@ -828,8 +861,12 @@
     }
 
     header {
-        justify-content: center;
-        align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
         padding: 0 30px;
         height: 60px;
     }
@@ -852,7 +889,10 @@
         background-image: url(../assets/logos/logo-plugin2.png);
         background-size: 90%;
         height: auto;
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
         padding: 20px;
         padding-bottom: 50%;
     }
@@ -861,14 +901,25 @@
         margin: 30px 0 0 0;
         width: 100%;
         text-align: center;
-        flex-direction: column;
-        align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
     }
 
     .hero-highlight {
         font-size: 40px;
     }
+    #plataform>.section-title{
+        font-size: 30px;
+    }
+
 
     .hero-description {
         font-size: 18px;
@@ -887,6 +938,7 @@
     /* Seção de vantagens */
     .vantagens {
         width: 100%;
+        -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
         gap: 15px;
         height: auto;
@@ -927,6 +979,7 @@
     }
 
 
+
     .benefit-card h3 {
         width: 100%;
         font-size: 22px;
@@ -942,6 +995,7 @@
         margin-top: 100px;
         width: 100%;
     }
+
 
 
     .app-screen.dash article {
@@ -965,19 +1019,26 @@
     }
 
     /* Ajustes de transformação baseado na seleção */
-    #app-options:has(input#dates:checked) ~ #app-presentation {
-        transform: translateX(31.65%);
+    #app-options:has(input#dates:checked)~#app-presentation {
+        -webkit-transform: translateX(31.65%);
+            -ms-transform: translateX(31.65%);
+                transform: translateX(31.65%);
     }
 
-    #app-options:has(input#dashbord:checked) ~ #app-presentation {
-        transform: translateX(-84%);
+    #app-options:has(input#dashbord:checked)~#app-presentation {
+        -webkit-transform: translateX(-84%);
+            -ms-transform: translateX(-84%);
+                transform: translateX(-84%);
     }
 
-    #app-options:has(input#justificativa:checked) ~ #app-presentation {
-        transform: translateX(-22%);
+    #app-options:has(input#justificativa:checked)~#app-presentation {
+        -webkit-transform: translateX(-22%);
+            -ms-transform: translateX(-22%);
+                transform: translateX(-22%);
     }
 
     /* Seção sobre nós */
+
     #about-wrapper,
     #about-us {
         width: 100%;
@@ -996,9 +1057,16 @@
     }
 
     #about-content {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
     }
 
     #text-button-container {
@@ -1030,16 +1098,24 @@
     }
 
     #footer-content {
+        -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
         gap: 40px;
     }
 
     #footer-secondary {
         text-align: start;
-        flex-direction: row;
-        align-items: center;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
         gap: 20px;
-        justify-content: start;
+        -webkit-box-pack: start;
+            -ms-flex-pack: start;
+                justify-content: start;
     }
 
     .first {
@@ -1049,13 +1125,20 @@
     #footer-bottom {
         padding-right: 0px;
         margin-top: 60px;
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
         gap: 20px;
     }
 
-    #footer-bottom > ol {
+    #footer-bottom>ol {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        justify-content: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
         width: 100%;
         gap: 50px;
         padding: 0px;
@@ -1110,20 +1193,20 @@
         margin-top: 20px;
     }
 
-    #plataform > .section-title {
-        font-size: 28px;
+    #plataform>.section-title {
+        font-size: 22px;
     }
 
-    #plataform > p {
+    #plataform>p {
         font-size: 16px;
     }
 
-    #plataform > a {
+    #plataform>a {
         width: 220px;
         height: 50px;
     }
 
-    #plataform > a > p {
+    #plataform>a>p {
         font-size: 18px;
     }
 
@@ -1132,6 +1215,7 @@
         padding-left: 15px;
         padding-bottom: 15px;
     }
+
 
 
     .benefit-card h3 {
@@ -1152,11 +1236,9 @@
     .option-background {
         height: 40px;
     }
-
     label p {
         font-size: 16px;
     }
-
     .app-screen h2 {
         font-size: 28px;
     }
@@ -1181,12 +1263,16 @@
     }
 
     /* Ajustes de transformação baseado na seleção */
-    #app-options:has(input#dashbord:checked) ~ #app-presentation {
-        transform: translateX(-85.5%);
+    #app-options:has(input#dashbord:checked)~#app-presentation {
+        -webkit-transform: translateX(-85.5%);
+            -ms-transform: translateX(-85.5%);
+                transform: translateX(-85.5%);
     }
 
-    #app-options:has(input#justificativa:checked) ~ #app-presentation {
-        transform: translateX(-25.5%);
+    #app-options:has(input#justificativa:checked)~#app-presentation {
+        -webkit-transform: translateX(-25.5%);
+            -ms-transform: translateX(-25.5%);
+                transform: translateX(-25.5%);
     }
 
     /* Seção de princípios */
@@ -1213,19 +1299,17 @@
     footer .brand-container {
         width: 100px;
     }
-
-    #about-content p {
+    #about-content p{
         line-height: 30px;
     }
 }
 
 /* Mobile pequeno (667px) */
 @media screen and (max-width: 667px) {
-    header {
+    header{
         padding-left: 50px !important;
         padding-right: 50px !important;
     }
-
     #plataform {
         margin-bottom: -50px;
     }
@@ -1238,18 +1322,22 @@
         height: 300px;
     }
 
-    #app-options:has(input#dates:checked) ~ #app-presentation {
-        transform: translateX(32%);
+    #app-options:has(input#dates:checked)~#app-presentation {
+        -webkit-transform: translateX(32%);
+            -ms-transform: translateX(32%);
+                transform: translateX(32%);
     }
 
-    #app-options:has(input#dashbord:checked) ~ #app-presentation {
-        transform: translateX(-74.4%);
+    #app-options:has(input#dashbord:checked)~#app-presentation {
+        -webkit-transform: translateX(-74.4%);
+            -ms-transform: translateX(-74.4%);
+                transform: translateX(-74.4%);
     }
-
-    #app-options:has(input#justificativa:checked) ~ #app-presentation {
-        transform: translateX(-16.8%);
+    #app-options:has(input#justificativa:checked)~#app-presentation {
+        -webkit-transform: translateX(-16.8%);
+            -ms-transform: translateX(-16.8%);
+                transform: translateX(-16.8%);
     }
-
     .app-screen.dash .right-paragraph {
         font-size: 16px !important;
         margin-left: -200px;
@@ -1257,12 +1345,10 @@
         margin-top: 120px;
         padding-right: 200px;
     }
-
-    .app-screen article p {
+    .app-screen article p{
         font-size: 16px !important;
     }
-
-    .app-screen h2 {
+    .app-screen h2{
         font-size: 22px !important;
         width: 200px;
     }
@@ -1285,12 +1371,12 @@
         font-size: 23px;
     }
 
-    #about-content p {
+    #about-content p{
         font-size: 18px !important;
         line-height: 20px;
     }
 
-    .benefit-card.first {
+    .benefit-card.first{
         width: 70% !important;
     }
 }
