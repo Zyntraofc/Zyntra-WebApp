@@ -1,7 +1,7 @@
 /* ===== MEDIA QUERIES PARA RESPONSIVIDADE ===== */
 
-/* Desktop médio (1700px) */
-@media screen and (max-width: 1700px) {
+/* Desktop médio (1510px) */
+@media screen and (max-width: 1510px) {
     .footer-description {
         width: 90%;
     }
@@ -13,17 +13,12 @@
 
 /* Desktop médio (1530px) */
 @media screen and (max-width: 1530px) {
+    .nav-link {
+        font-size: 16px;
+    }
+
     #about-wrapper {
-        margin-top: -10px;
         width: 1000px;
-    }
-
-    #about-us {
-        width: 996px;
-    }
-
-    #about-image {
-        margin-top: -20px;
     }
 
     #pt2 {
@@ -33,13 +28,7 @@
     #ajuda-visual {
         width: 449.5px;
         margin-top: 325px;
-        line-height: 42.5px;
         display: block;
-    }
-
-    #app-presentation {
-        top: 2410px;
-        top: max(160vw, 2350px);
     }
 
     /* Reorganização do layout principal */
@@ -51,12 +40,17 @@
 
     .demo-container {
         margin-top: 100px;
-        width: 100%;
+        width: 650px;
         justify-content: center;
         display: flex;
     }
 
-    .signup-button p, .platform-button p {
+    .dashboard-preview {
+        border-radius: 30px !important;
+    }
+
+    .signup-button p,
+    .platform-button p {
         font-size: 16px !important;
     }
 
@@ -77,7 +71,7 @@
     }
 
     .notification-card {
-        top: 115vh;
+        top: 830px;
         left: 25%;
     }
 
@@ -91,7 +85,7 @@
 
     .hero-content {
         margin-left: 0px;
-        width: 100%;
+        width: 65%;
         text-align: center;
     }
 
@@ -118,6 +112,10 @@
     .app-screen .right-text,
     .app-screen .right-paragraph {
         font-size: 20px !important;
+    }
+
+    .dash .right-text {
+        margin-top: 320px !important;
     }
 
     .app-screen article p {
@@ -168,11 +166,11 @@
 
 /* Desktop pequeno (1315px) */
 @media screen and (max-width: 1315px) {
+
     /* Ajustes na seção da plataforma */
     #plataform > .section-title {
         width: 100%;
         font-size: 35px;
-        line-height: 45px;
         height: auto;
         padding: 0 20px;
     }
@@ -192,10 +190,6 @@
     }
 
     /* Ajustes nas telas do aplicativo */
-    .app-screen.dash article {
-        margin-left: -200px;
-    }
-
     .app-screen.calendario article {
         text-align: end;
         margin-right: -55px;
@@ -211,13 +205,6 @@
         width: 300px;
     }
 
-    .dash .right-paragraph {
-        padding-left: 214.5px;
-    }
-
-    .dash .right-text {
-        padding-top: 100px;
-    }
 
     /* Troca de elementos visuais */
     #visual-improvisado {
@@ -242,10 +229,9 @@
         display: none;
     }
 
-    .app-screen.dash .right-paragraph {
-        margin-left: -520px;
-        width: 500px;
-        padding-right: 200px;
+    .app-screen.dash .right-text {
+        margin-left: -334px;
+        margin-top: 340px !important;
     }
 
     .app-screen.justificativa article {
@@ -274,20 +260,21 @@
         transform: translateX(-28%);
     }
 
-    #app-presentation {
-        margin-top: -50px;
-    }
 
     #principles h2 {
         margin-left: 0px;
         text-align: center;
     }
+
+    .hero-description p {
+        font-size: 18px !important;
+    }
 }
 
 /* Tablet grande (1220px) */
 @media screen and (max-width: 1220px) {
-    #app-presentation {
-        margin-top: -30px;
+    #plataform {
+        margin-bottom: -120px;
     }
 
     #about-us p {
@@ -306,19 +293,10 @@
         font-size: 20px;
     }
 
-}
-
-/* Tablet grande (1120px) */
-@media screen and (max-width: 1120px) {
-    #app-presentation {
-        margin-top: -65px;
+    .brand-name {
+        font-size: 24px !important;
     }
-}
 
-@media screen and (max-width: 1080px) {
-    #app-presentation {
-        margin-top: -60px;
-    }
 }
 
 /* Tablet (1024px) */
@@ -378,7 +356,6 @@
 
     .hero-highlight {
         font-size: 40px;
-        line-height: 45px;
     }
 
     .hero-description {
@@ -414,8 +391,13 @@
         height: 16px;
     }
 
+    .first:first-of-type img {
+        height: 18px !important;
+        width: auto !important;
+    }
+
     #principles .info {
-        margin-top: -40px;
+        margin-top: -40px !important;
     }
 
     #principles {
@@ -428,11 +410,10 @@
         margin: 0 auto;
     }
 
-    .benefit-card img {
-        margin-top: 10px;
-        max-width: 30px;
-        max-height: 30px;
+    .benefit-card.first {
+        width: 35% !important;
     }
+
 
     .benefit-card h3 {
         width: 100%;
@@ -450,13 +431,17 @@
         width: 100%;
     }
 
-    #app-presentation {
-        margin-left: 150px;
-        margin-top: -585px;
-    }
 
     .app-screen.dash article {
-        margin-left: -150px;
+        margin-left: -200px;
+    }
+
+    .dash h2 {
+        margin-top: -40px !important;
+    }
+
+    .app-screen h2 {
+        font-size: 40px !important;
     }
 
     .app-screen.calendario article {
@@ -473,7 +458,7 @@
     }
 
     #app-options:has(input#dashbord:checked) ~ #app-presentation {
-        transform: translateX(-80.2%);
+        transform: translateX(-84%);
     }
 
     #app-options:has(input#justificativa:checked) ~ #app-presentation {
@@ -481,10 +466,6 @@
     }
 
     /* Seção sobre nós */
-    #final {
-        margin-top: -1px;
-    }
-
     #about-wrapper,
     #about-us {
         width: 100%;
@@ -492,11 +473,14 @@
         border-radius: 20px;
     }
 
+    #about-wrapper {
+        padding: 0px;
+    }
+
     #about-us h2 {
         width: 100%;
         font-size: 35px;
         text-align: center;
-        line-height: 40px;
     }
 
     #about-content {
@@ -507,7 +491,6 @@
 
     #text-button-container {
         font-size: 18px;
-        line-height: 30px;
         text-align: center;
         gap: 30px;
     }
@@ -543,7 +526,7 @@
         text-align: start;
         flex-direction: row;
         align-items: center;
-        gap: 0px;
+        gap: 20px;
         justify-content: start;
     }
 
@@ -565,27 +548,6 @@
         gap: 50px;
         padding: 0px;
         list-style: none;
-    }
-}
-
-/* Tablet médio (917px) */
-@media screen and (max-width: 940px) {
-    #app-presentation {
-        margin-top: -620px;
-    }
-}
-
-
-/* Tablet médio (870px) */
-@media screen and (max-width: 870px) {
-    #app-presentation {
-        margin-top: -685px;
-    }
-}
-
-@media screen and (max-width: 820px) {
-    #app-presentation {
-        margin-top: -735px;
     }
 }
 
@@ -611,12 +573,10 @@
     /* Seção principal */
     .hero-highlight {
         font-size: 30px;
-        line-height: 35px;
     }
 
     .hero-description {
         font-size: 16px;
-        line-height: 24px;
     }
 
     .cta-button {
@@ -640,12 +600,10 @@
 
     #plataform > .section-title {
         font-size: 28px;
-        line-height: 35px;
     }
 
     #plataform > p {
         font-size: 16px;
-        line-height: 24px;
     }
 
     #plataform > a {
@@ -654,19 +612,15 @@
     }
 
     #plataform > a > p {
-        line-height: 50px;
         font-size: 18px;
     }
 
     /* Seção de vantagens */
     .benefit-card {
-        padding: 15px;
+        padding-left: 15px;
+        padding-bottom: 15px;
     }
 
-    .benefit-card img {
-        margin-left: 0;
-        width: 50px;
-    }
 
     .benefit-card h3 {
         margin-left: 0;
@@ -681,7 +635,6 @@
     /* Seção do aplicativo */
     #app-options {
         height: 50px;
-        margin-bottom: 250px;
     }
 
     .option-background {
@@ -694,22 +647,15 @@
 
     .app-screen h2 {
         font-size: 28px;
-        line-height: 32px;
-    }
-
-    #app-presentation {
-        margin-top: -880px;
     }
 
     /* Seção sobre nós */
     #about-us h2 {
         font-size: 28px;
-        line-height: 32px;
     }
 
     #text-button-container {
         font-size: 16px;
-        line-height: 26px;
     }
 
     #learn-more {
@@ -723,16 +669,12 @@
     }
 
     /* Ajustes de transformação baseado na seleção */
-    #app-options:has(input#dates:checked) ~ #app-presentation {
-        transform: translateX(30.15%);
-    }
-
     #app-options:has(input#dashbord:checked) ~ #app-presentation {
-        transform: translateX(-78.5%);
+        transform: translateX(-85.5%);
     }
 
     #app-options:has(input#justificativa:checked) ~ #app-presentation {
-        transform: translateX(-22%);
+        transform: translateX(-25.5%);
     }
 
     /* Seção de princípios */
@@ -759,47 +701,58 @@
     footer .brand-container {
         width: 100px;
     }
+
+    #about-content p {
+        line-height: 30px;
+    }
 }
 
 /* Mobile pequeno (667px) */
 @media screen and (max-width: 667px) {
-    #app-presentation {
-        margin-top: -830px;
-    }
-
     #plataform {
         margin-bottom: -50px;
     }
 
     .tela {
-        max-height: 50vh;
+        max-height: 330px;
     }
 
     .tela:first-of-type {
-        height: 50vh;
+        height: 330px;
     }
 
     #app-options:has(input#dates:checked) ~ #app-presentation {
-        transform: translateX(25.65%);
+        transform: translateX(33%);
     }
 
     #app-options:has(input#dashbord:checked) ~ #app-presentation {
-        transform: translateX(-82%);
+        transform: translateX(-74.5%);
     }
 
     #app-options:has(input#justificativa:checked) ~ #app-presentation {
-        transform: translateX(-24%);
+        transform: translateX(-17.75%);
     }
 
     .app-screen.dash .right-paragraph {
-        margin-left: -575px;
-        width: 500px;
+        font-size: 17px !important;
+        margin-left: -200px;
+        width: 350px;
         margin-top: 120px;
         padding-right: 200px;
     }
 
+    .app-screen article p {
+        font-size: 17px !important;
+    }
+
+    .app-screen h2 {
+        font-size: 28px !important;
+        width: 200px;
+    }
+
     .app-screen.dash article {
         margin-top: 50px;
+        margin-left: -170px;
     }
 
     .app-screen.justificativa article p {
@@ -815,14 +768,13 @@
         font-size: 23px;
     }
 
-    #final {
-        margin-top: -100px;
+    #about-content p {
+        font-size: 18px !important;
+        line-height: 20px;
     }
-}
 
-@media screen and (max-width: 600px) {
-    #app-presentation {
-        margin-top: -870px;
+    .benefit-card.first {
+        width: 70% !important;
     }
 }
 

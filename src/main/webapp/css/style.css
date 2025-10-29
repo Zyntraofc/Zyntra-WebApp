@@ -137,7 +137,7 @@ header {
 }
 
 .brand-logo {
-    width: 1.65vw;
+    width: 26px;
 }
 
 /* Navegação principal */
@@ -362,8 +362,7 @@ main {
     -ms-flex-pack: center;
     justify-content: center;
     margin-top: 55px;
-    width: 28.6vh;
-    width: 13.6vw;
+    width: 210px;
     height: 49px;
     border-radius: 40px;
     -webkit-transform-origin: center;
@@ -901,7 +900,7 @@ label {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    width: 8vw;
+    width: 120px;
     padding: 9px 1.3vw 9px 1.3vw;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
@@ -1017,8 +1016,8 @@ input:checked + .option-background {
     background: #FFF;
     -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.10);
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.10);
-    -webkit-filter: drop-shadow(-4.5vh 3.8vh 0.4vh rgba(0, 0, 0, 0.15)) drop-shadow(-0.6vh 0.6vh 0.4vh rgba(0, 0, 0, 0.15));
-    filter: drop-shadow(-4.5vh 3.8vh 0.4vh rgba(0, 0, 0, 0.15)) drop-shadow(-0.6vh 0.6vh 0.4vh rgba(0, 0, 0, 0.15));
+    -webkit-filter: drop-shadow(-45px 38px 4px rgba(0, 0, 0, 0.10, 0, 0, 0.15)) drop-shadow(-0.6vh 0.6vh 0.4vh rgba(0, 0, 0, 0.15));
+    filter: drop-shadow(-45px 38px 4px rgba(0, 0, 0, 0.15)) drop-shadow(-6px 6px 4px rgba(0, 0, 0, 0.15));
 }
 
 #app-notification img {
@@ -1309,7 +1308,7 @@ footer .brand-container div {
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 9px;
-    width: 2.5vw;
+    width: 40%;
     height: 40px;
     cursor: pointer;
 }
@@ -1332,7 +1331,7 @@ footer .brand-container div {
 }
 
 #footer-secondary {
-    gap: 11vw !important;
+    gap: 11vw;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
