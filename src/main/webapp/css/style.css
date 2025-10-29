@@ -7,6 +7,7 @@
 
 /* ===== IMPORTAÇÕES E CONFIGURAÇÕES GERAIS ===== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&display=swap');
 
 /*
  * RESET E CONFIGURAÇÕES BÁSICAS
@@ -760,6 +761,7 @@ main {
     border-radius: 15px;
     padding-right: 0.75vw;
     background-color: white;
+    transition: all 0.5s !important;
 }
 
 .benefit-card.first h3,
@@ -1185,7 +1187,9 @@ input:checked + .option-background {
     column-gap: 5%;
     margin-top: 2.5%;
 }
-
+#about-content p{
+    font-weight: 400 !important;
+}
 #about-content > *:nth-child(1) {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
@@ -1222,6 +1226,7 @@ input:checked + .option-background {
 }
 
 #about-image {
+    height: 200%;
     background-image: url(../assets/equipe.png);
     background-repeat: no-repeat;
     background-size: contain;
