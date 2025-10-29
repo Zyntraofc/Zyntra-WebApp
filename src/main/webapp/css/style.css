@@ -1222,7 +1222,7 @@ input:checked + .option-background {
 }
 
 #about-image {
-    background-image: url(../assets/equipe-zyntra.png);
+    background-image: url(../assets/equipe.png);
     background-repeat: no-repeat;
     background-size: contain;
 }
