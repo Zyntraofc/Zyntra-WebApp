@@ -358,6 +358,14 @@ public class EmpresaDAO {
         } 
         //Em casos de erros no banco de dados desfaz a ação
         catch (SQLException sqle) {
+
+            //Obtém código da causa do erro
+            String sqleState = sqle.getSQLState();
+
+            //Se for erro de foreignkey inváida, lança exceção de foreign key invalido
+            if(sqleState.startsWith("23")){
+                throw new InvalidForeignKeyException("Valores inseridos inexistentes na tabela tipoEmpresa");
+            }
             //Lista todos os erros
             sqle.printStackTrace();
             //Desfaz a ação
@@ -402,6 +410,14 @@ public class EmpresaDAO {
         } 
         //Em casos de erros no banco de dados desfaz a ação
         catch (SQLException sqle) {
+
+            //Obtém código da causa do erro
+            String sqleState = sqle.getSQLState();
+
+            //Se for erro de foreignkey inváida, lança exceção de foreign key invalido
+            if(sqleState.startsWith("23")){
+                throw new InvalidForeignKeyException("Valores inseridos inexistentes na tabela indice de classificação");
+            }
             //Lista todos os erros
             sqle.printStackTrace();
             //Desfaz a ação
