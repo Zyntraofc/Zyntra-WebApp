@@ -178,16 +178,16 @@
 
         <label for="porcentagemMinima">Porcentagem Mínima</label>
         <input type="number" name="porcentagemMinima" id="porcentagemMinima"
-               value="${indiceClassificacao.getPorcentagemMinima()}" min="0" required class="validar-input">
+               value="${indiceClassificacao.getPorcentagemMinima()}" min="0" required class="validar-input"  placeholder="Ex: 10.0" step="0.1">
 
         <label for="porcentagemMaxima">Porcentagem máxima</label>
         <input type="number" name="porcentagemMaxima" id="porcentagemMaxima"
-               value="${indiceClassificacao.getPorcentagemMaxima()}" max="100" required class="validar-input">
+               value="${indiceClassificacao.getPorcentagemMaxima()}" max="100" required class="validar-input" placeholder="Ex: 25.0" step="0.1">
 
         <label for="preocupacao">Preocupação</label>
-        <input type="text" name="preocupacao" id="preocupacao" value="${indiceClassificacao.getPreocupacao()}">
+        <input type="text" name="preocupacao" id="preocupacao" value="${indiceClassificacao.getPreocupacao()}" placeholder="Ex: Baixa">
         <label for="recomendacao">Recomendação</label>
-        <textarea rows="4" name="recomendacao" id="recomendacao">${indiceClassificacao.getRecomendacao()}</textarea>
+        <textarea rows="4" name="recomendacao" id="recomendacao" placeholder="Digite as recomendações para esta faixa de classificação...">${indiceClassificacao.getRecomendacao()}</textarea>
 
         <div class="botoes">
             <div class="cancelar"><a href="${pageContext.request.contextPath}/private/ListarIndiceClassificacao">✖
@@ -206,15 +206,15 @@
     <form action="${pageContext.request.contextPath}/private/InserirIndiceClassificacao" method="post">
         <label for="Novaminima">Porcentagem mínima</label>
         <input type="number" name="porcentagemMinima" id="Novaminima" placeholder="Digite a porcentagem mínima (%)"
-               min="0" required class="validar-input">
+               min="0" required class="validar-input" placeholder="Ex: 10.0" step="0.1">
         <label for="Novamaxima">Porcentagem máxima</label>
         <input type="number" name="porcentagemMaxima" id="Novamaxima" placeholder="Digite a porcentagem máxima (%)"
-               max="100" required class="validar-input">
+               max="100" required class="validar-input" placeholder="Ex: 25.0" step="0.1">
         <label for="Novapreocupacao">Preocupação</label>
-        <input type="text" name="preocupacao" id="Novapreocupacao" placeholder="Digite o o nível de preocupação">
+        <input type="text" name="preocupacao" id="Novapreocupacao" placeholder="Digite o o nível de preocupação" placeholder="Ex: Baixa">
         <label for="Novarecomendacao">Recomendação</label>
         <textarea rows="4" name="recomendacao" id="Novarecomendacao"
-                  placeholder="Digite a recomendação para esse índice classificação"></textarea>
+                  placeholder="Digite as recomendações para esta faixa de classificação..."></textarea>
 
         <div class="botoes">
             <div class="cancelar"><a href="${pageContext.request.contextPath}/private/ListarIndiceClassificacao">✖

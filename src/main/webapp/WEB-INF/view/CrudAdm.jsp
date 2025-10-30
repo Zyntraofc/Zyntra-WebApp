@@ -180,11 +180,10 @@
 
     <form action="${pageContext.request.contextPath}/private/InserirAdm" method="post">
         <label for="NovoEmail">Email</label>
-        <input class="validar-input" required type="email" name="email" id="NovoEmail"
-               placeholder="Digite o email do administrador">
+        <input class="validar-input" required type="email" name="email" id="NovoEmail" placeholder="exemplo@admin.com">
 
         <label for="NovaSenha">Senha</label>
-        <input type="password" required name="senha" id="NovaSenha" placeholder="Digite a senha dada ao administrador">
+        <input type="password" required name="senha" id="NovaSenha" placeholder="Ex: Senha@123 - 8+ chars com maiúscula, minúscula e especial">
         <div class="botoes">
             <div class="cancelar"><a href="${pageContext.request.contextPath}/private/ListarAdministradores">✖
                 Cancelar</a></div>
@@ -213,7 +212,7 @@
         <input type="hidden" name="id" value="${administrador.getId()}">
 
         <label for="email">E-mail</label>
-        <input required class="validar-input" type="email" name="email" id="email" value="${administrador.getEmail()}">
+        <input required class="validar-input" type="email" name="email" id="email" value="${administrador.getEmail()}" placeholder="novo.email@admin.com">
         <div class="botoes">
             <div class="cancelar"><a href="${pageContext.request.contextPath}/private/ListarAdministradores">✖
                 Cancelar</a></div>
@@ -232,10 +231,10 @@
         <input type="hidden" name="id" value="${administrador.getId()}">
 
         <label for="passwordAtual">Senha Atual</label>
-        <input type="password" id="passwordAtual" name="senhaAtual" required placeholder="Confirme aqui a senha atual">
+        <input type="password" id="passwordAtual" name="senhaAtual" required placeholder="Digite sua senha atual">
 
         <label for="passwordNova">Nova Senha</label>
-        <input type="password" id="passwordNova" name="senhaNova" required placeholder="Digite a nova senha">
+        <input type="password" id="passwordNova" name="senhaNova" required placeholder="Ex: Senha@123 - 8+ chars com maiúscula, minúscula e especial">
         <div class="botoes">
             <div class="cancelar"><a
                     href="${pageContext.request.contextPath}/private/ListarAdministradores?popup-alterar=true&id=${administrador.getId()}">✖

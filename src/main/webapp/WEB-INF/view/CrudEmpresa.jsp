@@ -308,17 +308,17 @@
         </select>
 
         <label for="nome">Nome</label>
-        <input type="text" id="nome" name="nome" value="${empresa.getNome()}">
+        <input type="text" id="nome" name="nome" value="${empresa.getNome()}" placeholder="Ex: Empresa ABC Ltda">
 
         <label for="cnpj">CNPJ</label>
         <input type="text" id="cnpj" name="cnpj" value="${empresa.getCnpj()}" readonly>
 
         <label for="email">E-mail</label>
-        <input class="validar-input" required type="email" id="email" name="email" value="${empresa.getEmail()}">
+        <input class="validar-input" required type="email" id="email" name="email" value="${empresa.getEmail()}"  placeholder="exemplo@empresa.com">
 
-        <label for="telefone">Telefone</label>
-        <input type="text" id="telefone" class="validar-input" required pattern="\(?\d{2}\)? ?\d{5}-?\d{4}"
-               name="telefone" value="${empresa.getTelefone()}">
+        <label for="telefone-mask">Telefone</label>
+        <input type="text" id="telefone-mask" class="validar-input" required pattern="^([^,]{15})$" value="${empresa.getTelefone()}" placeholder="(11) 99999-9999">
+        <input type="hidden" id="telefone" name="telefone">
 
         <div class="botoes">
             <div class="cancelar"><a href="${pageContext.request.contextPath}/private/ListarEmpresas">✖ Cancelar</a>
@@ -353,17 +353,18 @@
         </select>
 
         <label for="Novonome">Nome</label>
-        <input type="text" id="Novonome" name="nome">
+        <input type="text" id="Novonome" name="nome" placeholder="Ex: Empresa ABC Ltda">
 
-        <label for="Novocnpj">CNPJ</label>
-        <input type="text" id="Novocnpj" name="cnpj" class="validar-input" required pattern="^([0-9]{14})$">
+        <label for="Novocnpj-mask">CNPJ</label>
+        <input type="text" id="Novocnpj-mask" placeholder="00.000.000/0000-00" class="validar-input" required pattern="^([^ ]{18})$">
+        <input type="hidden" id="Novocnpj" name="cnpj">
 
         <label for="Novoemail">E-mail</label>
-        <input type="email" id="Novoemail" name="email" required class="validar-input">
+        <input type="email" id="Novoemail" name="email" required class="validar-input" placeholder="exemplo@empresa.com">
 
-        <label for="Novotelefone">Telefone</label>
-        <input type="text" id="Novotelefone" name="telefone" pattern="\(?\d{2}\)? ?\d{5}-?\d{4}" required
-               class="validar-input">
+        <label for="Novotelefone-mask">Telefone</label>
+        <input type="text" id="Novotelefone-mask" class="validar-input" pattern="^([^,]{15})$" required placeholder="(11) 99999-9999">
+        <input type="hidden" id="Novotelefone" name="telefone">
 
         <div class="botoes">
             <div class="cancelar"><a href="${pageContext.request.contextPath}/private/ListarEmpresas">✖ Cancelar</a>
@@ -373,5 +374,14 @@
     </form>
 </div>
 <% } %>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+<script>
+    $('#Novotelefone-mask').mask('(00) 00000-0000').on('keyup blur', function() { $('#Novotelefone').val($(this).cleanVal());});
+    $('#Novocnpj-mask').mask('00.000.000/0000-00', {reverse: true}).on('keyup blur', function () {$('#Novocnpj').val($(this).cleanVal());});
+    $('#telefone-mask').mask('(00) 00000-0000').on('keyup blur', function() { $('#telefone').val($(this).cleanVal());});
+    $('#cnpj').mask('00.000.000/0000-00', {reverse: true});
+</script>
 </body>
 </html>
