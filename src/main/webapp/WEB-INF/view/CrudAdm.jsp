@@ -180,8 +180,7 @@
 
     <form action="${pageContext.request.contextPath}/private/InserirAdm" method="post">
         <label for="NovoEmail">Email</label>
-        <input class="validar-input" required type="email" name="email" id="NovoEmail"
-               placeholder="exemplo@admin.com">
+        <input class="validar-input" required type="email" name="email" id="NovoEmail" placeholder="exemplo@admin.com">
 
         <label for="NovaSenha">Senha</label>
         <input type="password" required name="senha" id="NovaSenha" placeholder="Ex: Senha@123 - 8+ chars com maiúscula, minúscula e especial">
