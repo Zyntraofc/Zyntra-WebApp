@@ -15,7 +15,6 @@ public class StatusAprovacaoDAO {
 
     // Metodo para inserir status aprovacao no banco de dados
     public int inserirStatusAprovacao(StatusAprovacao statusAprovacao) {
-
         //Comando de inserção em SQL
         String comandoInserir = "insert into status_aprovacao (motivo_rejeicao, status, data_solicitacao, data_aprovacao) values (?,?,?,?)";
 
@@ -30,7 +29,7 @@ public class StatusAprovacaoDAO {
 
             //Setando valores nos '?' do comando
             // Motivo rejeição (pode ser null)
-            if (statusAprovacao.getMotivoRejeicao() != null) {
+            if (statusAprovacao.getMotivoRejeicao() != null && !statusAprovacao.equals("")) {
                 pstmt.setString(1, statusAprovacao.getMotivoRejeicao());
             } else {
                 pstmt.setNull(1, Types.VARCHAR);
