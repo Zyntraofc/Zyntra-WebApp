@@ -19,6 +19,7 @@ import org.example.utils.regex.ValidacaoEmail;
 import org.example.utils.regex.ValidacaoTelefone;
 import org.example.exceptions.FailedCommitException;
 import org.example.exceptions.FailedConnectionException;
+import org.example.exceptions.InvalidForeignKeyException;
 import org.example.exceptions.RollbackException;
 
 //ENDPOINT privado e com filtro do servlet (Área restrita)
@@ -201,6 +202,15 @@ public class ServletAlterarEmpresa extends HttpServlet {
             req.setAttribute("erro", "Erro ao desfazer ação no banco de dados");
             req.setAttribute("exception", re);
             //Envia dados para página de erro
+            req.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp").forward(req, resp);
+        }
+
+        //Em caso de erro de foreign key inexistente no banco de dados
+        catch(InvalidForeignKeyException ifke){
+            //Insere erro e exceção na página de erros
+            req.setAttribute("erro", "Tipo de empresa ou índice de classificação inexistente");
+            req.setAttribute("exception", ifke);
+            //Envia dados para página de erros
             req.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp").forward(req, resp);
         }
 
