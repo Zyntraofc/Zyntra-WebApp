@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="java.util.List" %>
+<%@ page import="org.example.model.StatusAprovacao" %>
+<%@ page import="org.example.model.TipoEmpresa" %>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -149,41 +151,49 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="status" items="${statuses}">
-                    <tr class="linhas">
-                        <td>${status.id}</td>
-                        <td data-label="Pesquisar" class="sensivel">${nomesEmpresas[status.id]}</td>
-                        <td>${String.valueOf(status.status).equals("a") ? "Aprovado" : String.valueOf(status.status).equals("r") ? "Recusado" : "Pendente"}</td>
-                        <td class="sensivel">${status.dataSolicitacao}</td>
-                        <td class="actions">
-                            <div style="display: flex">
-                                <form>
-                                    <button style="border: none; background: none; cursor: pointer" class="toggleLinha"
-                                            data-olho="${pageContext.request.contextPath}/assets/icons/icon-olho.png"
-                                            data-olho-fechado="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png">
-                                        <img src="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png"/>
-                                    </button>
-                                </form>
-                                <form action="${pageContext.request.contextPath}/private/AlterarStatusAprovacao"
-                                      method="post">
-                                    <input type="hidden" name="id" value="${status.id}">
-                                    <input type="hidden" name="action" value="0">
-                                    <button type="submit" style="border: none; background: none; cursor: pointer"><img
-                                            src="${pageContext.request.contextPath}/assets/icons/icon-edit.png">
-                                    </button>
-                                </form>
-                                <form action="${pageContext.request.contextPath}/private/DeletarEmpresa" method="post">
-                                    <input type="hidden" name="idStatus" value="${status.id}">
-                                    <input type="hidden" name="caminho" value="StatusAprovacao">
-                                    <input type="hidden" name="action" value="0">
-                                    <button type="submit" style="border: none; background: none; cursor: pointer"><img
-                                            src="${pageContext.request.contextPath}/assets/icons/icon-excluir.png">
-                                    </button>
-                                </form>
-                            </div>
-                        </td>
-                    </tr>
-                </c:forEach>
+                <%
+                    List<StatusAprovacao> statuses = (List<StatusAprovacao>) request.getAttribute("statuses");
+                    java.util.Map<Integer, String> nomesEmpresas = (java.util.Map<Integer, String>) request.getAttribute("nomesEmpresas");
+                    if (statuses != null) {
+                        for (StatusAprovacao status : statuses) {
+                %>
+                <tr class="linhas">
+                    <td><%= status.getId() %></td>
+                    <td data-label="Pesquisar" class="sensivel"><%= nomesEmpresas != null ? nomesEmpresas.get(status.getId()) : "" %></td>
+                    <td><%= String.valueOf(status.getStatus()).equals("a") ? "Aprovado" : String.valueOf(status.getStatus()).equals("r") ? "Recusado" : "Pendente" %></td>
+                    <td class="sensivel"><%= status.getDataSolicitacao() %></td>
+                    <td class="actions">
+                        <div style="display: flex">
+                            <form>
+                                <button style="border: none; background: none; cursor: pointer" class="toggleLinha"
+                                        data-olho="${pageContext.request.contextPath}/assets/icons/icon-olho.png"
+                                        data-olho-fechado="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png">
+                                    <img src="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png"/>
+                                </button>
+                            </form>
+                            <form action="${pageContext.request.contextPath}/private/AlterarStatusAprovacao"
+                                  method="post">
+                                <input type="hidden" name="id" value="<%= status.getId() %>">
+                                <input type="hidden" name="action" value="0">
+                                <button type="submit" style="border: none; background: none; cursor: pointer"><img
+                                        src="${pageContext.request.contextPath}/assets/icons/icon-edit.png">
+                                </button>
+                            </form>
+                            <form action="${pageContext.request.contextPath}/private/DeletarEmpresa" method="post">
+                                <input type="hidden" name="idStatus" value="<%= status.getId() %>">
+                                <input type="hidden" name="caminho" value="StatusAprovacao">
+                                <input type="hidden" name="action" value="0">
+                                <button type="submit" style="border: none; background: none; cursor: pointer"><img
+                                        src="${pageContext.request.contextPath}/assets/icons/icon-excluir.png">
+                                </button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                <%
+                        }
+                    }
+                %>
                 </tbody>
             </table>
         </div>
@@ -257,9 +267,16 @@
         <label for="NovoTipoEmpresa">Tipo de Empresa</label>
         <select name="idTipoEmpresa" id="NovoTipoEmpresa" required>
             <option value="" disabled selected>Selecione o tipo de empresa</option>
-            <c:forEach var="tipo" items="${tipos}">
-                <option value="${tipo.id}">${tipo.nome}</option>
-            </c:forEach>
+            <%
+                List<TipoEmpresa> tipos = (List<TipoEmpresa>) request.getAttribute("tipos");
+                if (tipos != null) {
+                    for (TipoEmpresa tipo : tipos) {
+            %>
+            <option value="<%= tipo.getId() %>"><%= tipo.getNome() %></option>
+            <%
+                    }
+                }
+            %>
         </select>
 
         <label for="Novonome">Nome</label>

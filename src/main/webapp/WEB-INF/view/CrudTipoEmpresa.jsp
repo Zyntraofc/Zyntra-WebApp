@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="java.util.List" %>
+<%@ page import="org.example.model.TipoEmpresa" %>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -148,34 +149,41 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="tipoEmpresa" items="${tiposEmpresa}">
-                    <tr class="linhas">
-                        <td>${tipoEmpresa.id}</td>
-                        <td data-label="Pesquisar">${tipoEmpresa.nome}</td>
-                        <td>${String.valueOf(tipoEmpresa.status).equals("i") ?"Inativo": "Ativo"}</td>
-                        <td>${tipoEmpresa.ultimaAtualizacao}</td>
-                        <td class="actionsgit">
-                            <div style="display: flex">
-                                <form action="${pageContext.request.contextPath}/private/AlterarTipoEmpresa"
-                                      method="post">
-                                    <input type="hidden" name="id" value="${tipoEmpresa.id}">
-                                    <input type="hidden" name="action" value="0">
-                                    <button type="submit" style="border: none; background: none; cursor: pointer"><img
-                                            src="${pageContext.request.contextPath}/assets/icons/icon-edit.png">
-                                    </button>
-                                </form>
-                                <form action="${pageContext.request.contextPath}/private/DeletarTipoEmpresa"
-                                      method="post">
-                                    <input type="hidden" name="id" value="${tipoEmpresa.id}">
-                                    <input type="hidden" name="action" value="0">
-                                    <button type="submit" style="border: none; background: none; cursor: pointer"><img
-                                            src="${pageContext.request.contextPath}/assets/icons/icon-excluir.png">
-                                    </button>
-                                </form>
-                            </div>
-                        </td>
-                    </tr>
-                </c:forEach>
+                <%
+                    List<TipoEmpresa> tiposEmpresa = (List<TipoEmpresa>) request.getAttribute("tiposEmpresa");
+                    if (tiposEmpresa != null) {
+                        for (TipoEmpresa tipoEmpresa : tiposEmpresa) {
+                %>
+                <tr class="linhas">
+                    <td><%= tipoEmpresa.getId() %></td>
+                    <td data-label="Pesquisar"><%= tipoEmpresa.getNome() %></td>
+                    <td><%= String.valueOf(tipoEmpresa.getStatus()).equals("i") ?"Inativo": "Ativo" %></td>
+                    <td><%= tipoEmpresa.getUltimaAtualizacao() %></td>
+                    <td class="actionsgit">
+                        <div style="display: flex">
+                            <form action="${pageContext.request.contextPath}/private/AlterarTipoEmpresa"
+                                  method="post">
+                                <input type="hidden" name="id" value="<%= tipoEmpresa.getId() %>">
+                                <input type="hidden" name="action" value="0">
+                                <button type="submit" style="border: none; background: none; cursor: pointer"><img
+                                        src="${pageContext.request.contextPath}/assets/icons/icon-edit.png">
+                                </button>
+                            </form>
+                            <form action="${pageContext.request.contextPath}/private/DeletarTipoEmpresa"
+                                  method="post">
+                                <input type="hidden" name="id" value="<%= tipoEmpresa.getId() %>">
+                                <input type="hidden" name="action" value="0">
+                                <button type="submit" style="border: none; background: none; cursor: pointer"><img
+                                        src="${pageContext.request.contextPath}/assets/icons/icon-excluir.png">
+                                </button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                <%
+                        }
+                    }
+                %>
                 </tbody>
             </table>
         </div>

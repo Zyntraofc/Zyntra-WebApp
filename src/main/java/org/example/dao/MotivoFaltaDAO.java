@@ -113,9 +113,6 @@ public class MotivoFaltaDAO {
             //Lista todos os erros
             sqle.printStackTrace();
 
-            //Desfaz a ação
-            ConexaoManager.rollback();
-
             //Retorna null
             return null;
         }
@@ -166,9 +163,6 @@ public class MotivoFaltaDAO {
         catch (SQLException sqle) {
             //Lista todos os erros
             sqle.printStackTrace();
-
-            //Desfaz a ação
-            ConexaoManager.rollback();
 
             //Retorna lista de motivos de falta (vazia)
             return motivosFalta;

@@ -114,9 +114,6 @@ public class AdministradorDAO {
             //Lista todos os erros
             sqle.printStackTrace();
 
-            //Desfaz a ação
-            ConexaoManager.rollback();
-
             //Retorna null
             return null;
         }
@@ -167,9 +164,6 @@ public class AdministradorDAO {
             //Lista todos os erros
             sqle.printStackTrace();
 
-            //Desfaz a ação
-            ConexaoManager.rollback();
-
             //Retorna null
             return null;
         }
@@ -218,9 +212,6 @@ public class AdministradorDAO {
         catch (SQLException sqle) {
             //Lista todos os erros
             sqle.printStackTrace();
-
-            //Desfaz a ação
-            ConexaoManager.rollback();
 
             //Retorna lista de administradores (vazia)
             return administradores;

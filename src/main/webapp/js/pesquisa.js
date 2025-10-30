@@ -1,8 +1,17 @@
+///JavaScript criado para realizar pesquisa automárica no CRUD
+
+//Função de busca
 function search() {
+    //Valor do input de pesquisa
     let input = document.getElementById("searchbar").value.toLowerCase().trim();
+
+    //Pega cada linha do html do CRUD
     let x = document.getElementsByClassName("linhas");
 
+    //Looping que fará verificação
     for (i = 0; i < x.length; i++) {
+
+        //Seleciona a coluna de pesquisa
         let valorInput = x[i].querySelector('td[data-label="Pesquisar"]');
 
         let valor = '';

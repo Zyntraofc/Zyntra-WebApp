@@ -146,9 +146,6 @@ public class StatusAprovacaoDAO {
             //Lista todos os erros
             sqle.printStackTrace();
 
-            //Desfaz a ação
-            ConexaoManager.rollback();
-
             //Retorna null
             return null;
         }
@@ -217,9 +214,6 @@ public class StatusAprovacaoDAO {
         catch (SQLException sqle) {
             //Lista todos os erros
             sqle.printStackTrace();
-
-            //Desfaz a ação
-            ConexaoManager.rollback();
 
             //Retorna lista de status aprovacao (vazia)
             return statusAprovacao;

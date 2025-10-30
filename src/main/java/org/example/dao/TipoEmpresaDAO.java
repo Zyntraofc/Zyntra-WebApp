@@ -120,9 +120,6 @@ public class TipoEmpresaDAO {
             //Lista todos os erros
             sqle.printStackTrace();
 
-            //Desfaz a ação
-            ConexaoManager.rollback();
-
             //Retorna null
             return null;
         }
@@ -175,9 +172,6 @@ public class TipoEmpresaDAO {
         catch (SQLException sqle) {
             //Lista todos os erros
             sqle.printStackTrace();
-
-            //Desfaz a ação
-            ConexaoManager.rollback();
 
             //Retorna lista de tipos empresa (vazia)
             return new ArrayList<>();

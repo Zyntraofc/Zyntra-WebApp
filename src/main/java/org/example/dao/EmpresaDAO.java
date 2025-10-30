@@ -136,9 +136,6 @@ public class EmpresaDAO {
             //Lista todos os erros
             sqle.printStackTrace();
 
-            //Desfaz a ação
-            ConexaoManager.rollback();
-
             //Retorna null
             return null;
         }
@@ -193,9 +190,6 @@ public class EmpresaDAO {
 
             //Lista todos os erros
             sqle.printStackTrace();
-
-            //Desfaz a ação
-            ConexaoManager.rollback();
 
             //Retorna null
             return null;
@@ -256,9 +250,6 @@ public class EmpresaDAO {
             //Lista todos os erros
             sqle.printStackTrace();
 
-            //Desfaz a ação
-            ConexaoManager.rollback();
-
             //Retorna lista de empresas (vazia)
             return empresas;
         }
@@ -314,9 +305,6 @@ public class EmpresaDAO {
         catch (SQLException sqle) {
             //Lista todos os erros
             sqle.printStackTrace();
-
-            //Desfaz a ação
-            ConexaoManager.rollback();
 
             //Retorna lista de empresas (vazia)
             return empresas;
