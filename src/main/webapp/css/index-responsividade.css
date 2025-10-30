@@ -1381,10 +1381,15 @@ footer {
     }
 }
 
-/* Mobile muito pequeno (380px) */
-@media screen and (max-width: 380px) {
+/* Mobile muito pequeno (400px) */
+@media screen and (max-width: 400px) {
     .hero-highlight {
-        font-size: 26px;
+        font-size: 20px !important;
+    }
+
+    #plataform>.section-title {
+        font-size: 20px !important;
+        margin-top: 40px;
     }
 
     .app-screen h2 {
