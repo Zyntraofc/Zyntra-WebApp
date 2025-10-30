@@ -117,9 +117,6 @@ public class IndiceClassificacaoDAO {
             //Lista todos os erros
             sqle.printStackTrace();
 
-            //Desfaz a ação
-            ConexaoManager.rollback();
-
             //Retorna null
             return null;
         }
@@ -172,9 +169,6 @@ public class IndiceClassificacaoDAO {
         catch (SQLException sqle) {
             //Lista todos os erros
             sqle.printStackTrace();
-
-            //Desfaz a ação
-            ConexaoManager.rollback();
 
             //Retorna lista de indices de classificacao (vazia)
             return indicesClassificacao;
