@@ -282,15 +282,16 @@
         <label for="Novonome">Nome</label>
         <input type="text" id="Novonome" name="nome">
 
-        <label for="Novocnpj">CNPJ</label>
-        <input type="text" id="Novocnpj" name="cnpj" class="validar-input" required pattern="^([0-9]{14})$">
+        <label for="Novocnpj-mask">CNPJ</label>
+        <input type="text" id="Novocnpj-mask" class="validar-input" required pattern="^([^ ]{18})$">
+        <input type="hidden" id="Novocnpj" name="cnpj">
 
         <label for="Novoemail">E-mail</label>
         <input type="email" id="Novoemail" name="email" required class="validar-input">
 
-        <label for="Novotelefone">Telefone</label>
-        <input type="text" id="Novotelefone" name="telefone" pattern="\(?\d{2}\)? ?\d{5}-?\d{4}" required
-               class="validar-input">
+        <label for="Novotelefone-mask">Telefone</label>
+        <input type="text" id="Novotelefone-mask" class="validar-input" pattern="^([^,]{15})$" required>
+        <input type="hidden" id="Novotelefone" name="telefone">
 
         <div class="botoes">
             <div class="cancelar"><a href="${pageContext.request.contextPath}/private/ListarStatusAprovacao">✖
@@ -300,5 +301,12 @@
     </form>
 </div>
 <% } %>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+<script>
+    $('#Novotelefone-mask').mask('(00) 00000-0000').on('keyup blur', function() { $('#Novotelefone').val($(this).cleanVal());});
+    $('#Novocnpj-mask').mask('00.000.000/0000-00', {reverse: true}).on('keyup blur', function () {$('#Novocnpj').val($(this).cleanVal());});
+</script>
 </body>
 </html>
