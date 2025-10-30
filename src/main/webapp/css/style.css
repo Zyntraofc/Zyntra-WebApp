@@ -1227,7 +1227,7 @@ input:checked + .option-background {
 }
 
 #about-image {
-    height: 180%;
+    height: 80%;
     background-image: url(../assets/equipe.png);
     background-repeat: no-repeat;
     background-size: contain;
