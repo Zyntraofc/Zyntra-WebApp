@@ -1,18 +1,18 @@
-🌀  Zyntra WebApp
+**🌀  Zyntra WebApp**
 
 Aplicação web do Zyntra, plataforma da Zyntra para gestão inteligente de absenteísmo e bem-estar corporativo.
 Este repositório contempla a versão web utilizada por gestores, líderes e profissionais de RH para acompanhamento de indicadores, análise de presença, gestão de justificativas e comunicação com colaboradores.
 
 ------
 
-🧭 Visão Geral
+**🧭 Visão Geral**
 
 O Zyntra WebApp integra o ecossistema modular da Zyntra, proporcionando uma visão completa e estratégica sobre engajamento e produtividade.
 Construído com foco em usabilidade, performance e escalabilidade, o sistema oferece relatórios visuais, dashboards dinâmicos e controle centralizado de equipes.
 
 ----
 
-⚙️ Tecnologias Utilizadas
+**⚙️ Tecnologias Utilizadas**
 
 IDE: IntelliJ IDEA
 
@@ -28,7 +28,7 @@ Controle de Versão: Git e GitHub
 
 ----
 
-📁 Estrutura do projeto
+**📁 Estrutura do projeto**
 
 ```bash
 Zyntra-WebApp/
@@ -54,7 +54,7 @@ Zyntra-WebApp/
 
 ----
 
-✅ Boas Práticas
+**✅ Boas Práticas**
 
 Commits semânticos e organizados
 
@@ -70,7 +70,7 @@ Revisões periódicas de código e versionamento contínuo no Git
 
 ----
 
-👥 Contribuidores
+**👥 Contribuidores**
 
 UX/UI Designer: beatrizbattista | anablefari
 
