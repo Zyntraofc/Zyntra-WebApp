@@ -9,9 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="decc699d-6ffe-4dc6-b655-05fda1145ad2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/CrudAdm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/CrudAdm.jsp" afterDir="false" />
-    </list>
+    <list default="true" id="decc699d-6ffe-4dc6-b655-05fda1145ad2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -190,7 +188,7 @@
       <workItem from="1761652610782" duration="2542000" />
       <workItem from="1761692097939" duration="2392000" />
       <workItem from="1761756026641" duration="526000" />
-      <workItem from="1761857783875" duration="6729000" />
+      <workItem from="1761857783875" duration="7205000" />
     </task>
     <task id="LOCAL-00001" summary="Alterando responsividade">
       <created>1761574097340</created>
