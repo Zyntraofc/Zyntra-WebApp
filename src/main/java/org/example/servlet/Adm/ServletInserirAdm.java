@@ -119,7 +119,9 @@ public class ServletInserirAdm extends HttpServlet {
     }
     }
 
+    //Metodo com ações para ser executadas no fim do servlet
     public void destroy() {
+        //Desconecta do banco de dados
         ConexaoManager.desconectar();
     }
 }
