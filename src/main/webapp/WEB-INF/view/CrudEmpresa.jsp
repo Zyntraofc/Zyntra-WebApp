@@ -1,5 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="java.util.List" %>
+<%@ page import="org.example.model.Empresa" %>
+<%@ page import="org.example.model.TipoEmpresa" %>
+<%@ page import="org.example.model.IndiceClassificacao" %>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -117,10 +120,19 @@
                             <label for="idTipoEmpresaFiltro">Tipo de Empresa:</label>
                             <select name="idTipoEmpresaFiltro" id="idTipoEmpresaFiltro">
                                 <option value="">Todas</option>
-                                <c:forEach var="tipo" items="${tiposFiltro}">
-                                    <option ${tipo.id == idTipoEmpresaFiltro ? 'selected' : ''}
-                                            value="${tipo.id}">${tipo.nome}</option>
-                                </c:forEach>
+                                <%
+                                    List<TipoEmpresa> tiposFiltro = (List<TipoEmpresa>) request.getAttribute("tiposFiltro");
+                                    String idTipoEmpresaFiltro = (String) request.getAttribute("idTipoEmpresaFiltro");
+                                    if (tiposFiltro != null) {
+                                        for (TipoEmpresa tipo : tiposFiltro) {
+                                %>
+                                <option <%= tipo.getId() == (idTipoEmpresaFiltro != null ? Integer.parseInt(idTipoEmpresaFiltro) : 0) ? "selected" : "" %>
+                                        value="<%= tipo.getId() %>"><%= tipo.getNome() %>
+                                </option>
+                                <%
+                                        }
+                                    }
+                                %>
                             </select>
                         </div>
 
@@ -128,11 +140,20 @@
                             <label for="idIndiceClassificacao">Índice de Classificação</label>
                             <select name="idIndiceClassificacaoFiltro" id="idIndiceClassificacao">
                                 <option value="">Todas</option>
-                                <c:forEach var="indice" items="${indices}">
-                                    <option value="${indice.id}" ${empresa.idIndiceClassificacao == indice.id ? "selected" : ""}>${String.format("%.1f", indice.porcentagemMinima)}%
-                                        - ${String.format("%.1f", indice.porcentagemMaxima)}%
-                                    </option>
-                                </c:forEach>
+                                <%
+                                    List<IndiceClassificacao> indices = (List<IndiceClassificacao>) request.getAttribute("indices");
+                                    Empresa empresaAttr = (Empresa) request.getAttribute("empresa");
+                                    if (indices != null) {
+                                        for (IndiceClassificacao indice : indices) {
+                                %>
+                                <option value="<%= indice.getId() %>" <%= empresaAttr != null && empresaAttr.getIdIndiceClassificacao() == indice.getId() ? "selected" : "" %>>
+                                    <%= String.format("%.1f", indice.getPorcentagemMinima()) %>%
+                                    - <%= String.format("%.1f", indice.getPorcentagemMaxima()) %>%
+                                </option>
+                                <%
+                                        }
+                                    }
+                                %>
                             </select>
                         </div>
                     </div>
@@ -173,43 +194,51 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="empresa" items="${empresas}">
-                    <tr class="linhas">
-                        <td data-label="ID">${empresa.id}</td>
-                        <td data-label="Pesquisar">${empresa.nome}</td>
-                        <td data-label="Email" class="sensivel">${empresa.email}</td>
-                        <td data-label="CNPJ" class="sensivel">${empresa.cnpj}</td>
-                        <td data-label="Telefone" class="sensivel">${empresa.telefone}</td>
-                        <td data-label="Tipo de empresa">${tiposEmpresa[empresa.id]}</td>
+                <%
+                    List<Empresa> empresas = (List<Empresa>) request.getAttribute("empresas");
+                    java.util.Map<Integer, String> tiposEmpresa = (java.util.Map<Integer, String>) request.getAttribute("tiposEmpresa");
+                    if (empresas != null) {
+                        for (Empresa empresa : empresas) {
+                %>
+                <tr class="linhas">
+                    <td data-label="ID"><%= empresa.getId() %></td>
+                    <td data-label="Pesquisar"><%= empresa.getNome() %></td>
+                    <td data-label="Email" class="sensivel"><%= empresa.getEmail() %></td>
+                    <td data-label="CNPJ" class="sensivel"><%= empresa.getCnpj() %></td>
+                    <td data-label="Telefone" class="sensivel"><%= empresa.getTelefone() %></td>
+                    <td data-label="Tipo de empresa"><%= tiposEmpresa != null ? tiposEmpresa.get(empresa.getId()) : "" %></td>
 
-                        <td data-label="Ações" class="actions">
-                            <div style="display: flex">
-                                <form>
-                                    <button style="border: none; background: none; cursor: pointer" class="toggleLinha"
-                                            data-olho="${pageContext.request.contextPath}/assets/icons/icon-olho.png"
-                                            data-olho-fechado="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png">
-                                        <img src="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png"/>
-                                    </button>
-                                </form>
-                                <form action="${pageContext.request.contextPath}/private/AlterarEmpresa" method="post">
-                                    <input type="hidden" name="id" value="${empresa.id}">
-                                    <input type="hidden" name="action" value="0">
-                                    <button type="submit" style="border: none; background: none; cursor: pointer"><img
-                                            src="${pageContext.request.contextPath}/assets/icons/icon-edit.png">
-                                    </button>
-                                </form>
-                                <form action="${pageContext.request.contextPath}/private/DeletarEmpresa" method="post">
-                                    <input type="hidden" name="id" value="${empresa.id}">
-                                    <input type="hidden" name="caminho" value="Empresas">
-                                    <input type="hidden" name="action" value="0">
-                                    <button type="submit" style="border: none; background: none; cursor: pointer"><img
-                                            src="${pageContext.request.contextPath}/assets/icons/icon-excluir.png">
-                                    </button>
-                                </form>
-                            </div>
-                        </td>
-                    </tr>
-                </c:forEach>
+                    <td data-label="Ações" class="actions">
+                        <div style="display: flex">
+                            <form>
+                                <button style="border: none; background: none; cursor: pointer" class="toggleLinha"
+                                        data-olho="${pageContext.request.contextPath}/assets/icons/icon-olho.png"
+                                        data-olho-fechado="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png">
+                                    <img src="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png"/>
+                                </button>
+                            </form>
+                            <form action="${pageContext.request.contextPath}/private/AlterarEmpresa" method="post">
+                                <input type="hidden" name="id" value="<%= empresa.getId() %>">
+                                <input type="hidden" name="action" value="0">
+                                <button type="submit" style="border: none; background: none; cursor: pointer"><img
+                                        src="${pageContext.request.contextPath}/assets/icons/icon-edit.png">
+                                </button>
+                            </form>
+                            <form action="${pageContext.request.contextPath}/private/DeletarEmpresa" method="post">
+                                <input type="hidden" name="id" value="<%= empresa.getId() %>">
+                                <input type="hidden" name="caminho" value="Empresas">
+                                <input type="hidden" name="action" value="0">
+                                <button type="submit" style="border: none; background: none; cursor: pointer"><img
+                                        src="${pageContext.request.contextPath}/assets/icons/icon-excluir.png">
+                                </button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                <%
+                        }
+                    }
+                %>
                 </tbody>
             </table>
         </div>
@@ -248,18 +277,34 @@
 
         <label for="idTipoEmpresa">Tipo de Empresa</label>
         <select name="idTipoEmpresa" id="idTipoEmpresa" required>
-            <c:forEach var="tipo" items="${tipos}">
-                <option value="${tipo.id}" ${empresa.idTipoEmpresa == tipo.id ? "selected" : ""}>${tipo.nome}</option>
-            </c:forEach>
+            <%
+                List<TipoEmpresa> tipos = (List<TipoEmpresa>) request.getAttribute("tipos");
+                Empresa empresaAlterar = (Empresa) request.getAttribute("empresa");
+                if (tipos != null) {
+                    for (TipoEmpresa tipo : tipos) {
+            %>
+            <option value="<%= tipo.getId() %>" <%= empresaAlterar != null && empresaAlterar.getIdTipoEmpresa() == tipo.getId() ? "selected" : "" %>><%= tipo.getNome() %></option>
+            <%
+                    }
+                }
+            %>
         </select>
 
         <label for="IndiceClassificacao">Índice de Classificação</label>
         <select name="idIndiceClassificacao" id="IndiceClassificacao" required>
-            <c:forEach var="indice" items="${indices}">
-                <option value="${indice.id}" ${empresa.idIndiceClassificacao == indice.id ? "selected" : ""}>${String.format("%.1f", indice.porcentagemMinima)}%
-                    - ${String.format("%.1f", indice.porcentagemMaxima)}%
-                </option>
-            </c:forEach>
+            <%
+                List<IndiceClassificacao> indicesAlterar = (List<IndiceClassificacao>) request.getAttribute("indices");
+                if (indicesAlterar != null) {
+                    for (IndiceClassificacao indice : indicesAlterar) {
+            %>
+            <option value="<%= indice.getId() %>" <%= empresaAlterar != null && empresaAlterar.getIdIndiceClassificacao() == indice.getId() ? "selected" : "" %>>
+                <%= String.format("%.1f", indice.getPorcentagemMinima()) %>%
+                - <%= String.format("%.1f", indice.getPorcentagemMaxima()) %>%
+            </option>
+            <%
+                    }
+                }
+            %>
         </select>
 
         <label for="nome">Nome</label>
@@ -295,9 +340,16 @@
         <label for="NovoTipoEmpresa">Tipo de Empresa</label>
         <select name="idTipoEmpresa" id="NovoTipoEmpresa" required>
             <option value="" disabled selected>Selecione o tipo de empresa</option>
-            <c:forEach var="tipo" items="${tipos}">
-                <option value="${tipo.id}">${tipo.nome}</option>
-            </c:forEach>
+            <%
+                List<TipoEmpresa> tiposInserir = (List<TipoEmpresa>) request.getAttribute("tipos");
+                if (tiposInserir != null) {
+                    for (TipoEmpresa tipo : tiposInserir) {
+            %>
+            <option value="<%= tipo.getId() %>"><%= tipo.getNome() %></option>
+            <%
+                    }
+                }
+            %>
         </select>
 
         <label for="Novonome">Nome</label>

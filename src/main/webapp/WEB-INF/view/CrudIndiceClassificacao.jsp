@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="java.util.List" %>
+<%@ page import="org.example.model.IndiceClassificacao" %>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -105,35 +106,42 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="indiceClassificacao" items="${indicesClassificacao}">
-                    <tr class="linhas">
-                        <td>${indiceClassificacao.id}</td>
-                        <td>${indiceClassificacao.preocupacao}</td>
-                        <td data-label="Pesquisar">${indiceClassificacao.porcentagemMinima}
-                            - ${indiceClassificacao.porcentagemMaxima}%
-                        </td>
-                        <td class="actions">
-                            <div style="display: flex">
-                                <form action="${pageContext.request.contextPath}/private/AlterarIndiceClassificacao"
-                                      method="post">
-                                    <input type="hidden" name="id" value="${indiceClassificacao.id}">
-                                    <input type="hidden" name="action" value="0">
-                                    <button type="submit" style="border: none; background: none; cursor: pointer"><img
-                                            src="${pageContext.request.contextPath}/assets/icons/icon-edit.png">
-                                    </button>
-                                </form>
-                                <form action="${pageContext.request.contextPath}/private/DeletarIndiceClassificacao"
-                                      method="post">
-                                    <input type="hidden" name="id" value="${indiceClassificacao.id}">
-                                    <input type="hidden" name="action" value="0">
-                                    <button type="submit" style="border: none; background: none; cursor: pointer"><img
-                                            src="${pageContext.request.contextPath}/assets/icons/icon-excluir.png">
-                                    </button>
-                                </form>
-                            </div>
-                        </td>
-                    </tr>
-                </c:forEach>
+                <%
+                    List<IndiceClassificacao> indicesClassificacao = (List<IndiceClassificacao>) request.getAttribute("indicesClassificacao");
+                    if (indicesClassificacao != null) {
+                        for (IndiceClassificacao indiceClassificacao : indicesClassificacao) {
+                %>
+                <tr class="linhas">
+                    <td><%= indiceClassificacao.getId() %></td>
+                    <td><%= indiceClassificacao.getPreocupacao() %></td>
+                    <td data-label="Pesquisar"><%= indiceClassificacao.getPorcentagemMinima() %>
+                        - <%= indiceClassificacao.getPorcentagemMaxima() %>%
+                    </td>
+                    <td class="actions">
+                        <div style="display: flex">
+                            <form action="${pageContext.request.contextPath}/private/AlterarIndiceClassificacao"
+                                  method="post">
+                                <input type="hidden" name="id" value="<%= indiceClassificacao.getId() %>">
+                                <input type="hidden" name="action" value="0">
+                                <button type="submit" style="border: none; background: none; cursor: pointer"><img
+                                        src="${pageContext.request.contextPath}/assets/icons/icon-edit.png">
+                                </button>
+                            </form>
+                            <form action="${pageContext.request.contextPath}/private/DeletarIndiceClassificacao"
+                                  method="post">
+                                <input type="hidden" name="id" value="<%= indiceClassificacao.getId() %>">
+                                <input type="hidden" name="action" value="0">
+                                <button type="submit" style="border: none; background: none; cursor: pointer"><img
+                                        src="${pageContext.request.contextPath}/assets/icons/icon-excluir.png">
+                                </button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                <%
+                        }
+                    }
+                %>
                 </tbody>
             </table>
         </div>
