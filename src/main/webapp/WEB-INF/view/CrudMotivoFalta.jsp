@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="java.util.List" %>
+<%@ page import="org.example.model.MotivoFalta" %>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -105,33 +106,40 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="motivo" items="${motivos}">
-                    <tr class="linhas">
-                        <td data-label="Pesquisar">${motivo.id}</td>
-                        <td>${motivo.motivo}</td>
+                <%
+                    List<MotivoFalta> motivos = (List<MotivoFalta>) request.getAttribute("motivos");
+                    if (motivos != null) {
+                        for (MotivoFalta motivo : motivos) {
+                %>
+                <tr class="linhas">
+                    <td data-label="Pesquisar"><%= motivo.getId() %></td>
+                    <td><%= motivo.getMotivo() %></td>
 
-                        <td class="actions">
-                            <div style="display: flex">
-                                <form action="${pageContext.request.contextPath}/private/AlterarMotivoFalta"
-                                      method="post">
-                                    <input type="hidden" name="id" value="${motivo.id}">
-                                    <input type="hidden" name="action" value="0">
-                                    <button type="submit" style="border: none; background: none; cursor: pointer"><img
-                                            src="${pageContext.request.contextPath}/assets/icons/icon-edit.png">
-                                    </button>
-                                </form>
-                                <form action="${pageContext.request.contextPath}/private/DeletarMotivoFalta"
-                                      method="post">
-                                    <input type="hidden" name="id" value="${motivo.id}">
-                                    <input type="hidden" name="action" value="0">
-                                    <button type="submit" style="border: none; background: none; cursor: pointer"><img
-                                            src="${pageContext.request.contextPath}/assets/icons/icon-excluir.png">
-                                    </button>
-                                </form>
-                            </div>
-                        </td>
-                    </tr>
-                </c:forEach>
+                    <td class="actions">
+                        <div style="display: flex">
+                            <form action="${pageContext.request.contextPath}/private/AlterarMotivoFalta"
+                                  method="post">
+                                <input type="hidden" name="id" value="<%= motivo.getId() %>">
+                                <input type="hidden" name="action" value="0">
+                                <button type="submit" style="border: none; background: none; cursor: pointer"><img
+                                        src="${pageContext.request.contextPath}/assets/icons/icon-edit.png">
+                                </button>
+                            </form>
+                            <form action="${pageContext.request.contextPath}/private/DeletarMotivoFalta"
+                                  method="post">
+                                <input type="hidden" name="id" value="<%= motivo.getId() %>">
+                                <input type="hidden" name="action" value="0">
+                                <button type="submit" style="border: none; background: none; cursor: pointer"><img
+                                        src="${pageContext.request.contextPath}/assets/icons/icon-excluir.png">
+                                </button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                <%
+                        }
+                    }
+                %>
                 </tbody>
             </table>
         </div>

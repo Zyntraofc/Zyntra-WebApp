@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="java.util.List" %>
+<%@ page import="org.example.model.Administrador" %>
 <html>
 <head>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/crud.css">
@@ -108,38 +109,45 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="administrador" items="${administradores}">
-                    <tr class="linhas">
-                        <td>${administrador.id}</td>
-                        <td data-label="Pesquisar">${administrador.email}</td>
-                        <td class="sensivel">${administrador.hashSenha}</td>
-                        <td class="actions">
-                            <div style="display: flex">
-                                <form>
-                                    <button style="border: none; background: none; cursor: pointer" class="toggleLinha"
-                                            data-olho="${pageContext.request.contextPath}/assets/icons/icon-olho.png"
-                                            data-olho-fechado="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png">
-                                        <img src="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png"/>
-                                    </button>
-                                </form>
-                                <form action="${pageContext.request.contextPath}/private/AlterarAdm" method="post">
-                                    <input type="hidden" name="id" value="${administrador.id}">
-                                    <input type="hidden" name="action" value="0">
-                                    <button type="submit" style="border: none; background: none; cursor: pointer"><img
-                                            src="${pageContext.request.contextPath}/assets/icons/icon-edit.png">
-                                    </button>
-                                </form>
-                                <form action="${pageContext.request.contextPath}/private/DeletarAdm" method="post">
-                                    <input type="hidden" name="id" value="${administrador.id}">
-                                    <input type="hidden" name="action" value="0">
-                                    <button type="submit" style="border: none; background: none; cursor: pointer"><img
-                                            src="${pageContext.request.contextPath}/assets/icons/icon-excluir.png">
-                                    </button>
-                                </form>
-                            </div>
-                        </td>
-                    </tr>
-                </c:forEach>
+                <%
+                    List<Administrador> administradores = (List<Administrador>) request.getAttribute("administradores");
+                    if (administradores != null) {
+                        for (Administrador administrador : administradores) {
+                %>
+                <tr class="linhas">
+                    <td><%= administrador.getId() %></td>
+                    <td data-label="Pesquisar"><%= administrador.getEmail() %></td>
+                    <td class="sensivel"><%= administrador.getHashSenha() %></td>
+                    <td class="actions">
+                        <div style="display: flex">
+                            <form>
+                                <button style="border: none; background: none; cursor: pointer" class="toggleLinha"
+                                        data-olho="${pageContext.request.contextPath}/assets/icons/icon-olho.png"
+                                        data-olho-fechado="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png">
+                                    <img src="${pageContext.request.contextPath}/assets/icons/icon-olho-fechado.png"/>
+                                </button>
+                            </form>
+                            <form action="${pageContext.request.contextPath}/private/AlterarAdm" method="post">
+                                <input type="hidden" name="id" value="<%= administrador.getId() %>">
+                                <input type="hidden" name="action" value="0">
+                                <button type="submit" style="border: none; background: none; cursor: pointer"><img
+                                        src="${pageContext.request.contextPath}/assets/icons/icon-edit.png">
+                                </button>
+                            </form>
+                            <form action="${pageContext.request.contextPath}/private/DeletarAdm" method="post">
+                                <input type="hidden" name="id" value="<%= administrador.getId() %>">
+                                <input type="hidden" name="action" value="0">
+                                <button type="submit" style="border: none; background: none; cursor: pointer"><img
+                                        src="${pageContext.request.contextPath}/assets/icons/icon-excluir.png">
+                                </button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                <%
+                        }
+                    }
+                %>
                 </tbody>
             </table>
         </div>
