@@ -245,7 +245,7 @@
         </div>
 
         <label for="motivoRejeicao">Motivo de rejeição</label>
-        <textarea name="motivoRejeicao" id="motivoRejeicao" rows="4">${alterarStatus.getMotivoRejeicao()}</textarea>
+        <textarea name="motivoRejeicao" id="motivoRejeicao" rows="4" placeholder="Se possível, descreva o motivo da rejeição...">${alterarStatus.getMotivoRejeicao()}</textarea>
 
         <div class="botoes">
             <div class="cancelar"><a href="${pageContext.request.contextPath}/private/ListarStatusAprovacao">✖
@@ -280,17 +280,17 @@
         </select>
 
         <label for="Novonome">Nome</label>
-        <input type="text" id="Novonome" name="nome">
+        <input type="text" id="Novonome" name="nome" placeholder="Ex: Empresa ABC Ltda">
 
         <label for="Novocnpj-mask">CNPJ</label>
-        <input type="text" id="Novocnpj-mask" class="validar-input" required pattern="^([^ ]{18})$">
+        <input type="text" id="Novocnpj-mask" class="validar-input" required pattern="^([^ ]{18})$" placeholder="00.000.000/0000-00">
         <input type="hidden" id="Novocnpj" name="cnpj">
 
         <label for="Novoemail">E-mail</label>
-        <input type="email" id="Novoemail" name="email" required class="validar-input">
+        <input type="email" id="Novoemail" name="email" required class="validar-input" placeholder="exemplo@empresa.com">
 
         <label for="Novotelefone-mask">Telefone</label>
-        <input type="text" id="Novotelefone-mask" class="validar-input" pattern="^([^,]{15})$" required>
+        <input type="text" id="Novotelefone-mask" class="validar-input" pattern="^([^,]{15})$" required placeholder="(11) 99999-9999">
         <input type="hidden" id="Novotelefone" name="telefone">
 
         <div class="botoes">
