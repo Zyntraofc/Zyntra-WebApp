@@ -7,6 +7,7 @@
 
 /* ===== IMPORTAÇÕES E CONFIGURAÇÕES GERAIS ===== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&display=swap');
 
 /*
  * RESET E CONFIGURAÇÕES BÁSICAS
@@ -760,6 +761,7 @@ main {
     border-radius: 15px;
     padding-right: 0.75vw;
     background-color: white;
+    transition: all 0.5s !important;
 }
 
 .benefit-card.first h3,
@@ -1185,7 +1187,10 @@ input:checked + .option-background {
     column-gap: 5%;
     margin-top: 2.5%;
 }
-
+#about-content p{
+    font-size: clamp(0.1rem, 1.26vw, 8rem) !important;
+    font-weight: 400 !important;
+}
 #about-content > *:nth-child(1) {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
@@ -1199,7 +1204,7 @@ input:checked + .option-background {
 #ajuda-visual {
     display: none;
     color: #FFF;
-    font-size: clamp(0.1rem, 1.46vw, 8rem);
+    font-size: clamp(0.1rem, 1.26vw, 8rem) !important;
     font-weight: 400;
 }
 
@@ -1222,7 +1227,9 @@ input:checked + .option-background {
 }
 
 #about-image {
-    background-image: url(../assets/equipe-zyntra.png);
+    height: 140%;
+    margin-left: 30px;
+    background-image: url(../assets/equipe.png);
     background-repeat: no-repeat;
     background-size: contain;
 }
@@ -1322,12 +1329,13 @@ footer .brand-container div {
 #footer-content {
     display: -ms-grid;
     display: grid;
+    gap: 2vw;
     -ms-grid-columns: 52.5% 47.5%;
     grid-template-columns: 52.5% 47.5%;
 }
 
 #footer-primary {
-    width: 100%;
+    width: 80%;
 }
 
 #footer-secondary {
