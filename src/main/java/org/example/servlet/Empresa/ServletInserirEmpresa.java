@@ -92,9 +92,13 @@ public class ServletInserirEmpresa extends HttpServlet {
                 req.getRequestDispatcher("/private/Listar" + caminho).forward(req, resp);
                 return;
             }
-            
+
+            //Padronizando formato do cnpj
+            String cnpjFormatado = ValidacaoCnpj.formatarCnpj(cnpj);
+
+
             //Valida CNPJ
-            if (!ValidacaoCnpj.isCNPJValido(cnpj)) {
+            if (!ValidacaoCnpj.isCNPJValido(cnpjFormatado)) {
                 req.setAttribute("erro", "O CNPJ digitado não existe");
                 req.getRequestDispatcher("/private/Listar" + caminho).forward(req, resp);
                 return;

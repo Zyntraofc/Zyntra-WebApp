@@ -11,7 +11,7 @@ public class ValidacaoTelefone {
     //Metodo para validar o telefone
     public boolean validarTelefone(String telefone){
         //Expressão regular (regex) --> Aceita: (XX) XXXXX-XXXX; XX XXXXX-XXXX; XXXXXXXXXXX; etc...
-        String expressao = "\\(?\\d{2}\\)? ?\\d{5}-?\\d{4}";
+        String expressao = "^(\\(?\\d{2}\\)?\\s?)?(\\d{4,5})[-\\s]?\\d{4}$";
         //Compilando expressão
         Pattern regex = Pattern.compile(expressao);
         //Comparador com telefone
@@ -22,16 +22,18 @@ public class ValidacaoTelefone {
     }
 
 
-    //Metodo para padronizar telefone
-    public String padronizarTelefone(String telefone){
-        //Verificação se o telefone é válido
-        if(validarTelefone(telefone)){
-            //Troca tudo que não for número no telefone por um espaço vazio e retorna
-            String telefoneFormatado = telefone.replaceAll("[^0-9]", "");
-            return telefoneFormatado;
-        }else{
-            //Se não for válido retorna nulo
+    //Metodo para padronizar telefone (Todos os telefones devem ter o mesmo formato no banco de dados)
+    public static String formatarTelefone(String telefone){
+
+        //Se o telefone for nulo retorna null (não é possivel fazer operações com String nula)
+        if(telefone == null){
             return null;
         }
+
+        //Troca tudo oque não for null por um espaço vazio na String
+        String telefoneFormatado = telefone.replaceAll("[^0-9]", "");
+
+        //Retorna o telefone formatado
+        return telefoneFormatado;
     }
 }
