@@ -1307,6 +1307,11 @@ footer a {
     font-weight: 400;
     text-decoration: underline;
 }
+footer a:hover{
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px 1px rgba(255, 255, 255, 0.4);
+}
 
 footer .brand-container div {
     background-image: url(../assets/logos/logo-roxo.png);
