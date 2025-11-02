@@ -1,3 +1,8 @@
+<%--
+  CRUD - STATUS DE APROVAÇÃO
+  Sistema para gerenciar o status de aprovação das empresas no sistema
+  Controla se empresas estão aprovadas, pendentes ou recusadas
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List" %>
 <%@ page import="org.example.model.StatusAprovacao" %>
@@ -138,6 +143,11 @@
     <%
         }
     %>
+    <!--
+  ESTRUTURA DA TABELA
+  Colunas: ID, Nome da Empresa, Status, Data de Solicitação, Ações
+  Nome da empresa e data são marcados como dados sensíveis
+-->
     <section class="table-card">
         <div class="table-container">
             <table>
@@ -162,6 +172,7 @@
                     <td data-label="Pesquisar" class="sensivel"><%= nomesEmpresas != null ? nomesEmpresas.get(status.getId()) : "" %></td>
                     <td><%= String.valueOf(status.getStatus()).equals("a") ? "Aprovado" : String.valueOf(status.getStatus()).equals("r") ? "Recusado" : "Pendente" %></td>
                     <td class="sensivel"><%= status.getDataSolicitacao() %></td>
+                    <!-- BOTÕES DE AÇÃO CRUD: Visualizar dados sensíveis (olho), Editar (lápis) e Excluir (lixeira)-->
                     <td class="actions">
                         <div style="display: flex">
                             <form>
@@ -200,7 +211,10 @@
     </section>
 </main>
 
-<!-- Restante do código permanece igual -->
+<%--
+  POPUPS PARA REALIZAR AÇÕES EM STATUS
+  Formulários para cadastrar, deletar e alterar um status
+--%>
 <% if (request.getAttribute("popup-deletar") != null) { %>
 <div class="tela-transparente"></div>
 <div class="deletar">
@@ -301,7 +315,11 @@
     </form>
 </div>
 <% } %>
-
+<!--
+CONFIGURAÇÃO DE MASCARAS JQUERY
+Aplica formatação automática para CNPJ e telefone
+Atualiza campos hidden com valores limpos
+-->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
 <script>

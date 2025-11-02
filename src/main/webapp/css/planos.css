@@ -1,3 +1,7 @@
+/*
+  CONFIGURAÇÕES GLOBAIS DO LAYOUT
+  Define altura total da viewport e controle de overflow
+*/
 body {
     width: 100vw !important;
     min-height: 100vh !important;
@@ -5,6 +9,10 @@ body {
     overflow-x: hidden;
 }
 
+/*
+  ESTILIZAÇÃO DO CONTEÚDO PRINCIPAL
+  Remove background image e centraliza o conteúdo
+*/
 main {
     overflow-x: hidden;
     min-height: calc(100vh - 100px) !important;
@@ -36,6 +44,11 @@ main {
     text-align: center;
 }
 
+/*
+  LAYOUT EM GRADE PARA OS PLANOS
+  Grid de 3 colunas com espaçamento entre elas
+  Altura fixa para alinhamento uniforme
+*/
 #planos-container {
     margin-top: 30px;
     width: 60%;
@@ -45,6 +58,11 @@ main {
     height: 300px;
 }
 
+/*
+  ESTILO BASE DOS CARTÕES DE PLANO
+  Card branco com sombra e bordas arredondadas
+  Transição suave para efeitos hover
+*/
 .plano {
     padding: 5px;
     display: flex;
@@ -97,6 +115,11 @@ main {
     margin-top: 40px !important;
 }
 
+/*
+  BOTÃO DE PREÇO DOS PLANOS
+  Borda azul gradiente e texto com efeito gradiente
+  Efeitos de hover com elevação e sombra
+*/
 .plano-button {
     width: 150px;
     height: 33px;
@@ -125,6 +148,11 @@ main {
     -ms-transform: translateY(-1%);
     transform: translateY(-1%);
 }
+
+/*
+  BOTÃO GRADIENTE
+  Transições suaves e efeitos de escala
+*/
 .platform-link {
     --black-700: hsla(0 0% 12% / 1);
     --border_radius: 40px;

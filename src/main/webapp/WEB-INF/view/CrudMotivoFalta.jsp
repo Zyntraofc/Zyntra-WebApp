@@ -1,3 +1,8 @@
+<%--
+  CRUD - MOTIVOS DE FALTA
+  Sistema para gerenciar os motivos de ausência/falta dos colaboradores
+  Cada motivo representa uma justificativa para faltas no sistema de ponto
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List" %>
 <%@ page import="org.example.model.MotivoFalta" %>
@@ -11,6 +16,11 @@
 </head>
 <body>
 
+<!--
+  MENU DE NAVEGAÇÃO DO PAINEL ADMINISTRATIVO
+  Motivo Falta marcado como seção ativa (active)
+  Navegação entre diferentes módulos do sistema
+-->
 <aside>
     <div class="sidebar-header">
         <div class="logo-container">
@@ -56,6 +66,10 @@
             <input type="hidden" name="usuario" value="${session.getAttribute("usuario")}">
         </form>
 
+        <!--
+  BOTÃO DE LOGOUT
+  Formulário para encerrar a sessão do usuário
+-->
         <div class="sair-container">
             <form action="${pageContext.request.contextPath}/Logout">
                 <button type="submit" class="sair">
@@ -95,6 +109,11 @@
     <%
         }
     %>
+    <!--
+  ESTRUTURA DA TABELA
+  Colunas: ID, Motivo (descrição) e Ações
+  A coluna ID é usada para pesquisa
+-->
     <section class="table-card">
         <div class="table-container">
             <table>
@@ -145,6 +164,10 @@
         </div>
     </section>
 </main>
+<%--
+  POPUPS PARA REALIZAR AÇÕES EM MOTIVOS
+  Formulários para cadastrar, deletar e alterar um motivo
+--%>
 <% if (request.getAttribute("popup-deletar") != null) { %>
 <div class="tela-transparente"></div>
 <div class="deletar">
