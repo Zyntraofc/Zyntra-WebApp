@@ -122,11 +122,11 @@
                                 <option value="">Todas</option>
                                 <%
                                     List<TipoEmpresa> tiposFiltro = (List<TipoEmpresa>) request.getAttribute("tiposFiltro");
-                                    String idTipoEmpresaFiltro = (String) request.getAttribute("idTipoEmpresaFiltro");
+                                    Integer idTipoEmpresaFiltro = (Integer) request.getAttribute("idTipoEmpresaFiltro");
                                     if (tiposFiltro != null) {
                                         for (TipoEmpresa tipo : tiposFiltro) {
                                 %>
-                                <option <%= tipo.getId() == (idTipoEmpresaFiltro != null ? Integer.parseInt(idTipoEmpresaFiltro) : 0) ? "selected" : "" %>
+                                <option <%= tipo.getId() == (idTipoEmpresaFiltro != null ? idTipoEmpresaFiltro : 0) ? "selected" : "" %>
                                         value="<%= tipo.getId() %>"><%= tipo.getNome() %>
                                 </option>
                                 <%
