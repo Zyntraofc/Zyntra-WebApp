@@ -175,7 +175,7 @@
         <input type="hidden" name="id" value="${motivo.getId()}">
 
         <label for="motivo">Motivo</label>
-        <input type="text" id="motivo" name="motivo" value="${motivo.getMotivo()}" placeholder="Ex: Férias coletivas, Manutenção programada, Greve">>
+        <input type="text" id="motivo" required name="motivo" value="${motivo.getMotivo()}" placeholder="Ex: Férias coletivas, Manutenção programada, Greve">>
 
         <div class="botoes">
             <div class="cancelar"><a href="${pageContext.request.contextPath}/private/ListarMotivosFalta">✖ Cancelar</a>
@@ -192,7 +192,7 @@
     <h1>Inserir Motivo de Falta</h1>
     <form action="${pageContext.request.contextPath}/private/InserirMotivoFalta" method="post">
         <label for="NovoMotivoFalta">Motivo</label>
-        <input type="text" name="motivo" id="NovoMotivoFalta" placeholder="Ex: Férias coletivas, Manutenção programada, Greve">>
+        <input type="text" required name="motivo" id="NovoMotivoFalta" placeholder="Ex: Férias coletivas, Manutenção programada, Greve">>
         <div class="botoes">
             <div class="cancelar"><a href="${pageContext.request.contextPath}/private/ListarMotivosFalta">✖ Cancelar</a>
             </div>

@@ -220,7 +220,7 @@
         <input type="hidden" name="id" value="${tipoEmpresa.getId()}">
 
         <label for="nome">Nome</label>
-        <input type="text" name="nome" id="nome" value="${tipoEmpresa.getNome()}" placeholder="Ex: Indústria Siderúrgica, Indústria Petroquímica">
+        <input type="text" name="nome" required id="nome" value="${tipoEmpresa.getNome()}" placeholder="Ex: Indústria Siderúrgica, Indústria Petroquímica">
 
         <label for="descricao">Descrição</label>
         <textarea name="descricao" id="descricao" rows="2" placeholder="Descreva/aprofunde as características deste segmento empresarial (opcional)">${tipoEmpresa.getDescricao()}</textarea>
@@ -240,7 +240,7 @@
     <h1>Inserir tipo de empresa</h1>
     <form action="${pageContext.request.contextPath}/private/InserirTipoEmpresa" method="post">
         <label for="Novonome">Tipo de Empresa</label>
-        <input type="text" name="nome" id="Novonome" placeholder="Ex: Indústria Siderúrgica, Indústria Petroquímica">
+        <input type="text" name="nome" required id="Novonome" placeholder="Ex: Indústria Siderúrgica, Indústria Petroquímica">
 
         <label for="Novadescricao">Descrição</label>
         <textarea name="descricao" id="Novadescricao" rows="2"

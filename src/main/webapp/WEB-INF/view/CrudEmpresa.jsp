@@ -308,7 +308,7 @@
         </select>
 
         <label for="nome">Nome</label>
-        <input type="text" id="nome" name="nome" value="${empresa.getNome()}" placeholder="Ex: Empresa ABC Ltda">
+        <input type="text" id="nome" name="nome" required value="${empresa.getNome()}" placeholder="Ex: Empresa ABC Ltda">
 
         <label for="cnpj">CNPJ</label>
         <input type="text" id="cnpj" name="cnpj" value="${empresa.getCnpj()}" readonly>
@@ -353,7 +353,7 @@
         </select>
 
         <label for="Novonome">Nome</label>
-        <input type="text" id="Novonome" name="nome" placeholder="Ex: Empresa ABC Ltda">
+        <input type="text" id="Novonome" name="nome" placeholder="Ex: Empresa ABC Ltda" required>
 
         <label for="Novocnpj-mask">CNPJ</label>
         <input type="text" id="Novocnpj-mask" placeholder="00.000.000/0000-00" class="validar-input" required pattern="^^\d{2}\.?\d{3}\.?\d{3}\/?\d{4}-?\d{2}$">
