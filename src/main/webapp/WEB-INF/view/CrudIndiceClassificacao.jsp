@@ -1,3 +1,8 @@
+<%--
+  CRUD - ÍNDICES DE CLASSIFICAÇÃO
+  Sistema para gerenciar faixas de classificação de desempenho das empresas
+  Cada índice define uma faixa percentual com nível de preocupação e recomendações
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List" %>
 <%@ page import="org.example.model.IndiceClassificacao" %>
@@ -10,6 +15,11 @@
     <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/logos/logo-quadrada.png">
 </head>
 <body>
+<!--
+  MENU DE NAVEGAÇÃO DO PAINEL ADMINISTRATIVO
+  Índice de Classificação marcado como seção ativa (active)
+  Links para outros módulos do sistema: Empresa, Adm, Status, etc.
+-->
 <aside>
     <div class="sidebar-header">
         <div class="logo-container">
@@ -66,6 +76,10 @@
     </div>
 </aside>
 <main>
+    <!--
+  CABEÇALHO DA PÁGINA
+  Identifica a área restrita e o propósito CRUD
+-->
     <h1>Área Restrita</h1>
     <p>CRUD</p>
 
@@ -86,6 +100,10 @@
             </form>
         </div>
     </div>
+    <%--
+  EXIBIÇÃO DE MENSAGENS DE ERRO
+  Caso exista algum erro na operação, exibe em parágrafo
+--%>
     <%
         if (request.getAttribute("erro") != null) {
     %>
@@ -94,8 +112,14 @@
     <%
         }
     %>
+    <!--
+  ESTRUTURA DA TABELA
+  Colunas: ID, Preocupação, Porcentagem (faixa) e Ações
+  A coluna Porcentagem é usada para pesquisa
+-->
     <section class="table-card">
         <div class="table-container">
+
             <table>
                 <thead>
                 <tr>
@@ -112,8 +136,10 @@
                         for (IndiceClassificacao indiceClassificacao : indicesClassificacao) {
                 %>
                 <tr class="linhas">
-                    <td><%= indiceClassificacao.getId() %></td>
-                    <td><%= indiceClassificacao.getPreocupacao() %></td>
+                    <td><%= indiceClassificacao.getId() %>
+                    </td>
+                    <td><%= indiceClassificacao.getPreocupacao() %>
+                    </td>
                     <td data-label="Pesquisar"><%= indiceClassificacao.getPorcentagemMinima() %>
                         - <%= indiceClassificacao.getPorcentagemMaxima() %>%
                     </td>
@@ -147,6 +173,10 @@
         </div>
     </section>
 </main>
+<%--
+  POPUPS PARA REALIZAR AÇÕES EM ÍNDICES
+  Formulários para cadastrar, deletar e alterar um índice
+--%>
 <% if (request.getAttribute("popup-deletar") != null) { %>
 <div class="tela-transparente"></div>
 <div class="deletar">
@@ -178,16 +208,20 @@
 
         <label for="porcentagemMinima">Porcentagem Mínima</label>
         <input type="number" name="porcentagemMinima" id="porcentagemMinima"
-               value="${indiceClassificacao.getPorcentagemMinima()}" min="0" required class="validar-input"  placeholder="Ex: 10.0" step="0.1">
+               value="${indiceClassificacao.getPorcentagemMinima()}" min="0" required class="validar-input"
+               placeholder="Ex: 10.0" step="0.1">
 
         <label for="porcentagemMaxima">Porcentagem máxima</label>
         <input type="number" name="porcentagemMaxima" id="porcentagemMaxima"
-               value="${indiceClassificacao.getPorcentagemMaxima()}" max="100" required class="validar-input" placeholder="Ex: 25.0" step="0.1">
+               value="${indiceClassificacao.getPorcentagemMaxima()}" max="100" required class="validar-input"
+               placeholder="Ex: 25.0" step="0.1">
 
         <label for="preocupacao">Preocupação</label>
-        <input type="text" name="preocupacao" required id="preocupacao" value="${indiceClassificacao.getPreocupacao()}" placeholder="Ex: Baixa">
+        <input type="text" name="preocupacao" required id="preocupacao" value="${indiceClassificacao.getPreocupacao()}"
+               placeholder="Ex: Baixa">
         <label for="recomendacao">Recomendação</label>
-        <textarea rows="4" name="recomendacao" id="recomendacao" required placeholder="Digite as recomendações para esta faixa de classificação...">${indiceClassificacao.getRecomendacao()}</textarea>
+        <textarea rows="4" name="recomendacao" id="recomendacao" required
+                  placeholder="Digite as recomendações para esta faixa de classificação...">${indiceClassificacao.getRecomendacao()}</textarea>
 
         <div class="botoes">
             <div class="cancelar"><a href="${pageContext.request.contextPath}/private/ListarIndiceClassificacao">✖
@@ -211,7 +245,8 @@
         <input type="number" name="porcentagemMaxima" id="Novamaxima" placeholder="Digite a porcentagem máxima (%)"
                max="100" required class="validar-input" placeholder="Ex: 25.0" step="0.1">
         <label for="Novapreocupacao">Preocupação</label>
-        <input type="text" name="preocupacao" id="Novapreocupacao" required placeholder="Digite o o nível de preocupação" placeholder="Ex: Baixa">
+        <input type="text" name="preocupacao" id="Novapreocupacao" required
+               placeholder="Digite o o nível de preocupação" placeholder="Ex: Baixa">
         <label for="Novarecomendacao">Recomendação</label>
         <textarea rows="4" name="recomendacao" id="Novarecomendacao" required
                   placeholder="Digite as recomendações para esta faixa de classificação..."></textarea>

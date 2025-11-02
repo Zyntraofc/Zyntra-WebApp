@@ -1,3 +1,7 @@
+<%--
+  PÁGINA DE CRUD - ADMINISTRADORES
+  Interface administrativa para gerenciar administradores
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List" %>
 <%@ page import="org.example.model.Administrador" %>
@@ -13,6 +17,11 @@
           integrity="sha512-pap4G5rY9O6..." crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
 <body>
+<!--
+  BARRA LATERAL DE NAVEGAÇÃO
+  Menu com acesso às diferentes seções do painel administrativo
+  Item "Adm" marcado como ativo (active)
+-->
 <aside>
     <div class="sidebar-header">
         <div class="logo-container">
@@ -70,8 +79,13 @@
 </aside>
 
 <main>
+    <!--
+  CABEÇALHO E BARRA DE FERRAMENTAS
+  Título da página e área de pesquisa e ações
+-->
     <h1>Área Restrita</h1>
     <p>CRUD</p>
+
 
     <div class="top-bar">
         <form class="search-form">
@@ -89,6 +103,10 @@
             </form>
         </div>
     </div>
+    <%--
+  EXIBIÇÃO DE MENSAGENS DE ERRO
+  Caso exista algum erro
+--%>
     <%
         if (request.getAttribute("erro") != null) {
     %>
@@ -99,6 +117,10 @@
     %>
     <section class="table-card">
         <div class="table-container">
+            <%--
+TABELA DE ADMINISTRADORES
+Exibe a lista de administradores com suas informações
+--%>
             <table>
                 <thead>
                 <tr>
@@ -153,6 +175,10 @@
         </div>
     </section>
 </main>
+<%--
+  POPUPS PARA REALIZAR AÇÕES EM ADM
+  Formulário para cadastrar, deletar e alterar um adm
+--%>
 <% if (request.getAttribute("popup-deletar") != null) { %>
 <div class="tela-transparente"></div>
 <div class="deletar">

@@ -1,3 +1,8 @@
+<%--
+  CRUD - TIPOS DE EMPRESA
+  Sistema para gerenciar categorias/segmentos empresariais disponíveis no sistema
+  Cada tipo define um segmento específico de atuação empresarial
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List" %>
 <%@ page import="org.example.model.TipoEmpresa" %>
@@ -10,6 +15,7 @@
     <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/logos/logo-quadrada.png">
 </head>
 <body>
+<!-- MENU DE NAVEGAÇÃO - Tipo Empresa marcado como seção ativa -->
 <aside>
     <div class="sidebar-header">
         <div class="logo-container">
@@ -70,6 +76,7 @@
     <p>CRUD</p>
 
     <div class="top-bar">
+        <!-- BARRA DE PESQUISA - Filtra tipos de empresa por nome -->
         <form class="search-form">
             <img src="${pageContext.request.contextPath}/assets/icons/icon-lupa.png" alt="Pesquisar">
             <input id="searchbar" name="searchbar" onkeyup="search()" type="text" placeholder="Buscar nome...">
@@ -87,6 +94,7 @@
 
 
             <!-- POPUP DOS FILTROS -->
+            <!-- SISTEMA DE FILTROS - Filtra por status (Ativas/Inativas) e data de atualização -->
             <div class="filtros-container">
                 <div class="filtros-header">
                     <h3 class="filtros-titulo">Filtros</h3>
@@ -119,7 +127,7 @@
                 </form>
             </div>
 
-            <!-- CORREÇÃO: Botão Adicionar Novo dentro do container actions -->
+            <!-- BOTÕES DE AÇÃO CRUD: Adicionar novo tipo de empresa (+) -->
             <form action="${pageContext.request.contextPath}/private/InserirTipoEmpresa" class="button-adicionar-novo">
                 <button type="submit">
                     <img src="${pageContext.request.contextPath}/assets/icons/icon-add.png" alt="Adicionar">
@@ -136,6 +144,7 @@
     <%
         }
     %>
+    <!-- TABELA DE TIPOS DE EMPRESA - Colunas: ID, Nome, Status, Última atualização, Ações -->
     <section class="table-card">
         <div class="table-container">
             <table>
@@ -159,7 +168,8 @@
                     <td data-label="Pesquisar"><%= tipoEmpresa.getNome() %></td>
                     <td><%= String.valueOf(tipoEmpresa.getStatus()).equals("i") ?"Inativo": "Ativo" %></td>
                     <td><%= tipoEmpresa.getUltimaAtualizacao() %></td>
-                    <td class="actionsgit">
+                    <!-- BOTÕES DE AÇÃO CRUD: Editar (lápis) e Excluir (lixeira) -->
+                    <td class="actions">
                         <div style="display: flex">
                             <form action="${pageContext.request.contextPath}/private/AlterarTipoEmpresa"
                                   method="post">
@@ -190,6 +200,10 @@
     </section>
 </main>
 
+<%--
+  POPUPS PARA REALIZAR AÇÕES EM TIPOS DE EMPRESA
+  Formulários para cadastrar, deletar e alterar um tipo
+--%>
 <% if (request.getAttribute("popup-deletar") != null) { %>
 <div class="tela-transparente"></div>
 <div class="deletar">

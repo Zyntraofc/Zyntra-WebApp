@@ -13,6 +13,10 @@
     <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/logos/logo-quadrada.png">
 </head>
 <body>
+<%--
+  MENU LATERAL - NAVEGAÇÃO ENTRE MÓDULOS
+  Contém formulários para navegar entre diferentes seções administrativas
+--%>
 <aside>
     <div class="sidebar-header">
         <div class="logo-container">
@@ -79,6 +83,10 @@
 
         </form>
 
+        <%--
+  SISTEMA DE FILTROS
+  Permite filtrar empresas por nome, status, tipo e índice de classificação
+--%>
         <div class="actions">
             <input type="checkbox" id="toggle-filtros">
 
@@ -179,6 +187,10 @@
     <%
         }
     %>
+    <%--
+  TABELA DE EMPRESAS
+  Exibe a lista de empresas com suas informações principais
+--%>
     <section class="table-card">
         <div class="table-container">
             <table>
@@ -244,6 +256,10 @@
         </div>
     </section>
 </main>
+<%--
+  POPUPS PARA REALIZAR AÇÕES EM EMPRESAS
+  Formulários para cadastrar, deletar e alterar uma empresa
+--%>
 <% if (request.getAttribute("popup-deletar") != null) { %>
 <div class="tela-transparente"></div>
 <div class="deletar">
@@ -374,7 +390,11 @@
     </form>
 </div>
 <% } %>
-
+<%--
+  CONFIGURAÇÃO DE MASCARAS PARA CAMPOS
+  Aplica formatação automática para CNPJ e telefone
+  Utiliza jQuery Mask Plugin para formatação
+--%>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
 <script>

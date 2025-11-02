@@ -1,4 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!--
+CONFIGURAÇÕES E ESTILOS DA PÁGINA DE ERRO
+Carrega CSS específico para estilização de mensagens de erro
+-->
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page isErrorPage="true" %>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -10,7 +14,11 @@
     <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/logos/logo-quadrada.png">
 </head>
 <body>
-<div class="error-container">
+
+<div class="error-container"><!--
+  CABEÇALHO VISUAL DO ERRO
+  Exibe ícone e título para identificar claramente que ocorreu um erro
+-->
     <div class="error-header">
         <img src="${pageContext.request.contextPath}/assets/icons/icon-error.png"
              alt="Ícone de Erro" class="error-icon">
@@ -25,6 +33,10 @@
                 <div class="detail-row">
                     <strong>Type:</strong> Exception Report
                 </div>
+                <%--
+  SEÇÃO DE DETALHES DO ERRO HTTP
+  Exibe informações técnicas sobre o status e tipo do erro
+--%>
                 <div class="detail-row">
                     <strong>Message:</strong>
                     <%
@@ -37,11 +49,17 @@
                     %>
                 </div>
                 <div class="detail-row">
-                    <strong>Description:</strong> The server encountered an unexpected condition that prevented it from fulfilling the request.
+                    <strong>Description:</strong> The server encountered an unexpected condition that prevented it from
+                    fulfilling the request.
                 </div>
             </div>
         </section>
 
+        <%--
+  DETALHES DA EXCEÇÃO
+  Recupera a exceção do atributo da requisição e exibe informações detalhadas
+  Mostra o nome da classe e mensagem da exceção
+--%>
         <section class="exception-section">
             <h3>Exception</h3>
             <div class="exception-details">
@@ -72,7 +90,8 @@
                 %>
                 <div class="exception-stack">
                     <code>
-                        java.lang.NullPointerException: Cannot invoke "java.sql.Connection.setAutoCommit(boolean)" because "org.example.conexao.ConexooManager.com" is null<br>
+                        java.lang.NullPointerException: Cannot invoke "java.sql.Connection.setAutoCommit(boolean)"
+                        because "org.example.conexao.ConexooManager.com" is null<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;org.example.conexao.ConexooManager.conector(ConexaoManager.java:32)<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;org.example.dao.AdministradorDAO.listarAdministradorPortEmail(AdministradorDAO.java:78)<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;org.example.servlet.controls.ServletLogin.doPost(ServletLogin.java:39)<br>
@@ -89,14 +108,22 @@
 
         <section class="note-section">
             <div class="note">
-                <strong>Note:</strong> A pilha de erros completa da causa principal está disponível nos logs do servidor.
+                <strong>Note:</strong> A pilha de erros completa da causa principal está disponível nos logs do
+                servidor.
             </div>
         </section>
 
+        <!--
+  BOTÕES DE RECUPERAÇÃO
+  Permitem ao usuário navegar de volta, recarregar ou voltar à página inicial
+  Fornecem alternativas para continuar usando a aplicação
+-->
         <div class="action-buttons">
             <button onclick="window.history.back()" class="btn btn-back">Voltar</button>
             <button onclick="window.location.reload()" class="btn btn-reload">Recarregar</button>
-            <button onclick="window.location.href='${pageContext.request.contextPath}'" class="btn btn-home">Página Inicial</button>
+            <button onclick="window.location.href='${pageContext.request.contextPath}'" class="btn btn-home">Página
+                Inicial
+            </button>
         </div>
     </div>
 </div>

@@ -1,3 +1,8 @@
+/*
+  RESET CSS E CONFIGURAÇÕES INICIAIS
+  Remove margens e paddings padrão, aplica box-sizing border-box
+  Define fonte padrão para toda a aplicação
+*/
 * {
     margin: 0;
     padding: 0;
@@ -5,6 +10,11 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/*
+  CONFIGURAÇÃO DO LAYOUT DA PÁGINA
+  Fundo cinza claro e centralização do conteúdo
+  Layout flex para centralização vertical e horizontal
+*/
 body {
     background-color: #f5f5f5;
     color: #333;
@@ -17,7 +27,11 @@ body {
     justify-content: center;
 }
 
-
+/*
+  CARTÃO PRINCIPAL DE ERRO
+  Container branco com sombra e bordas arredondadas
+  Largura máxima para melhor legibilidade em telas grandes
+*/
 .error-container {
     max-width: 800px;
     width: 100%;
@@ -27,7 +41,11 @@ body {
     overflow: hidden;
 }
 
-
+/*
+  CABEÇALHO VISUAL DO ERRO
+  Fundo azul da marca com ícone e título
+  Layout flex para alinhamento central dos elementos
+*/
 .error-header {
     background: #3A47FF;
     color: white;
@@ -50,7 +68,10 @@ body {
     font-weight: 600;
 }
 
-
+/*
+  SEÇÕES DE INFORMAÇÃO DO ERRO
+  Espaçamento interno consistente e margens entre seções
+*/
 .error-content {
     padding: 30px;
 }
@@ -67,6 +88,11 @@ body {
     padding-bottom: 8px;
 }
 
+/*
+  CAIXA DE DETALHES DO ERRO
+  Fundo cinza muito claro com borda lateral colorida
+  Destaque visual para informações técnicas importantes
+*/
 .error-details {
     background: #f9f9f9;
     border-left: 4px solid #3A47FF;
@@ -86,7 +112,10 @@ body {
     color: #555;
 }
 
-
+/*
+  CONTAINER DA EXCEÇÃO
+  Scroll horizontal para stack traces longos
+*/
 .exception-section {
     margin-bottom: 25px;
 }
@@ -131,7 +160,11 @@ body {
     color: #6773ff;
 }
 
-
+/*
+  CONTAINER DE BOTÕES
+  Layout flex com espaçamento e quebra de linha
+  Centralização dos botões de ação
+*/
 .action-buttons {
     display: flex;
     gap: 12px;
