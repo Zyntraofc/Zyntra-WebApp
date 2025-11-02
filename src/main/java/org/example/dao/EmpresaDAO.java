@@ -13,6 +13,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ArrayList;
+import org.example.utils.regex.ValidacaoCnpj;
+import org.example.utils.regex.ValidacaoTelefone;
 
 //Abertura da classe
 public class EmpresaDAO {
@@ -32,14 +34,19 @@ public class EmpresaDAO {
         //Iniciando executor que: adicionará valores no comando SQL, executará o comando e retornará chaves geradas pelo banco de dados
         try (PreparedStatement pstmt = conn.prepareStatement(comandoInserir, Statement.RETURN_GENERATED_KEYS)) {
 
+            //Formata valores com várias entradas
+            String cnpj = ValidacaoCnpj.formatarCnpj(empresa.getCnpj());
+            String telefone = ValidacaoTelefone.formatarTelefone(empresa.getTelefone());
+
+
             //Setando valores nos '?' do comando
             pstmt.setInt(1, empresa.getIdTipoEmpresa());
             pstmt.setInt(2, empresa.getIdIndiceClassificacao());
             pstmt.setInt(3, empresa.getIdStatusAprovacao());
             pstmt.setString(4, empresa.getNome());
-            pstmt.setString(5, empresa.getCnpj());
+            pstmt.setString(5, cnpj);
             pstmt.setString(6, empresa.getEmail());
-            pstmt.setString(7, empresa.getTelefone());
+            pstmt.setString(7, telefone);
 
             //Executa o comando e armazena o total de linhas afetadas
             linhasAfetadas = pstmt.executeUpdate();

@@ -314,7 +314,7 @@
         <input type="text" id="cnpj" name="cnpj" value="${empresa.getCnpj()}" readonly>
 
         <label for="email">E-mail</label>
-        <input class="validar-input" required type="email" id="email" name="email" value="${empresa.getEmail()}"  placeholder="exemplo@empresa.com">
+        <input class="validar-input" required type="email" id="email" name="email" value="${empresa.getEmail()}" required pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$" placeholder="exemplo@empresa.com">
 
         <label for="telefone-mask">Telefone</label>
         <input type="text" id="telefone-mask" class="validar-input" required pattern="^([^,]{15})$" value="${empresa.getTelefone()}" placeholder="(11) 99999-9999">
@@ -356,14 +356,14 @@
         <input type="text" id="Novonome" name="nome" placeholder="Ex: Empresa ABC Ltda">
 
         <label for="Novocnpj-mask">CNPJ</label>
-        <input type="text" id="Novocnpj-mask" placeholder="00.000.000/0000-00" class="validar-input" required pattern="^([^ ]{18})$">
+        <input type="text" id="Novocnpj-mask" placeholder="00.000.000/0000-00" class="validar-input" required pattern="^^\d{2}\.?\d{3}\.?\d{3}\/?\d{4}-?\d{2}$">
         <input type="hidden" id="Novocnpj" name="cnpj">
 
         <label for="Novoemail">E-mail</label>
         <input type="email" id="Novoemail" name="email" required class="validar-input" placeholder="exemplo@empresa.com">
 
         <label for="Novotelefone-mask">Telefone</label>
-        <input type="text" id="Novotelefone-mask" class="validar-input" pattern="^([^,]{15})$" required placeholder="(11) 99999-9999">
+        <input type="text" id="Novotelefone-mask" class="validar-input" pattern="^(\\(?\\d{2}\\)?\\s?)?(\\d{4,5})[-\\s]?\\d{4}$" required placeholder="(11) 99999-9999">
         <input type="hidden" id="Novotelefone" name="telefone">
 
         <div class="botoes">
