@@ -1312,6 +1312,11 @@ footer a:hover{
     border-radius: 10px;
     box-shadow: 0 0 8px 1px rgba(255, 255, 255, 0.4);
 }
+#crud-link:hover{
+    padding: 0px;
+    border-radius: 0px;
+    box-shadow: none;
+}
 
 footer .brand-container div {
     background-image: url(../assets/logos/logo-roxo.png);
