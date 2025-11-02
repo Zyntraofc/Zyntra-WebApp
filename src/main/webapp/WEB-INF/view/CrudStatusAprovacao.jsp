@@ -280,7 +280,7 @@
         </select>
 
         <label for="Novonome">Nome</label>
-        <input type="text" id="Novonome" name="nome" placeholder="Ex: Empresa ABC Ltda">
+        <input type="text" id="Novonome" name="nome" required  placeholder="Ex: Empresa ABC Ltda">
 
         <label for="Novocnpj-mask">CNPJ</label>
         <input type="text" id="Novocnpj-mask" class="validar-input" required pattern="^([^ ]{18})$" placeholder="00.000.000/0000-00">

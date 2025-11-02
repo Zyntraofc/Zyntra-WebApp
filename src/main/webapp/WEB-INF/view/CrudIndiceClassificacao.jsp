@@ -185,9 +185,9 @@
                value="${indiceClassificacao.getPorcentagemMaxima()}" max="100" required class="validar-input" placeholder="Ex: 25.0" step="0.1">
 
         <label for="preocupacao">Preocupação</label>
-        <input type="text" name="preocupacao" id="preocupacao" value="${indiceClassificacao.getPreocupacao()}" placeholder="Ex: Baixa">
+        <input type="text" name="preocupacao" required id="preocupacao" value="${indiceClassificacao.getPreocupacao()}" placeholder="Ex: Baixa">
         <label for="recomendacao">Recomendação</label>
-        <textarea rows="4" name="recomendacao" id="recomendacao" placeholder="Digite as recomendações para esta faixa de classificação...">${indiceClassificacao.getRecomendacao()}</textarea>
+        <textarea rows="4" name="recomendacao" id="recomendacao" required placeholder="Digite as recomendações para esta faixa de classificação...">${indiceClassificacao.getRecomendacao()}</textarea>
 
         <div class="botoes">
             <div class="cancelar"><a href="${pageContext.request.contextPath}/private/ListarIndiceClassificacao">✖
@@ -211,9 +211,9 @@
         <input type="number" name="porcentagemMaxima" id="Novamaxima" placeholder="Digite a porcentagem máxima (%)"
                max="100" required class="validar-input" placeholder="Ex: 25.0" step="0.1">
         <label for="Novapreocupacao">Preocupação</label>
-        <input type="text" name="preocupacao" id="Novapreocupacao" placeholder="Digite o o nível de preocupação" placeholder="Ex: Baixa">
+        <input type="text" name="preocupacao" id="Novapreocupacao" required placeholder="Digite o o nível de preocupação" placeholder="Ex: Baixa">
         <label for="Novarecomendacao">Recomendação</label>
-        <textarea rows="4" name="recomendacao" id="Novarecomendacao"
+        <textarea rows="4" name="recomendacao" id="Novarecomendacao" required
                   placeholder="Digite as recomendações para esta faixa de classificação..."></textarea>
 
         <div class="botoes">
