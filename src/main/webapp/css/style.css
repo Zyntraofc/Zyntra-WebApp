@@ -47,7 +47,7 @@ html {
  * Configurações gerais da página
  */
 body {
-    background-color: white;
+    background-color: #f7f8ff;
     margin: auto;
     width: 100%;
     overflow-x: hidden;
@@ -93,7 +93,7 @@ button,
  */
 header {
     padding-left: 0.4vw;
-    padding-right: 0.4vw;
+    padding-right: 1vw;
     width: 100%;
     top: 0;
     z-index: 3;
@@ -251,7 +251,7 @@ a {
     gap: 7%;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
-    justify-content: center;
+    justify-content: end;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
@@ -734,7 +734,7 @@ main {
 }
 
 .info .vantagens {
-    background-color: white;
+    background-color: #f7f8ff;
 }
 
 #principles .info .vantagens {
@@ -804,6 +804,9 @@ main {
     -o-transition: color 0.7s ease;
     transition: color 0.7s ease;
 }
+.first{
+    transition: all 0.7s !important;
+}
 
 .benefit-card p {
     margin-top: 12px;
@@ -824,9 +827,6 @@ main {
 
 .first:hover {
     background-color: #6E77FF !important;
-    -webkit-transition: background-color 0.7s ease !important;
-    -o-transition: background-color 0.7s ease !important;
-    transition: background-color 0.7s ease !important;
 }
 
 .first:hover p,
@@ -1307,6 +1307,11 @@ footer a {
     font-weight: 400;
     text-decoration: underline;
 }
+footer a:hover{
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px 1px rgba(255, 255, 255, 0.4);
+}
 
 footer .brand-container div {
     background-image: url(../assets/logos/logo-roxo.png);
@@ -1355,6 +1360,11 @@ footer .brand-container div {
 
 .footer-title {
     font-weight: 500;
+}
+
+.footer-title:empty::after {
+    content: "";
+    display: inline-block;
 }
 
 footer ul {

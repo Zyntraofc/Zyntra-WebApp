@@ -1,47 +1,45 @@
-///Esse JavaScript foi criado para realizar uma animação sincronizada nos tópicos da página, do header conforme o usuário se mover pela página
- 
-//Adiciona função na página de CRUD e espera o DOM carregar antes de executar
-document.addEventListener("DOMContentLoaded", () => {
+// Esse JavaScript realiza uma animação sincronizada nos tópicos da página,
+// destacando o item de navegação conforme o usuário se move pela página.
 
-    //Seleciona o elemento do intem de navegação (tópico de localização da página)
+document.addEventListener("DOMContentLoaded", () => {
+    // Seleciona todos os itens de navegação
     const navLinks = document.querySelectorAll(".nav-item");
 
-    // Pega as seções necessárias da página para localizar depois
+    // Define as seções da página
     const sections = {
         main: document.querySelector("#main"),
         plataform: document.querySelector("#plataform"),
-        vantagens: document.querySelector(".vantagens"),
-        celulares: document.querySelector("#celulares"),
+        celulares: document.querySelector("#app-options"),
         aboutWrapper: document.querySelector("#about-wrapper"),
+        footer: document.querySelector("#principles"),
     };
 
-    //Função que mudará o estado conforme o scrow
+    // Função que atualiza o item ativo conforme o scroll
     function onScroll() {
-        //Recebe o scroll e margem de ativação
-        const scrollY = window.scrollY + 200; 
-
-        //Armazena seção atual
+        const scrollY = window.scrollY + 200; // margem para ativação
         let current = "";
 
-        //Localiza cada setTop
+        // Pega as posições das seções
         const topMain = sections.main.offsetTop;
         const topPlataform = sections.plataform.offsetTop;
-        const topVantagens = sections.vantagens.offsetTop;
         const topCelulares = sections.celulares.offsetTop;
         const topAbout = sections.aboutWrapper.offsetTop;
+        const topFooter = sections.footer.offsetTop+300;
 
-        //Ativa as animações dependendo de onde o usuário está
+        // Define qual seção está ativa
         if (scrollY >= topMain && scrollY < topPlataform) {
             current = "main";
-        } else if (scrollY >= topPlataform && scrollY < topVantagens) {
+        } else if (scrollY >= topPlataform && scrollY < topCelulares) {
             current = "plataform";
-        } else if (scrollY >= topVantagens && scrollY < topAbout) {
-            current = "celulares"; 
-        } else if (scrollY >= topAbout) {
+        }  else if (scrollY >= topCelulares && scrollY < topAbout) {
+            current = "celulares";
+        } else if (scrollY >= topAbout && scrollY < topFooter) {
             current = "final";
+        } else if (scrollY >= topFooter) {
+            current = "footer"; //
         }
 
-        //Ativa os links dos tópicos
+        // Atualiza o estilo ativo nos tópicos
         navLinks.forEach(link => {
             const href = link.getAttribute("href").substring(1);
             if (href === current) {
@@ -52,9 +50,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    //Adiciona função na página
+    // Escuta o scroll
     window.addEventListener("scroll", onScroll);
 
-    //Utiliza a função
+    // Executa uma vez ao carregar
     onScroll();
 });
