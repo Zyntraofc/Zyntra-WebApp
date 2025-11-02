@@ -11,8 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="decc699d-6ffe-4dc6-b655-05fda1145ad2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/fundo-azul.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +194,7 @@
       <workItem from="1761756026641" duration="526000" />
       <workItem from="1761857783875" duration="7709000" />
       <workItem from="1761906534227" duration="9823000" />
-      <workItem from="1762091432986" duration="3036000" />
+      <workItem from="1762091432986" duration="4238000" />
     </task>
     <task id="LOCAL-00001" summary="Alterando responsividade">
       <created>1761574097340</created>
