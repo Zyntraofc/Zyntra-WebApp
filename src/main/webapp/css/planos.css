@@ -1,0 +1,715 @@
+body {
+    width: 100vw !important;
+    height: 100vh !important;
+    overflow-y: hidden !important;
+}
+
+main {
+    margin-top: 100px !important;
+    align-items: center !important;
+    flex-direction: column !important;
+    background-image: none !important;
+}
+
+#cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#cta h1 {
+    font-size: 40px !important;
+    width: 446px !important;
+    text-align: center;
+    color: #9299FF;
+    line-height: 40px;
+}
+
+#cta p {
+    margin-top: 15px;
+    width: 750px;
+    text-align: center;
+}
+
+#planos-container {
+    margin-top: 30px;
+    width: 60%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 7%;
+    height: 300px;
+}
+
+.plano {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0 7px 10px 0 rgba(58, 71, 255, 0.15);
+    border-radius: 40px;
+    height: 100%;
+    width: 100%;
+    transition: all 0.15s ease;
+}
+
+.plano li {
+    width: 215px;
+    margin-left: 13px;
+    font-size: 10px;
+    font-weight: 400;
+    color: #666666;
+}
+
+.aviso {
+    font-size: 10px;
+    font-weight: 400;
+    color: #666666;
+}
+
+.plano-content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 170px;
+}
+
+.plano h1 {
+    margin-top: 20px;
+    background: linear-gradient(90deg, #3A47FF 0%, #9299FF 100%);
+    font-size: 20px;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.plano h5 {
+    margin-top: 20px;
+    font-size: 11px;
+}
+
+.cta-button {
+    margin-top: 40px !important;
+}
+
+.plano-button {
+    width: 150px;
+    height: 33px;
+    margin-bottom: 20px;
+    margin-top: 25px;
+    border-radius: 25px;
+    border: 0.2vh solid #3A47FF;
+    -webkit-transition: all 0.15s ease;
+    -o-transition: all 0.15s ease;
+    transition: all 0.15s ease;
+}
+
+.plano-button:hover,
+.plano:hover, .plano-button:active, .plano:active {
+    -webkit-box-shadow: 0 0 0.5vw rgba(79, 89, 231, 0.15);
+    box-shadow: 0 0 0.5vw rgba(79, 89, 231, 0.15);
+    -webkit-transform: translateY(-5%);
+    -ms-transform: translateY(-5%);
+    transform: translateY(-5%);
+    -webkit-box-shadow: 0 0.1vh 2.5vh rgba(79, 89, 231, 0.35);
+    box-shadow: 0 0.1vh 2.5vh rgba(79, 89, 231, 0.35);
+}
+
+.plano:hover, .plano:active {
+    -webkit-transform: translateY(-1%);
+    -ms-transform: translateY(-1%);
+    transform: translateY(-1%);
+}
+
+.plano-button p {
+    text-align: center;
+    font-weight: 600;
+    line-height: 31.5px;
+    font-size: 14px;
+    background: -o-linear-gradient(2deg, #9299FF -0.39%, #3A47FF 81.15%);
+    background: linear-gradient(88deg, #9299FF -0.39%, #3A47FF 81.15%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@media screen and (min-width: 1900px) {
+    header {
+        -webkit-backdrop-filter: blur(0.5vw) !important;
+        backdrop-filter: blur(0.5vw) !important;
+        height: 3.6vw !important;
+    }
+
+    .brand-logo {
+        width: 1.56vw !important;
+    }
+
+    .active-indicator {
+        height: 0.24vw !important;
+        border-radius: 1.28vw !important;
+        right: 0.02vw !important;
+        top: 0.4vw !important;
+    }
+
+    .nav-link {
+        line-height: clamp(16px, 1.2vw, 24px) !important;
+    }
+}
+
+@media (max-width: 1200px) and (min-width: 1025px) {
+    #planos-container {
+        width: 80% !important;
+        gap: 5%;
+    }
+}
+
+/* Tablets (768px - 1024px) */
+@media (max-width: 1024px) {
+    .nav-link {
+        font-size: 16px !important;
+    }
+    #planos-container {
+        width: 85% !important;
+        gap: 4%;
+    }
+
+    .plano li {
+        width: 180px;
+        font-size: 9px;
+    }
+
+    #cta h1 {
+        font-size: 32px !important;
+        width: 380px !important;
+    }
+
+    #cta p {
+        width: 600px;
+    }
+
+    .plano-button p {
+        font-size: 13px;
+    }
+
+    .cta-button p{
+        font-size:16px !important;
+    }
+}
+
+/* Tablets Pequenos (600px - 768px) */
+@media (max-width: 768px) {
+    .brand-name {
+        font-size: 150% !important;
+    }
+    .nav-link {
+        font-size: 10px !important;
+    }
+    .auth-buttons{
+        display: none;
+    }
+    header{
+        height: 60px !important;
+        gap: 2px;
+        padding: 0px !important;
+        flex-direction: column;
+    }
+    #navigation-menu{
+        gap: 10px;
+    }
+    main {
+        margin-top: 80px !important;
+        gap: 30px;
+        min-height: calc(100vh - 80px) !important;
+    }
+
+    #planos-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        gap: 20px;
+        height: auto;
+        margin-bottom: 50px;
+        max-height: 850px;
+    }
+
+    .plano {
+        height: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    #cta h1 {
+        font-size: 28px !important;
+        width: 320px !important;
+        line-height: 32px;
+    }
+
+    #cta p {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: -40px;
+    }
+
+    .plano-content {
+        height: 160px;
+    }
+
+    .plano-button p {
+        font-size: 12px;
+        line-height: 29px;
+    }
+    .cta-button {
+        padding: 12px 24px;
+        font-size: 16px !important;
+        transition: all 0.3s ease;
+    }
+
+    .cta-button p {
+        margin: 0 !important;
+        color: white !important;
+        font-size: 16px !important;
+        background: none !important;
+        -webkit-text-fill-color: white !important;
+        -webkit-background-clip: initial !important;
+        background-clip: initial !important;
+    }
+
+    .cta-icon {
+        width: 20px;
+        height: 20px;
+        filter: brightness(0) invert(1);
+    }
+
+    .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(58, 71, 255, 0.3);
+    }
+}
+
+/* Celulares (480px - 600px) */
+@media (max-width: 600px) {
+    body {
+        overflow-y: auto !important;
+    }
+
+    main {
+        margin-top: 60px !important;
+        padding: 0 15px;
+    }
+
+    #cta h1 {
+        font-size: 24px !important;
+        width: 280px !important;
+        line-height: 28px;
+    }
+
+    #cta p {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .plano {
+        height: 260px;
+        border-radius: 30px;
+    }
+
+    .plano h1 {
+        font-size: 18px !important;
+        margin-top: 15px;
+    }
+
+    .plano li {
+        width: 160px;
+        font-size: 8px;
+    }
+
+    .aviso {
+        font-size: 8px;
+    }
+
+    .plano-button {
+        width: 130px;
+        height: 30px;
+    }
+
+    .plano-button p {
+        line-height: 28px;
+        font-size: 11px;
+    }
+}
+
+/* Celulares Pequenos (até 480px) */
+@media (max-width: 480px) {
+    #planos-container {
+        width: 95% !important;
+        gap: 15px;
+    }
+
+    .plano {
+        height: 250px;
+        border-radius: 25px;
+    }
+
+    #cta h1 {
+        font-size: 22px !important;
+        width: 250px !important;
+    }
+
+    #cta p {
+        font-size: 13px;
+    }
+
+    .plano-content {
+        height: 150px;
+    }
+
+    .plano h5 {
+        font-size: 10px;
+        margin-top: 15px;
+    }
+
+    .plano-button {
+        width: 120px;
+        height: 28px;
+        margin-top: 20px;
+    }
+
+    .plano-button p {
+        line-height: 26px;
+        font-size: 10px;
+    }
+
+    .cta-button {
+        margin-top: 30px !important;
+    }
+}
+
+/* Ajustes para telas muito altas */
+@media (max-width: 1025px) {
+    body{
+        overflow-y: auto !important;
+    }
+}
+
+@media (min-height: 900px) and (min-width: 768px) {
+    #planos-container {
+        height: 350px;
+    }
+
+    .plano {
+        height: 320px;
+    }
+
+    .plano-content {
+        height: 200px;
+    }
+}
+
+/* Ajustes para orientação landscape em celulares */
+@media (max-height: 500px) and (orientation: landscape) {
+    body {
+        overflow-y: auto !important;
+    }
+
+    main {
+        margin-top: 80px !important;
+    }
+
+    #planos-container {
+        grid-template-columns: repeat(3, 1fr);
+        height: 200px;
+        gap: 3%;
+    }
+
+    .plano {
+        height: 180px;
+    }
+
+    .plano-content {
+        height: 110px;
+    }
+
+    .plano-button p {
+        font-size: 10px;
+        line-height: 25px;
+    }
+}
+
+@media (max-width: 1400px) and (min-width: 1025px) {
+    #planos-container {
+        width: 75% !important;
+        gap: 6%;
+    }
+}
+/* ===== TELAS MUITO GRANDES (Acima de 1920px) ===== */
+@media (min-width: 1921px) {
+    body {
+        font-size: 1.1vw !important;
+    }
+
+    main {
+        margin-top: 6vw !important;
+    }
+
+    #cta h1 {
+        font-size: 2.5vw !important;
+        width: 28vw !important;
+        line-height: 2.8vw;
+    }
+
+    #cta p {
+        width: 45vw;
+        font-size: 1.1vw;
+        margin-top: 1vw;
+    }
+
+    #planos-container {
+        width: 70% !important;
+        height: 22vw;
+        margin-top: 2vw;
+        gap: 5%;
+    }
+
+    .plano {
+        border-radius: 2.5vw;
+        padding: 0.5vw;
+    }
+    .plano h1 {
+        font-size: 1.4vw !important;
+        margin-top: 1.5vw;
+    }
+
+    .plano h5 {
+        font-size: 0.8vw;
+        margin-top: 1.5vw;
+    }
+
+    .plano li {
+        width: 14vw;
+        font-size: 0.7vw;
+        margin-left: 0.8vw;
+    }
+
+    .aviso {
+        font-size: 0.7vw;
+    }
+
+    .plano-content {
+        height: 12vw;
+    }
+
+    .plano-button {
+        width: 10vw;
+        height: 2.2vw;
+        margin-bottom: 1.5vw;
+        margin-top: 1.8vw;
+        border-radius: 1.8vw;
+        border-width: 0.15vw;
+    }
+
+    .plano-button p {
+        font-size: 0.9vw;
+        line-height: 2.1vw;
+    }
+
+    .cta-button {
+        margin-top: 3vw !important;
+        padding: 0.8vw 2vw;
+        border-radius: 2vw;
+        font-size: 1.1vw !important;
+    }
+
+    .cta-button p {
+        font-size: 1.1vw !important;
+    }
+
+    .cta-icon {
+        width: 1.3vw;
+        height: 1.3vw;
+    }
+}
+@media (min-width: 2501px) {
+    body {
+        font-size: 1vw !important;
+    }
+
+    #cta h1 {
+        font-size: 2.2vw !important;
+        line-height: 2.4vw;
+    }
+
+    #cta p {
+        font-size: 1vw;
+    }
+
+    .plano h1 {
+        font-size: 1.2vw !important;
+    }
+
+    .plano-button p {
+        font-size: 0.8vw;
+    }
+
+    .cta-button {
+        font-size: 1vw !important;
+    }
+
+    .cta-button p {
+        font-size: 1vw !important;
+    }
+}
+@media (min-width: 3001px) {
+    #planos-container {
+        width: 60% !important;
+        max-width: 120rem;
+    }
+
+    .plano li {
+        font-size: 0.6vw;
+    }
+
+    .plano-button p {
+        font-size: 0.7vw;
+    }
+}
+@media (min-height: 1200px) and (min-width: 1921px) {
+    #planos-container {
+        height: 25vw;
+    }
+
+    .plano-content {
+        height: 14vw;
+    }
+
+    .plano {
+        border-radius: 3vw;
+    }
+}
+@media (min-width: 1921px) {
+    #cta h1 {
+        max-width: 800px;
+    }
+
+    #cta p {
+        max-width: 1200px;
+    }
+}@media (min-width: 1921px) {
+    body {
+        font-size: 1.1vw !important;
+    }
+
+    main {
+        margin-top: 6vw !important;
+        display: flex !important;
+        align-items: center !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        width: 100% !important;
+    }
+
+    #cta {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100% !important;
+    }
+
+    #cta h1 {
+        font-size: 2.5vw !important;
+        width: 28vw !important;
+        line-height: 2.8vw;
+        max-width: 800px;
+    }
+
+    #cta p {
+        width: 45vw;
+        font-size: 1.1vw;
+        margin-top: 1vw;
+        max-width: 1200px;
+    }
+
+    #planos-container {
+        width: 70% !important;
+        height: 22vw;
+        margin-top: 2vw;
+        gap: 5%;
+        display: grid !important;
+        grid-template-columns: 1fr 1fr 1fr !important;
+        align-items: center !important;
+        justify-items: center !important;
+        justify-content: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .plano {
+        border-radius: 2.5vw;
+        padding: 0.5vw;
+        height: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+    }
+
+    .plano h1 {
+        font-size: 1.4vw !important;
+        margin-top: 1.5vw;
+    }
+
+    .plano h5 {
+        font-size: 0.8vw;
+        margin-top: 1.5vw;
+    }
+
+    .plano li {
+        width: 14vw;
+        font-size: 0.7vw;
+        margin-left: 0.8vw;
+    }
+
+    .aviso {
+        font-size: 0.7vw;
+    }
+
+    .plano-content {
+        height: 12vw;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+    }
+
+    .plano-button {
+        width: 10vw;
+        height: 2.2vw;
+        margin-bottom: 1.5vw;
+        margin-top: 1.8vw;
+        border-radius: 1.8vw;
+        border-width: 0.15vw;
+    }
+
+    .plano-button p {
+        font-size: 0.9vw;
+        line-height: 2.1vw;
+    }
+
+    .cta-button {
+        width: 16vw !important;
+        margin-top: 1vw !important;
+        padding: 0.8vw 2vw;
+        border-radius: 2vw;
+        font-size: 1.1vw !important;
+    }
+
+    .cta-button p {
+        font-size: 1.1vw !important;
+    }
+
+    .cta-icon {
+        height: auto !important;
+    }
+    body{
+        overflow-y: auto !important;
+    }
+}
